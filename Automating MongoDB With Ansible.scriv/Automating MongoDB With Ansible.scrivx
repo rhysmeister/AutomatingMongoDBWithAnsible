@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<ScrivenerProject Identifier="D3E786DF-1AC5-45F4-BA09-6C5655FEC9CB" Version="2.0" Creator="SCRMAC-3.1.2-10882" Device="Rhyss-MacBook-Pro" Author="Rhys Campbell" Modified="2019-08-03 16:45:47 +0200" ModID="3D9D336E-8990-4312-9D9F-42B917F7DE43">
+<ScrivenerProject Identifier="D3E786DF-1AC5-45F4-BA09-6C5655FEC9CB" Version="2.0" Creator="SCRMAC-3.1.2-10882" Device="Rhyss-MacBook-Pro" Author="Rhys Campbell" Modified="2019-08-03 16:57:46 +0200" ModID="28F675EE-E913-4E87-987C-4C6B1BEFC6C5">
     <Binder>
         <BinderItem UUID="9FFBA333-8432-41C1-91F5-1302DFE283CA" Type="Text" Created="2019-08-03 16:18:29 +0200" Modified="2019-08-03 16:18:29 +0200">
             <Title>Non-Fiction Format for LaTeX</Title>
@@ -22,6 +22,24 @@
                 </OutlinerExpandedState>
             </CorkboardAndOutliner>
             <Children>
+                <BinderItem UUID="52180C53-0C4F-4614-BB90-0E27DEB6EA9F" Type="Folder" Created="2019-08-03 16:57:17 +0200" Modified="2019-08-03 16:57:21 +0200">
+                    <Title>Foreword</Title>
+                    <MetaData>
+                        <IncludeInCompile>Yes</IncludeInCompile>
+                    </MetaData>
+                    <TextSettings>
+                        <TextSelection>0,0</TextSelection>
+                    </TextSettings>
+                </BinderItem>
+                <BinderItem UUID="5B8CD485-4DE7-4A25-A659-2361370DCFE9" Type="Folder" Created="2019-08-03 16:57:32 +0200" Modified="2019-08-03 16:57:36 +0200">
+                    <Title>Preface</Title>
+                    <MetaData>
+                        <IncludeInCompile>Yes</IncludeInCompile>
+                    </MetaData>
+                    <TextSettings>
+                        <TextSelection>0,0</TextSelection>
+                    </TextSettings>
+                </BinderItem>
                 <BinderItem UUID="6C3BDCCC-F6C3-4AF9-B7CD-475616712EAE" Type="Folder" Created="2019-08-03 16:18:29 +0200" Modified="2019-08-03 16:18:45 +0200">
                     <Title>Chapter 1 - Introduction</Title>
                     <MetaData>
@@ -607,7 +625,7 @@
     <ProjectTargets Notify="No">
         <DraftTarget Type="Words" CountIncludedOnly="Yes" CurrentCompileGroupOnly="Yes" Deadline="2011-04-12 14:24:39 +0200" IgnoreDeadline="Yes">0</DraftTarget>
         <SessionTarget Type="Words" CountDraftOnly="Yes" AllowNegatives="No" ResetType="Time" ResetTime="00:00" DeterminedFromDeadline="No" WritingDays="" CanWriteOnDeadlineDate="No">0</SessionTarget>
-        <PreviousSession Words="0" Characters="0" Date="2019-08-03 16:18:28 +0200"/>
+        <PreviousSession Words="0" Characters="0" Date="2019-08-03 16:55:03 +0200"/>
     </ProjectTargets>
     <RecentWritingHistory Date="2019-08-03 16:18:29 +0200">
         <DraftWordCount>0</DraftWordCount>
