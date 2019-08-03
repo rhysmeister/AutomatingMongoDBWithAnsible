@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<ScrivenerProject Identifier="D3E786DF-1AC5-45F4-BA09-6C5655FEC9CB" Version="2.0" Creator="SCRMAC-3.1.2-10882" Device="Rhyss-MacBook-Pro" Author="Rhys Campbell" Modified="2019-08-03 16:57:46 +0200" ModID="28F675EE-E913-4E87-987C-4C6B1BEFC6C5">
+<ScrivenerProject Identifier="D3E786DF-1AC5-45F4-BA09-6C5655FEC9CB" Version="2.0" Creator="SCRMAC-3.1.2-10882" Device="Rhyss-MacBook-Pro" Author="Rhys Campbell" Modified="2019-08-03 18:37:56 +0200" ModID="A89ADF19-5A9F-4ECD-ACBE-3F7736495EA9">
     <Binder>
         <BinderItem UUID="9FFBA333-8432-41C1-91F5-1302DFE283CA" Type="Text" Created="2019-08-03 16:18:29 +0200" Modified="2019-08-03 16:18:29 +0200">
             <Title>Non-Fiction Format for LaTeX</Title>
@@ -14,7 +14,7 @@
         <BinderItem UUID="7A583553-3A84-40D6-B9B9-0430B8CD3E39" Type="DraftFolder" Created="2019-08-03 16:18:29 +0200" Modified="2019-08-03 16:18:29 +0200">
             <Title>Draft</Title>
             <CorkboardAndOutliner>
-                <SelectedSubdocumentUUIDs></SelectedSubdocumentUUIDs>
+                <SelectedSubdocumentUUIDs>5B8CD485-4DE7-4A25-A659-2361370DCFE9</SelectedSubdocumentUUIDs>
                 <OutlinerExpandedState>
                     <ItemID>1114FD12-E46B-4C2E-BB5F-177EFC827EB6</ItemID>
                     <ItemID>A8956FA7-6C37-4DE2-B2B7-08F7248C1E94</ItemID>
@@ -106,8 +106,8 @@
                                 <TextSelection>0,0</TextSelection>
                             </TextSettings>
                         </BinderItem>
-                        <BinderItem UUID="CE01D5B0-27A6-4A06-B59A-7CA741A5F508" Type="Text" Created="2019-08-03 16:33:22 +0200" Modified="2019-08-03 16:33:26 +0200">
-                            <Title>mongodb_lookup</Title>
+                        <BinderItem UUID="CE01D5B0-27A6-4A06-B59A-7CA741A5F508" Type="Text" Created="2019-08-03 16:33:22 +0200" Modified="2019-08-03 18:37:38 +0200">
+                            <Title>mongodb lookup</Title>
                             <MetaData>
                                 <IncludeInCompile>Yes</IncludeInCompile>
                             </MetaData>
@@ -126,8 +126,8 @@
                         <TextSelection>0,0</TextSelection>
                     </TextSettings>
                     <Children>
-                        <BinderItem UUID="AB758A1B-31E9-48D3-BA8D-3FE1A4191723" Type="Text" Created="2019-08-03 16:19:21 +0200" Modified="2019-08-03 16:34:35 +0200">
-                            <Title>Installing MongoDB from An Archive</Title>
+                        <BinderItem UUID="AB758A1B-31E9-48D3-BA8D-3FE1A4191723" Type="Text" Created="2019-08-03 16:19:21 +0200" Modified="2019-08-03 18:37:53 +0200">
+                            <Title>Installing MongoDB from an Archive</Title>
                             <MetaData>
                                 <IncludeInCompile>Yes</IncludeInCompile>
                             </MetaData>
