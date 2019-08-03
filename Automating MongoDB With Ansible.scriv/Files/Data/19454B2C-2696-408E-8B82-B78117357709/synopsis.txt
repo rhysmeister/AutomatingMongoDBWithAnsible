@@ -1,0 +1,1 @@
+Enable "Include in Compile" for this item if you intend to compile with inline annotations or inspector comments. This will add nice looking margin comments, highlighted text and a wider margin area for notes.

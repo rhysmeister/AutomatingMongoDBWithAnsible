@@ -1,0 +1,1 @@
+Enable "Include in Compile" for this item to include an index. You will also want to enable and customise the Index section in the Back Matter folder.

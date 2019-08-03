@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Comments>
+    <Comment ID="B9C46422-DAAC-444D-9AEF-B59E379A86E3" Color="0.999133 0.954802 0.756378"><![CDATA[{\rtf1\ansi\ansicpg1252\cocoartf1671
+{\fonttbl\f0\fswiss\fcharset0 Optima-Regular;}
+{\colortbl;\red255\green255\blue255;}
+{\*\expandedcolortbl;;}
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf0 Given a quirk in how styles work with the text engine, you will need to select the image to see the "Figure" style, rather than merely placing the cursor to the left or right of it.}]]></Comment>
+</Comments>

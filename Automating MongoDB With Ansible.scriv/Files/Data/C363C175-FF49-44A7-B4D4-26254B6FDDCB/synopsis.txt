@@ -1,0 +1,1 @@
+Enable “Include in Compile” for this item to place a bibliography in your back matter. You will also want to customise the bibliography style and provide the name of your .bib file (which will need to be maintained separately). 

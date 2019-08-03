@@ -1,0 +1,1 @@
+To enable this section, click the “Include in Compile” icon in the lower right corner of the editor footer bar. You will also want to enable the Indexing Packages module in the Front Matter folder.

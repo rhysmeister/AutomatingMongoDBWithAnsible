@@ -1,0 +1,1 @@
+Enable "Include in Compile" for this item if you require a bibliography in your document. You will also need to enable the bibliography item in the Back Matter folder.
