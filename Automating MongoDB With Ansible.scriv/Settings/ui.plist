@@ -90,8 +90,8 @@
 	</array>
 	<key>binderSplitFrames</key>
 	<array>
-		<string>{{0, 0}, {383, 754}}</string>
-		<string>{{384, 0}, {1342, 754}}</string>
+		<string>{{0, 0}, {320, 754}}</string>
+		<string>{{321, 0}, {1119, 754}}</string>
 	</array>
 	<key>binderState</key>
 	<array>
@@ -179,16 +179,22 @@
 	<true/>
 	<key>editorSplitFrames</key>
 	<array>
-		<string>{{0, 0}, {711, 333}}</string>
+		<string>{{0, 0}, {855.5, 377}}</string>
 	</array>
 	<key>editorSplitType</key>
 	<integer>0</integer>
+	<key>fullScreenBackgroundFade</key>
+	<real>1</real>
 	<key>fullScreenHorizontalPaperPosition</key>
 	<integer>2</integer>
 	<key>fullScreenInspectorMode</key>
 	<integer>0</integer>
 	<key>fullScreenInspectorVisible</key>
 	<false/>
+	<key>fullScreenPaperHeight</key>
+	<integer>-1</integer>
+	<key>fullScreenPaperWidth</key>
+	<integer>850</integer>
 	<key>fullScreenTextEditorSettings</key>
 	<dict>
 		<key>textScaleFactor</key>
@@ -208,11 +214,10 @@
 	<integer>0</integer>
 	<key>inspectorSplitFrames</key>
 	<array>
-		<string>{{0, 0}, {1078, 754}}</string>
-		<string>{{1079, 0}, {263, 754}}</string>
+		<string>{{0, 0}, {288, 744}}</string>
 	</array>
 	<key>inspectorWidth</key>
-	<real>253.5</real>
+	<real>262.5</real>
 	<key>lastDocumentSplitType</key>
 	<integer>0</integer>
 	<key>mainDocumentEditor.binderDocuments</key>
@@ -275,7 +280,7 @@
 	<key>mainDocumentEditor.rulerIsVisible</key>
 	<false/>
 	<key>mainDocumentEditor.scrollRect</key>
-	<string>{{0, 0}, {606, 294}}</string>
+	<string>{{0, 0}, {620, 698}}</string>
 	<key>mainDocumentEditor.selectedRanges</key>
 	<string>{0, 0}</string>
 	<key>mainDocumentEditor.textEditorState</key>
@@ -286,28 +291,26 @@
 	<key>mainDocumentEditor.textMode</key>
 	<integer>0</integer>
 	<key>mainWindowFrame</key>
-	<string>-24 101 1726 776 0 0 1440 877 </string>
+	<string>0 100 1440 776 0 0 1440 900 </string>
 	<key>projectStatsSheet</key>
 	<dict>
+		<key>countDraftFootnotes</key>
+		<integer>0</integer>
+		<key>currentCompileGroupOnly</key>
+		<integer>0</integer>
 		<key>excludeAnnots</key>
-		<true/>
+		<integer>1</integer>
 		<key>excludeFN</key>
-		<false/>
+		<integer>0</integer>
 		<key>includeSubdocs</key>
-		<false/>
-		<key>limitLinesPerPage</key>
-		<true/>
-		<key>lineCountingFont</key>
-		<data>
-		BAtzdHJlYW10eXBlZIHoA4QBQISEhAZOU0ZvbnQehIQITlNPYmplY3QAhYQB
-		aRiEBVsyNGNdBgAAABAAAAD//kMAbwB1AHIAaQBlAHIAhAFmDIQBYwCYAZgA
-		mACG
-		</data>
-		<key>maxLinesPerPage</key>
-		<integer>50</integer>
+		<integer>0</integer>
 		<key>options</key>
 		<integer>0</integer>
-		<key>wordsPerPaperbackPage</key>
+		<key>paperbackCountUsesChars</key>
+		<integer>0</integer>
+		<key>useFastStats</key>
+		<integer>0</integer>
+		<key>wordsOrCharsPerPaperbackPage</key>
 		<integer>350</integer>
 	</dict>
 	<key>searchResultsTable</key>
@@ -384,7 +387,7 @@
 		<real>84</real>
 	</dict>
 	<key>supportingDocumentEditor.scrollRect</key>
-	<string>{{0, 0}, {620, 698}}</string>
+	<string>{{0, 0}, {620, 321}}</string>
 	<key>supportingDocumentEditor.selectedItemIDs</key>
 	<array/>
 	<key>supportingDocumentEditor.selectedItemUUIDs</key>

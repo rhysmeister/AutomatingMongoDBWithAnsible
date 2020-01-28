@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<ScrivenerProject Identifier="D3E786DF-1AC5-45F4-BA09-6C5655FEC9CB" Version="2.0" Creator="SCRMAC-3.1.2-10882" Device="Rhyss-MacBook-Pro" Author="Rhys Campbell" Modified="2019-08-03 18:37:56 +0200" ModID="A89ADF19-5A9F-4ECD-ACBE-3F7736495EA9">
+<ScrivenerProject Identifier="D3E786DF-1AC5-45F4-BA09-6C5655FEC9CB" Version="2.0" Creator="SCRMAC-3.1.2-10882" Device="Rhyss-MacBook-Pro" Author="Rhys Campbell" Modified="2020-01-28 19:42:27 +0100" ModID="7EE50C12-46FE-470E-BCAE-A754E0A58C86">
     <Binder>
         <BinderItem UUID="9FFBA333-8432-41C1-91F5-1302DFE283CA" Type="Text" Created="2019-08-03 16:18:29 +0200" Modified="2019-08-03 16:18:29 +0200">
             <Title>Non-Fiction Format for LaTeX</Title>
@@ -117,8 +117,51 @@
                         </BinderItem>
                     </Children>
                 </BinderItem>
-                <BinderItem UUID="58D7C2FA-7DB5-403C-9258-63045BF58A15" Type="Folder" Created="2019-08-03 16:18:54 +0200" Modified="2019-08-03 16:25:59 +0200">
-                    <Title>Chapter 3 - Installing MongoDB</Title>
+                <BinderItem UUID="3135E8CA-DC67-4BAF-AE1C-EA84AEAD1AFD" Type="Folder" Created="2020-01-27 16:00:37 +0100" Modified="2020-01-27 16:03:27 +0100">
+                    <Title>Chaper 3 - Environment Setup</Title>
+                    <MetaData>
+                        <IncludeInCompile>Yes</IncludeInCompile>
+                    </MetaData>
+                    <TextSettings>
+                        <TextSelection>0,0</TextSelection>
+                    </TextSettings>
+                    <CorkboardAndOutliner>
+                        <SelectedSubdocumentUUIDs>476FC3AE-78C7-427A-9AE2-CDEE2FA49A3B</SelectedSubdocumentUUIDs>
+                    </CorkboardAndOutliner>
+                    <Children>
+                        <BinderItem UUID="476FC3AE-78C7-427A-9AE2-CDEE2FA49A3B" Type="Text" Created="2020-01-27 16:34:39 +0100" Modified="2020-01-28 19:42:27 +0100">
+                            <Title>Setup on Windows</Title>
+                            <MetaData>
+                                <SectionType>8987254D-87B0-4F78-A870-0AC688289145</SectionType>
+                                <IncludeInCompile>Yes</IncludeInCompile>
+                            </MetaData>
+                            <TextSettings>
+                                <TextSelection>229,0</TextSelection>
+                            </TextSettings>
+                        </BinderItem>
+                        <BinderItem UUID="17AB99FA-E221-495C-AF94-F2BD799A50AB" Type="Text" Created="2020-01-27 16:34:56 +0100" Modified="2020-01-27 22:10:25 +0100">
+                            <Title>Setup on Linux</Title>
+                            <MetaData>
+                                <SectionType>8987254D-87B0-4F78-A870-0AC688289145</SectionType>
+                                <IncludeInCompile>Yes</IncludeInCompile>
+                            </MetaData>
+                            <TextSettings>
+                                <TextSelection>65,0</TextSelection>
+                            </TextSettings>
+                        </BinderItem>
+                        <BinderItem UUID="21C56B6E-32B6-484D-8F30-E58CCF0117C2" Type="Text" Created="2020-01-27 16:35:39 +0100" Modified="2020-01-28 19:19:21 +0100">
+                            <Title>Setup on MacOS</Title>
+                            <MetaData>
+                                <IncludeInCompile>Yes</IncludeInCompile>
+                            </MetaData>
+                            <TextSettings>
+                                <TextSelection>600,0</TextSelection>
+                            </TextSettings>
+                        </BinderItem>
+                    </Children>
+                </BinderItem>
+                <BinderItem UUID="58D7C2FA-7DB5-403C-9258-63045BF58A15" Type="Folder" Created="2019-08-03 16:18:54 +0200" Modified="2020-01-27 16:02:00 +0100">
+                    <Title>Chapter 4 - Installing MongoDB</Title>
                     <MetaData>
                         <IncludeInCompile>Yes</IncludeInCompile>
                     </MetaData>
@@ -146,8 +189,8 @@
                         </BinderItem>
                     </Children>
                 </BinderItem>
-                <BinderItem UUID="3D578101-F6D0-469D-8CD3-EF79AA1850B9" Type="Folder" Created="2019-08-03 16:23:31 +0200" Modified="2019-08-03 16:34:14 +0200">
-                    <Title>Chapter 4 - Creating a MongoDB Replicaset</Title>
+                <BinderItem UUID="3D578101-F6D0-469D-8CD3-EF79AA1850B9" Type="Folder" Created="2019-08-03 16:23:31 +0200" Modified="2020-01-27 16:02:06 +0100">
+                    <Title>Chapter 5 - Creating a MongoDB Replicaset</Title>
                     <MetaData>
                         <IncludeInCompile>Yes</IncludeInCompile>
                     </MetaData>
@@ -155,8 +198,8 @@
                         <TextSelection>0,0</TextSelection>
                     </TextSettings>
                 </BinderItem>
-                <BinderItem UUID="ED1712EB-82EC-42BA-9333-6ECE02067D80" Type="Folder" Created="2019-08-03 16:24:04 +0200" Modified="2019-08-03 16:34:07 +0200">
-                    <Title>Chapter 5 - Creating a MongoDB Shared Cluster</Title>
+                <BinderItem UUID="ED1712EB-82EC-42BA-9333-6ECE02067D80" Type="Folder" Created="2019-08-03 16:24:04 +0200" Modified="2020-01-27 16:02:10 +0100">
+                    <Title>Chapter 6 - Creating a MongoDB Shared Cluster</Title>
                     <MetaData>
                         <IncludeInCompile>Yes</IncludeInCompile>
                     </MetaData>
@@ -164,8 +207,8 @@
                         <TextSelection>0,0</TextSelection>
                     </TextSettings>
                 </BinderItem>
-                <BinderItem UUID="E556B96B-4C97-4384-88D3-D34AB98BFE93" Type="Folder" Created="2019-08-03 16:35:24 +0200" Modified="2019-08-03 16:35:38 +0200">
-                    <Title>Chapter 6 - Adding a Shard to an Existing Cluster</Title>
+                <BinderItem UUID="E556B96B-4C97-4384-88D3-D34AB98BFE93" Type="Folder" Created="2019-08-03 16:35:24 +0200" Modified="2020-01-27 16:02:16 +0100">
+                    <Title>Chapter 7 - Adding a Shard to an Existing Cluster</Title>
                     <MetaData>
                         <IncludeInCompile>Yes</IncludeInCompile>
                     </MetaData>
@@ -173,8 +216,20 @@
                         <TextSelection>0,0</TextSelection>
                     </TextSettings>
                 </BinderItem>
-                <BinderItem UUID="B3A8FC35-6FE9-4C4C-805A-FF3698BC4879" Type="Folder" Created="2019-08-03 16:36:11 +0200" Modified="2019-08-03 16:36:25 +0200">
-                    <Title>Chapter 7 - Automating Backups</Title>
+                <BinderItem UUID="B3A8FC35-6FE9-4C4C-805A-FF3698BC4879" Type="Folder" Created="2019-08-03 16:36:11 +0200" Modified="2020-01-27 16:02:20 +0100">
+                    <Title>Chapter 8 - Automating Backups</Title>
+                    <MetaData>
+                        <IncludeInCompile>Yes</IncludeInCompile>
+                    </MetaData>
+                    <TextSettings>
+                        <TextSelection>0,0</TextSelection>
+                    </TextSettings>
+                    <CorkboardAndOutliner>
+                        <SelectedSubdocumentUUIDs>4DD6528E-FBD8-4038-A7EC-794498582FF0</SelectedSubdocumentUUIDs>
+                    </CorkboardAndOutliner>
+                </BinderItem>
+                <BinderItem UUID="ABF050BE-4C41-4DC6-A42C-38A4CD355141" Type="Folder" Created="2019-08-03 16:36:32 +0200" Modified="2020-01-27 16:02:24 +0100">
+                    <Title>Chapter 9 - Automating Restores</Title>
                     <MetaData>
                         <IncludeInCompile>Yes</IncludeInCompile>
                     </MetaData>
@@ -182,17 +237,8 @@
                         <TextSelection>0,0</TextSelection>
                     </TextSettings>
                 </BinderItem>
-                <BinderItem UUID="ABF050BE-4C41-4DC6-A42C-38A4CD355141" Type="Folder" Created="2019-08-03 16:36:32 +0200" Modified="2019-08-03 16:36:40 +0200">
-                    <Title>Chapter 8 - Automating Restores</Title>
-                    <MetaData>
-                        <IncludeInCompile>Yes</IncludeInCompile>
-                    </MetaData>
-                    <TextSettings>
-                        <TextSelection>0,0</TextSelection>
-                    </TextSettings>
-                </BinderItem>
-                <BinderItem UUID="89671A0E-C48F-47A9-A038-9B677065D79F" Type="Folder" Created="2019-08-03 16:45:33 +0200" Modified="2019-08-03 16:45:44 +0200">
-                    <Title>Chapter 9 - Automating Upgrades</Title>
+                <BinderItem UUID="89671A0E-C48F-47A9-A038-9B677065D79F" Type="Folder" Created="2019-08-03 16:45:33 +0200" Modified="2020-01-27 16:02:28 +0100">
+                    <Title>Chapter 10 - Automating Upgrades</Title>
                     <MetaData>
                         <IncludeInCompile>Yes</IncludeInCompile>
                     </MetaData>
@@ -536,6 +582,143 @@
         </BinderItem>
         <BinderItem UUID="A41BA2A1-C599-43C2-99CC-8C1A7FFC2C24" Type="TrashFolder" Created="2019-08-03 16:18:29 +0200" Modified="2019-08-03 16:18:29 +0200">
             <Title>Trash</Title>
+            <Children>
+                <BinderItem UUID="32BF4737-AE30-41F3-AE80-D8501278B1DB" Type="Text" Created="2020-01-26 15:57:44 +0100" Modified="2020-01-26 15:57:44 +0100">
+                    <MetaData>
+                        <IncludeInCompile>Yes</IncludeInCompile>
+                    </MetaData>
+                    <TextSettings>
+                        <TextSelection>0,0</TextSelection>
+                    </TextSettings>
+                </BinderItem>
+                <BinderItem UUID="C542FFD1-E914-4442-9286-72A78222161D" Type="Text" Created="2020-01-26 15:57:55 +0100" Modified="2020-01-26 15:57:55 +0100">
+                    <MetaData>
+                        <IncludeInCompile>Yes</IncludeInCompile>
+                    </MetaData>
+                    <TextSettings>
+                        <TextSelection>0,0</TextSelection>
+                    </TextSettings>
+                </BinderItem>
+                <BinderItem UUID="B5138D40-770E-412F-AE3F-C6421C08ACCA" Type="Folder" Created="2020-01-26 15:57:03 +0100" Modified="2020-01-26 15:57:30 +0100">
+                    <Title>Chapter 10 - Automating Cassandra with Docker </Title>
+                    <MetaData>
+                        <IncludeInCompile>Yes</IncludeInCompile>
+                    </MetaData>
+                    <TextSettings>
+                        <TextSelection>0,0</TextSelection>
+                    </TextSettings>
+                    <CorkboardAndOutliner>
+                        <SelectedSubdocumentUUIDs>5311831A-5227-434A-B0F8-5EE3F8C043A8</SelectedSubdocumentUUIDs>
+                    </CorkboardAndOutliner>
+                    <Children>
+                        <BinderItem UUID="5311831A-5227-434A-B0F8-5EE3F8C043A8" Type="Text" Created="2020-01-26 15:57:37 +0100" Modified="2020-01-26 16:01:24 +0100">
+                            <MetaData>
+                                <IncludeInCompile>Yes</IncludeInCompile>
+                            </MetaData>
+                            <TextSettings>
+                                <TextSelection>0,0</TextSelection>
+                            </TextSettings>
+                        </BinderItem>
+                    </Children>
+                </BinderItem>
+                <BinderItem UUID="4DD6528E-FBD8-4038-A7EC-794498582FF0" Type="Text" Created="2020-01-26 15:59:02 +0100" Modified="2020-01-26 15:59:25 +0100">
+                    <Title>Simple Backup Plan</Title>
+                    <MetaData>
+                        <IncludeInCompile>Yes</IncludeInCompile>
+                    </MetaData>
+                    <TextSettings>
+                        <TextSelection>0,0</TextSelection>
+                    </TextSettings>
+                </BinderItem>
+                <BinderItem UUID="DAAC465B-5B2F-48E1-922E-486F0B0D25E1" Type="Text" Created="2020-01-26 15:59:20 +0100" Modified="2020-01-26 16:00:00 +0100">
+                    <Title>Backups with Cassandra Medusa</Title>
+                    <MetaData>
+                        <IncludeInCompile>Yes</IncludeInCompile>
+                    </MetaData>
+                    <TextSettings>
+                        <TextSelection>0,0</TextSelection>
+                    </TextSettings>
+                </BinderItem>
+                <BinderItem UUID="B2496993-1D05-4313-8DFA-2176A50626E4" Type="Text" Created="2020-01-27 16:01:09 +0100" Modified="2020-01-27 16:01:11 +0100">
+                    <MetaData>
+                        <IncludeInCompile>Yes</IncludeInCompile>
+                    </MetaData>
+                    <TextSettings>
+                        <TextSelection>0,0</TextSelection>
+                    </TextSettings>
+                </BinderItem>
+                <BinderItem UUID="F66947EB-037A-4098-915F-E78C027EECEC" Type="Text" Created="2020-01-27 16:02:48 +0100" Modified="2020-01-27 16:02:48 +0100">
+                    <MetaData>
+                        <IncludeInCompile>Yes</IncludeInCompile>
+                    </MetaData>
+                    <TextSettings>
+                        <TextSelection>0,0</TextSelection>
+                    </TextSettings>
+                </BinderItem>
+                <BinderItem UUID="38364DC4-2B99-4E47-929A-76EBD6D11949" Type="Folder" Created="2020-01-27 16:03:01 +0100" Modified="2020-01-27 16:03:01 +0100">
+                    <Title>Neuer Ordner</Title>
+                    <MetaData>
+                        <IncludeInCompile>Yes</IncludeInCompile>
+                    </MetaData>
+                    <TextSettings>
+                        <TextSelection>0,0</TextSelection>
+                    </TextSettings>
+                </BinderItem>
+                <BinderItem UUID="37A7172D-BCC3-492C-A864-5B3CF610F674" Type="Folder" Created="2020-01-27 16:03:34 +0100" Modified="2020-01-27 16:03:34 +0100">
+                    <Title>Neuer Ordner</Title>
+                    <MetaData>
+                        <IncludeInCompile>Yes</IncludeInCompile>
+                    </MetaData>
+                    <TextSettings>
+                        <TextSelection>0,0</TextSelection>
+                    </TextSettings>
+                </BinderItem>
+                <BinderItem UUID="680802AB-A4FC-4924-9958-25BFB37A8570" Type="Text" Created="2020-01-27 16:07:43 +0100" Modified="2020-01-27 16:07:43 +0100">
+                    <MetaData>
+                        <IncludeInCompile>Yes</IncludeInCompile>
+                    </MetaData>
+                    <TextSettings>
+                        <TextSelection>0,0</TextSelection>
+                    </TextSettings>
+                </BinderItem>
+                <BinderItem UUID="3182398D-8A7D-4AF5-B599-A6E9C41C3D5F" Type="Folder" Created="2020-01-27 16:07:54 +0100" Modified="2020-01-27 16:07:54 +0100">
+                    <Title>Neuer Ordner</Title>
+                    <MetaData>
+                        <IncludeInCompile>Yes</IncludeInCompile>
+                    </MetaData>
+                    <TextSettings>
+                        <TextSelection>0,0</TextSelection>
+                    </TextSettings>
+                </BinderItem>
+                <BinderItem UUID="5084EFFD-BAB7-4799-B34B-3F7C2E7E3F14" Type="Folder" Created="2020-01-27 16:10:38 +0100" Modified="2020-01-27 16:10:44 +0100">
+                    <Title>MacOS Setup</Title>
+                    <MetaData>
+                        <IncludeInCompile>Yes</IncludeInCompile>
+                    </MetaData>
+                    <TextSettings>
+                        <TextSelection>0,0</TextSelection>
+                    </TextSettings>
+                </BinderItem>
+                <BinderItem UUID="856F1EA8-AD59-4F3C-808A-027FC7A8E0FF" Type="Text" Created="2020-01-27 16:11:17 +0100" Modified="2020-01-27 16:11:17 +0100">
+                    <MetaData>
+                        <IncludeInCompile>Yes</IncludeInCompile>
+                    </MetaData>
+                    <TextSettings>
+                        <TextSelection>0,0</TextSelection>
+                    </TextSettings>
+                </BinderItem>
+                <BinderItem UUID="90202E7B-52A2-4346-9678-BFE13F160EDA" Type="Text" Created="2020-01-27 16:10:58 +0100" Modified="2020-01-27 16:35:47 +0100">
+                    <Title>MacOS Setup</Title>
+                    <MetaData>
+                        <SectionType>8987254D-87B0-4F78-A870-0AC688289145</SectionType>
+                        <IncludeInCompile>Yes</IncludeInCompile>
+                        <IconFileName>Tables</IconFileName>
+                    </MetaData>
+                    <TextSettings>
+                        <TextSelection>0,0</TextSelection>
+                    </TextSettings>
+                </BinderItem>
+            </Children>
         </BinderItem>
     </Binder>
     <Collections>
@@ -625,11 +808,11 @@
     <ProjectTargets Notify="No">
         <DraftTarget Type="Words" CountIncludedOnly="Yes" CurrentCompileGroupOnly="Yes" Deadline="2011-04-12 14:24:39 +0200" IgnoreDeadline="Yes">0</DraftTarget>
         <SessionTarget Type="Words" CountDraftOnly="Yes" AllowNegatives="No" ResetType="Time" ResetTime="00:00" DeterminedFromDeadline="No" WritingDays="" CanWriteOnDeadlineDate="No">0</SessionTarget>
-        <PreviousSession Words="0" Characters="0" Date="2019-08-03 16:55:03 +0200"/>
+        <PreviousSession Words="88" Characters="533" Date="2020-01-28 18:27:45 +0100"/>
     </ProjectTargets>
-    <RecentWritingHistory Date="2019-08-03 16:18:29 +0200">
-        <DraftWordCount>0</DraftWordCount>
-        <DraftCharCount>0</DraftCharCount>
+    <RecentWritingHistory Date="2020-01-28 00:00:00 +0100">
+        <DraftWordCount>88</DraftWordCount>
+        <DraftCharCount>533</DraftCharCount>
         <OtherWordCount>0</OtherWordCount>
         <OtherCharCount>0</OtherCharCount>
     </RecentWritingHistory>
