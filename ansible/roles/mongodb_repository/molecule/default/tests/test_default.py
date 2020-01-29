@@ -6,13 +6,7 @@ testinfra_hosts = testinfra.utils.ansible_runner.AnsibleRunner(
     os.environ['MOLECULE_INVENTORY_FILE']
 ).get_hosts('all')
 
-
-def test_hosts_file(host):
-    f = host.file('/etc/hosts')
-
-    assert f.exists
-    assert f.user == 'root'
-    assert f.group == 'root'
+# Note: The MongoDB Version is hard codes here. TODO Can we access the role variables in TestInfra?
 
 def test_redhat_mongodb_repository_file(host):
     if host.system_info.distribution == "redhat" \
