@@ -6,7 +6,7 @@ Configures a repository for MongoDB on Debian and RedHat based platforms.
 Role Variables
 --------------
 
-
+mongodb_version: The version of MongoDB to install. This forms part of the repository url and should be in the form <major>.<minor> i.e. 4.2
 
 
 Example Playbook
@@ -19,13 +19,7 @@ passed in as parameters) is always nice for users too:
       roles:
          - { role: mongodb_repository, x: 42 }
 
-License
--------
-
-BSD
-
 Author Information
 ------------------
 
-An optional section for the role authors to include contact information, or a
-website (HTML is not allowed).
+Rhys Campbell http://github.com/rhysmeister
