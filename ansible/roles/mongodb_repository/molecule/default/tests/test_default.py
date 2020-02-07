@@ -20,8 +20,8 @@ def get_mongodb_version(host):
 
 
 def test_redhat_mongodb_repository_file(host):
-    #with capsys.disabled(): #Disable autocapture of output and send to stdout N.B capsys must be passed into function
-    #print(include_vars(host)['ansible_facts'])
+    # with capsys.disabled(): #Disable autocapture of output and send to stdout N.B capsys must be passed into function
+    # print(include_vars(host)['ansible_facts'])
     mongodb_version = get_mongodb_version(host)
     if host.system_info.distribution == "redhat" \
             or host.system_info.distribution == "centos":
