@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<ScrivenerProject Identifier="D3E786DF-1AC5-45F4-BA09-6C5655FEC9CB" Version="2.0" Creator="SCRMAC-3.1.2-10882" Device="Rhyss-MacBook-Pro" Author="Rhys Campbell" Modified="2020-02-08 19:44:09 +0100" ModID="DAA39656-459B-4C56-A19F-55586AD0E0AB">
+<ScrivenerProject Identifier="D3E786DF-1AC5-45F4-BA09-6C5655FEC9CB" Version="2.0" Creator="SCRMAC-3.1.2-10882" Device="Rhyss-MacBook-Pro" Author="Rhys Campbell" Modified="2020-02-08 19:57:04 +0100" ModID="0389AC34-6632-478D-A4D0-F07B42DB650C">
     <Binder>
         <BinderItem UUID="9FFBA333-8432-41C1-91F5-1302DFE283CA" Type="Text" Created="2019-08-03 16:18:29 +0200" Modified="2019-08-03 16:18:29 +0200">
             <Title>Non-Fiction Format for LaTeX</Title>
@@ -122,7 +122,7 @@
                                 <IncludeInCompile>Yes</IncludeInCompile>
                             </MetaData>
                             <TextSettings>
-                                <TextSelection>388,0</TextSelection>
+                                <TextSelection>482,0</TextSelection>
                             </TextSettings>
                         </BinderItem>
                         <BinderItem UUID="88DB300A-0B70-4463-AE23-CB02C9E43151" Type="Folder" Created="2019-08-03 16:25:20 +0200" Modified="2020-02-08 19:28:10 +0100">
@@ -175,6 +175,15 @@
                                 </BinderItem>
                                 <BinderItem UUID="CE01D5B0-27A6-4A06-B59A-7CA741A5F508" Type="Text" Created="2019-08-03 16:33:22 +0200" Modified="2019-08-03 18:37:38 +0200">
                                     <Title>mongodb lookup</Title>
+                                    <MetaData>
+                                        <IncludeInCompile>Yes</IncludeInCompile>
+                                    </MetaData>
+                                    <TextSettings>
+                                        <TextSelection>0,0</TextSelection>
+                                    </TextSettings>
+                                </BinderItem>
+                                <BinderItem UUID="EC8BCA17-94B3-4956-B4FE-3A7DECF19DCE" Type="Text" Created="2020-02-08 19:53:44 +0100" Modified="2020-02-08 19:57:04 +0100">
+                                    <Title>mongodb_status</Title>
                                     <MetaData>
                                         <IncludeInCompile>Yes</IncludeInCompile>
                                     </MetaData>
@@ -839,11 +848,11 @@
     <ProjectTargets Notify="No">
         <DraftTarget Type="Words" CountIncludedOnly="Yes" CurrentCompileGroupOnly="Yes" Deadline="2011-04-12 14:24:39 +0200" IgnoreDeadline="Yes">0</DraftTarget>
         <SessionTarget Type="Words" CountDraftOnly="Yes" AllowNegatives="No" ResetType="Time" ResetTime="00:00" DeterminedFromDeadline="No" WritingDays="" CanWriteOnDeadlineDate="No">0</SessionTarget>
-        <PreviousSession Words="68" Characters="483" Date="2020-02-08 19:40:45 +0100"/>
+        <PreviousSession Words="146" Characters="936" Date="2020-02-08 19:40:45 +0100"/>
     </ProjectTargets>
     <RecentWritingHistory Date="2020-02-08 00:00:00 +0100">
-        <DraftWordCount>68</DraftWordCount>
-        <DraftCharCount>483</DraftCharCount>
+        <DraftWordCount>146</DraftWordCount>
+        <DraftCharCount>936</DraftCharCount>
         <OtherWordCount>0</OtherWordCount>
         <OtherCharCount>0</OtherCharCount>
     </RecentWritingHistory>

@@ -166,9 +166,15 @@
 <li>
 <p class="itemTitle">mongodb lookup</p>
 </li>
+<li>
+<p class="itemTitle">mongodb_status</p>
+<p class="itemText">mongodb_status</span></p></p>
+<p class="itemText"><p class="p2"><span class="s1"></span><br></p></p>
+<p class="itemText"><p class="p1"><span class="s1">Ensures the replicaset set is stable in the sense it has a primary and N (usually 2) number of secondaries. The module is useful for ensuring the replicates is stable before proceeding with certain operations. For example we might reboot a MongoDB node after patching the OS. We could use this module to ensure the node comes back up and MongoDB rejoins the replicates. We could then safely proceed with patching the OS on the next node.</p>
+</li>
 </ul>
 </ul>
-<hr class="afterTitle"/>
+<hr class="afterText"/>
 
 <li>
 <p class="topLevelItemTitle">Installing MongoDB</p>
