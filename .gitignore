@@ -1,1 +1,3 @@
 venv/*
+.yamllint
+*.pyc
