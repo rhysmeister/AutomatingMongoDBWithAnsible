@@ -38,14 +38,14 @@ On version 10.9 or above of MacOS you can check to see if git is install with th
 
 \f0\b0\fs24 \cf0 <!$Scr_H::2><!$Scr_Ps::1>
 \f2\fs26 \
-Download an install at {\field{\*\fldinst{HYPERLINK "https://www.virtualbox.org/wiki/Downloads"}}{\fldrslt 
+Download and install at {\field{\*\fldinst{HYPERLINK "https://www.virtualbox.org/wiki/Downloads"}}{\fldrslt 
 \f4\fs24 \cf2 \expnd0\expndtw0\kerning0
-\ul \ulc2 \outl0\strokewidth0 \strokec2 https://www.virtualbox.org/wiki/Downloads}}
+\ul \ulc2 https://www.virtualbox.org/wiki/Downloads}}
 \f4\fs24 \cf2 \expnd0\expndtw0\kerning0
-\ul \ulc2 \outl0\strokewidth0 \strokec2  \
+\ul \ulc2  \
 \pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\sl288\slmult1\sb320\pardirnatural\partightenfactor0
 
-\f0 \cf0 \kerning1\expnd0\expndtw0 \ulnone \outl0\strokewidth0 <$Scr_H::1><$Scr_Ps::0>
+\f0 \cf0 \kerning1\expnd0\expndtw0 \ulnone <$Scr_H::1><$Scr_Ps::0>
 \f1\b\fs32 Install Docker\
 \pard\tx360\tx720\tx1080\tx1440\tx1800\tx2160\tx2880\tx3600\tx4320\fi360\sl264\slmult1\pardirnatural\partightenfactor0
 
@@ -53,7 +53,7 @@ Download an install at {\field{\*\fldinst{HYPERLINK "https://www.virtualbox.org/
 \f2\fs26 \
 Docker is used for some of the molecule tests so we need to install that too. You can find detailed instruction for MacOS here: {\field{\*\fldinst{HYPERLINK "https://docs.docker.com/docker-for-mac/install/"}}{\fldrslt 
 \f4\fs24 \cf2 \expnd0\expndtw0\kerning0
-\ul \ulc2 \outl0\strokewidth0 \strokec2 https://docs.docker.com/docker-for-mac/install/}}\
+\ul https://docs.docker.com/docker-for-mac/install/}}\
 \pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\sl288\slmult1\sb320\pardirnatural\partightenfactor0
 
 \f0\fs24 \cf0 <$Scr_H::2><$Scr_Ps::1>
@@ -65,7 +65,7 @@ Docker is used for some of the molecule tests so we need to install that too. Yo
 \pard\tx220\tx720\tx1080\tx1440\tx1800\tx2160\tx2880\tx3600\tx4320\li720\fi-720\sl264\slmult1\pardirnatural\partightenfactor0
 \ls1\ilvl0\cf0 {\listtext	\uc0\u8226 	}Download and install Vagrant from {\field{\*\fldinst{HYPERLINK "https://www.vagrantup.com/downloads.html"}}{\fldrslt 
 \f4\fs24 \cf2 \expnd0\expndtw0\kerning0
-\ul \ulc2 \outl0\strokewidth0 \strokec2 https://www.vagrantup.com/downloads.html}}\
+\ul https://www.vagrantup.com/downloads.html}}\
 \pard\tx560\tx1080\tx1440\tx1800\tx2160\tx2880\tx3600\tx4320\sl264\slmult1\pardirnatural\partightenfactor0
 \cf0 \
 \pard\tx220\tx720\tx1080\tx1440\tx1800\tx2160\tx2880\tx3600\tx4320\li720\fi-720\sl264\slmult1\pardirnatural\partightenfactor0
@@ -101,7 +101,7 @@ It\'92s best to install Molecule within a Python Virtual Environment. Ansible wi
 \f2\fs26 \
 {\listtext	\uc0\u8226 	}Install molecule: 
 \f0\fs24 <$Scr_Cs::2>
-\f3\fs22 pip install molecule molecule[docker] molecule[vagrant]
+\f3\fs22 pip install molecule molecule[docker] molecule[vagrant] python-vagrant
 \f0\fs24 <!$Scr_Cs::2>
 \f2\fs26 \
 {\listtext	\uc0\u8226 	}Check the version: 
