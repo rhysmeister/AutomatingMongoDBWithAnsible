@@ -5,14 +5,14 @@ galaxy_info:
     Debian and Ubuntu platforms.
   platforms:
     - name: RedHat
-        versions:
-          - all
+      versions:
+        - all
     - name: Debian
-        versions:
-          - all
+      versions:
+        - all
     - name: Ubuntu
-        versions:
-          - all
+      versions:
+        - all
 
   galaxy_tags:
     - mongodb
