@@ -35,7 +35,7 @@ for role in "${role_list[@]}"; do
   test_count=$(( test_count + 1 ));
 done;
 
-if (( test_count > 0 )); do
+if (( test_count > 0 )); then
   echo "Executed tests for a total of $test_count roles.";
 else
   echo "No role tests executed on this run."
