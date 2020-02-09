@@ -3,11 +3,11 @@
 
 - name: Ensure MongoDB yum repository exists (RedHat)
   yum_repository:
-      name: "mongodb-org-{{ mongodb_version }}"
-      description: "Official MongoDB {{ mongodb_version }} yum repo"
-      baseurl: "https://repo.mongodb.org/yum/redhat/$releasever/mongodb-org/{{ mongodb_version }}/x86_64/"
-      gpgcheck: 1
-      gpgkey: "https://www.mongodb.org/static/pgp/server-{{ mongodb_version }}.asc"
+    name: "mongodb-org-{{ mongodb_version }}"
+    description: "Official MongoDB {{ mongodb_version }} yum repo"
+    baseurl: "https://repo.mongodb.org/yum/redhat/$releasever/mongodb-org/{{ mongodb_version }}/x86_64/"
+    gpgcheck: 1
+    gpgkey: "https://www.mongodb.org/static/pgp/server-{{ mongodb_version }}.asc"
   when: ansible_os_family == "RedHat"
 
 - name: Install gnupg package (Debian & Ubuntu)
