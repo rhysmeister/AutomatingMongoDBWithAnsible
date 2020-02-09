@@ -8,8 +8,6 @@ before_install:
   - pip install -U ansible
   - pip install -U codecov
   - pip install -U molecule docker
-install:
-  - pip install -U ".[test]" . # install package + test dependencies
 script:
   - ./travis_run.sh
 after_success:
