@@ -21,7 +21,7 @@ declare -a role_list=();
 for role in $(git diff --name-only HEAD~1 | grep ansible/roles/ | cut -d'/' -f -3 | sort | uniq); do
     if [[ -d "$role/molecule" ]]; then
       echo "Adding $role to test queue"
-      role_list+=( $m );
+      role_list+=( $role );
     else
         echo "The role $role does not have a molecule sub-directoy so skipping tests."
     fi;
