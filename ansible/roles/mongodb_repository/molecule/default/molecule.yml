@@ -5,6 +5,9 @@ driver:
   name: docker
 lint:
   name: yamllint
+  options:
+    config-data:
+      line-length: disable
 platforms:
   - name: centos_7
     image: centos:7
