@@ -27,7 +27,7 @@ for role in $(git diff --name-only HEAD~1 | grep ansible/roles/ | cut -d'/' -f -
     fi;
 done
 
-for role in "$role_list[@]}"; do
+for role in "${role_list[@]}"; do
   echo "Executing tests for $role.";
   cd "$role"
   molecule test;
