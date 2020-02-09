@@ -1,7 +1,7 @@
 mongodb_install
 ===============
 
-Installs MongoDB packages.
+Installs MongoDB packages..
 ------------
 
 Role Variables
