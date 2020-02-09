@@ -1,17 +1,18 @@
 ---
 galaxy_info:
   author: Rhys Campbell
-  description: A simple role to install MongoDB for RedHat, Debian and Ubuntu platforms.
+  description: A simple role to install MongoDB for RedHat, \
+    Debian and Ubuntu platforms.
   platforms:
     - name: RedHat
-      versions:
-      - all
+        versions:
+          - all
     - name: Debian
-      versions:
-      - all
+        versions:
+          - all
     - name: Ubuntu
-      versions:
-      - all
+        versions:
+          - all
 
   galaxy_tags:
     - mongodb
