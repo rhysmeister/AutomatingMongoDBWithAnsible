@@ -1,7 +1,7 @@
 mongodb_repository
 ===================
 
-Configures a repository for MongoDB on Debian and RedHat based platforms.
+Configures a repository for MongoDB on Debian and RedHat based platforms..
 
 Role Variables
 --------------
