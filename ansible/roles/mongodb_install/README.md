@@ -1,5 +1,5 @@
 mongodb_install
-================
+===============
 
 Installs MongoDB packages.
 ------------
