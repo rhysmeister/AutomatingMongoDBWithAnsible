@@ -1,0 +1,27 @@
+---
+- hosts: all
+  gather_facts: yes
+  become: yes
+  roles:
+    - role: "mongodb_repository"
+    - role: "mongodb_mongod"
+
+  tasks:
+
+    - name: Initialise MongoDB Replicaset
+      mongodb_replicaset:
+        login_host: localhost
+        login_user: admin
+        login_password: admin
+        replica_set: rs0
+        members:
+          - mongodb1:27017
+          - mongodb2:27017
+          - mongodb3:27017
+        when: groups.mongodb.index(inventory_hostname) == 0
+
+    - name: Add MongoDB Admin User
+      mongodb_user:
+
+    - name: Add MongoDB App Users
+      mongodb_user:
