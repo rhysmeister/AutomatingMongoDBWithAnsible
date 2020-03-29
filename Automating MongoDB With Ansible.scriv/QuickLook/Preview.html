@@ -99,10 +99,19 @@
 <hr class="afterTitle"/>
 <ul>
 <li>
-<p class="itemTitle">Section</p>
+<p class="itemTitle">MongoDB and Ansible</p>
+</li>
+<li>
+<p class="itemTitle">Tools used in this book</p>
+<p class="itemText">Tools used in this book</span></p></p>
+<p class="itemText"><p class="p2"><span class="s1"></span><br></p></p>
+<p class="itemText"><p class="p1"><span class="s1">Obviously MongoDB and Ansible are used in this book but we also used a bunch of other DevOps tools. These tools allow us to build things smart, faster and with higher quality.<span class="Apple-converted-space"> </span></span></p></p>
+<p class="itemText"><p class="p1"><span class="s1">Docker - https://www.docker.com/</span></p></p>
+<p class="itemText"><p class="p2"><span class="s1"></span><br></p></p>
+<p class="itemText"><p class="p1"><span class="s1">Docker is very fashionable in the DevOps world. We make use of Docker in this book to quickly test Ansible roles through molecule. Traditional Virtual Machines can be slow to start up and can slow down our testing. We want to keep our feedback loop as short as pos...</p>
 </li>
 </ul>
-<hr class="afterTitle"/>
+<hr class="afterText"/>
 
 <li>
 <p class="topLevelItemTitle">Environment Setup</p>
@@ -130,7 +139,7 @@
 <hr class="afterText"/>
 
 <li>
-<p class="topLevelItemTitle">MongoDB Collection</p>
+<p class="topLevelItemTitle">MongoDB Ansible Collection</p>
 </li>
 <hr class="afterTitle"/>
 <ul>
@@ -141,10 +150,11 @@
 <p class="itemText"><p class="p1"><span class="s1">mongodb_repository - Add a MongoDB repository file to the host.</span></p></p>
 <p class="itemText"><p class="p1"><span class="s1">mongodb_install - Installs MongoDB packages.</span></p></p>
 <p class="itemText"><p class="p1"><span class="s1">mongodb_dba - Install various tools on the node that are useful to the MongoDB Administrator.</span></p></p>
+<p class="itemText"><p class="p1"><span class="s1">mongodb_mongod - Setup a host as a standard MongoDB (mongod) server.</span></p></p>
+<p class="itemText"><p class="p1"><span class="s1">mongodb_mongos - Setup a host as a mongos server.</span></p></p>
+<p class="itemText"><p class="p1"><span class="s1">mongodb_config - Setup a host as a MongoDB config server.</span></p></p>
 <p class="itemText"><p class="p1"><span class="s1">mongodb_replicaset_cluster - Setup a simple 3 node MongoDB replicaset.</span></p></p>
-<p class="itemText"><p class="p1"><span class="s1">mongodb_2shard_cluster - Setup a 6 node, 2 shard MongoDB cluster.</span></p></p>
-<p class="itemText"><p class="p1"><span class="s1">mongodb_backup - Add a simple backup job to the node and copy it to s3.</span></p></p>
-<p class="itemText"><p class="p1"><span class="s1">mongodb_nagios - Add Nagios checks to the MongoDB node.</p>
+<p class="itemText"><p class="p1"><span class="s1">mongodb_2shard_cluster - Setup a 6...</p>
 </li>
 <li>
 <p class="folderTitle">MongoDB Ansible Modules</p>
@@ -171,6 +181,12 @@
 <p class="itemText">mongodb_status</span></p></p>
 <p class="itemText"><p class="p2"><span class="s1"></span><br></p></p>
 <p class="itemText"><p class="p1"><span class="s1">Ensures the replicaset set is stable in the sense it has a primary and N (usually 2) number of secondaries. The module is useful for ensuring the replicates is stable before proceeding with certain operations. For example we might reboot a MongoDB node after patching the OS. We could use this module to ensure the node comes back up and MongoDB rejoins the replicates. We could then safely proceed with patching the OS on the next node.</p>
+</li>
+<li>
+<p class="itemTitle">mongodb_info</p>
+<p class="itemText">mongodb_info</span></p></p>
+<p class="itemText"><p class="p2"><span class="s1"></span><br></p></p>
+<p class="itemText"><p class="p1"><span class="s1">This module allows you to extract various system information from a MongoDB instance. For example it is possible to extract instance-level, database-level and user-level information. </p>
 </li>
 </ul>
 </ul>
@@ -207,6 +223,33 @@
 </li>
 <li>
 <p class="topLevelItemTitle">Automating Upgrades</p>
+</li>
+<hr class="afterTitle"/>
+<ul>
+<li>
+<p class="itemTextStart">Upgrading MongoDB</span></p></p>
+<p class="itemText"><p class="p2"><span class="s1"></span><br></p></p>
+<p class="itemText"><p class="p1"><span class="s1"></p>
+</li>
+</ul>
+<hr class="afterText"/>
+
+<li>
+<p class="topLevelItemTitle">Automating OS Patching</p>
+</li>
+<hr class="afterTitle"/>
+<ul>
+<li>
+<p class="folderTitle">Patching RedHat Based Systems</p>
+</li>
+<li>
+<p class="folderTitle">Patching Debian Based Systems</p>
+</li>
+</ul>
+<hr class="afterTitle"/>
+
+<li>
+<p class="topLevelItemTitle">Automating MongoDB on Docker</p>
 </li>
 </ul>
 

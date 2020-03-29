@@ -179,7 +179,7 @@
 	<true/>
 	<key>editorSplitFrames</key>
 	<array>
-		<string>{{0, 0}, {855.5, 377}}</string>
+		<string>{{0, 0}, {928, 224}}</string>
 	</array>
 	<key>editorSplitType</key>
 	<integer>0</integer>
@@ -387,7 +387,7 @@
 		<real>84</real>
 	</dict>
 	<key>supportingDocumentEditor.scrollRect</key>
-	<string>{{0, 0}, {620, 636}}</string>
+	<string>{{0, 249.5}, {620, 668}}</string>
 	<key>supportingDocumentEditor.selectedItemIDs</key>
 	<array/>
 	<key>supportingDocumentEditor.selectedItemUUIDs</key>

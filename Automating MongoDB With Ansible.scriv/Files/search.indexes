@@ -1,47 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <SearchIndexes Version="1.0">
     <Documents>
-        <Document ID="17AB99FA-E221-495C-AF94-F2BD799A50AB">
-            <Title>Setup on Linux</Title>
-            <Text>Setup on Linux
-
-The instructions here are for Ubuntu Linux 19.10.</Text>
-        </Document>
-        <Document ID="5311831A-5227-434A-B0F8-5EE3F8C043A8">
-            <Synopsis>docker pull datastax/dse-server:6.7.7
-docker pull datastax/dse-studio:latest
-https://medium.com/@michaeljpr/five-minute-guide-getting-started-with-cassandra-on-docker-4ef69c710d84</Synopsis>
-        </Document>
-        <Document ID="476FC3AE-78C7-427A-9AE2-CDEE2FA49A3B">
-            <Title>Setup on Windows</Title>
-            <Synopsis>Cannot install docker alongside Virtualbox on Twitter</Synopsis>
-            <Text>Setup on Windows
-
-Windows is not an officially supported platform for use as a Ansible control host. We can however leverage the Windows Linux Sub-System to become a fully-fledged member of the Ansible/Molecule user community.
-
-
-</Text>
-        </Document>
-        <Document ID="606E2F6A-318D-44EA-A9BC-81093A72CD2F">
-            <Title>Section</Title>
-        </Document>
-        <Document ID="D2CF9B80-9FA0-4746-9A82-508A32070B93">
-            <Title>Begin Main Matter</Title>
-            <Text>\newpage
-\setcounter{page}{1}
-\pagenumbering{arabic}
-
-\mainmatter</Text>
-        </Document>
-        <Document ID="42F73867-6FE1-4545-BF15-9542805C5356">
-            <Title>Installing MongoDB using a Package Manager</Title>
-        </Document>
-        <Document ID="C4227961-9DD6-4014-BDE8-E2EA488632AE">
-            <Title>Appendix</Title>
-        </Document>
-        <Document ID="4DD6528E-FBD8-4038-A7EC-794498582FF0">
-            <Title>Simple Backup Plan</Title>
-            <Synopsis>Snapshots and cron</Synopsis>
+        <Document ID="C363C175-FF49-44A7-B4D4-26254B6FDDCB">
+            <Title>Bibliography</Title>
+            <Synopsis>Enable “Include in Compile” for this item to place a bibliography in your back matter. You will also want to customise the bibliography style and provide the name of your .bib file (which will need to be maintained separately). </Synopsis>
+            <Text>\bibliographystyle{spiebib} 
+\bibliography{name_of_bib_file}</Text>
         </Document>
         <Document ID="29B7380E-FDA3-423A-98C6-A8BF28C80CE5">
             <Text>General Non-Fiction (LaTeX)
@@ -126,110 +90,6 @@ twock er velar arul, urfa ma tharn. Quolt cree pank menardis, wynlarce ti sernag
 Su xi er relnag tolaspa arka—jince erc twock morvit, su ux ozlint korsa ma. Thung epp, yem; yiphras berot la ma vusp su brul prinquis rhull pank vusp relnag erc ma rintax? Qi ik pank delm zorl lamax tolaspa lamax kurnap yem whik ju. Fli morvit—dri su srung gronk cree furng xi. Obrikt gen wex, arul ozlint, ma korsa rintax srung, epp ux, er pank. Lamax ozlint arul epp ju; qi ik ti harle ik. Lamax su ozlint ju ma yem rhull brul rintax re athran flim gra; yiphras rhull wex epp. Er ik epp erk zorl ewayf, ozlint re; wynlarce twock clum, irpsa ewayf er gronk.
 Su galph velar; ewayf, xu anu srung gen wynlarce frimba fli erc kurnap furng, xi kurnap, clum furng erk xi ti harle helk irpsa xu quolt. Gronk teng furng xu obrikt ju—ik clum rintax xu prinquis la. Prinquis zorl ewayf; urfa dri, vo xi, ju fli zeuhl obrikt re gronk teng morvit wex irpsa. Ma nix ewayf lamax. La furng nix brul ewayf sernag korsa yem tharn. Ju teng. Arul vusp er rintax athran, re sernag... ma prinquis. Urfa furng athran jince, gra nix tolaspa la delm; gronk dwint epp yiphras.
 </Text>
-        </Document>
-        <Document ID="AAFF404D-142C-4EEF-B64A-FCBCA474B8EF">
-            <Title>MongoDB Roles</Title>
-            <Text>MongoDB Roles
-
-mongodb_repository - Add a MongoDB repository file to the host.
-mongodb_install - Installs MongoDB packages.
-mongodb_replicaset_cluster - Setup a simple 3 node MongoDB replicaset.
-mongodb_2shard_cluster - Setup a 6 node, 2 shard MongoDB cluster.
-mongodb_backup - Add a simple backup job to the node and copy it to s3.
-mongodb_nagios - Add Nagios checks to the MongoDB node.</Text>
-        </Document>
-        <Document ID="A74731DD-9D8C-4925-A3B7-2F2F920D8A56">
-            <Title>Figure</Title>
-            <Text>&lt;INSERT IMAGE HERE&gt;</Text>
-        </Document>
-        <Document ID="7F36E1E8-5268-41DE-B900-5541DA073025">
-            <Title>Preamble Modules</Title>
-            <Synopsis>This folder contains some optional "modules" you can enable in the compiled output. They will add additional features to your project. If you have no need of them, they can be safely discarded. Note that some require additional material to be used elsewhere---for example indexing is established in the preamble, but we will need to declare the position of the index itself in the back matter.</Synopsis>
-        </Document>
-        <Document ID="B2496993-1D05-4313-8DFA-2176A50626E4">
-            <Text>Chaper 3 - Environment Setup</Text>
-        </Document>
-        <Document ID="19454B2C-2696-408E-8B82-B78117357709">
-            <Title>Proofing Packages</Title>
-            <Synopsis>Enable "Include in Compile" for this item if you intend to compile with inline annotations or inspector comments. This will add nice looking margin comments, highlighted text and a wider margin area for notes.</Synopsis>
-            <Text>% CriticMarkup Support
-% See document notes in the inspector for compile setting adjustments.
-% Credit goes to Fletcher Penney, of MultiMarkdown, for these methods.
-
-\usepackage{soul}
-\usepackage{xargs}
-\usepackage{todonotes}
-\newcommandx{\cmnote}[2][1=]{\linespread{1.0}\todo[linecolor=red,backgroundcolor=red!25,bordercolor=red,#1]{#2}}
-
-% Use \ul instead of \underline since we are using soul
-\let\underline\ul
-
-% Use a wider margin for notes
-% Use entire page
-\settrimmedsize{\stockheight}{\stockwidth}{*}
-\settrims{0pt}{0pt}
-
-\setlrmarginsandblock{2.5cm}{5.5cm}{*}
-\setulmarginsandblock{3.5cm}{3.5cm}{*}
-\checkandfixthelayout
-</Text>
-            <Notes>By default, the built-in format will use \marginpar for inline annotations and comments. For best results, edit the compile format to use \cmnote instead:
-
-	1.	Open File ▸ Compile...
-	2.	Double-click on the “LaTeX (Memoir Book)” compile format, highlighted in the left sidebar.
-	3.	In the Replacements pane, click the checkbox beside the line that converts \marginpar to \cmnote.
-	4.	Click “Save”.
-
-</Notes>
-        </Document>
-        <Document ID="0E74437B-8D47-4F7A-B354-646BD235D05A">
-            <Title>LaTeX Control File</Title>
-            <Text>% This file type can be used to insert custom commands, preamble settings, or whatever material should be printed directly rather than treated as part of the structure of the work.</Text>
-        </Document>
-        <Document ID="57BBF93F-E5CF-4BC7-B132-729399BF9C7C">
-            <Title>mongodb_replicaset</Title>
-        </Document>
-        <Document ID="5B8CD485-4DE7-4A25-A659-2361370DCFE9">
-            <Title>Preface</Title>
-        </Document>
-        <Document ID="73C0BBB7-555C-4DC8-8F32-60BDDA3BE15A">
-            <Title>Bibliography Packages</Title>
-            <Synopsis>Enable "Include in Compile" for this item if you require a bibliography in your document. You will also need to enable the bibliography item in the Back Matter folder.</Synopsis>
-            <Text>\usepackage{natlib}
-</Text>
-        </Document>
-        <Document ID="6EF336BE-794D-414D-B7C2-4AE1BD92AFB9">
-            <Title>Foreward</Title>
-            <Synopsis>An example front matter section. By default this will print as an unnumbered section.</Synopsis>
-        </Document>
-        <Document ID="B0417A1B-D617-4CBD-900A-14A6AB12C289">
-            <Title>Ideas</Title>
-        </Document>
-        <Document ID="90202E7B-52A2-4346-9678-BFE13F160EDA">
-            <Title>MacOS Setup</Title>
-        </Document>
-        <Document ID="07B0D7C6-57CE-4D6F-8AD9-11F06A261A5F">
-            <Title>Notes</Title>
-        </Document>
-        <Document ID="52180C53-0C4F-4614-BB90-0E27DEB6EA9F">
-            <Title>Installing MongoDB from an Archive</Title>
-        </Document>
-        <Document ID="3E751865-BAB0-4010-B69D-0045A1717350">
-            <Title>Index</Title>
-            <Synopsis>To enable this section, click the “Include in Compile” icon in the lower right corner of the editor footer bar. You will also want to enable the Indexing Packages module in the Front Matter folder.</Synopsis>
-            <Text>\printindex</Text>
-        </Document>
-        <Document ID="63E89604-57A7-4B83-859A-4709615465A4">
-            <Title>Equation</Title>
-            <Text>2 + 2 = 5</Text>
-        </Document>
-        <Document ID="B8855899-B5E1-41B4-B155-C4850A606B7F">
-            <Title>Contents</Title>
-            <Synopsis>Disable "Include in Compile" for this item if do not want a table of contents.</Synopsis>
-            <Text>\tableofcontents
-
-% \listoffigures
-% \listoftables</Text>
         </Document>
         <Document ID="9FFBA333-8432-41C1-91F5-1302DFE283CA">
             <Title>Non-Fiction Format for LaTeX</Title>
@@ -370,13 +230,85 @@ As for marking indexed terms themselves, you could of course do so by hand, but 
 </Text>
             <Comments>Given a quirk in how styles work with the text engine, you will need to select the image to see the "Figure" style, rather than merely placing the cursor to the left or right of it.</Comments>
         </Document>
-        <Document ID="F1C174F9-60B0-4EA2-BFF4-A3E9297419DD">
-            <Title>Equation Packages</Title>
-            <Synopsis>Enable "Include in Compile" for this item if you require formulae in your document.</Synopsis>
-            <Text>%% Math packages
-\usepackage{amssymb}
-\usepackage{amsmath}
-\usepackage{amsthm}
+        <Document ID="254840B2-918A-4980-9B4D-C9B3A774FB9A">
+            <Title>Appendices</Title>
+        </Document>
+        <Document ID="CE01D5B0-27A6-4A06-B59A-7CA741A5F508">
+            <Title>mongodb lookup</Title>
+        </Document>
+        <Document ID="96776348-B035-46DA-A5A5-210E99B93774">
+            <Title>Front Matter</Title>
+            <Notes>Note that in the “Metadata” pane of the Inspector, under “Section Type”, the “Default Subdocument Type” is set to “Front Matter”. This setting causes all subdocuments of this folder to use the “Front Matter” section type by default (that is, when “Structure-Based” is selected as the section type).
+
+This saves us from having to manually assign the “Front Matter” section type for each document we place into this folder.
+
+During Compile, documents assigned the “Front Matter” section type will be laid out differently from documents in the main body of the manuscript.</Notes>
+        </Document>
+        <Document ID="3E751865-BAB0-4010-B69D-0045A1717350">
+            <Title>Index</Title>
+            <Synopsis>To enable this section, click the “Include in Compile” icon in the lower right corner of the editor footer bar. You will also want to enable the Indexing Packages module in the Front Matter folder.</Synopsis>
+            <Text>\printindex</Text>
+        </Document>
+        <Document ID="EC8BCA17-94B3-4956-B4FE-3A7DECF19DCE">
+            <Title>mongodb_status</Title>
+            <Text>mongodb_status
+
+Ensures the replicaset set is stable in the sense it has a primary and N (usually 2) number of secondaries. The module is useful for ensuring the replicates is stable before proceeding with certain operations. For example we might reboot a MongoDB node after patching the OS. We could use this module to ensure the node comes back up and MongoDB rejoins the replicates. We could then safely proceed with patching the OS on the next node.</Text>
+        </Document>
+        <Document ID="B2496993-1D05-4313-8DFA-2176A50626E4">
+            <Text>Chaper 3 - Environment Setup</Text>
+        </Document>
+        <Document ID="57BBF93F-E5CF-4BC7-B132-729399BF9C7C">
+            <Title>mongodb_replicaset</Title>
+        </Document>
+        <Document ID="476FC3AE-78C7-427A-9AE2-CDEE2FA49A3B">
+            <Title>Setup on Windows</Title>
+            <Synopsis>Cannot install docker alongside Virtualbox on Twitter</Synopsis>
+            <Text>Setup on Windows
+
+Windows is not an officially supported platform for use as a Ansible control host. We can however leverage the Windows Linux Sub-System to become a fully-fledged member of the Ansible/Molecule user community.
+
+
+</Text>
+        </Document>
+        <Document ID="5B8CD485-4DE7-4A25-A659-2361370DCFE9">
+            <Title>Preface</Title>
+        </Document>
+        <Document ID="63E89604-57A7-4B83-859A-4709615465A4">
+            <Title>Equation</Title>
+            <Text>2 + 2 = 5</Text>
+        </Document>
+        <Document ID="1280191E-4D40-4C7E-85F2-BCCC2C3A0326">
+            <Title>mongodb_shard</Title>
+        </Document>
+        <Document ID="AAFF404D-142C-4EEF-B64A-FCBCA474B8EF">
+            <Title>MongoDB Roles</Title>
+            <Text>MongoDB Roles
+
+mongodb_repository - Add a MongoDB repository file to the host.
+mongodb_install - Installs MongoDB packages.
+mongodb_dba - Install various tools on the node that are useful to the MongoDB Administrator.
+mongodb_mongod - Setup a host as a standard MongoDB (mongod) server.
+mongodb_mongos - Setup a host as a mongos server.
+mongodb_config - Setup a host as a MongoDB config server.
+mongodb_replicaset_cluster - Setup a simple 3 node MongoDB replicaset.
+mongodb_2shard_cluster - Setup a 6 node, 2 shard MongoDB cluster.
+mongodb_backup - Add a simple backup job to the node and copy it to s3.
+mongodb_nagios - Add Nagios checks to the MongoDB node.</Text>
+        </Document>
+        <Document ID="54A215F7-6CAC-4E74-B61C-05062ED6C534">
+            <Title>mongodb_parameter</Title>
+        </Document>
+        <Document ID="C4227961-9DD6-4014-BDE8-E2EA488632AE">
+            <Title>Appendix</Title>
+        </Document>
+        <Document ID="E7F5E7EA-64F2-46AE-AE67-930860359873">
+            <Title>Table</Title>
+            <Text>    \begin{tabular}{ll}
+      \textbf{Column 1} &amp; \textbf{Column 2} \\
+      \midline
+	a &amp; b \\
+    \end{tabular}
 </Text>
         </Document>
         <Document ID="B915C13D-C3B5-4152-98E3-59C8F83FBF02">
@@ -384,11 +316,61 @@ As for marking indexed terms themselves, you could of course do so by hand, but 
             <Synopsis>This is a text file with an image in it. Refer to the help file at the top of the template's binder for an explanation of how this item works, when placed into your draft folder.</Synopsis>
             <Text>#</Text>
         </Document>
-        <Document ID="1280191E-4D40-4C7E-85F2-BCCC2C3A0326">
-            <Title>mongodb_shard</Title>
+        <Document ID="0E74437B-8D47-4F7A-B354-646BD235D05A">
+            <Title>LaTeX Control File</Title>
+            <Text>% This file type can be used to insert custom commands, preamble settings, or whatever material should be printed directly rather than treated as part of the structure of the work.</Text>
+        </Document>
+        <Document ID="B0417A1B-D617-4CBD-900A-14A6AB12C289">
+            <Title>Ideas</Title>
+        </Document>
+        <Document ID="4C1B1D47-4B3A-43AE-B914-1155AD5E84A6">
+            <Title>Unnumbered Equation</Title>
+            <Text>2 + 2 = 5</Text>
+        </Document>
+        <Document ID="A74731DD-9D8C-4925-A3B7-2F2F920D8A56">
+            <Title>Figure</Title>
+            <Text>&lt;INSERT IMAGE HERE&gt;</Text>
+        </Document>
+        <Document ID="8B9CB403-6803-4D56-A50A-DF509E6D51E1">
+            <Text>\backmatter</Text>
+        </Document>
+        <Document ID="606E2F6A-318D-44EA-A9BC-81093A72CD2F">
+            <Title>MongoDB and Ansible</Title>
+        </Document>
+        <Document ID="0928C400-D598-4383-83A5-3BFC2C9FCC31">
+            <Title>Tools used in this book</Title>
+            <Text>Tools used in this book
+
+Obviously MongoDB and Ansible are used in this book but we also used a bunch of other DevOps tools. These tools allow us to build things smart, faster and with higher quality. 
+Docker - https://www.docker.com/
+
+Docker is very fashionable in the DevOps world. We make use of Docker in this book to quickly test Ansible roles through molecule. Traditional Virtual Machines can be slow to start up and can slow down our testing. We want to keep our feedback loop as short as possible. Docker helps us to do that.
+VirtualBox - https://www.virtualbox.org/
+
+Sometimes a Docker container just isn’t enough! If you’re doing anything digging into the Linux Kernel itself then Docker may not be an option. For many types of systems we might want to deploy to a full Operating System rather than a container. We used VirtualBox here to give you the experience of deploying to real systems.
+Vagrant - https://www.vagrantup.com/
+ 
+Vagrant is a tool, written in Ruby, that allows us to automate the production of Virtual Machines. We declare what we want using Ruby Syntax and then we can reproduce the desired environment over and over again.
+Molecule - https://molecule.readthedocs.io/en/latest/
+
+Molecule is an Ansible sub-project that aids the development of Ansible Roles. Essentially is functions as a glue between a bunch of other tools allowing us to Unit Test our deployments. 
+TestInfra - https://testinfra.readthedocs.io/en/latest/
+
+TestInfra enables you to write Unit Tests with Python to validate the current state of your servers. TestInfra allows third-party validation of your deployments often within a few short seconds. TestInfra can test such things as; 
+
+	•	Is a service running? 
+	•	Is a package installed?
+	•	Is a file present?
+	•	Does a command run successfully?
+	•	Is the server listening on a given port?
+
+It’s not just the simple stuff either! With a little bit of scripting we can perform more advanced validation such a node failover. Being able to validate this type of operation is extreme valuable for the modern day DevOps Engineer.</Text>
         </Document>
         <Document ID="AB758A1B-31E9-48D3-BA8D-3FE1A4191723">
             <Title>Installing MongoDB from an Archive</Title>
+        </Document>
+        <Document ID="07B0D7C6-57CE-4D6F-8AD9-11F06A261A5F">
+            <Title>Notes</Title>
         </Document>
         <Document ID="21C56B6E-32B6-484D-8F30-E58CCF0117C2">
             <Title>Setup on MacOS</Title>
@@ -409,7 +391,7 @@ Install Virtualbox
 Download and install at https://www.virtualbox.org/wiki/Downloads 
 Install Docker
 
-Docker is used for some of the molecule tests so we need to install that too. You can find detailed instruction for MacOS here: https://docs.docker.com/docker-for-mac/install/
+Docker is used for some of the molecule tests so we need to install that too. You can find detailed installation instructions for MacOS here: https://docs.docker.com/docker-for-mac/install/
 Install Vagrant
 
 	•	Download and install Vagrant from https://www.vagrantup.com/downloads.html
@@ -428,23 +410,84 @@ It’s best to install Molecule within a Python Virtual Environment. Ansible wil
 
 </Text>
         </Document>
-        <Document ID="C363C175-FF49-44A7-B4D4-26254B6FDDCB">
-            <Title>Bibliography</Title>
-            <Synopsis>Enable “Include in Compile” for this item to place a bibliography in your back matter. You will also want to customise the bibliography style and provide the name of your .bib file (which will need to be maintained separately). </Synopsis>
-            <Text>\bibliographystyle{spiebib} 
-\bibliography{name_of_bib_file}</Text>
-        </Document>
-        <Document ID="96776348-B035-46DA-A5A5-210E99B93774">
-            <Title>Front Matter</Title>
-            <Notes>Note that in the “Metadata” pane of the Inspector, under “Section Type”, the “Default Subdocument Type” is set to “Front Matter”. This setting causes all subdocuments of this folder to use the “Front Matter” section type by default (that is, when “Structure-Based” is selected as the section type).
+        <Document ID="19454B2C-2696-408E-8B82-B78117357709">
+            <Title>Proofing Packages</Title>
+            <Synopsis>Enable "Include in Compile" for this item if you intend to compile with inline annotations or inspector comments. This will add nice looking margin comments, highlighted text and a wider margin area for notes.</Synopsis>
+            <Text>% CriticMarkup Support
+% See document notes in the inspector for compile setting adjustments.
+% Credit goes to Fletcher Penney, of MultiMarkdown, for these methods.
 
-This saves us from having to manually assign the “Front Matter” section type for each document we place into this folder.
+\usepackage{soul}
+\usepackage{xargs}
+\usepackage{todonotes}
+\newcommandx{\cmnote}[2][1=]{\linespread{1.0}\todo[linecolor=red,backgroundcolor=red!25,bordercolor=red,#1]{#2}}
 
-During Compile, documents assigned the “Front Matter” section type will be laid out differently from documents in the main body of the manuscript.</Notes>
+% Use \ul instead of \underline since we are using soul
+\let\underline\ul
+
+% Use a wider margin for notes
+% Use entire page
+\settrimmedsize{\stockheight}{\stockwidth}{*}
+\settrims{0pt}{0pt}
+
+\setlrmarginsandblock{2.5cm}{5.5cm}{*}
+\setulmarginsandblock{3.5cm}{3.5cm}{*}
+\checkandfixthelayout
+</Text>
+            <Notes>By default, the built-in format will use \marginpar for inline annotations and comments. For best results, edit the compile format to use \cmnote instead:
+
+	1.	Open File ▸ Compile...
+	2.	Double-click on the “LaTeX (Memoir Book)” compile format, highlighted in the left sidebar.
+	3.	In the Replacements pane, click the checkbox beside the line that converts \marginpar to \cmnote.
+	4.	Click “Save”.
+
+</Notes>
         </Document>
-        <Document ID="4C1B1D47-4B3A-43AE-B914-1155AD5E84A6">
-            <Title>Unnumbered Equation</Title>
-            <Text>2 + 2 = 5</Text>
+        <Document ID="73C0BBB7-555C-4DC8-8F32-60BDDA3BE15A">
+            <Title>Bibliography Packages</Title>
+            <Synopsis>Enable "Include in Compile" for this item if you require a bibliography in your document. You will also need to enable the bibliography item in the Back Matter folder.</Synopsis>
+            <Text>\usepackage{natlib}
+</Text>
+        </Document>
+        <Document ID="B8855899-B5E1-41B4-B155-C4850A606B7F">
+            <Title>Contents</Title>
+            <Synopsis>Disable "Include in Compile" for this item if do not want a table of contents.</Synopsis>
+            <Text>\tableofcontents
+
+% \listoffigures
+% \listoftables</Text>
+        </Document>
+        <Document ID="6EF336BE-794D-414D-B7C2-4AE1BD92AFB9">
+            <Title>Foreward</Title>
+            <Synopsis>An example front matter section. By default this will print as an unnumbered section.</Synopsis>
+        </Document>
+        <Document ID="7F36E1E8-5268-41DE-B900-5541DA073025">
+            <Title>Preamble Modules</Title>
+            <Synopsis>This folder contains some optional "modules" you can enable in the compiled output. They will add additional features to your project. If you have no need of them, they can be safely discarded. Note that some require additional material to be used elsewhere---for example indexing is established in the preamble, but we will need to declare the position of the index itself in the back matter.</Synopsis>
+        </Document>
+        <Document ID="90202E7B-52A2-4346-9678-BFE13F160EDA">
+            <Title>MacOS Setup</Title>
+        </Document>
+        <Document ID="B9FC23BA-E28D-4295-80B7-3DB047DC0047">
+            <Title>mongodb_user</Title>
+        </Document>
+        <Document ID="42F73867-6FE1-4545-BF15-9542805C5356">
+            <Title>Installing MongoDB using a Package Manager</Title>
+        </Document>
+        <Document ID="59E3CF88-DD73-451F-8036-1717049D83E8">
+            <Title>mongodb_info</Title>
+            <Text>mongodb_info
+
+This module allows you to extract various system information from a MongoDB instance. For example it is possible to extract instance-level, database-level and user-level information. </Text>
+        </Document>
+        <Document ID="F1C174F9-60B0-4EA2-BFF4-A3E9297419DD">
+            <Title>Equation Packages</Title>
+            <Synopsis>Enable "Include in Compile" for this item if you require formulae in your document.</Synopsis>
+            <Text>%% Math packages
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{amsthm}
+</Text>
         </Document>
         <Document ID="FD64525A-22FB-4EDD-BBD0-372BE8E7BFED">
             <Title>Indexing Packages</Title>
@@ -456,6 +499,19 @@ During Compile, documents assigned the “Front Matter” section type will be l
         <Document ID="DAAC465B-5B2F-48E1-922E-486F0B0D25E1">
             <Title>Backups with Cassandra Medusa</Title>
             <Synopsis>https://github.com/thelastpickle/cassandra-medusa</Synopsis>
+        </Document>
+        <Document ID="17AB99FA-E221-495C-AF94-F2BD799A50AB">
+            <Title>Setup on Linux</Title>
+            <Text>Setup on Linux
+
+The instructions here are for Ubuntu Linux 19.10.</Text>
+        </Document>
+        <Document ID="4DD6528E-FBD8-4038-A7EC-794498582FF0">
+            <Title>Simple Backup Plan</Title>
+            <Synopsis>Snapshots and cron</Synopsis>
+        </Document>
+        <Document ID="52180C53-0C4F-4614-BB90-0E27DEB6EA9F">
+            <Title>Installing MongoDB from an Archive</Title>
         </Document>
         <Document ID="5084EFFD-BAB7-4799-B34B-3F7C2E7E3F14">
             <Title>MacOS Setup</Title>
@@ -477,29 +533,18 @@ During Compile, documents assigned the “Front Matter” section type will be l
 </Text>
             <Notes>Edit the compile format for this project, under the Text Layout pane, to make general appearance and feature modifications to the preamble.</Notes>
         </Document>
-        <Document ID="8B9CB403-6803-4D56-A50A-DF509E6D51E1">
-            <Text>\backmatter</Text>
+        <Document ID="5311831A-5227-434A-B0F8-5EE3F8C043A8">
+            <Synopsis>docker pull datastax/dse-server:6.7.7
+docker pull datastax/dse-studio:latest
+https://medium.com/@michaeljpr/five-minute-guide-getting-started-with-cassandra-on-docker-4ef69c710d84</Synopsis>
         </Document>
-        <Document ID="B9FC23BA-E28D-4295-80B7-3DB047DC0047">
-            <Title>mongodb_user</Title>
-        </Document>
-        <Document ID="54A215F7-6CAC-4E74-B61C-05062ED6C534">
-            <Title>mongodb_parameter</Title>
-        </Document>
-        <Document ID="CE01D5B0-27A6-4A06-B59A-7CA741A5F508">
-            <Title>mongodb lookup</Title>
-        </Document>
-        <Document ID="254840B2-918A-4980-9B4D-C9B3A774FB9A">
-            <Title>Appendices</Title>
-        </Document>
-        <Document ID="E7F5E7EA-64F2-46AE-AE67-930860359873">
-            <Title>Table</Title>
-            <Text>    \begin{tabular}{ll}
-      \textbf{Column 1} &amp; \textbf{Column 2} \\
-      \midline
-	a &amp; b \\
-    \end{tabular}
-</Text>
+        <Document ID="D2CF9B80-9FA0-4746-9A82-508A32070B93">
+            <Title>Begin Main Matter</Title>
+            <Text>\newpage
+\setcounter{page}{1}
+\pagenumbering{arabic}
+
+\mainmatter</Text>
         </Document>
     </Documents>
 </SearchIndexes>

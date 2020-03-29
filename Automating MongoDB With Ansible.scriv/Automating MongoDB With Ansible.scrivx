@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<ScrivenerProject Identifier="D3E786DF-1AC5-45F4-BA09-6C5655FEC9CB" Version="2.0" Creator="SCRMAC-3.1.2-10882" Device="Rhyss-MacBook-Pro" Author="Rhys Campbell" Modified="2020-02-08 19:57:04 +0100" ModID="0389AC34-6632-478D-A4D0-F07B42DB650C">
+<ScrivenerProject Identifier="D3E786DF-1AC5-45F4-BA09-6C5655FEC9CB" Version="2.0" Creator="SCRMAC-3.1.2-10882" Device="Rhyss-MacBook-Pro" Author="Rhys Campbell" Modified="2020-03-29 15:41:29 +0200" ModID="F5014833-2C43-453D-B19B-ECE372ABA470">
     <Binder>
         <BinderItem UUID="9FFBA333-8432-41C1-91F5-1302DFE283CA" Type="Text" Created="2019-08-03 16:18:29 +0200" Modified="2019-08-03 16:18:29 +0200">
             <Title>Non-Fiction Format for LaTeX</Title>
@@ -48,15 +48,27 @@
                     <TextSettings>
                         <TextSelection>0,0</TextSelection>
                     </TextSettings>
+                    <CorkboardAndOutliner>
+                        <SelectedSubdocumentUUIDs>0928C400-D598-4383-83A5-3BFC2C9FCC31</SelectedSubdocumentUUIDs>
+                    </CorkboardAndOutliner>
                     <Children>
-                        <BinderItem UUID="606E2F6A-318D-44EA-A9BC-81093A72CD2F" Type="Text" Created="2019-08-03 16:18:29 +0200" Modified="2019-08-03 16:18:29 +0200">
-                            <Title>Section</Title>
+                        <BinderItem UUID="606E2F6A-318D-44EA-A9BC-81093A72CD2F" Type="Text" Created="2019-08-03 16:18:29 +0200" Modified="2020-03-03 22:05:47 +0100">
+                            <Title>MongoDB and Ansible</Title>
                             <MetaData>
                                 <StatusID>2</StatusID>
                                 <IncludeInCompile>Yes</IncludeInCompile>
                             </MetaData>
                             <TextSettings>
                                 <TextSelection>0,0</TextSelection>
+                            </TextSettings>
+                        </BinderItem>
+                        <BinderItem UUID="0928C400-D598-4383-83A5-3BFC2C9FCC31" Type="Text" Created="2020-03-03 22:05:54 +0100" Modified="2020-03-29 12:40:10 +0200">
+                            <Title>Tools used in this book</Title>
+                            <MetaData>
+                                <IncludeInCompile>Yes</IncludeInCompile>
+                            </MetaData>
+                            <TextSettings>
+                                <TextSelection>1146,0</TextSelection>
                             </TextSettings>
                         </BinderItem>
                     </Children>
@@ -69,9 +81,6 @@
                     <TextSettings>
                         <TextSelection>0,0</TextSelection>
                     </TextSettings>
-                    <CorkboardAndOutliner>
-                        <SelectedSubdocumentUUIDs>21C56B6E-32B6-484D-8F30-E58CCF0117C2</SelectedSubdocumentUUIDs>
-                    </CorkboardAndOutliner>
                     <Children>
                         <BinderItem UUID="476FC3AE-78C7-427A-9AE2-CDEE2FA49A3B" Type="Text" Created="2020-01-27 16:34:39 +0100" Modified="2020-01-28 19:42:27 +0100">
                             <Title>Setup on Windows</Title>
@@ -93,19 +102,19 @@
                                 <TextSelection>65,0</TextSelection>
                             </TextSettings>
                         </BinderItem>
-                        <BinderItem UUID="21C56B6E-32B6-484D-8F30-E58CCF0117C2" Type="Text" Created="2020-01-27 16:35:39 +0100" Modified="2020-02-08 19:27:55 +0100">
+                        <BinderItem UUID="21C56B6E-32B6-484D-8F30-E58CCF0117C2" Type="Text" Created="2020-01-27 16:35:39 +0100" Modified="2020-03-03 21:18:44 +0100">
                             <Title>Setup on MacOS</Title>
                             <MetaData>
                                 <IncludeInCompile>Yes</IncludeInCompile>
                             </MetaData>
                             <TextSettings>
-                                <TextSelection>355,0</TextSelection>
+                                <TextSelection>1116,0</TextSelection>
                             </TextSettings>
                         </BinderItem>
                     </Children>
                 </BinderItem>
-                <BinderItem UUID="20D796BF-16B8-418D-8A15-C0911FBE9F46" Type="Folder" Created="2020-02-08 19:29:24 +0100" Modified="2020-02-08 19:29:33 +0100">
-                    <Title>MongoDB Collection</Title>
+                <BinderItem UUID="20D796BF-16B8-418D-8A15-C0911FBE9F46" Type="Folder" Created="2020-02-08 19:29:24 +0100" Modified="2020-03-29 12:40:56 +0200">
+                    <Title>MongoDB Ansible Collection</Title>
                     <MetaData>
                         <IncludeInCompile>Yes</IncludeInCompile>
                     </MetaData>
@@ -113,16 +122,16 @@
                         <TextSelection>0,0</TextSelection>
                     </TextSettings>
                     <CorkboardAndOutliner>
-                        <SelectedSubdocumentUUIDs>AAFF404D-142C-4EEF-B64A-FCBCA474B8EF</SelectedSubdocumentUUIDs>
+                        <SelectedSubdocumentUUIDs>88DB300A-0B70-4463-AE23-CB02C9E43151</SelectedSubdocumentUUIDs>
                     </CorkboardAndOutliner>
                     <Children>
-                        <BinderItem UUID="AAFF404D-142C-4EEF-B64A-FCBCA474B8EF" Type="Text" Created="2020-02-08 19:30:36 +0100" Modified="2020-02-08 19:44:09 +0100">
+                        <BinderItem UUID="AAFF404D-142C-4EEF-B64A-FCBCA474B8EF" Type="Text" Created="2020-02-08 19:30:36 +0100" Modified="2020-03-03 21:31:04 +0100">
                             <Title>MongoDB Roles</Title>
                             <MetaData>
                                 <IncludeInCompile>Yes</IncludeInCompile>
                             </MetaData>
                             <TextSettings>
-                                <TextSelection>482,0</TextSelection>
+                                <TextSelection>531,0</TextSelection>
                             </TextSettings>
                         </BinderItem>
                         <BinderItem UUID="88DB300A-0B70-4463-AE23-CB02C9E43151" Type="Folder" Created="2019-08-03 16:25:20 +0200" Modified="2020-02-08 19:28:10 +0100">
@@ -134,7 +143,7 @@
                                 <TextSelection>0,0</TextSelection>
                             </TextSettings>
                             <CorkboardAndOutliner>
-                                <SelectedSubdocumentUUIDs>CE01D5B0-27A6-4A06-B59A-7CA741A5F508</SelectedSubdocumentUUIDs>
+                                <SelectedSubdocumentUUIDs>EC8BCA17-94B3-4956-B4FE-3A7DECF19DCE</SelectedSubdocumentUUIDs>
                             </CorkboardAndOutliner>
                             <Children>
                                 <BinderItem UUID="54A215F7-6CAC-4E74-B61C-05062ED6C534" Type="Text" Created="2019-08-03 16:32:17 +0200" Modified="2019-08-03 16:32:25 +0200">
@@ -173,7 +182,7 @@
                                         <TextSelection>0,0</TextSelection>
                                     </TextSettings>
                                 </BinderItem>
-                                <BinderItem UUID="CE01D5B0-27A6-4A06-B59A-7CA741A5F508" Type="Text" Created="2019-08-03 16:33:22 +0200" Modified="2019-08-03 18:37:38 +0200">
+                                <BinderItem UUID="CE01D5B0-27A6-4A06-B59A-7CA741A5F508" Type="Text" Created="2019-08-03 16:33:22 +0200" Modified="2020-03-29 12:41:30 +0200">
                                     <Title>mongodb lookup</Title>
                                     <MetaData>
                                         <IncludeInCompile>Yes</IncludeInCompile>
@@ -188,7 +197,16 @@
                                         <IncludeInCompile>Yes</IncludeInCompile>
                                     </MetaData>
                                     <TextSettings>
-                                        <TextSelection>0,0</TextSelection>
+                                        <TextSelection>12,0</TextSelection>
+                                    </TextSettings>
+                                </BinderItem>
+                                <BinderItem UUID="59E3CF88-DD73-451F-8036-1717049D83E8" Type="Text" Created="2020-03-03 20:58:34 +0100" Modified="2020-03-03 21:03:26 +0100">
+                                    <Title>mongodb_info</Title>
+                                    <MetaData>
+                                        <IncludeInCompile>Yes</IncludeInCompile>
+                                    </MetaData>
+                                    <TextSettings>
+                                        <TextSelection>197,0</TextSelection>
                                     </TextSettings>
                                 </BinderItem>
                             </Children>
@@ -232,6 +250,17 @@
                     <TextSettings>
                         <TextSelection>0,0</TextSelection>
                     </TextSettings>
+                    <Children>
+                        <BinderItem UUID="CC22A10D-1CF7-4424-9E62-2FCEF294875C" Type="Text" Created="2020-03-29 15:40:27 +0200" Modified="2020-03-29 15:41:29 +0200">
+                            <Title>MongoDB Replicasets</Title>
+                            <MetaData>
+                                <IncludeInCompile>Yes</IncludeInCompile>
+                            </MetaData>
+                            <TextSettings>
+                                <TextSelection>0,0</TextSelection>
+                            </TextSettings>
+                        </BinderItem>
+                    </Children>
                 </BinderItem>
                 <BinderItem UUID="ED1712EB-82EC-42BA-9333-6ECE02067D80" Type="Folder" Created="2019-08-03 16:24:04 +0200" Modified="2020-02-08 19:28:33 +0100">
                     <Title>Creating a MongoDB Shared Cluster</Title>
@@ -271,6 +300,67 @@
                 </BinderItem>
                 <BinderItem UUID="89671A0E-C48F-47A9-A038-9B677065D79F" Type="Folder" Created="2019-08-03 16:45:33 +0200" Modified="2020-02-08 19:28:54 +0100">
                     <Title>Automating Upgrades</Title>
+                    <MetaData>
+                        <IncludeInCompile>Yes</IncludeInCompile>
+                    </MetaData>
+                    <TextSettings>
+                        <TextSelection>0,0</TextSelection>
+                    </TextSettings>
+                    <CorkboardAndOutliner>
+                        <SelectedSubdocumentUUIDs>3BC271CC-662C-4D03-AC8C-7BFBD9523B9E</SelectedSubdocumentUUIDs>
+                    </CorkboardAndOutliner>
+                    <Children>
+                        <BinderItem UUID="3BC271CC-662C-4D03-AC8C-7BFBD9523B9E" Type="Text" Created="2020-03-29 15:30:23 +0200" Modified="2020-03-29 15:31:27 +0200">
+                            <Title>Upgrading MongoDB</Title>
+                            <MetaData>
+                                <IncludeInCompile>Yes</IncludeInCompile>
+                            </MetaData>
+                            <TextSettings>
+                                <TextSelection>19,0</TextSelection>
+                            </TextSettings>
+                        </BinderItem>
+                        <BinderItem UUID="54633E06-2404-44BC-A186-96416E72CDA2" Type="Text" Created="2020-03-29 15:33:32 +0200" Modified="2020-03-29 15:33:50 +0200">
+                            <Title>Demo</Title>
+                            <MetaData>
+                                <IncludeInCompile>Yes</IncludeInCompile>
+                            </MetaData>
+                            <TextSettings>
+                                <TextSelection>0,0</TextSelection>
+                            </TextSettings>
+                        </BinderItem>
+                    </Children>
+                </BinderItem>
+                <BinderItem UUID="10F51741-2E2A-4469-BEE1-579BDDF9FE13" Type="Folder" Created="2020-03-03 21:28:17 +0100" Modified="2020-03-03 21:28:25 +0100">
+                    <Title>Automating OS Patching</Title>
+                    <MetaData>
+                        <IncludeInCompile>Yes</IncludeInCompile>
+                    </MetaData>
+                    <TextSettings>
+                        <TextSelection>0,0</TextSelection>
+                    </TextSettings>
+                    <Children>
+                        <BinderItem UUID="2A8D2D5E-CE3C-4942-B2D1-D9A84A37BBA4" Type="Folder" Created="2020-03-03 21:28:33 +0100" Modified="2020-03-03 21:28:48 +0100">
+                            <Title>Patching RedHat Based Systems</Title>
+                            <MetaData>
+                                <IncludeInCompile>Yes</IncludeInCompile>
+                            </MetaData>
+                            <TextSettings>
+                                <TextSelection>0,0</TextSelection>
+                            </TextSettings>
+                        </BinderItem>
+                        <BinderItem UUID="CAEC3A49-7CC7-47C2-AFE3-2926A67A9F71" Type="Folder" Created="2020-03-03 21:28:59 +0100" Modified="2020-03-03 21:29:08 +0100">
+                            <Title>Patching Debian Based Systems</Title>
+                            <MetaData>
+                                <IncludeInCompile>Yes</IncludeInCompile>
+                            </MetaData>
+                            <TextSettings>
+                                <TextSelection>0,0</TextSelection>
+                            </TextSettings>
+                        </BinderItem>
+                    </Children>
+                </BinderItem>
+                <BinderItem UUID="FDCEF3A6-E55F-4C3D-AB42-8E51AB2731B6" Type="Folder" Created="2020-03-29 12:45:02 +0200" Modified="2020-03-29 12:45:09 +0200">
+                    <Title>Automating MongoDB on Docker</Title>
                     <MetaData>
                         <IncludeInCompile>Yes</IncludeInCompile>
                     </MetaData>
@@ -493,9 +583,6 @@
         </BinderItem>
         <BinderItem UUID="6B6E864E-D14F-4EF7-8C5F-1D489706989A" Type="ResearchFolder" Created="2019-08-03 16:18:29 +0200" Modified="2019-08-03 16:18:29 +0200">
             <Title>Research</Title>
-            <CorkboardAndOutliner>
-                <SelectedSubdocumentUUIDs>8DDDF593-7D99-4FBB-83FA-B095E6D5E072</SelectedSubdocumentUUIDs>
-            </CorkboardAndOutliner>
             <Children>
                 <BinderItem UUID="29B7380E-FDA3-423A-98C6-A8BF28C80CE5" Type="PDF" Created="2019-08-03 16:18:29 +0200" Modified="2019-08-03 16:18:29 +0200">
                     <Title>Sample PDF</Title>
@@ -848,15 +935,15 @@
     <ProjectTargets Notify="No">
         <DraftTarget Type="Words" CountIncludedOnly="Yes" CurrentCompileGroupOnly="Yes" Deadline="2011-04-12 14:24:39 +0200" IgnoreDeadline="Yes">0</DraftTarget>
         <SessionTarget Type="Words" CountDraftOnly="Yes" AllowNegatives="No" ResetType="Time" ResetTime="00:00" DeterminedFromDeadline="No" WritingDays="" CanWriteOnDeadlineDate="No">0</SessionTarget>
-        <PreviousSession Words="146" Characters="936" Date="2020-02-08 19:40:45 +0100"/>
+        <PreviousSession Words="2" Characters="19" Date="2020-03-29 12:39:37 +0200"/>
     </ProjectTargets>
-    <RecentWritingHistory Date="2020-02-08 00:00:00 +0100">
-        <DraftWordCount>146</DraftWordCount>
-        <DraftCharCount>936</DraftCharCount>
+    <RecentWritingHistory Date="2020-03-29 00:00:00 +0100">
+        <DraftWordCount>1</DraftWordCount>
+        <DraftCharCount>11</DraftCharCount>
         <OtherWordCount>0</OtherWordCount>
         <OtherCharCount>0</OtherCharCount>
     </RecentWritingHistory>
     <TemplateFolderUUID>BB89721F-361D-4DC6-B9DC-70E2BE85968E</TemplateFolderUUID>
     <BookmarksFolderUUID>07B0D7C6-57CE-4D6F-8AD9-11F06A261A5F</BookmarksFolderUUID>
-    <PrintSettings PaperSize="595.0,842.0" LeftMargin="72.0" RightMargin="72.0" TopMargin="90.0" BottomMargin="90.0" PaperType="iso-a4" Orientation="Portrait" HorizontalPagination="Clip" VerticalPagination="Auto" ScaleFactor="1.0" HorizontallyCentered="Yes" VerticallyCentered="Yes" Collates="Yes" PagesAcross="1" PagesDown="1"/>
+    <PrintSettings PaperSize="595.275557,841.861389" LeftMargin="72.0" RightMargin="72.0" TopMargin="90.0" BottomMargin="90.0" PaperType="iso-a4" Orientation="Portrait" HorizontalPagination="Clip" VerticalPagination="Auto" ScaleFactor="1.0" HorizontallyCentered="Yes" VerticallyCentered="Yes" Collates="Yes" PagesAcross="1" PagesDown="1"/>
 </ScrivenerProject>
