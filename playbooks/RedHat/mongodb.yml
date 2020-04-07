@@ -2,26 +2,81 @@
 - hosts: all
   gather_facts: yes
   become: yes
+  vars_files:
+    - ./vault.yml
   roles:
+    - role: "mongodb_linux"
+    - role: "mongodb_selinux"
     - role: "mongodb_repository"
     - role: "mongodb_mongod"
 
   tasks:
 
-    - name: Initialise MongoDB Replicaset
-      mongodb_replicaset:
-        login_host: localhost
-        login_user: admin
-        login_password: admin
-        replica_set: rs0
-        members:
-          - mongodb1:27017
-          - mongodb2:27017
-          - mongodb3:27017
-        when: groups.mongodb.index(inventory_hostname) == 0
+    - name: Ensure pymongo is installed
+      pip:
+        name: pymongo
+        state: present
 
-    - name: Add MongoDB Admin User
-      mongodb_user:
+    - name: Ensure mongo shell is installed
+      package:
+        name: mongodb-org-shell
+        state: present
+      when: groups.mongodb.index(inventory_hostname) == 0
+
+    - name: Initialise MongoDB Replicaset
+      community.mongodb.mongodb_replicaset:
+        login_database: "admin"
+        login_host: localhost
+        members:
+          - mongodb1.local:27017
+          - mongodb2.local:27017
+          - mongodb3.local:27017
+      register: create_rs
+      when: groups.mongodb.index(inventory_hostname) == 0
+
+    - pause:
+        seconds: 10
+      when: create_rs.changed == true
+
+    - name: Has MongoDB Admin User been created already?
+      stat:
+        path: /root/mongodb_admin.success
+      when: groups.mongodb.index(inventory_hostname) == 0
+      register: mongodb_admin
+
+    - debug:
+        var: mongodb_admin
+
+    - name: Add MongoDB Admin User using localhost exception
+      community.mongodb.mongodb_user:
+        name: "{{ admin_user }}"
+        password: "{{ admin_user_password }}"
+        database: admin
+        roles:
+          - "root"
+      when:
+        - groups.mongodb.index(inventory_hostname) == 0
+        - mongodb_admin.stat.exists == False
+
+    - shell: "mongo admin --username {{ admin_user }} --password {{ admin_user_password }} --eval 'db.runCommand({listDatabases: 1})' && touch /root/mongodb_admin.success"
+      args:
+        creates: /root/mongodb_admin.success
+      when:
+        - groups.mongodb.index(inventory_hostname) == 0
+        - mongodb_admin.stat.exists == False
+      ignore_errors: yes
 
     - name: Add MongoDB App Users
-      mongodb_user:
+      community.mongodb.mongodb_user:
+        login_user: "{{ admin_user }}"
+        login_password: "{{ admin_user_password }}"
+        login_database: admin
+        user: "{{ item.username }}"
+        password: "{{ item.password }}"
+        database: "{{ item.database }}"
+        roles: "{{ item.roles }}"
+        replica_set: rs0
+      with_items:
+        - "{{ app_users }}"
+      when: groups.mongodb.index(inventory_hostname) == 0
+      no_log: yes
