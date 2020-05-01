@@ -22,6 +22,7 @@ Vagrant.configure("2") do |config|
           ansible.groups = {
             "mongodb" => ["mongodb1","mongodb2","mongodb3"],
           }
+          ansible.raw_arguments = "--ask-vault-pass"
           ansible.limit = "all" # Connect to all mongodb hosts
           ansible.playbook = "mongodb.yml"
         end

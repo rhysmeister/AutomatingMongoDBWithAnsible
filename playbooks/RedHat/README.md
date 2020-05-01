@@ -67,3 +67,11 @@ openssl_keyfile_content: |
   sb4UreMw/WyBpANiICMlJRBgSd0f0VGMlYzLX2BL14YpNnLhmoQqKzfBN6v2XAEG
   mJfrCUVuP1nBEklk23lYkNi/ohe+aodNjdN+2DHp42sGZHYP
 ```
+
+# Run TestInfra tests
+
+```
+vagrant ssh-config > .vagrant/ssh-config
+export ANSIBLE_INVENTORY=.vagrant/provisioners/ansible/inventory/vagrant_ansible_inventory;
+py.test --ssh-config=.vagrant/ssh-config tests_mongodbreplicaset.py
+```

@@ -21,7 +21,6 @@
       package:
         name: mongodb-org-shell
         state: present
-      when: groups.mongodb.index(inventory_hostname) == 0
 
     - name: Initialise MongoDB Replicaset
       community.mongodb.mongodb_replicaset:
