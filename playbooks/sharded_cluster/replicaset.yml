@@ -1,0 +1,52 @@
+---
+- name: Initialise MongoDB Replicaset
+  community.mongodb.mongodb_replicaset:
+    login_database: "admin"
+    login_host: localhost
+    login_port: "{{ mongod_port }}"
+    replica_set: "{{ repl_set_name }}"
+    members: "{{ members }}"
+  register: repl
+
+- name: Ensure replicaset has reached a converged state
+  community.mongodb.mongodb_status:
+    replica_set: "{{ repl_set_name }}"
+    login_port: "{{ mongod_port }}"
+    poll: 5
+    interval: 10
+  when: repl.changed == True
+
+- name: Has MongoDB Admin User been created already?
+  stat:
+    path: /root/mongodb_admin.success
+  register: mongodb_admin
+
+- name: Add MongoDB Admin User using localhost exception
+  community.mongodb.mongodb_user:
+    name: "{{ admin_user }}"
+    password: "{{ admin_user_password }}"
+    login_port: "{{ mongod_port }}"
+    database: admin
+    roles:
+      - "root"
+  when: mongodb_admin.stat.exists == False
+
+- shell: "mongo admin --port {{ mongod_port }} --username {{ admin_user }} --password {{ admin_user_password }} --eval 'db.runCommand({listDatabases: 1})' && touch /root/mongodb_admin.success"
+  args:
+    creates: /root/mongodb_admin.success
+  when: mongodb_admin.stat.exists == False
+  ignore_errors: yes
+
+- name: Add MongoDB App Users on the replicaset
+  community.mongodb.mongodb_user:
+    login_user: "{{ admin_user }}"
+    login_password: "{{ admin_user_password }}"
+    login_port: "{{ mongod_port }}"
+    login_database: admin
+    user: "{{ item.username }}"
+    password: "{{ item.password }}"
+    database: "{{ item.database }}"
+    roles: "{{ item.roles }}"
+  with_items:
+    - "{{ app_users }}"
+  no_log: yes

@@ -1,0 +1,30 @@
+---
+- hosts: all
+  gather_facts: yes
+  become: yes
+  vars_files:
+    - ./vault.yml
+  vars:
+    sharding: true
+    mongod_port: 27018
+  roles:
+    - role: "mongodb_linux"
+    - role: "mongodb_selinux"
+    - role: "mongodb_repository"
+    - role: "mongodb_mongod"
+
+  tasks:
+
+    - name: Ensure pymongo is installed
+      pip:
+        name: pymongo
+        state: present
+
+    - name: Ensure mongo shell is installed
+      package:
+        name: mongodb-org-shell
+        state: present
+
+    - name: Setup replicasets
+      include_tasks: replicaset.yml
+      when: ansible_hostname in ["mongodb1", "mongodb4"]
