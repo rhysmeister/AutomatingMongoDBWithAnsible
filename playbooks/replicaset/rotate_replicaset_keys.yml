@@ -1,0 +1,112 @@
+---
+- hosts: all
+  gather_facts: yes
+  become: yes
+  serial: 1
+  vars_files:
+    - ./vault.yml
+  vars:
+    mongodb_user: mongod
+    mongodb_group: mongod
+    mongod_service: "mongod"
+    mongod_port: 27017
+
+  tasks:
+
+    - name: Check the keyfile for the old value
+      copy:
+        content: |
+          {{ openssl_keyfile_content }}
+        dest: /etc/keyfile
+        owner: "{{ mongodb_user }}"
+        group: "{{ mongodb_group }}"
+        mode: 0400
+      check_mode: yes
+      register: old_keyfile_check
+
+    - name: Migrate keyfile to contain both keys
+      block:
+        - name: Ensure keyfile content has both keys
+          copy:
+            content: |
+              '{{ openssl_keyfile_content | trim }}'
+
+              '{{ new_openssl_keyfile_content }}'
+            dest: /etc/keyfile
+            owner: "{{ mongodb_user }}"
+            group: "{{ mongodb_group }}"
+            mode: 0400
+
+        - name: Restart mongod
+          service:
+            name: "{{ mongod_service }}"
+            state: restarted
+
+        - name: Wait for mongod service to become active
+          wait_for:
+            port: "{{ mongod_port }}"
+
+        - name: Ensure replicaset converges before continuing
+          mongodb_status:
+            login_user: "{{ admin_user }}"
+            login_password: "{{ admin_user_password }}"
+            replica_set: rs0
+            poll: 99
+            interval: 10
+      when: old_keyfile_check.changed == False
+
+- hosts: all
+  gather_facts: yes
+  become: yes
+  serial: 1
+  vars_files:
+    - ./vault.yml
+  vars:
+    mongodb_user: mongod
+    mongodb_group: mongod
+    mongod_service: "mongod"
+    mongod_port: 27017
+
+  tasks:
+
+    - name: Check for keyfile content that contains old and new
+      copy:
+        content: |
+          '{{ openssl_keyfile_content | trim }}'
+
+          '{{ new_openssl_keyfile_content | trim }}'
+        dest: /etc/keyfile
+        owner: "{{ mongodb_user }}"
+        group: "{{ mongodb_group }}"
+        mode: 0400
+      check_mode: yes
+      register: old_new_keyfile_check
+
+    - name: Migrate keyfile to contain only the new key
+      block:
+        - name: Ensure keyfile contains only the new key
+          copy:
+            content: |
+              {{ new_openssl_keyfile_content | trim }}
+            dest: /etc/keyfile
+            owner: "{{ mongodb_user }}"
+            group: "{{ mongodb_group }}"
+            mode: 0400
+
+        - name: Restart mongod
+          service:
+            name: "{{ mongod_service }}"
+            state: restarted
+
+        - name: Wait for mongod service to become active
+          wait_for:
+            port: "{{ mongod_port }}"
+
+        - name: Ensure replicaset converges before continuing
+          mongodb_status:
+            login_user: "{{ admin_user }}"
+            login_password: "{{ admin_user_password }}"
+            replica_set: rs0
+            poll: 99
+            interval: 10
+      when: old_new_keyfile_check.changed == False

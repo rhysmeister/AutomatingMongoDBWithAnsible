@@ -1,0 +1,63 @@
+---
+- hosts: all
+  gather_facts: yes
+  become: yes
+  serial: 1
+  vars_files:
+    - ./vault.yml
+  vars:
+    required_packages:
+      - "yum-plugin-versionlock"
+    mongod_service: "mongod"
+    reboot_timeout: 3600
+    mongod_port: 27017
+
+  tasks:
+
+    - name: Ensure required packages are installed
+      yum:
+        name: yum-plugin-versionlock
+      when: ansible_os_family == "RedHat"
+
+    - name: Ensure mongodb-org* packages are version locked
+      shell: yum versionlock mongodb-org* && touch /root/mongo_version_lock.success
+      args:
+        creates: /root/mongo_version_lock.success
+      when: ansible_os_family == "RedHat"
+
+    - name: Stop mongod service
+      service:
+        name: "{{ mongod_service }}"
+        state: "stopped"
+
+    - name: Patch OS
+      yum:
+        name: "*"
+        state: "latest"
+        exclude: "mongodb-org*"
+      when: ansible_os_family == "RedHat"
+      register: patch
+
+    - name: Reboot node
+      reboot:
+        reboot_timeout: "{{ reboot_timeout }}"
+      when: patch.msg != "Nothing to do"
+
+    - name: Start mongod service
+      service:
+        name: "{{ mongod_service }}"
+        state: "started"
+
+    - name: Wait for mongod service to become active
+      wait_for:
+        port: "{{ mongod_port }}"
+        delay: 10
+      when: patch.msg != "Nothing to do"
+
+    - name: Ensure replicaset converges before continuing
+      mongodb_status:
+        login_user: "{{ admin_user }}"
+        login_password: "{{ admin_user_password }}"
+        replica_set: rs0
+        poll: 99
+        interval: 10

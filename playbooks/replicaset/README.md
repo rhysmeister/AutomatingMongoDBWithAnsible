@@ -75,3 +75,9 @@ vagrant ssh-config > .vagrant/ssh-config
 export ANSIBLE_INVENTORY=.vagrant/provisioners/ansible/inventory/vagrant_ansible_inventory;
 py.test --ssh-config=.vagrant/ssh-config tests_mongodbreplicaset.py
 ```
+
+# Playbook commands
+
+```
+ansible-playbook -i .vagrant/provisioners/ansible/inventory/vagrant_ansible_inventory rotate_replicaset_keys.yml --ask-vault-pass -v
+```
