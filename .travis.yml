@@ -18,6 +18,7 @@ before_install:
 script:
   - pwd
   - ls
+  - export ANSIBLE_VAULT_PASSWORD_FILE="$(pwd)/playbooks/replicaset/molecule/default/.vault_pass.txt"
   - cd playbooks/replicaset
   - molecule test
 after_success:
