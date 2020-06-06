@@ -15,6 +15,7 @@ before_install:
   - ansible --version
   - molecule --version
   - pytest --version
+  - ansible-galaxy list
 script:
   - pwd
   - ls
