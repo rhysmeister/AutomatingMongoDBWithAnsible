@@ -1,14 +1,21 @@
 language: python
 python:
-  - 2.7
-  - 3.5
-  - 3.6
+  - "2.7"
+  - "3.5"
+  - "3.6"
 before_install:
   - python --version
-  - pip install -U ansible
-  - pip install -U codecov
-  - pip install -U molecule docker
+  - pip install --upgrade pip
+  - export pyv=$(python -c 'from platform import python_version; print(python_version()[:3])')
+  - pip install --requirement requirements-${pyv}.txt
+  - ansible-galaxy collection install community.general
+  - wget https://github.com/ansible-collections/community.mongodb/releases/download/refs%2Fheads%2Fmaster/community-mongodb-latest.tar.gz
+  - ansible-galaxy collection install community-mongodb-latest.tar.gz
+  - pip --version
+  - ansible --version
+  - molecule --version
+  - pytest --version
 script:
-  - ./travis_run.sh
+  - cd playbooks/replicaset && molecule test
 after_success:
   - codecov # submit coverage
