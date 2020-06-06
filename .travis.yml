@@ -19,7 +19,6 @@ script:
   - pwd
   - ls
   - export ANSIBLE_VAULT_PASSWORD_FILE="$(pwd)/playbooks/replicaset/molecule/default/.vault_pass.txt"
-  - export ANSIBLE_ROLES_PATH="/home/travis/.ansible/collections/ansible_collections/community/mongodb/roles"
   - cd playbooks/replicaset
   - molecule test
 after_success:
