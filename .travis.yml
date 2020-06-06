@@ -11,6 +11,8 @@ before_install:
   - ansible-galaxy collection install community.general
   - wget https://github.com/ansible-collections/community.mongodb/releases/download/refs%2Fheads%2Fmaster/community-mongodb-latest.tar.gz
   - ansible-galaxy collection install community-mongodb-latest.tar.gz -p /home/travis/.ansible/collections
+  - ls /home/travis/.ansible/collections/ansible_collections/community/mongodb
+  - ansible-galaxy list
   - pip --version
   - ansible --version
   - molecule --version
