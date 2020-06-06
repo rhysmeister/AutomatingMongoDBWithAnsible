@@ -10,7 +10,7 @@ before_install:
   - pip install --requirement requirements-${pyv}.txt
   - ansible-galaxy collection install community.general
   - wget https://github.com/ansible-collections/community.mongodb/releases/download/refs%2Fheads%2Fmaster/community-mongodb-latest.tar.gz
-  - ansible-galaxy collection install community-mongodb-latest.tar.gz -p /usr/share/ansible/roles
+  - ansible-galaxy collection install community-mongodb-latest.tar.gz -p /home/travis/.ansible/collections
   - pip --version
   - ansible --version
   - molecule --version
