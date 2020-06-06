@@ -16,6 +16,7 @@ before_install:
   - molecule --version
   - pytest --version
 script:
+  - pwd
   - cd playbooks/replicaset && molecule test
 after_success:
   - codecov # submit coverage
