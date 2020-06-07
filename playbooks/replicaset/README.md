@@ -79,5 +79,6 @@ py.test --ssh-config=.vagrant/ssh-config tests_mongodbreplicaset.py
 # Playbook commands
 
 ```
+ansible-playbook -i .vagrant/provisioners/ansible/inventory/vagrant_ansible_inventory rolling_os_update.yml --ask-vault-pass -v
 ansible-playbook -i .vagrant/provisioners/ansible/inventory/vagrant_ansible_inventory rotate_replicaset_keys.yml --ask-vault-pass -v
 ```

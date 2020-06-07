@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<ScrivenerProject Identifier="D3E786DF-1AC5-45F4-BA09-6C5655FEC9CB" Version="2.0" Creator="SCRMAC-3.1.2-10882" Device="Rhyss-MacBook-Pro" Author="Rhys Campbell" Modified="2020-03-29 15:41:29 +0200" ModID="F5014833-2C43-453D-B19B-ECE372ABA470">
+<ScrivenerProject Identifier="D3E786DF-1AC5-45F4-BA09-6C5655FEC9CB" Version="2.0" Creator="SCRMAC-3.1.2-10882" Device="Rhyss-MacBook-Pro" Author="Rhys Campbell" Modified="2020-06-03 17:14:30 +0200" ModID="F0AFC8F7-55D7-4F3A-9E9F-379D7C509F43">
     <Binder>
         <BinderItem UUID="9FFBA333-8432-41C1-91F5-1302DFE283CA" Type="Text" Created="2019-08-03 16:18:29 +0200" Modified="2019-08-03 16:18:29 +0200">
             <Title>Non-Fiction Format for LaTeX</Title>
@@ -40,41 +40,8 @@
                         <TextSelection>0,0</TextSelection>
                     </TextSettings>
                 </BinderItem>
-                <BinderItem UUID="6C3BDCCC-F6C3-4AF9-B7CD-475616712EAE" Type="Folder" Created="2019-08-03 16:18:29 +0200" Modified="2020-02-08 19:28:05 +0100">
-                    <Title>Introduction</Title>
-                    <MetaData>
-                        <IncludeInCompile>Yes</IncludeInCompile>
-                    </MetaData>
-                    <TextSettings>
-                        <TextSelection>0,0</TextSelection>
-                    </TextSettings>
-                    <CorkboardAndOutliner>
-                        <SelectedSubdocumentUUIDs>0928C400-D598-4383-83A5-3BFC2C9FCC31</SelectedSubdocumentUUIDs>
-                    </CorkboardAndOutliner>
-                    <Children>
-                        <BinderItem UUID="606E2F6A-318D-44EA-A9BC-81093A72CD2F" Type="Text" Created="2019-08-03 16:18:29 +0200" Modified="2020-03-03 22:05:47 +0100">
-                            <Title>MongoDB and Ansible</Title>
-                            <MetaData>
-                                <StatusID>2</StatusID>
-                                <IncludeInCompile>Yes</IncludeInCompile>
-                            </MetaData>
-                            <TextSettings>
-                                <TextSelection>0,0</TextSelection>
-                            </TextSettings>
-                        </BinderItem>
-                        <BinderItem UUID="0928C400-D598-4383-83A5-3BFC2C9FCC31" Type="Text" Created="2020-03-03 22:05:54 +0100" Modified="2020-03-29 12:40:10 +0200">
-                            <Title>Tools used in this book</Title>
-                            <MetaData>
-                                <IncludeInCompile>Yes</IncludeInCompile>
-                            </MetaData>
-                            <TextSettings>
-                                <TextSelection>1146,0</TextSelection>
-                            </TextSettings>
-                        </BinderItem>
-                    </Children>
-                </BinderItem>
-                <BinderItem UUID="3135E8CA-DC67-4BAF-AE1C-EA84AEAD1AFD" Type="Folder" Created="2020-01-27 16:00:37 +0100" Modified="2020-02-08 19:28:16 +0100">
-                    <Title>Environment Setup</Title>
+                <BinderItem UUID="F068B640-1BFD-4053-A065-A84237771886" Type="Folder" Created="2020-05-10 11:19:28 +0200" Modified="2020-05-10 11:19:47 +0200">
+                    <Title>Part I - Introduction to MongoDB with Ansible</Title>
                     <MetaData>
                         <IncludeInCompile>Yes</IncludeInCompile>
                     </MetaData>
@@ -82,60 +49,8 @@
                         <TextSelection>0,0</TextSelection>
                     </TextSettings>
                     <Children>
-                        <BinderItem UUID="476FC3AE-78C7-427A-9AE2-CDEE2FA49A3B" Type="Text" Created="2020-01-27 16:34:39 +0100" Modified="2020-01-28 19:42:27 +0100">
-                            <Title>Setup on Windows</Title>
-                            <MetaData>
-                                <SectionType>8987254D-87B0-4F78-A870-0AC688289145</SectionType>
-                                <IncludeInCompile>Yes</IncludeInCompile>
-                            </MetaData>
-                            <TextSettings>
-                                <TextSelection>229,0</TextSelection>
-                            </TextSettings>
-                        </BinderItem>
-                        <BinderItem UUID="17AB99FA-E221-495C-AF94-F2BD799A50AB" Type="Text" Created="2020-01-27 16:34:56 +0100" Modified="2020-01-27 22:10:25 +0100">
-                            <Title>Setup on Linux</Title>
-                            <MetaData>
-                                <SectionType>8987254D-87B0-4F78-A870-0AC688289145</SectionType>
-                                <IncludeInCompile>Yes</IncludeInCompile>
-                            </MetaData>
-                            <TextSettings>
-                                <TextSelection>65,0</TextSelection>
-                            </TextSettings>
-                        </BinderItem>
-                        <BinderItem UUID="21C56B6E-32B6-484D-8F30-E58CCF0117C2" Type="Text" Created="2020-01-27 16:35:39 +0100" Modified="2020-03-03 21:18:44 +0100">
-                            <Title>Setup on MacOS</Title>
-                            <MetaData>
-                                <IncludeInCompile>Yes</IncludeInCompile>
-                            </MetaData>
-                            <TextSettings>
-                                <TextSelection>1116,0</TextSelection>
-                            </TextSettings>
-                        </BinderItem>
-                    </Children>
-                </BinderItem>
-                <BinderItem UUID="20D796BF-16B8-418D-8A15-C0911FBE9F46" Type="Folder" Created="2020-02-08 19:29:24 +0100" Modified="2020-03-29 12:40:56 +0200">
-                    <Title>MongoDB Ansible Collection</Title>
-                    <MetaData>
-                        <IncludeInCompile>Yes</IncludeInCompile>
-                    </MetaData>
-                    <TextSettings>
-                        <TextSelection>0,0</TextSelection>
-                    </TextSettings>
-                    <CorkboardAndOutliner>
-                        <SelectedSubdocumentUUIDs>88DB300A-0B70-4463-AE23-CB02C9E43151</SelectedSubdocumentUUIDs>
-                    </CorkboardAndOutliner>
-                    <Children>
-                        <BinderItem UUID="AAFF404D-142C-4EEF-B64A-FCBCA474B8EF" Type="Text" Created="2020-02-08 19:30:36 +0100" Modified="2020-03-03 21:31:04 +0100">
-                            <Title>MongoDB Roles</Title>
-                            <MetaData>
-                                <IncludeInCompile>Yes</IncludeInCompile>
-                            </MetaData>
-                            <TextSettings>
-                                <TextSelection>531,0</TextSelection>
-                            </TextSettings>
-                        </BinderItem>
-                        <BinderItem UUID="88DB300A-0B70-4463-AE23-CB02C9E43151" Type="Folder" Created="2019-08-03 16:25:20 +0200" Modified="2020-02-08 19:28:10 +0100">
-                            <Title>MongoDB Ansible Modules</Title>
+                        <BinderItem UUID="6C3BDCCC-F6C3-4AF9-B7CD-475616712EAE" Type="Folder" Created="2019-08-03 16:18:29 +0200" Modified="2020-02-08 19:28:05 +0100">
+                            <Title>Introduction</Title>
                             <MetaData>
                                 <IncludeInCompile>Yes</IncludeInCompile>
                             </MetaData>
@@ -143,78 +58,177 @@
                                 <TextSelection>0,0</TextSelection>
                             </TextSettings>
                             <CorkboardAndOutliner>
-                                <SelectedSubdocumentUUIDs>EC8BCA17-94B3-4956-B4FE-3A7DECF19DCE</SelectedSubdocumentUUIDs>
+                                <SelectedSubdocumentUUIDs>0928C400-D598-4383-83A5-3BFC2C9FCC31</SelectedSubdocumentUUIDs>
                             </CorkboardAndOutliner>
                             <Children>
-                                <BinderItem UUID="54A215F7-6CAC-4E74-B61C-05062ED6C534" Type="Text" Created="2019-08-03 16:32:17 +0200" Modified="2019-08-03 16:32:25 +0200">
-                                    <Title>mongodb_parameter</Title>
+                                <BinderItem UUID="606E2F6A-318D-44EA-A9BC-81093A72CD2F" Type="Text" Created="2019-08-03 16:18:29 +0200" Modified="2020-03-03 22:05:47 +0100">
+                                    <Title>MongoDB and Ansible</Title>
                                     <MetaData>
+                                        <StatusID>2</StatusID>
                                         <IncludeInCompile>Yes</IncludeInCompile>
                                     </MetaData>
                                     <TextSettings>
                                         <TextSelection>0,0</TextSelection>
                                     </TextSettings>
                                 </BinderItem>
-                                <BinderItem UUID="57BBF93F-E5CF-4BC7-B132-729399BF9C7C" Type="Text" Created="2019-08-03 16:32:28 +0200" Modified="2019-08-03 16:32:34 +0200">
-                                    <Title>mongodb_replicaset</Title>
+                                <BinderItem UUID="0928C400-D598-4383-83A5-3BFC2C9FCC31" Type="Text" Created="2020-03-03 22:05:54 +0100" Modified="2020-05-10 11:14:43 +0200">
+                                    <Title>Tools used in this book</Title>
+                                    <MetaData>
+                                        <IncludeInCompile>Yes</IncludeInCompile>
+                                    </MetaData>
+                                    <TextSettings>
+                                        <TextSelection>1752,0</TextSelection>
+                                    </TextSettings>
+                                </BinderItem>
+                            </Children>
+                        </BinderItem>
+                        <BinderItem UUID="3135E8CA-DC67-4BAF-AE1C-EA84AEAD1AFD" Type="Folder" Created="2020-01-27 16:00:37 +0100" Modified="2020-02-08 19:28:16 +0100">
+                            <Title>Environment Setup</Title>
+                            <MetaData>
+                                <IncludeInCompile>Yes</IncludeInCompile>
+                            </MetaData>
+                            <TextSettings>
+                                <TextSelection>0,0</TextSelection>
+                            </TextSettings>
+                            <CorkboardAndOutliner>
+                                <SelectedSubdocumentUUIDs>476FC3AE-78C7-427A-9AE2-CDEE2FA49A3B</SelectedSubdocumentUUIDs>
+                            </CorkboardAndOutliner>
+                            <Children>
+                                <BinderItem UUID="476FC3AE-78C7-427A-9AE2-CDEE2FA49A3B" Type="Text" Created="2020-01-27 16:34:39 +0100" Modified="2020-01-28 19:42:27 +0100">
+                                    <Title>Setup on Windows</Title>
+                                    <MetaData>
+                                        <SectionType>8987254D-87B0-4F78-A870-0AC688289145</SectionType>
+                                        <IncludeInCompile>Yes</IncludeInCompile>
+                                    </MetaData>
+                                    <TextSettings>
+                                        <TextSelection>229,0</TextSelection>
+                                    </TextSettings>
+                                </BinderItem>
+                                <BinderItem UUID="17AB99FA-E221-495C-AF94-F2BD799A50AB" Type="Text" Created="2020-01-27 16:34:56 +0100" Modified="2020-01-27 22:10:25 +0100">
+                                    <Title>Setup on Linux</Title>
+                                    <MetaData>
+                                        <SectionType>8987254D-87B0-4F78-A870-0AC688289145</SectionType>
+                                        <IncludeInCompile>Yes</IncludeInCompile>
+                                    </MetaData>
+                                    <TextSettings>
+                                        <TextSelection>65,0</TextSelection>
+                                    </TextSettings>
+                                </BinderItem>
+                                <BinderItem UUID="21C56B6E-32B6-484D-8F30-E58CCF0117C2" Type="Text" Created="2020-01-27 16:35:39 +0100" Modified="2020-03-03 21:18:44 +0100">
+                                    <Title>Setup on MacOS</Title>
+                                    <MetaData>
+                                        <IncludeInCompile>Yes</IncludeInCompile>
+                                    </MetaData>
+                                    <TextSettings>
+                                        <TextSelection>1116,0</TextSelection>
+                                    </TextSettings>
+                                </BinderItem>
+                            </Children>
+                        </BinderItem>
+                        <BinderItem UUID="20D796BF-16B8-418D-8A15-C0911FBE9F46" Type="Folder" Created="2020-02-08 19:29:24 +0100" Modified="2020-03-29 12:40:56 +0200">
+                            <Title>MongoDB Ansible Collection</Title>
+                            <MetaData>
+                                <IncludeInCompile>Yes</IncludeInCompile>
+                            </MetaData>
+                            <TextSettings>
+                                <TextSelection>0,0</TextSelection>
+                            </TextSettings>
+                            <CorkboardAndOutliner>
+                                <SelectedSubdocumentUUIDs>88DB300A-0B70-4463-AE23-CB02C9E43151</SelectedSubdocumentUUIDs>
+                            </CorkboardAndOutliner>
+                            <Children>
+                                <BinderItem UUID="AAFF404D-142C-4EEF-B64A-FCBCA474B8EF" Type="Text" Created="2020-02-08 19:30:36 +0100" Modified="2020-03-03 21:31:04 +0100">
+                                    <Title>MongoDB Roles</Title>
+                                    <MetaData>
+                                        <IncludeInCompile>Yes</IncludeInCompile>
+                                    </MetaData>
+                                    <TextSettings>
+                                        <TextSelection>531,0</TextSelection>
+                                    </TextSettings>
+                                </BinderItem>
+                                <BinderItem UUID="88DB300A-0B70-4463-AE23-CB02C9E43151" Type="Folder" Created="2019-08-03 16:25:20 +0200" Modified="2020-02-08 19:28:10 +0100">
+                                    <Title>MongoDB Ansible Modules</Title>
                                     <MetaData>
                                         <IncludeInCompile>Yes</IncludeInCompile>
                                     </MetaData>
                                     <TextSettings>
                                         <TextSelection>0,0</TextSelection>
                                     </TextSettings>
-                                </BinderItem>
-                                <BinderItem UUID="1280191E-4D40-4C7E-85F2-BCCC2C3A0326" Type="Text" Created="2019-08-03 16:32:37 +0200" Modified="2019-08-03 16:32:42 +0200">
-                                    <Title>mongodb_shard</Title>
-                                    <MetaData>
-                                        <IncludeInCompile>Yes</IncludeInCompile>
-                                    </MetaData>
-                                    <TextSettings>
-                                        <TextSelection>0,0</TextSelection>
-                                    </TextSettings>
-                                </BinderItem>
-                                <BinderItem UUID="B9FC23BA-E28D-4295-80B7-3DB047DC0047" Type="Text" Created="2019-08-03 16:32:46 +0200" Modified="2019-08-03 16:32:52 +0200">
-                                    <Title>mongodb_user</Title>
-                                    <MetaData>
-                                        <IncludeInCompile>Yes</IncludeInCompile>
-                                    </MetaData>
-                                    <TextSettings>
-                                        <TextSelection>0,0</TextSelection>
-                                    </TextSettings>
-                                </BinderItem>
-                                <BinderItem UUID="CE01D5B0-27A6-4A06-B59A-7CA741A5F508" Type="Text" Created="2019-08-03 16:33:22 +0200" Modified="2020-03-29 12:41:30 +0200">
-                                    <Title>mongodb lookup</Title>
-                                    <MetaData>
-                                        <IncludeInCompile>Yes</IncludeInCompile>
-                                    </MetaData>
-                                    <TextSettings>
-                                        <TextSelection>0,0</TextSelection>
-                                    </TextSettings>
-                                </BinderItem>
-                                <BinderItem UUID="EC8BCA17-94B3-4956-B4FE-3A7DECF19DCE" Type="Text" Created="2020-02-08 19:53:44 +0100" Modified="2020-02-08 19:57:04 +0100">
-                                    <Title>mongodb_status</Title>
-                                    <MetaData>
-                                        <IncludeInCompile>Yes</IncludeInCompile>
-                                    </MetaData>
-                                    <TextSettings>
-                                        <TextSelection>12,0</TextSelection>
-                                    </TextSettings>
-                                </BinderItem>
-                                <BinderItem UUID="59E3CF88-DD73-451F-8036-1717049D83E8" Type="Text" Created="2020-03-03 20:58:34 +0100" Modified="2020-03-03 21:03:26 +0100">
-                                    <Title>mongodb_info</Title>
-                                    <MetaData>
-                                        <IncludeInCompile>Yes</IncludeInCompile>
-                                    </MetaData>
-                                    <TextSettings>
-                                        <TextSelection>197,0</TextSelection>
-                                    </TextSettings>
+                                    <CorkboardAndOutliner>
+                                        <SelectedSubdocumentUUIDs>EC8BCA17-94B3-4956-B4FE-3A7DECF19DCE</SelectedSubdocumentUUIDs>
+                                    </CorkboardAndOutliner>
+                                    <Children>
+                                        <BinderItem UUID="54A215F7-6CAC-4E74-B61C-05062ED6C534" Type="Text" Created="2019-08-03 16:32:17 +0200" Modified="2019-08-03 16:32:25 +0200">
+                                            <Title>mongodb_parameter</Title>
+                                            <MetaData>
+                                                <IncludeInCompile>Yes</IncludeInCompile>
+                                            </MetaData>
+                                            <TextSettings>
+                                                <TextSelection>0,0</TextSelection>
+                                            </TextSettings>
+                                        </BinderItem>
+                                        <BinderItem UUID="57BBF93F-E5CF-4BC7-B132-729399BF9C7C" Type="Text" Created="2019-08-03 16:32:28 +0200" Modified="2019-08-03 16:32:34 +0200">
+                                            <Title>mongodb_replicaset</Title>
+                                            <MetaData>
+                                                <IncludeInCompile>Yes</IncludeInCompile>
+                                            </MetaData>
+                                            <TextSettings>
+                                                <TextSelection>0,0</TextSelection>
+                                            </TextSettings>
+                                        </BinderItem>
+                                        <BinderItem UUID="1280191E-4D40-4C7E-85F2-BCCC2C3A0326" Type="Text" Created="2019-08-03 16:32:37 +0200" Modified="2019-08-03 16:32:42 +0200">
+                                            <Title>mongodb_shard</Title>
+                                            <MetaData>
+                                                <IncludeInCompile>Yes</IncludeInCompile>
+                                            </MetaData>
+                                            <TextSettings>
+                                                <TextSelection>0,0</TextSelection>
+                                            </TextSettings>
+                                        </BinderItem>
+                                        <BinderItem UUID="B9FC23BA-E28D-4295-80B7-3DB047DC0047" Type="Text" Created="2019-08-03 16:32:46 +0200" Modified="2019-08-03 16:32:52 +0200">
+                                            <Title>mongodb_user</Title>
+                                            <MetaData>
+                                                <IncludeInCompile>Yes</IncludeInCompile>
+                                            </MetaData>
+                                            <TextSettings>
+                                                <TextSelection>0,0</TextSelection>
+                                            </TextSettings>
+                                        </BinderItem>
+                                        <BinderItem UUID="CE01D5B0-27A6-4A06-B59A-7CA741A5F508" Type="Text" Created="2019-08-03 16:33:22 +0200" Modified="2020-03-29 12:41:30 +0200">
+                                            <Title>mongodb lookup</Title>
+                                            <MetaData>
+                                                <IncludeInCompile>Yes</IncludeInCompile>
+                                            </MetaData>
+                                            <TextSettings>
+                                                <TextSelection>0,0</TextSelection>
+                                            </TextSettings>
+                                        </BinderItem>
+                                        <BinderItem UUID="EC8BCA17-94B3-4956-B4FE-3A7DECF19DCE" Type="Text" Created="2020-02-08 19:53:44 +0100" Modified="2020-02-08 19:57:04 +0100">
+                                            <Title>mongodb_status</Title>
+                                            <MetaData>
+                                                <IncludeInCompile>Yes</IncludeInCompile>
+                                            </MetaData>
+                                            <TextSettings>
+                                                <TextSelection>12,0</TextSelection>
+                                            </TextSettings>
+                                        </BinderItem>
+                                        <BinderItem UUID="59E3CF88-DD73-451F-8036-1717049D83E8" Type="Text" Created="2020-03-03 20:58:34 +0100" Modified="2020-03-03 21:03:26 +0100">
+                                            <Title>mongodb_info</Title>
+                                            <MetaData>
+                                                <IncludeInCompile>Yes</IncludeInCompile>
+                                            </MetaData>
+                                            <TextSettings>
+                                                <TextSelection>197,0</TextSelection>
+                                            </TextSettings>
+                                        </BinderItem>
+                                    </Children>
                                 </BinderItem>
                             </Children>
                         </BinderItem>
                     </Children>
                 </BinderItem>
-                <BinderItem UUID="58D7C2FA-7DB5-403C-9258-63045BF58A15" Type="Folder" Created="2019-08-03 16:18:54 +0200" Modified="2020-02-08 19:28:20 +0100">
-                    <Title>Installing MongoDB</Title>
+                <BinderItem UUID="93351532-04DC-412A-8E24-18613EA0FC38" Type="Folder" Created="2020-05-10 11:20:12 +0200" Modified="2020-05-10 11:22:29 +0200">
+                    <Title>Part II - Deploying MongoDB with Ansible</Title>
                     <MetaData>
                         <IncludeInCompile>Yes</IncludeInCompile>
                     </MetaData>
@@ -222,8 +236,28 @@
                         <TextSelection>0,0</TextSelection>
                     </TextSettings>
                     <Children>
-                        <BinderItem UUID="AB758A1B-31E9-48D3-BA8D-3FE1A4191723" Type="Text" Created="2019-08-03 16:19:21 +0200" Modified="2019-08-03 18:37:53 +0200">
-                            <Title>Installing MongoDB from an Archive</Title>
+                        <BinderItem UUID="3D578101-F6D0-469D-8CD3-EF79AA1850B9" Type="Folder" Created="2019-08-03 16:23:31 +0200" Modified="2020-02-08 19:28:28 +0100">
+                            <Title>Creating a MongoDB Replicaset</Title>
+                            <MetaData>
+                                <IncludeInCompile>Yes</IncludeInCompile>
+                            </MetaData>
+                            <TextSettings>
+                                <TextSelection>0,0</TextSelection>
+                            </TextSettings>
+                            <Children>
+                                <BinderItem UUID="CC22A10D-1CF7-4424-9E62-2FCEF294875C" Type="Text" Created="2020-03-29 15:40:27 +0200" Modified="2020-03-29 15:41:29 +0200">
+                                    <Title>MongoDB Replicasets</Title>
+                                    <MetaData>
+                                        <IncludeInCompile>Yes</IncludeInCompile>
+                                    </MetaData>
+                                    <TextSettings>
+                                        <TextSelection>0,0</TextSelection>
+                                    </TextSettings>
+                                </BinderItem>
+                            </Children>
+                        </BinderItem>
+                        <BinderItem UUID="ED1712EB-82EC-42BA-9333-6ECE02067D80" Type="Folder" Created="2019-08-03 16:24:04 +0200" Modified="2020-02-08 19:28:33 +0100">
+                            <Title>Creating a MongoDB Shared Cluster</Title>
                             <MetaData>
                                 <IncludeInCompile>Yes</IncludeInCompile>
                             </MetaData>
@@ -231,8 +265,8 @@
                                 <TextSelection>0,0</TextSelection>
                             </TextSettings>
                         </BinderItem>
-                        <BinderItem UUID="42F73867-6FE1-4545-BF15-9542805C5356" Type="Text" Created="2019-08-03 16:22:57 +0200" Modified="2019-08-03 16:34:29 +0200">
-                            <Title>Installing MongoDB using a Package Manager</Title>
+                        <BinderItem UUID="FDCEF3A6-E55F-4C3D-AB42-8E51AB2731B6" Type="Folder" Created="2020-03-29 12:45:02 +0200" Modified="2020-03-29 12:45:09 +0200">
+                            <Title>Automating MongoDB on Docker</Title>
                             <MetaData>
                                 <IncludeInCompile>Yes</IncludeInCompile>
                             </MetaData>
@@ -242,8 +276,8 @@
                         </BinderItem>
                     </Children>
                 </BinderItem>
-                <BinderItem UUID="3D578101-F6D0-469D-8CD3-EF79AA1850B9" Type="Folder" Created="2019-08-03 16:23:31 +0200" Modified="2020-02-08 19:28:28 +0100">
-                    <Title>Creating a MongoDB Replicaset</Title>
+                <BinderItem UUID="356ADED5-B0ED-4D63-A1B1-A87336F696EA" Type="Folder" Created="2020-05-10 11:20:40 +0200" Modified="2020-05-10 11:21:06 +0200">
+                    <Title>Part III - Administering MongoDB with Ansible</Title>
                     <MetaData>
                         <IncludeInCompile>Yes</IncludeInCompile>
                     </MetaData>
@@ -251,8 +285,105 @@
                         <TextSelection>0,0</TextSelection>
                     </TextSettings>
                     <Children>
-                        <BinderItem UUID="CC22A10D-1CF7-4424-9E62-2FCEF294875C" Type="Text" Created="2020-03-29 15:40:27 +0200" Modified="2020-03-29 15:41:29 +0200">
-                            <Title>MongoDB Replicasets</Title>
+                        <BinderItem UUID="10F51741-2E2A-4469-BEE1-579BDDF9FE13" Type="Folder" Created="2020-03-03 21:28:17 +0100" Modified="2020-03-03 21:28:25 +0100">
+                            <Title>Automating OS Patching</Title>
+                            <MetaData>
+                                <IncludeInCompile>Yes</IncludeInCompile>
+                            </MetaData>
+                            <TextSettings>
+                                <TextSelection>0,0</TextSelection>
+                            </TextSettings>
+                            <Children>
+                                <BinderItem UUID="CC71780C-4EAA-471F-9581-3CF70715639B" Type="Folder" Created="2020-06-03 17:12:54 +0200" Modified="2020-06-03 17:13:12 +0200">
+                                    <Title>Patching the OS on a MongoDB Replicaset</Title>
+                                    <MetaData>
+                                        <IncludeInCompile>Yes</IncludeInCompile>
+                                    </MetaData>
+                                    <TextSettings>
+                                        <TextSelection>0,0</TextSelection>
+                                    </TextSettings>
+                                </BinderItem>
+                                <BinderItem UUID="13C8DE21-A166-48D9-9398-DA46CE493E98" Type="Folder" Created="2020-06-03 17:12:54 +0200" Modified="2020-06-03 17:13:31 +0200">
+                                    <Title>Patching the OS on a MongoDB Sharded Cluster</Title>
+                                    <MetaData>
+                                        <IncludeInCompile>Yes</IncludeInCompile>
+                                    </MetaData>
+                                    <TextSettings>
+                                        <TextSelection>0,0</TextSelection>
+                                    </TextSettings>
+                                </BinderItem>
+                            </Children>
+                        </BinderItem>
+                        <BinderItem UUID="89671A0E-C48F-47A9-A038-9B677065D79F" Type="Folder" Created="2019-08-03 16:45:33 +0200" Modified="2020-02-08 19:28:54 +0100">
+                            <Title>Automating Upgrades</Title>
+                            <MetaData>
+                                <IncludeInCompile>Yes</IncludeInCompile>
+                            </MetaData>
+                            <TextSettings>
+                                <TextSelection>0,0</TextSelection>
+                            </TextSettings>
+                            <CorkboardAndOutliner>
+                                <SelectedSubdocumentUUIDs>3BC271CC-662C-4D03-AC8C-7BFBD9523B9E</SelectedSubdocumentUUIDs>
+                            </CorkboardAndOutliner>
+                            <Children>
+                                <BinderItem UUID="51179B19-427B-4D60-B5FE-81C9B2C47889" Type="Folder" Created="2020-06-03 17:13:46 +0200" Modified="2020-06-03 17:14:06 +0200">
+                                    <Title>Upgrading a MongoDB Replicaset</Title>
+                                    <MetaData>
+                                        <IncludeInCompile>Yes</IncludeInCompile>
+                                    </MetaData>
+                                    <TextSettings>
+                                        <TextSelection>0,0</TextSelection>
+                                    </TextSettings>
+                                </BinderItem>
+                                <BinderItem UUID="C9AAFD5C-8BEE-4900-9D58-D5F3EA4115A2" Type="Folder" Created="2020-06-03 17:13:46 +0200" Modified="2020-06-03 17:14:21 +0200">
+                                    <Title>Upgrading a MongoDB Sharded Cluster</Title>
+                                    <MetaData>
+                                        <IncludeInCompile>Yes</IncludeInCompile>
+                                    </MetaData>
+                                    <TextSettings>
+                                        <TextSelection>0,0</TextSelection>
+                                    </TextSettings>
+                                </BinderItem>
+                            </Children>
+                        </BinderItem>
+                        <BinderItem UUID="B3A8FC35-6FE9-4C4C-805A-FF3698BC4879" Type="Folder" Created="2019-08-03 16:36:11 +0200" Modified="2020-02-08 19:28:44 +0100">
+                            <Title>Automating Backups</Title>
+                            <MetaData>
+                                <IncludeInCompile>Yes</IncludeInCompile>
+                            </MetaData>
+                            <TextSettings>
+                                <TextSelection>0,0</TextSelection>
+                            </TextSettings>
+                        </BinderItem>
+                        <BinderItem UUID="ABF050BE-4C41-4DC6-A42C-38A4CD355141" Type="Folder" Created="2019-08-03 16:36:32 +0200" Modified="2020-02-08 19:28:49 +0100">
+                            <Title>Automating Restores</Title>
+                            <MetaData>
+                                <IncludeInCompile>Yes</IncludeInCompile>
+                            </MetaData>
+                            <TextSettings>
+                                <TextSelection>0,0</TextSelection>
+                            </TextSettings>
+                        </BinderItem>
+                        <BinderItem UUID="BB130D31-D93A-44D0-9ED2-8C8884D84366" Type="Folder" Created="2020-05-10 11:43:40 +0200" Modified="2020-05-10 11:44:05 +0200">
+                            <Title>Automating Oplog Size Changes</Title>
+                            <MetaData>
+                                <IncludeInCompile>Yes</IncludeInCompile>
+                            </MetaData>
+                            <TextSettings>
+                                <TextSelection>0,0</TextSelection>
+                            </TextSettings>
+                        </BinderItem>
+                        <BinderItem UUID="03ACECF1-DEE6-42F5-95C6-68E40646FA2E" Type="Folder" Created="2020-05-10 11:40:34 +0200" Modified="2020-05-10 11:41:35 +0200">
+                            <Title>Upgrade to X509 Authentication</Title>
+                            <MetaData>
+                                <IncludeInCompile>Yes</IncludeInCompile>
+                            </MetaData>
+                            <TextSettings>
+                                <TextSelection>0,0</TextSelection>
+                            </TextSettings>
+                        </BinderItem>
+                        <BinderItem UUID="C8BE5730-D057-4FAE-9E94-988B2C88B1C2" Type="Folder" Created="2020-06-03 17:01:15 +0200" Modified="2020-06-03 17:01:31 +0200">
+                            <Title>Change Hostnames in a Replicaset</Title>
                             <MetaData>
                                 <IncludeInCompile>Yes</IncludeInCompile>
                             </MetaData>
@@ -261,112 +392,6 @@
                             </TextSettings>
                         </BinderItem>
                     </Children>
-                </BinderItem>
-                <BinderItem UUID="ED1712EB-82EC-42BA-9333-6ECE02067D80" Type="Folder" Created="2019-08-03 16:24:04 +0200" Modified="2020-02-08 19:28:33 +0100">
-                    <Title>Creating a MongoDB Shared Cluster</Title>
-                    <MetaData>
-                        <IncludeInCompile>Yes</IncludeInCompile>
-                    </MetaData>
-                    <TextSettings>
-                        <TextSelection>0,0</TextSelection>
-                    </TextSettings>
-                </BinderItem>
-                <BinderItem UUID="E556B96B-4C97-4384-88D3-D34AB98BFE93" Type="Folder" Created="2019-08-03 16:35:24 +0200" Modified="2020-02-08 19:28:36 +0100">
-                    <Title>Adding a Shard to an Existing Cluster</Title>
-                    <MetaData>
-                        <IncludeInCompile>Yes</IncludeInCompile>
-                    </MetaData>
-                    <TextSettings>
-                        <TextSelection>0,0</TextSelection>
-                    </TextSettings>
-                </BinderItem>
-                <BinderItem UUID="B3A8FC35-6FE9-4C4C-805A-FF3698BC4879" Type="Folder" Created="2019-08-03 16:36:11 +0200" Modified="2020-02-08 19:28:44 +0100">
-                    <Title>Automating Backups</Title>
-                    <MetaData>
-                        <IncludeInCompile>Yes</IncludeInCompile>
-                    </MetaData>
-                    <TextSettings>
-                        <TextSelection>0,0</TextSelection>
-                    </TextSettings>
-                </BinderItem>
-                <BinderItem UUID="ABF050BE-4C41-4DC6-A42C-38A4CD355141" Type="Folder" Created="2019-08-03 16:36:32 +0200" Modified="2020-02-08 19:28:49 +0100">
-                    <Title>Automating Restores</Title>
-                    <MetaData>
-                        <IncludeInCompile>Yes</IncludeInCompile>
-                    </MetaData>
-                    <TextSettings>
-                        <TextSelection>0,0</TextSelection>
-                    </TextSettings>
-                </BinderItem>
-                <BinderItem UUID="89671A0E-C48F-47A9-A038-9B677065D79F" Type="Folder" Created="2019-08-03 16:45:33 +0200" Modified="2020-02-08 19:28:54 +0100">
-                    <Title>Automating Upgrades</Title>
-                    <MetaData>
-                        <IncludeInCompile>Yes</IncludeInCompile>
-                    </MetaData>
-                    <TextSettings>
-                        <TextSelection>0,0</TextSelection>
-                    </TextSettings>
-                    <CorkboardAndOutliner>
-                        <SelectedSubdocumentUUIDs>3BC271CC-662C-4D03-AC8C-7BFBD9523B9E</SelectedSubdocumentUUIDs>
-                    </CorkboardAndOutliner>
-                    <Children>
-                        <BinderItem UUID="3BC271CC-662C-4D03-AC8C-7BFBD9523B9E" Type="Text" Created="2020-03-29 15:30:23 +0200" Modified="2020-03-29 15:31:27 +0200">
-                            <Title>Upgrading MongoDB</Title>
-                            <MetaData>
-                                <IncludeInCompile>Yes</IncludeInCompile>
-                            </MetaData>
-                            <TextSettings>
-                                <TextSelection>19,0</TextSelection>
-                            </TextSettings>
-                        </BinderItem>
-                        <BinderItem UUID="54633E06-2404-44BC-A186-96416E72CDA2" Type="Text" Created="2020-03-29 15:33:32 +0200" Modified="2020-03-29 15:33:50 +0200">
-                            <Title>Demo</Title>
-                            <MetaData>
-                                <IncludeInCompile>Yes</IncludeInCompile>
-                            </MetaData>
-                            <TextSettings>
-                                <TextSelection>0,0</TextSelection>
-                            </TextSettings>
-                        </BinderItem>
-                    </Children>
-                </BinderItem>
-                <BinderItem UUID="10F51741-2E2A-4469-BEE1-579BDDF9FE13" Type="Folder" Created="2020-03-03 21:28:17 +0100" Modified="2020-03-03 21:28:25 +0100">
-                    <Title>Automating OS Patching</Title>
-                    <MetaData>
-                        <IncludeInCompile>Yes</IncludeInCompile>
-                    </MetaData>
-                    <TextSettings>
-                        <TextSelection>0,0</TextSelection>
-                    </TextSettings>
-                    <Children>
-                        <BinderItem UUID="2A8D2D5E-CE3C-4942-B2D1-D9A84A37BBA4" Type="Folder" Created="2020-03-03 21:28:33 +0100" Modified="2020-03-03 21:28:48 +0100">
-                            <Title>Patching RedHat Based Systems</Title>
-                            <MetaData>
-                                <IncludeInCompile>Yes</IncludeInCompile>
-                            </MetaData>
-                            <TextSettings>
-                                <TextSelection>0,0</TextSelection>
-                            </TextSettings>
-                        </BinderItem>
-                        <BinderItem UUID="CAEC3A49-7CC7-47C2-AFE3-2926A67A9F71" Type="Folder" Created="2020-03-03 21:28:59 +0100" Modified="2020-03-03 21:29:08 +0100">
-                            <Title>Patching Debian Based Systems</Title>
-                            <MetaData>
-                                <IncludeInCompile>Yes</IncludeInCompile>
-                            </MetaData>
-                            <TextSettings>
-                                <TextSelection>0,0</TextSelection>
-                            </TextSettings>
-                        </BinderItem>
-                    </Children>
-                </BinderItem>
-                <BinderItem UUID="FDCEF3A6-E55F-4C3D-AB42-8E51AB2731B6" Type="Folder" Created="2020-03-29 12:45:02 +0200" Modified="2020-03-29 12:45:09 +0200">
-                    <Title>Automating MongoDB on Docker</Title>
-                    <MetaData>
-                        <IncludeInCompile>Yes</IncludeInCompile>
-                    </MetaData>
-                    <TextSettings>
-                        <TextSelection>0,0</TextSelection>
-                    </TextSettings>
                 </BinderItem>
             </Children>
         </BinderItem>
@@ -845,6 +870,110 @@
                         <TextSelection>0,0</TextSelection>
                     </TextSettings>
                 </BinderItem>
+                <BinderItem UUID="782E77A8-BABE-4909-A3F5-A8E97B55126C" Type="Folder" Created="2020-05-10 11:20:29 +0200" Modified="2020-05-10 11:20:29 +0200">
+                    <Title>Neuer Ordner</Title>
+                    <MetaData>
+                        <IncludeInCompile>Yes</IncludeInCompile>
+                    </MetaData>
+                    <TextSettings>
+                        <TextSelection>0,0</TextSelection>
+                    </TextSettings>
+                </BinderItem>
+                <BinderItem UUID="58D7C2FA-7DB5-403C-9258-63045BF58A15" Type="Folder" Created="2019-08-03 16:18:54 +0200" Modified="2020-02-08 19:28:20 +0100">
+                    <Title>Installing MongoDB</Title>
+                    <MetaData>
+                        <IncludeInCompile>Yes</IncludeInCompile>
+                    </MetaData>
+                    <TextSettings>
+                        <TextSelection>0,0</TextSelection>
+                    </TextSettings>
+                    <CorkboardAndOutliner>
+                        <SelectedSubdocumentUUIDs>AB758A1B-31E9-48D3-BA8D-3FE1A4191723</SelectedSubdocumentUUIDs>
+                    </CorkboardAndOutliner>
+                    <Children>
+                        <BinderItem UUID="AB758A1B-31E9-48D3-BA8D-3FE1A4191723" Type="Text" Created="2019-08-03 16:19:21 +0200" Modified="2019-08-03 18:37:53 +0200">
+                            <Title>Installing MongoDB from an Archive</Title>
+                            <MetaData>
+                                <IncludeInCompile>Yes</IncludeInCompile>
+                            </MetaData>
+                            <TextSettings>
+                                <TextSelection>0,0</TextSelection>
+                            </TextSettings>
+                        </BinderItem>
+                        <BinderItem UUID="42F73867-6FE1-4545-BF15-9542805C5356" Type="Text" Created="2019-08-03 16:22:57 +0200" Modified="2019-08-03 16:34:29 +0200">
+                            <Title>Installing MongoDB using a Package Manager</Title>
+                            <MetaData>
+                                <IncludeInCompile>Yes</IncludeInCompile>
+                            </MetaData>
+                            <TextSettings>
+                                <TextSelection>0,0</TextSelection>
+                            </TextSettings>
+                        </BinderItem>
+                    </Children>
+                </BinderItem>
+                <BinderItem UUID="EB02B9A7-4D84-4855-9E7C-9DD91D0D04E9" Type="Folder" Created="2020-05-10 11:22:00 +0200" Modified="2020-05-10 11:22:16 +0200">
+                    <Title>Creating a Standalone MonoDB</Title>
+                    <MetaData>
+                        <IncludeInCompile>Yes</IncludeInCompile>
+                    </MetaData>
+                    <TextSettings>
+                        <TextSelection>0,0</TextSelection>
+                    </TextSettings>
+                </BinderItem>
+                <BinderItem UUID="E556B96B-4C97-4384-88D3-D34AB98BFE93" Type="Folder" Created="2019-08-03 16:35:24 +0200" Modified="2020-02-08 19:28:36 +0100">
+                    <Title>Adding a Shard to an Existing Cluster</Title>
+                    <MetaData>
+                        <IncludeInCompile>Yes</IncludeInCompile>
+                    </MetaData>
+                    <TextSettings>
+                        <TextSelection>0,0</TextSelection>
+                    </TextSettings>
+                </BinderItem>
+                <BinderItem UUID="2A8D2D5E-CE3C-4942-B2D1-D9A84A37BBA4" Type="Folder" Created="2020-03-03 21:28:33 +0100" Modified="2020-03-03 21:28:48 +0100">
+                    <Title>Patching RedHat Based Systems</Title>
+                    <MetaData>
+                        <IncludeInCompile>Yes</IncludeInCompile>
+                    </MetaData>
+                    <TextSettings>
+                        <TextSelection>0,0</TextSelection>
+                    </TextSettings>
+                </BinderItem>
+                <BinderItem UUID="CAEC3A49-7CC7-47C2-AFE3-2926A67A9F71" Type="Folder" Created="2020-03-03 21:28:59 +0100" Modified="2020-03-03 21:29:08 +0100">
+                    <Title>Patching Debian Based Systems</Title>
+                    <MetaData>
+                        <IncludeInCompile>Yes</IncludeInCompile>
+                    </MetaData>
+                    <TextSettings>
+                        <TextSelection>0,0</TextSelection>
+                    </TextSettings>
+                </BinderItem>
+                <BinderItem UUID="3BC271CC-662C-4D03-AC8C-7BFBD9523B9E" Type="Text" Created="2020-03-29 15:30:23 +0200" Modified="2020-06-03 17:03:43 +0200">
+                    <Title>Upgrading a MongoDB Replicaset</Title>
+                    <MetaData>
+                        <IncludeInCompile>Yes</IncludeInCompile>
+                    </MetaData>
+                    <TextSettings>
+                        <TextSelection>32,0</TextSelection>
+                    </TextSettings>
+                </BinderItem>
+                <BinderItem UUID="51B3C8ED-9A0F-40B5-B6B3-816A79FE171C" Type="Text" Created="2020-03-29 15:30:23 +0200" Modified="2020-06-03 17:04:01 +0200">
+                    <Title>Upgrading a MongoDB Sharded Cluster</Title>
+                    <MetaData>
+                        <IncludeInCompile>Yes</IncludeInCompile>
+                    </MetaData>
+                    <TextSettings>
+                        <TextSelection>32,0</TextSelection>
+                    </TextSettings>
+                </BinderItem>
+                <BinderItem UUID="54633E06-2404-44BC-A186-96416E72CDA2" Type="Text" Created="2020-03-29 15:33:32 +0200" Modified="2020-03-29 15:33:50 +0200">
+                    <Title>Demo</Title>
+                    <MetaData>
+                        <IncludeInCompile>Yes</IncludeInCompile>
+                    </MetaData>
+                    <TextSettings>
+                        <TextSelection>0,0</TextSelection>
+                    </TextSettings>
+                </BinderItem>
             </Children>
         </BinderItem>
     </Binder>
@@ -935,11 +1064,11 @@
     <ProjectTargets Notify="No">
         <DraftTarget Type="Words" CountIncludedOnly="Yes" CurrentCompileGroupOnly="Yes" Deadline="2011-04-12 14:24:39 +0200" IgnoreDeadline="Yes">0</DraftTarget>
         <SessionTarget Type="Words" CountDraftOnly="Yes" AllowNegatives="No" ResetType="Time" ResetTime="00:00" DeterminedFromDeadline="No" WritingDays="" CanWriteOnDeadlineDate="No">0</SessionTarget>
-        <PreviousSession Words="0" Characters="0" Date="2020-04-17 13:08:12 +0200"/>
+        <PreviousSession Words="2" Characters="13" Date="2020-06-03 17:00:27 +0200"/>
     </ProjectTargets>
-    <RecentWritingHistory Date="2020-04-17 00:00:00 +0200">
-        <DraftWordCount>0</DraftWordCount>
-        <DraftCharCount>0</DraftCharCount>
+    <RecentWritingHistory Date="2020-06-03 00:00:00 +0200">
+        <DraftWordCount>2</DraftWordCount>
+        <DraftCharCount>13</DraftCharCount>
         <OtherWordCount>0</OtherWordCount>
         <OtherCharCount>0</OtherCharCount>
     </RecentWritingHistory>

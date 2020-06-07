@@ -15,24 +15,30 @@ platforms:
     command: /sbin/init
     privileged: True
     networks:
-      - name: "mymongo"
-    network_mode: "mymongo"
+      - name: "local"
+    network_mode: "local"
+    groups:
+      - mongodb
   - name: mongodb2
     hostname: mongodb2.local
     image: centos:8
     command: /sbin/init
     privileged: True
     networks:
-      - name: "mymongo"
-    network_mode: "mymongo"
+      - name: "local"
+    network_mode: "local"
+    groups:
+      - mongodb
   - name: mongodb3
     hostname: mongodb3.local
     image: centos:8
     command: /sbin/init
     privileged: True
     networks:
-      - name: "mymongo"
-    network_mode: "mymongo"
+      - name: "local"
+    network_mode: "local"
+    groups:
+      - mongodb
 provisioner:
   name: ansible
   lint:

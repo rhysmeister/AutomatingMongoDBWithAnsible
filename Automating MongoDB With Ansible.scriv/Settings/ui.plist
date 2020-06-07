@@ -90,8 +90,8 @@
 	</array>
 	<key>binderSplitFrames</key>
 	<array>
-		<string>{{0, 0}, {320, 754}}</string>
-		<string>{{321, 0}, {1119, 754}}</string>
+		<string>{{0, 0}, {410, 754}}</string>
+		<string>{{411, 0}, {1029, 754}}</string>
 	</array>
 	<key>binderState</key>
 	<array>
@@ -387,7 +387,7 @@
 		<real>84</real>
 	</dict>
 	<key>supportingDocumentEditor.scrollRect</key>
-	<string>{{0, 0}, {606, 294}}</string>
+	<string>{{0, 0}, {620, 636}}</string>
 	<key>supportingDocumentEditor.selectedItemIDs</key>
 	<array/>
 	<key>supportingDocumentEditor.selectedItemUUIDs</key>

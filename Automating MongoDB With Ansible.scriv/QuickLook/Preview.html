@@ -94,7 +94,12 @@
 <p class="topLevelItemTitle">Preface</p>
 </li>
 <li>
-<p class="topLevelItemTitle">Introduction</p>
+<p class="topLevelItemTitle">Part I - Introduction to MongoDB with Ansible</p>
+</li>
+<hr class="afterTitle"/>
+<ul>
+<li>
+<p class="folderTitle">Introduction</p>
 </li>
 <hr class="afterTitle"/>
 <ul>
@@ -105,16 +110,16 @@
 <p class="itemTitle">Tools used in this book</p>
 <p class="itemText">Tools used in this book</span></p></p>
 <p class="itemText"><p class="p2"><span class="s1"></span><br></p></p>
-<p class="itemText"><p class="p1"><span class="s1">Obviously MongoDB and Ansible are used in this book but we also used a bunch of other DevOps tools. These tools allow us to build things smart, faster and with higher quality.<span class="Apple-converted-space"> </span></span></p></p>
+<p class="itemText"><p class="p1"><span class="s1">Obviously MongoDB and Ansible are used in this book but we also use a bunch of other DevOps tools. These tools allow us to build things smart, faster and with higher quality.<span class="Apple-converted-space"> </span></span></p></p>
 <p class="itemText"><p class="p1"><span class="s1">Docker - https://www.docker.com/</span></p></p>
 <p class="itemText"><p class="p2"><span class="s1"></span><br></p></p>
-<p class="itemText"><p class="p1"><span class="s1">Docker is very fashionable in the DevOps world. We make use of Docker in this book to quickly test Ansible roles through molecule. Traditional Virtual Machines can be slow to start up and can slow down our testing. We want to keep our feedback loop as short as pos...</p>
+<p class="itemText"><p class="p1"><span class="s1">Docker is very fashionable in the DevOps world. We make use of Docker in this book to quickly test Ansible roles through molecule. Traditional Virtual Machines can be slow to start up and can slow down our testing. We want to keep our feedback loop as short as poss...</p>
 </li>
 </ul>
 <hr class="afterText"/>
 
 <li>
-<p class="topLevelItemTitle">Environment Setup</p>
+<p class="folderTitle">Environment Setup</p>
 </li>
 <hr class="afterTitle"/>
 <ul>
@@ -139,7 +144,7 @@
 <hr class="afterText"/>
 
 <li>
-<p class="topLevelItemTitle">MongoDB Ansible Collection</p>
+<p class="folderTitle">MongoDB Ansible Collection</p>
 </li>
 <hr class="afterTitle"/>
 <ul>
@@ -190,24 +195,16 @@
 </li>
 </ul>
 </ul>
+</ul>
 <hr class="afterText"/>
 
 <li>
-<p class="topLevelItemTitle">Installing MongoDB</p>
+<p class="topLevelItemTitle">Part II - Deploying MongoDB with Ansible</p>
 </li>
 <hr class="afterTitle"/>
 <ul>
 <li>
-<p class="itemTitle">Installing MongoDB from an Archive</p>
-</li>
-<li>
-<p class="itemTitle">Installing MongoDB using a Package Manager</p>
-</li>
-</ul>
-<hr class="afterTitle"/>
-
-<li>
-<p class="topLevelItemTitle">Creating a MongoDB Replicaset</p>
+<p class="folderTitle">Creating a MongoDB Replicaset</p>
 </li>
 <hr class="afterTitle"/>
 <ul>
@@ -219,50 +216,63 @@
 <hr class="afterText"/>
 
 <li>
-<p class="topLevelItemTitle">Creating a MongoDB Shared Cluster</p>
+<p class="folderTitle">Creating a MongoDB Shared Cluster</p>
 </li>
 <li>
-<p class="topLevelItemTitle">Adding a Shard to an Existing Cluster</p>
-</li>
-<li>
-<p class="topLevelItemTitle">Automating Backups</p>
-</li>
-<li>
-<p class="topLevelItemTitle">Automating Restores</p>
-</li>
-<li>
-<p class="topLevelItemTitle">Automating Upgrades</p>
-</li>
-<hr class="afterTitle"/>
-<ul>
-<li>
-<p class="itemTitle">Upgrading MongoDB</p>
-<p class="itemText">General discussion of the MongoBD upgrade process.</p>
-</li>
-<li>
-<p class="itemTitle">Demo</p>
-<p class="itemText">Upgrade 4.0 -&gt; 4.2</p>
-</li>
-</ul>
-<hr class="afterText"/>
-
-<li>
-<p class="topLevelItemTitle">Automating OS Patching</p>
-</li>
-<hr class="afterTitle"/>
-<ul>
-<li>
-<p class="folderTitle">Patching RedHat Based Systems</p>
-</li>
-<li>
-<p class="folderTitle">Patching Debian Based Systems</p>
+<p class="folderTitle">Automating MongoDB on Docker</p>
 </li>
 </ul>
 <hr class="afterTitle"/>
 
 <li>
-<p class="topLevelItemTitle">Automating MongoDB on Docker</p>
+<p class="topLevelItemTitle">Part III - Administering MongoDB with Ansible</p>
 </li>
+<hr class="afterTitle"/>
+<ul>
+<li>
+<p class="folderTitle">Automating OS Patching</p>
+</li>
+<hr class="afterTitle"/>
+<ul>
+<li>
+<p class="folderTitle">Patching the OS on a MongoDB Replicaset</p>
+</li>
+<li>
+<p class="folderTitle">Patching the OS on a MongoDB Sharded Cluster</p>
+</li>
+</ul>
+<hr class="afterTitle"/>
+
+<li>
+<p class="folderTitle">Automating Upgrades</p>
+</li>
+<hr class="afterTitle"/>
+<ul>
+<li>
+<p class="folderTitle">Upgrading a MongoDB Replicaset</p>
+</li>
+<li>
+<p class="folderTitle">Upgrading a MongoDB Sharded Cluster</p>
+</li>
+</ul>
+<hr class="afterTitle"/>
+
+<li>
+<p class="folderTitle">Automating Backups</p>
+</li>
+<li>
+<p class="folderTitle">Automating Restores</p>
+</li>
+<li>
+<p class="folderTitle">Automating Oplog Size Changes</p>
+</li>
+<li>
+<p class="folderTitle">Upgrade to X509 Authentication</p>
+</li>
+<li>
+<p class="folderTitle">Change Hostnames in a Replicaset</p>
+</li>
+</ul>
 </ul>
 
 </td>
