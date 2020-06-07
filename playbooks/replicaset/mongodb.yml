@@ -5,10 +5,10 @@
   vars_files:
     - ./vault.yml
   roles:
-    - role: "mongodb_linux"
-    - role: "mongodb_selinux"
-    - role: "mongodb_repository"
-    - role: "mongodb_mongod"
+    - role: "community.mongodb.mongodb_linux"
+    - role: "community.mongodb.mongodb_selinux"
+    - role: "community.mongodb.mongodb_repository"
+    - role: "community.mongodb.mongodb_mongod"
 
   tasks:
 
