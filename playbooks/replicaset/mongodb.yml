@@ -64,6 +64,12 @@
         - mongodb_admin.stat.exists == False
       ignore_errors: yes
 
+    - name: Has MongoDB App Users been created already?
+      stat:
+        path: /root/mongodb_users.success
+      when: groups.mongodb.index(inventory_hostname) == 0
+      register: mongodb_users
+
     - name: Add MongoDB App Users
       community.mongodb.mongodb_user:
         login_user: "{{ admin_user }}"
@@ -76,5 +82,18 @@
         replica_set: rs0
       with_items:
         - "{{ app_users }}"
-      when: groups.mongodb.index(inventory_hostname) == 0
+      when:
+        - groups.mongodb.index(inventory_hostname) == 0
+        - mongodb_users.stat.exists == False
       no_log: yes
+
+    - shell: "mongo {{ item.database }} --username {{ item.username }} --password {{ item.password }} --eval 'db.runCommand({listCollections: 1})' && touch /root/mongodb_users.success"
+      args:
+        creates: /root/mongodb_users.success
+      when:
+        - groups.mongodb.index(inventory_hostname) == 0
+        - mongodb_users.stat.exists == False
+      with_items:
+        - "{{ app_users }}"
+      no_log: yes
+      ignore_errors: yes
