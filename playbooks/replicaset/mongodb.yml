@@ -64,7 +64,7 @@
         - mongodb_admin.stat.exists == False
       ignore_errors: yes
 
-    - name: Has MongoDB App Users been created already?
+    - name: Have MongoDB App Users been created already?
       stat:
         path: /root/mongodb_users.success
       when: groups.mongodb.index(inventory_hostname) == 0

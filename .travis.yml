@@ -21,5 +21,7 @@ script:
   - export ANSIBLE_PYTHON_INTERPRETER=/usr/libexec/platform-python
   - cd playbooks/replicaset
   - molecule test
+  - export ANSIBLE_PYTHON_INTERPRETER=/usr/bin/python
+  - molecule test --scenario-name debian
 after_success:
   - codecov # submit coverage
