@@ -3,6 +3,7 @@
   gather_facts: yes
   vars_files:
     - ./vault.yml
+  order: sorted
   roles:
     - role: "community.mongodb.mongodb_linux"
     - role: "community.mongodb.mongodb_selinux"
