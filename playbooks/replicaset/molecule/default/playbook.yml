@@ -1,7 +1,6 @@
 ---
 - name: Converge
   hosts: all
-  order: sorted
   roles:
 
   tasks:

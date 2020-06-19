@@ -7,7 +7,6 @@
   vars:
     sharding: true
     mongod_port: 27018
-  order: sorted
   roles:
     - role: "mongodb_linux"
     - role: "mongodb_selinux"
