@@ -32,9 +32,8 @@
       register: create_rs
       when: inventory_hostname == "mongodb1"
 
-    - name: Wait for replicaset to converge
+    - name: Wait for replicaset to convergeg
       community.mongodb.mongodb_status:
-        replica_set: "rs0"
         poll: 20
         interval: 3
       register: rs
@@ -64,7 +63,7 @@
         roles:
           - "root"
       when:
-        - inventory_hostname == "{{ primary }}"
+        - inventory_hostname == primary
         - mongodb_admin.stat.exists == False
 
     - shell: "mongo admin --username {{ admin_user }} --password {{ admin_user_password }} --eval 'db.runCommand({listDatabases: 1})' && touch /root/mongodb_admin.success"
@@ -77,7 +76,7 @@
     - name: Have MongoDB App Users been created already?
       stat:
         path: /root/mongodb_users.success
-      when: inventory_hostname == "{{ primary }}"
+      when: inventory_hostname == primary
       register: mongodb_users
 
     - name: Add MongoDB App Users
@@ -93,7 +92,7 @@
       with_items:
         - "{{ app_users }}"
       when:
-        - inventory_hostname == "{{ primary }}"
+        - inventory_hostname == primary
         - mongodb_users.stat.exists == False
       no_log: yes
 
@@ -101,7 +100,7 @@
       args:
         creates: /root/mongodb_users.success
       when:
-        - inventory_hostname == "{{ primary }}"
+        - inventory_hostname == primary
         - mongodb_users.stat.exists == False
       with_items:
         - "{{ app_users }}"
