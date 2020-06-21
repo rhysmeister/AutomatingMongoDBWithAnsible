@@ -32,11 +32,9 @@
       register: create_rs
       when: inventory_hostname == "mongodb1"
 
-    - pause:
-        seconds: 10
-      when:
-        - create_rs.changed == true
-        - inventory_hostname== "mongodb1"
+    - name: Wait for replicaset to converge
+      community.mongodb.mongodb_status:
+        replicaset: "rs0"
 
     - name: Has MongoDB Admin User been created already?
       stat:
