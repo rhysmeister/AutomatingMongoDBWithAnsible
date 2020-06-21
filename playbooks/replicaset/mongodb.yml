@@ -38,7 +38,6 @@
         poll: 20
         interval: 3
       register: rs
-      when: inventory_hostname == "mongodb1"
 
     - debug:
         var: rs
