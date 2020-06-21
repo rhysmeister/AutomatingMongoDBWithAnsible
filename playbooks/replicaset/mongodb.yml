@@ -35,6 +35,7 @@
     - name: Wait for replicaset to converge
       community.mongodb.mongodb_status:
         replicaset: "rs0"
+      when: create_rs.changed == True
 
     - name: Has MongoDB Admin User been created already?
       stat:
