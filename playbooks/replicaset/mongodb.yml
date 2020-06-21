@@ -54,6 +54,7 @@
         database: admin
         roles:
           - "root"
+        replica_set: rs0
       when:
         - inventory_hostname == "mongodb1"
         - mongodb_admin.stat.exists == False
