@@ -44,7 +44,7 @@
 
     - name: Lookup PRIMARY member
       set_fact:
-        primary: "{{ item.key }}"
+        primary: "{{ item.key.split(".")[0] }}"
       loop: "{{ lookup('dict', rs.replicaset) }}"
       when: "'PRIMARY' in item.value"
 
