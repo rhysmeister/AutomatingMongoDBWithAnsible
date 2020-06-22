@@ -44,6 +44,9 @@ provisioner:
   lint:
     name: ansible-lint
     enabled: false
+  config_options:
+    defaults:
+      vault_password_file: "${MOLECULE_SCENARIO_DIRECTORY}/.vault_pass.txt"
 verifier:
   name: testinfra
   lint:

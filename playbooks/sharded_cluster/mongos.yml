@@ -1,7 +1,6 @@
 ---
-- hosts: all
+- hosts: mongos
   gather_facts: yes
-  become: yes
   vars:
     shards:
       - "rs0/mongodb1.local:27018"
@@ -10,11 +9,11 @@
   vars_files:
     - ./vault.yml
   roles:
-    - role: "mongodb_linux"
-    - role: "mongodb_selinux"
-    - role: "mongodb_repository"
-    - role: "mongodb_mongos"
-    - role: "mongodb_config"
+    - role: "community.mongodb.mongodb_linux"
+    - role: "community.mongodb.mongodb_selinux"
+    - role: "community.mongodb.mongodb_repository"
+    - role: "community.mongodb.mongodb_mongos"
+    - role: "community.mongodb.mongodb_config"
 
   tasks:
 

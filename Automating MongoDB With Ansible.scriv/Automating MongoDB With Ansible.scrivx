@@ -1064,11 +1064,11 @@
     <ProjectTargets Notify="No">
         <DraftTarget Type="Words" CountIncludedOnly="Yes" CurrentCompileGroupOnly="Yes" Deadline="2011-04-12 14:24:39 +0200" IgnoreDeadline="Yes">0</DraftTarget>
         <SessionTarget Type="Words" CountDraftOnly="Yes" AllowNegatives="No" ResetType="Time" ResetTime="00:00" DeterminedFromDeadline="No" WritingDays="" CanWriteOnDeadlineDate="No">0</SessionTarget>
-        <PreviousSession Words="2" Characters="13" Date="2020-06-03 17:00:27 +0200"/>
+        <PreviousSession Words="0" Characters="0" Date="2020-06-09 14:15:19 +0200"/>
     </ProjectTargets>
-    <RecentWritingHistory Date="2020-06-03 00:00:00 +0200">
-        <DraftWordCount>2</DraftWordCount>
-        <DraftCharCount>13</DraftCharCount>
+    <RecentWritingHistory Date="2020-06-10 00:00:00 +0200">
+        <DraftWordCount>0</DraftWordCount>
+        <DraftCharCount>0</DraftCharCount>
         <OtherWordCount>0</OtherWordCount>
         <OtherCharCount>0</OtherCharCount>
     </RecentWritingHistory>

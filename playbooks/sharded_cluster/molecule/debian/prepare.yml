@@ -1,0 +1,16 @@
+---
+- name: Prepare
+  hosts: all
+  vars:
+    debian_python_packages:
+      - python-setuptools
+      - python-pip
+
+  tasks:
+
+    - name: Create is_docker.txt file
+      shell: touch is_docker.txt
+
+    - name: Ensure python-setuptools is installed
+      package:
+        name: "{{ debian_python_packages }}"

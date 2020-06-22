@@ -17,8 +17,8 @@ before_install:
   - molecule --version
   - pytest --version
 script:
-  - export ANSIBLE_VAULT_PASSWORD_FILE="$(pwd)/playbooks/replicaset/molecule/default/.vault_pass.txt"
-  - export ANSIBLE_PYTHON_INTERPRETER=/usr/libexec/platform-python
+  #- export ANSIBLE_VAULT_PASSWORD_FILE="$(pwd)/playbooks/replicaset/molecule/default/.vault_pass.txt"
+  - export ANSIBLE_PYTHON_INTERPRETER=/usr/libexec/platform-python  # Could go in molecule.yml
   - cd playbooks/replicaset
   - molecule test
   - export ANSIBLE_PYTHON_INTERPRETER=/usr/bin/python

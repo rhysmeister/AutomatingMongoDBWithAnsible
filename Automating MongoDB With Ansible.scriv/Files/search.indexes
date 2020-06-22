@@ -1,11 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <SearchIndexes Version="1.0">
     <Documents>
-        <Document ID="59E3CF88-DD73-451F-8036-1717049D83E8">
-            <Title>mongodb_info</Title>
-            <Text>mongodb_info
-
-This module allows you to extract various system information from a MongoDB instance. For example it is possible to extract instance-level, database-level and user-level information. </Text>
+        <Document ID="E7F5E7EA-64F2-46AE-AE67-930860359873">
+            <Title>Table</Title>
+            <Text>    \begin{tabular}{ll}
+      \textbf{Column 1} &amp; \textbf{Column 2} \\
+      \midline
+	a &amp; b \\
+    \end{tabular}
+</Text>
         </Document>
         <Document ID="17AB99FA-E221-495C-AF94-F2BD799A50AB">
             <Title>Setup on Linux</Title>
@@ -40,6 +43,9 @@ Ensures the replicaset set is stable in the sense it has a primary and N (usuall
         <Document ID="CC71780C-4EAA-471F-9581-3CF70715639B">
             <Title>Upgrading a MongoDB Sharded Cluster</Title>
         </Document>
+        <Document ID="51179B19-427B-4D60-B5FE-81C9B2C47889">
+            <Title>Upgrading a MongoDB Sharded Cluster</Title>
+        </Document>
         <Document ID="D2CF9B80-9FA0-4746-9A82-508A32070B93">
             <Title>Begin Main Matter</Title>
             <Text>\newpage
@@ -47,9 +53,6 @@ Ensures the replicaset set is stable in the sense it has a primary and N (usuall
 \pagenumbering{arabic}
 
 \mainmatter</Text>
-        </Document>
-        <Document ID="51179B19-427B-4D60-B5FE-81C9B2C47889">
-            <Title>Upgrading a MongoDB Sharded Cluster</Title>
         </Document>
         <Document ID="0928C400-D598-4383-83A5-3BFC2C9FCC31">
             <Title>Tools used in this book</Title>
@@ -535,6 +538,9 @@ During Compile, documents assigned the “Front Matter” section type will be l
 \makeindex
 </Text>
         </Document>
+        <Document ID="13C8DE21-A166-48D9-9398-DA46CE493E98">
+            <Title>Upgrading a MongoDB Sharded Cluster</Title>
+        </Document>
         <Document ID="DAAC465B-5B2F-48E1-922E-486F0B0D25E1">
             <Title>Backups with Cassandra Medusa</Title>
             <Synopsis>https://github.com/thelastpickle/cassandra-medusa</Synopsis>
@@ -559,9 +565,6 @@ During Compile, documents assigned the “Front Matter” section type will be l
 </Text>
             <Notes>Edit the compile format for this project, under the Text Layout pane, to make general appearance and feature modifications to the preamble.</Notes>
         </Document>
-        <Document ID="13C8DE21-A166-48D9-9398-DA46CE493E98">
-            <Title>Upgrading a MongoDB Sharded Cluster</Title>
-        </Document>
         <Document ID="8B9CB403-6803-4D56-A50A-DF509E6D51E1">
             <Text>\backmatter</Text>
         </Document>
@@ -574,17 +577,14 @@ During Compile, documents assigned the “Front Matter” section type will be l
         <Document ID="CE01D5B0-27A6-4A06-B59A-7CA741A5F508">
             <Title>mongodb lookup</Title>
         </Document>
+        <Document ID="59E3CF88-DD73-451F-8036-1717049D83E8">
+            <Title>mongodb_info</Title>
+            <Text>mongodb_info
+
+This module allows you to extract various system information from a MongoDB instance. For example it is possible to extract instance-level, database-level and user-level information. </Text>
+        </Document>
         <Document ID="254840B2-918A-4980-9B4D-C9B3A774FB9A">
             <Title>Appendices</Title>
-        </Document>
-        <Document ID="E7F5E7EA-64F2-46AE-AE67-930860359873">
-            <Title>Table</Title>
-            <Text>    \begin{tabular}{ll}
-      \textbf{Column 1} &amp; \textbf{Column 2} \\
-      \midline
-	a &amp; b \\
-    \end{tabular}
-</Text>
         </Document>
     </Documents>
 </SearchIndexes>
