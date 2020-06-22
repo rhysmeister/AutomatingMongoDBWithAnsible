@@ -23,8 +23,6 @@
 
     - name: Initialise MongoDB Replicaset
       community.mongodb.mongodb_replicaset:
-        login_user: "{{ admin_user }}"
-        login_password: "{{ admin_user_password }}"
         login_database: "admin"
         login_host: localhost
         members:
@@ -36,6 +34,7 @@
 
     - name: Wait for replicaset to converge
       community.mongodb.mongodb_status:
+        replica_set: rs0
         login_user: "{{ admin_user }}"
         login_password: "{{ admin_user_password }}"
         poll: 20
