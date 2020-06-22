@@ -4,14 +4,11 @@
   become: yes
   vars_files:
     - ./vault.yml
-  vars:
-    sharding: true
-    mongod_port: 27018
   roles:
     - role: "mongodb_linux"
     - role: "mongodb_selinux"
     - role: "mongodb_repository"
-    - role: "mongodb_mongod"
+    - { role: "mongodb_mongod", sharding: true, mongod_port: 27018 }
 
   tasks:
 
@@ -27,4 +24,6 @@
 
     - name: Setup replicasets
       include_tasks: replicaset.yml
+      vars:
+        mongod_port: 27018
       when: ansible_hostname in ["mongodb1", "mongodb4"]
