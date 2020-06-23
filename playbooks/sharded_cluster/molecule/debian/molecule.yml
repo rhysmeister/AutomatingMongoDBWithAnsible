@@ -19,6 +19,7 @@ platforms:
     network_mode: "local"
     groups:
       - mongodb
+      - rs0
   - name: mongodb2
     hostname: mongodb2.local
     image: debian:buster
@@ -29,6 +30,7 @@ platforms:
     network_mode: "local"
     groups:
       - mongodb
+      - rs0
   - name: mongodb3
     hostname: mongodb3.local
     image: debian:buster
@@ -39,12 +41,92 @@ platforms:
     network_mode: "local"
     groups:
       - mongodb
+      - rs0
+  - name: mongodb4
+    hostname: mongodb4.local
+    image: debian:buster
+    command: /sbin/init
+    privileged: True
+    networks:
+      - name: "local"
+    network_mode: "local"
+    groups:
+      - mongodb
+      - rs1
+  - name: mongodb5
+    hostname: mongodb5.local
+    image: debian:buster
+    command: /sbin/init
+    privileged: True
+    networks:
+      - name: "local"
+    network_mode: "local"
+    groups:
+      - mongodb
+      - rs1
+  - name: mongodb6
+    hostname: mongodb6.local
+    image: debian:buster
+    command: /sbin/init
+    privileged: True
+    networks:
+      - name: "local"
+    network_mode: "local"
+    groups:
+      - mongodb
+      - rs1
+  - name: mongos1
+    hostname: mongos1.local
+    image: debian:buster
+    command: /sbin/init
+    privileged: True
+    networks:
+      - name: "local"
+    network_mode: "local"
+    groups:
+      - mongos
+  - name: mongos2
+    hostname: mongos2.local
+    image: debian:buster
+    command: /sbin/init
+    privileged: True
+    networks:
+      - name: "local"
+    network_mode: "local"
+    groups:
+      - mongos
+  - name: mongos3
+    hostname: mongos3.local
+    image: debian:buster
+    command: /sbin/init
+    privileged: True
+    networks:
+      - name: "local"
+    network_mode: "local"
+    groups:
+      - mongos
 provisioner:
   name: ansible
-  log: true
   lint:
     name: ansible-lint
     enabled: false
+  inventory:
+    group_vars:
+      rs0:
+        repl_set_name: "rs0"
+        members:
+          - "mongodb1.local:27018"
+          - "mongodb2.local:27018"
+          - "mongodb3.local:27018"
+      rs1:
+        repl_set_name: "rs1"
+        members:
+          - "mongodb4.local:27018"
+          - "mongodb5.local:27018"
+          - "mongodb6.local:27018"
+  config_options:
+    defaults:
+      vault_password_file: "${MOLECULE_SCENARIO_DIRECTORY}/.vault_pass.txt"
 verifier:
   name: testinfra
   lint:

@@ -80,6 +80,7 @@
         password: "{{ item.password }}"
         database: "{{ item.database }}"
         roles: "{{ item.roles }}"
+        update_password: "on_create"
       with_items:
         - "{{ app_users }}"
       no_log: yes

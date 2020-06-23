@@ -23,5 +23,10 @@ script:
   - molecule test
   - export ANSIBLE_PYTHON_INTERPRETER=/usr/bin/python
   - molecule test --scenario-name debian
+  - export ANSIBLE_PYTHON_INTERPRETER=/usr/libexec/platform-python
+  - cd ../sharded_cluster
+  - molecule test
+  - export ANSIBLE_PYTHON_INTERPRETER=/usr/bin/python
+  - molecule test --scenario-name debian
 after_success:
   - codecov # submit coverage

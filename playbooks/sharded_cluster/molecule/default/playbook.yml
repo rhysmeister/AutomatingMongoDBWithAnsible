@@ -8,7 +8,7 @@
     - debug:
         msg: "{{playbook_dir}}/.vault_pass.txt"
 
-- name: Import playbook to create a MongoDB Replicaset
+- name: Import playbook to create a MongoDB Replicasets
   import_playbook: ../../mongodb.yml
 
 - name: Import playbook to create mongos & config servers
