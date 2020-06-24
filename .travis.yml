@@ -7,7 +7,7 @@ python:
 env:
   - PY="/usr/libexec/platform-python" CD="playbooks/replicaset" SCENARIO="default"
   - PY="/usr/bin/python" CD="playbooks/replicaset" SCENARIO="debian"
-  - PY="/usr/libexec/platform-python" CD= "playbooks/sharded_cluster" SCENARIO="default"
+  - PY="/usr/libexec/platform-python" CD="playbooks/sharded_cluster" SCENARIO="default"
   - PY="/usr/bin/python" CD="playbooks/sharded_cluster" SCENARIO="debian"
 before_install:
   - python --version
