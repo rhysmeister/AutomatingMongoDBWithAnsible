@@ -6,9 +6,9 @@ python:
   - "3.7"
 env:
   - PY="/usr/libexec/platform-python" CD="playbooks/replicaset" SCENARIO="default"
-  - PY="/usr/bin/python" CD="." SCENARIO="debian"
-  - PY="/usr/libexec/platform-python" CD= "../sharded_cluster" SCENARIO="default"
-  - PY="/usr/bin/python" CD="." SCENARIO="debian"
+  - PY="/usr/bin/python" CD="playbooks/replicaset" SCENARIO="debian"
+  - PY="/usr/libexec/platform-python" CD= "playbooks/sharded_cluster" SCENARIO="default"
+  - PY="/usr/bin/python" CD="playbooks/sharded_cluster" SCENARIO="debian"
 before_install:
   - python --version
   - pip install --upgrade pip
