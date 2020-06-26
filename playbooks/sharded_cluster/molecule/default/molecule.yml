@@ -127,6 +127,8 @@ provisioner:
   config_options:
     defaults:
       vault_password_file: "${MOLECULE_SCENARIO_DIRECTORY}/.vault_pass.txt"
+  env:
+    ANSIBLE_PYTHON_INTERPRETER: "/usr/libexec/platform-python"
 verifier:
   name: testinfra
   lint:

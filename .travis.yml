@@ -5,10 +5,10 @@ python:
   - "3.6"
   - "3.7"
 env:
-  - PY="/usr/libexec/platform-python" CD="playbooks/replicaset" SCENARIO="default"
-  - PY="/usr/bin/python" CD="playbooks/replicaset" SCENARIO="debian"
-  - PY="/usr/libexec/platform-python" CD="playbooks/sharded_cluster" SCENARIO="default"
-  - PY="/usr/bin/python" CD="playbooks/sharded_cluster" SCENARIO="debian"
+  - CD="playbooks/replicaset" SCENARIO="default"
+  - CD="playbooks/replicaset" SCENARIO="debian"
+  - CD="playbooks/sharded_cluster" SCENARIO="default"
+  - CD="playbooks/sharded_cluster" SCENARIO="debian"
 before_install:
   - python --version
   - pip install --upgrade pip
@@ -22,9 +22,7 @@ before_install:
   - molecule --version
   - pytest --version
 script:
-  #- export ANSIBLE_VAULT_PASSWORD_FILE="$(pwd)/playbooks/replicaset/molecule/default/.vault_pass.txt"
-  - export ANSIBLE_PYTHON_INTERPRETER="$PY"  # Could go in molecule.yml
   - cd "$CD"
   - travis_wait 60 molecule test --scenario-name "$SCENARIO"
 after_success:
-  - codecov # submit coverage
+  - codecov
