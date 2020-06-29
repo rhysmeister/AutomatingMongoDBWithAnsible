@@ -5,10 +5,11 @@ python:
   - "3.6"
   - "3.7"
 env:
-  - CD="playbooks/replicaset" SCENARIO="default"
-  - CD="playbooks/replicaset" SCENARIO="debian"
-  - CD="playbooks/sharded_cluster" SCENARIO="default"
-  - CD="playbooks/sharded_cluster" SCENARIO="debian"
+  jobs:
+    - CD="playbooks/replicaset" SCENARIO="default"
+    - CD="playbooks/replicaset" SCENARIO="debian"
+    - CD="playbooks/sharded_cluster" SCENARIO="default"
+    - CD="playbooks/sharded_cluster" SCENARIO="debian"
 before_install:
   - python --version
   - pip install --upgrade pip
