@@ -21,6 +21,7 @@ def include_vars(host):
                                False)
     return ansible
 
+
 def test_mongod_port(host):
     try:
         port = include_vars(host)['ansible_facts']['mongod_port']
