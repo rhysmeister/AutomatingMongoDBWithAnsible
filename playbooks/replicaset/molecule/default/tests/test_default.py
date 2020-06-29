@@ -1,8 +1,25 @@
 import testinfra.utils.ansible_runner
+import os
 
 testinfra_hosts = testinfra.utils.ansible_runner.AnsibleRunner(
     os.environ['MOLECULE_INVENTORY_FILE']
 ).get_hosts('all')
+
+
+def include_vars(host):
+    if host.system_info.distribution == "redhat" \
+            or host.system_info.distribution == "centos":
+        ansible = host.ansible('include_vars',
+                               'file="../../vars/RedHat.yml"',
+                               False,
+                               False)
+    if host.system_info.distribution == "debian" \
+            or host.system_info.distribution == "ubuntu":
+        ansible = host.ansible('include_vars',
+                               'file="../../vars/Debian.yml"',
+                               False,
+                               False)
+    return ansible
 
 def test_mongod_port(host):
     try:
