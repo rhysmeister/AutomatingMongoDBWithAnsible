@@ -16,7 +16,8 @@ def test_mongod_replicaset(host):
     '''
     Ensure that the MongoDB replicaset has been created successfully
     '''
-    cmd = "mongo --port 27018 --username admin --password secret --eval 'rs.status()'"
+    port = 27018
+    cmd = "mongo --port {0} --username admin --password secret --eval 'rs.status()'".format(port)
     # We only want to run this once
     if host.ansible.get_variables()['inventory_hostname'] == "mongodb1":
         r = host.run(cmd)
