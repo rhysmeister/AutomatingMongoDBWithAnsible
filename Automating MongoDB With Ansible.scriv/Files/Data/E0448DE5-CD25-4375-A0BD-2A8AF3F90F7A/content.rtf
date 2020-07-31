@@ -1,0 +1,50 @@
+{\rtf1\ansi\ansicpg1252\cocoartf2512
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fswiss\fcharset0 Helvetica;\f1\froman\fcharset0 Palatino-Bold;\f2\froman\fcharset0 Palatino-Roman;
+\f3\fnil\fcharset0 Menlo-Regular;}
+{\colortbl;\red255\green255\blue255;}
+{\*\expandedcolortbl;;}
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\sl288\slmult1\sb320\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf0 <$Scr_H::2><$Scr_Ps::0>
+\f1\b\fs32 Cloning the git repository\
+\pard\tx360\tx720\tx1080\tx1440\tx1800\tx2160\tx2880\tx3600\tx4320\fi360\sl264\slmult1\pardirnatural\partightenfactor0
+
+\f0\b0\fs24 \cf0 <!$Scr_H::2><!$Scr_Ps::0>
+\f2\fs26 \
+First create path to contain the collection. I suggest a folder called git in your home directory. The paths are important here for this to function correctly (i.e. ansible-test)\
+\
+\pard\tx360\tx720\tx1080\tx1440\tx1800\tx2160\tx2880\tx3600\tx4320\fi360\sl264\slmult1\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf0 <$Scr_Cs::2>
+\f3\fs22 mkdir -p ~/git/ansible_collections/community\
+cd ~/git/ansible_collections/community\
+\
+\pard\tx360\tx720\tx1080\tx1440\tx1800\tx2160\tx2880\tx3600\tx4320\fi360\sl264\slmult1\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf0 <!$Scr_Cs::2>
+\f2\fs26 Then we can clone git git repository\'85
+\f0\fs24 <$Scr_Cs::2>
+\f3\fs22 \
+\
+git clone  {\field{\*\fldinst{HYPERLINK "https://github.com/ansible-collections/community.mongodb.git"}}{\fldrslt https://github.com/ansible-collections/community.mongodb.git}} ./mongodb\
+\
+
+\f0\fs24 <!$Scr_Cs::2>
+\f2\fs26 You should now have something like the below\'85\
+\
+\pard\tx720\tx1080\tx1440\tx1800\tx2160\li720\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf0 <$Scr_Ps::1>
+\f3\fs22 Rhyss-MacBook-Pro:mongodb rhyscampbell$ cd mongodb && ls -lh\
+total 120\
+-rw-r--r--   1 rhyscampbell  staff    34K 27 Jul 09:36 COPYING\
+-rw-r--r--   1 rhyscampbell  staff   2,4K 27 Jul 09:36 README.md\
+-rw-r--r--   1 rhyscampbell  staff   555B 27 Jul 09:36 galaxy.yml\
+drwxr-xr-x   7 rhyscampbell  staff   224B 27 Jul 09:36 plugins\
+-rw-r--r--   1 rhyscampbell  staff   169B 27 Jul 09:36 requirements-2.7.txt\
+-rw-r--r--   1 rhyscampbell  staff   126B 27 Jul 09:36 requirements-3.5.txt\
+-rw-r--r--   1 rhyscampbell  staff   126B 27 Jul 09:36 requirements-3.6.txt\
+drwxr-xr-x   9 rhyscampbell  staff   288B 27 Jul 09:36 roles\
+drwxr-xr-x  10 rhyscampbell  staff   320B 27 Jul 14:04 tests\
+-rwxr-xr-x   1 rhyscampbell  staff   1,5K 27 Jul 09:36 travis_run.sh
+\f0\fs24 <!$Scr_Ps::1>}

@@ -1,14 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <SearchIndexes Version="1.0">
     <Documents>
-        <Document ID="E7F5E7EA-64F2-46AE-AE67-930860359873">
-            <Title>Table</Title>
-            <Text>    \begin{tabular}{ll}
-      \textbf{Column 1} &amp; \textbf{Column 2} \\
-      \midline
-	a &amp; b \\
-    \end{tabular}
-</Text>
+        <Document ID="59E3CF88-DD73-451F-8036-1717049D83E8">
+            <Title>mongodb_info</Title>
+            <Text>mongodb_info
+
+This module allows you to extract various system information from a MongoDB instance. For example it is possible to extract instance-level, database-level and user-level information. </Text>
         </Document>
         <Document ID="17AB99FA-E221-495C-AF94-F2BD799A50AB">
             <Title>Setup on Linux</Title>
@@ -20,6 +17,33 @@ The instructions here are for Ubuntu Linux 19.10.</Text>
             <Synopsis>docker pull datastax/dse-server:6.7.7
 docker pull datastax/dse-studio:latest
 https://medium.com/@michaeljpr/five-minute-guide-getting-started-with-cassandra-on-docker-4ef69c710d84</Synopsis>
+        </Document>
+        <Document ID="E0448DE5-CD25-4375-A0BD-2A8AF3F90F7A">
+            <Text>Cloning the git repository
+
+First create path to contain the collection. I suggest a folder called git in your home directory. The paths are important here for this to function correctly (i.e. ansible-test)
+
+mkdir -p ~/git/ansible_collections/community
+cd ~/git/ansible_collections/community
+
+Then we can clone git git repository…
+
+git clone  https://github.com/ansible-collections/community.mongodb.git ./mongodb
+
+You should now have something like the below…
+
+Rhyss-MacBook-Pro:mongodb rhyscampbell$ cd mongodb &amp;&amp; ls -lh
+total 120
+-rw-r--r--   1 rhyscampbell  staff    34K 27 Jul 09:36 COPYING
+-rw-r--r--   1 rhyscampbell  staff   2,4K 27 Jul 09:36 README.md
+-rw-r--r--   1 rhyscampbell  staff   555B 27 Jul 09:36 galaxy.yml
+drwxr-xr-x   7 rhyscampbell  staff   224B 27 Jul 09:36 plugins
+-rw-r--r--   1 rhyscampbell  staff   169B 27 Jul 09:36 requirements-2.7.txt
+-rw-r--r--   1 rhyscampbell  staff   126B 27 Jul 09:36 requirements-3.5.txt
+-rw-r--r--   1 rhyscampbell  staff   126B 27 Jul 09:36 requirements-3.6.txt
+drwxr-xr-x   9 rhyscampbell  staff   288B 27 Jul 09:36 roles
+drwxr-xr-x  10 rhyscampbell  staff   320B 27 Jul 14:04 tests
+-rwxr-xr-x   1 rhyscampbell  staff   1,5K 27 Jul 09:36 travis_run.sh</Text>
         </Document>
         <Document ID="476FC3AE-78C7-427A-9AE2-CDEE2FA49A3B">
             <Title>Setup on Windows</Title>
@@ -200,6 +224,43 @@ mongodb_nagios - Add Nagios checks to the MongoDB node.</Text>
             <Title>Figure</Title>
             <Text>&lt;INSERT IMAGE HERE&gt;</Text>
         </Document>
+        <Document ID="2903A3DF-6293-4902-B08B-FF9230605D9F">
+            <Title>Fixing a bug and submitting a PR</Title>
+            <Text>
+	•	Ensure the MongoDB collection git repo is up-to-date
+
+cd ~/git/ansible_collections/community/mongodb
+git pull
+
+	•	Create a new branch
+
+	 git checkout -b mybugfix
+
+	•	Fix your bug
+
+	 // whatever
+
+	•	Commit your changes
+
+	 git add path/to/changed/files
+	 git commit -m "My bug fix"
+	 git push --set-upstream origin mybugfix
+
+	•	Create the pull request
+
+You should see a url in the in the output of the last command. Paste this url into a web browser to begin creating your PR.
+
+https://github.com/ansible-collections/community.mongodb/pull/new/mybugfix
+
+Fill out as much information as possible and click the „Create pull request“ button when finished.
+
+	•	Ensure continuous integration tests pass. Normally, for the PR to be accepted, all the tests should pass. Make any needed modifications and the tests will run again.
+
+#
+
+
+</Text>
+        </Document>
         <Document ID="7F36E1E8-5268-41DE-B900-5541DA073025">
             <Title>Preamble Modules</Title>
             <Synopsis>This folder contains some optional "modules" you can enable in the compiled output. They will add additional features to your project. If you have no need of them, they can be safely discarded. Note that some require additional material to be used elsewhere---for example indexing is established in the preamble, but we will need to declare the position of the index itself in the back matter.</Synopsis>
@@ -257,6 +318,17 @@ mongodb_nagios - Add Nagios checks to the MongoDB node.</Text>
         <Document ID="57BBF93F-E5CF-4BC7-B132-729399BF9C7C">
             <Title>mongodb_replicaset</Title>
         </Document>
+        <Document ID="36CAFD8F-16E9-4A8C-9D53-D6964A068224">
+            <Text>Running tests locally
+
+With the env activated you can run the module integration tests. Before making any changing to a module or role it’s best to run any tests to ensure nothing is broken. We can run the tests for a specific module;
+
+ansible-test integration --docker ubuntu1804 -v --color --python 3.6 mongodb_oplog
+
+Or we can run the tests for all module..
+
+ansible-test integration --docker ubuntu1804 -v --color --python 3.6</Text>
+        </Document>
         <Document ID="54633E06-2404-44BC-A186-96416E72CDA2">
             <Title>Demo</Title>
             <Synopsis>Upgrade 4.0 -&gt; 4.2</Synopsis>
@@ -273,6 +345,23 @@ mongodb_nagios - Add Nagios checks to the MongoDB node.</Text>
         <Document ID="6EF336BE-794D-414D-B7C2-4AE1BD92AFB9">
             <Title>Foreward</Title>
             <Synopsis>An example front matter section. By default this will print as an unnumbered section.</Synopsis>
+        </Document>
+        <Document ID="AEA3105C-989F-4E18-A166-995377AF79F0">
+            <Text>Creating a Python Virtual Environment
+
+We recommend you create a Python Virtual Environment when working with the collection to avoid installing dependancies in your system. Creating a env is very simple,
+
+virtualenv venv
+
+Next activate the environment…
+
+source venv/bin/activate
+
+Next we can install the required python libraries…
+
+pip install -r requirements-3.6.txt 
+
+</Text>
         </Document>
         <Document ID="B0417A1B-D617-4CBD-900A-14A6AB12C289">
             <Title>Ideas</Title>
@@ -574,17 +663,20 @@ During Compile, documents assigned the “Front Matter” section type will be l
         <Document ID="54A215F7-6CAC-4E74-B61C-05062ED6C534">
             <Title>mongodb_parameter</Title>
         </Document>
-        <Document ID="CE01D5B0-27A6-4A06-B59A-7CA741A5F508">
-            <Title>mongodb lookup</Title>
-        </Document>
-        <Document ID="59E3CF88-DD73-451F-8036-1717049D83E8">
-            <Title>mongodb_info</Title>
-            <Text>mongodb_info
-
-This module allows you to extract various system information from a MongoDB instance. For example it is possible to extract instance-level, database-level and user-level information. </Text>
+        <Document ID="E7F5E7EA-64F2-46AE-AE67-930860359873">
+            <Title>Table</Title>
+            <Text>    \begin{tabular}{ll}
+      \textbf{Column 1} &amp; \textbf{Column 2} \\
+      \midline
+	a &amp; b \\
+    \end{tabular}
+</Text>
         </Document>
         <Document ID="254840B2-918A-4980-9B4D-C9B3A774FB9A">
             <Title>Appendices</Title>
+        </Document>
+        <Document ID="CE01D5B0-27A6-4A06-B59A-7CA741A5F508">
+            <Title>mongodb lookup</Title>
         </Document>
     </Documents>
 </SearchIndexes>

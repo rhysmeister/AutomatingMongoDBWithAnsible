@@ -272,6 +272,106 @@
 <li>
 <p class="folderTitle">Change Hostnames in a Replicaset</p>
 </li>
+<li>
+<p class="folderTitle">Resync a Member of a Replica Set</p>
+</li>
+</ul>
+<hr class="afterTitle"/>
+
+<li>
+<p class="topLevelItemTitle">Part IV - Contributing to the community.mongodb project</p>
+</li>
+<hr class="afterTitle"/>
+<ul>
+<li>
+<p class="folderTitle">Introduction</p>
+</li>
+<li>
+<p class="folderTitle">Getting Started</p>
+</li>
+<hr class="afterTitle"/>
+<ul>
+<li>
+<p class="itemTextStart">Cloning the git repository</span></p></p>
+<p class="itemText"><p class="p2"><span class="s1"></span><br></p></p>
+<p class="itemText"><p class="p1"><span class="s1">First create path to contain the collection. I suggest a folder called git in your home directory. The paths are important here for this to function correctly (i.e. ansible-test)</span></p></p>
+<p class="itemText"><p class="p2"><span class="s1"></span><br></p></p>
+<p class="itemText"><p class="p1"><span class="s1">mkdir -p ~/git/ansible_collections/community</span></p></p>
+<p class="itemText"><p class="p1"><span class="s1">cd ~/git/ansible_collections/community</span></p></p>
+<p class="itemText"><p class="p2"><span class="s1"></span><br></p></p>
+<p class="itemText"><p class="p1"><span class="s1">Then we can clone git git repository…</span></p></p>
+<p class="itemText"><p class="p2"><span class="s1"></span><br></p></p>
+<p class="itemText"><p class="p1"><span class="s1">git clone<span class="Apple-converted-space">  </span>https://github.com/ansible-collections/community.mongodb.git ./mongodb</span></p></p>
+<p class="itemText"><p class="p2"><span class="s1"></span><br></p></p>
+<p class="itemText"><p class="p1"><span class="s1">You should now have something like the below…</span></p></p>
+<p class="itemText"><p class="p2"><span class="s1"></span><br></p></p>
+<p class="itemText"><p class="p1"><span class="s1">Rhyss-MacBook-Pro:mongodb rhyscampbell...</p>
+</li>
+<li>
+<p class="itemTextStart">Creating a Python Virtual Environment</span></p></p>
+<p class="itemText"><p class="p2"><span class="s1"></span><br></p></p>
+<p class="itemText"><p class="p1"><span class="s1">We recommend you create a Python Virtual Environment when working with the collection to avoid installing dependancies in your system. Creating a env is very simple,</span></p></p>
+<p class="itemText"><p class="p2"><span class="s1"></span><br></p></p>
+<p class="itemText"><p class="p1"><span class="s1">virtualenv venv</span></p></p>
+<p class="itemText"><p class="p2"><span class="s1"></span><br></p></p>
+<p class="itemText"><p class="p1"><span class="s1">Next activate the environment…</span></p></p>
+<p class="itemText"><p class="p2"><span class="s1"></span><br></p></p>
+<p class="itemText"><p class="p1"><span class="s1">source venv/bin/activate</span></p></p>
+<p class="itemText"><p class="p2"><span class="s1"></span><br></p></p>
+<p class="itemText"><p class="p1"><span class="s1">Next we can install the required python libraries…</span></p></p>
+<p class="itemText"><p class="p2"><span class="s1"></span><br></p></p>
+<p class="itemText"><p class="p1"><span class="s1">pip install -r requirements-3.6.txt<span class="Apple-converted-space"> </span></span></p></p>
+<p class="itemText"><p class="p2"><span class="s1"></span><br></p></p>
+<p class="itemText"><p class="p1"><span class="s1"></p>
+</li>
+<li>
+<p class="itemTextStart">Running tests locally</span></p></p>
+<p class="itemText"><p class="p2"><span class="s1"></span><br></p></p>
+<p class="itemText"><p class="p1"><span class="s1">With the env activated you can run the module integration tests. Before making any changing to a module or role it’s best to run any tests to ensure nothing is broken. We can run the tests for a specific module;</span></p></p>
+<p class="itemText"><p class="p2"><span class="s1"></span><br></p></p>
+<p class="itemText"><p class="p1"><span class="s1">ansible-test integration --docker ubuntu1804 -v --color --python 3.6 mongodb_oplog</span></p></p>
+<p class="itemText"><p class="p2"><span class="s1"></span><br></p></p>
+<p class="itemText"><p class="p1"><span class="s1">Or we can run the tests for all module..</span></p></p>
+<p class="itemText"><p class="p2"><span class="s1"></span><br></p></p>
+<p class="itemText"><p class="p1"><span class="s1">ansible-test integration --docker ubuntu1804 -v --color --python 3.6</p>
+</li>
+<li>
+<p class="itemTitle">Fixing a bug and submitting a PR</p>
+<p class="itemText"></span></p></p>
+<p class="itemText"><p class="p1"><span class="s1"><span class="Apple-converted-space"> </span>• Ensure the MongoDB collection git repo is up-to-date</span></p></p>
+<p class="itemText"><p class="p2"><span class="s1"></span><br></p></p>
+<p class="itemText"><p class="p1"><span class="s1">cd ~/git/ansible_collections/community/mongodb</span></p></p>
+<p class="itemText"><p class="p1"><span class="s1">git pull</span></p></p>
+<p class="itemText"><p class="p2"><span class="s1"></span><br></p></p>
+<p class="itemText"><p class="p1"><span class="s1"><span class="Apple-converted-space"> </span>• Create a new branch</span></p></p>
+<p class="itemText"><p class="p2"><span class="s1"></span><br></p></p>
+<p class="itemText"><p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>git checkout -b mybugfix</span></p></p>
+<p class="itemText"><p class="p2"><span class="s1"></span><br></p></p>
+<p class="itemText"><p class="p1"><span class="s1"><span class="Apple-converted-space"> </span>• Fix your bug</span></p></p>
+<p class="itemText"><p class="p2"><span class="s1"></span><br></p></p>
+<p class="itemText"><p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>// whatever</span></p></p>
+<p class="itemText"><p class="p2"><span class="s1"></span><br></p></p>
+<p class="itemText"><p class="p1"><span class="s1"><span class="Apple-converted-space"> </span>• Commit your changes</span></p></p>
+<p class="itemText"><p class="p2"><span class="s1"></span><br></p></p>
+<p class="itemText"><p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>git add path/to/changed/files</span></p></p>
+<p class="itemText"><p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>git commit -m "My bug fix"</span></p></p>
+<p class="itemText"><p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>git push --set-upstream origin mybugfix</span></p></p>
+<p class="itemText"><p class="p2"><span class="s1"></span><br></p></p>
+<p class="itemText"><p class="p1"><span class="s1"><span class="Apple-converted-space"> </span>• Create the pull request</span></p></p>
+<p class="itemText"><p class="p2"><span class="s1"></span><br></p></p>
+<p class="itemText"><p class="p1"><span class="s1">You should see a url in the in the output of the last command. Paste this url into a web browser to begin creating your PR.</span></p></p>
+<p class="itemText"><p class="p2"><span class="s1"></span><br></p></p>
+<p class="itemText"><p class="p1"><span class="s1">https://github.com/a...</p>
+</li>
+</ul>
+<hr class="afterText"/>
+
+<li>
+<p class="folderTitle">Create a new role</p>
+</li>
+<li>
+<p class="folderTitle">Create a new module</p>
+</li>
 </ul>
 </ul>
 
