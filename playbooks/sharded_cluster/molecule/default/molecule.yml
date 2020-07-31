@@ -127,8 +127,6 @@ provisioner:
   config_options:
     defaults:
       vault_password_file: "${MOLECULE_SCENARIO_DIRECTORY}/.vault_pass.txt"
-      #strategy_plugins: /tmp/molecule/plugins/mitogen/ansible_mitogen/plugins/strategy
-      strategy: mitogen_linear
     ssh_connection:
       pipelining: true
       ssh_args: -o ControlMaster=auto -o ControlPersist=60s
