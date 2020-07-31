@@ -107,8 +107,6 @@ platforms:
       - mongos
 provisioner:
   name: ansible
-  ansible_args:
-    - --forks=10
   lint:
     name: ansible-lint
     enabled: false
@@ -129,6 +127,11 @@ provisioner:
   config_options:
     defaults:
       vault_password_file: "${MOLECULE_SCENARIO_DIRECTORY}/.vault_pass.txt"
+      #strategy_plugins: /tmp/molecule/plugins/mitogen/ansible_mitogen/plugins/strategy
+      strategy: mitogen_linear
+    ssh_connection:
+      pipelining: true
+      ssh_args: -o ControlMaster=auto -o ControlPersist=60s
   env:
     ANSIBLE_PYTHON_INTERPRETER: "/usr/libexec/platform-python"
 verifier:
