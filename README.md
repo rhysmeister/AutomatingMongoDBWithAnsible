@@ -1,2 +1,2 @@
 # AutomatingMongoDBWithAnsible
-A book written with Scrivener
+Playbooks for the Automating MongoDB book.
