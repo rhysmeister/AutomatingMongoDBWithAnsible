@@ -1,3 +1,0 @@
-docker pull datastax/dse-server:6.7.7
-docker pull datastax/dse-studio:latest
-https://medium.com/@michaeljpr/five-minute-guide-getting-started-with-cassandra-on-docker-4ef69c710d84

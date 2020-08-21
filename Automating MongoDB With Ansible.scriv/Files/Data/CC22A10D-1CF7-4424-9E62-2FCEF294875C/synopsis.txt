@@ -1,1 +1,0 @@
-Introduction to MongoDB Replicasets and a basic outline of what this chapter will entail.

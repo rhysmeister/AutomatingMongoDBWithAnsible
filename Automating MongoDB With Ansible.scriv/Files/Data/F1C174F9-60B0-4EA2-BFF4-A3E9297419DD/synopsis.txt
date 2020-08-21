@@ -1,1 +1,0 @@
-Enable "Include in Compile" for this item if you require formulae in your document.
