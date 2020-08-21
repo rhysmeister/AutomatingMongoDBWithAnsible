@@ -5,9 +5,9 @@ Vagrant.configure("2") do |config|
   (1..MONGOD_HOSTS).each do |mongod|
     node_name = "mongodb#{mongod}"
     config.vm.synced_folder ".", "/vagrant", disabled: true
+    config.vbguest.installer_options = { allow_kernel_upgrade: true }
     config.vm.define node_name do |mongod_node|
-      mongod_node.vm.box = "geerlingguy/centos8"
-      mongod_node.vm.box_version = "1.0.4"
+      mongod_node.vm.box = "centos/8"
       mongod_node.vm.network "private_network", ip: "192.168.43.#{200 + mongod}"
       mongod_node.vm.hostname = node_name
       mongod_node.vm.provider :virtualbox do |vbox|
@@ -42,9 +42,9 @@ end
     (1..MONGOS_HOSTS).each do |mongos|
       node_name = "mongos#{mongos}"
       config.vm.synced_folder ".", "/vagrant", disabled: true
+      config.vbguest.installer_options = { allow_kernel_upgrade: true }
       config.vm.define node_name do |mongos_node|
-        mongos_node.vm.box = "geerlingguy/centos8"
-        mongos_node.vm.box_version = "1.0.4"
+        mongos_node.vm.box = "centos/8"
         mongos_node.vm.network "private_network", ip: "192.168.43.#{100 + mongos}"
         mongos_node.vm.hostname = node_name
         mongos_node.vm.provider :virtualbox do |vbox|

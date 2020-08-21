@@ -17,6 +17,10 @@
 
   tasks:
 
+    - name: Ensure python3 is available
+      package:
+        name: python3
+
     - name: Ensure pymongo is installed
       pip:
         name: pymongo

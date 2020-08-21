@@ -10,6 +10,10 @@
     - { role: "community.mongodb.mongodb_mongod", sharding: true, mongod_port: 27018 }
 
   tasks:
+    
+    - name: Ensure python3 is available
+      package:
+        name: python3
 
     - name: Ensure pymongo is installed
       pip:
