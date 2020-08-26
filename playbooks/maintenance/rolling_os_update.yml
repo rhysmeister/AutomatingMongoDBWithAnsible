@@ -4,7 +4,7 @@
   become: yes
   serial: 1
   vars_files:
-    - ./vault.yml
+    - ../replicaset/vault.yml
   vars:
     required_packages:
       - "yum-plugin-versionlock"
@@ -24,6 +24,11 @@
       args:
         creates: /root/mongo_version_lock.success
       when: ansible_os_family == "RedHat"
+
+    - name: Stepdown host if it's a PRIMARY
+      community.mongodb.mongodb_stepdown:
+        login_user: "{{ admin_user }}"
+        login_password: "{{ admin_user_password }}"
 
     - name: Stop mongod service
       service:
@@ -55,7 +60,7 @@
       when: patch.msg != "Nothing to do"
 
     - name: Ensure replicaset converges before continuing
-      mongodb_status:
+      community.mongodb.mongodb_status:
         login_user: "{{ admin_user }}"
         login_password: "{{ admin_user_password }}"
         replica_set: rs0

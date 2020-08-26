@@ -36,6 +36,11 @@
       register: create_rs
       when: inventory_hostname == "mongodb1"
 
+    - name: Wait for rs config to settle
+      pause:
+        seconds: 5
+      when: create_rs.changed
+
     - name: Wait for replicaset to converge
       community.mongodb.mongodb_status:
         replica_set: rs0
