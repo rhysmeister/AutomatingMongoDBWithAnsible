@@ -6,9 +6,9 @@ python:
   - "3.7"
 env:
   jobs:
-    - CD="playbooks/replicaset" SCENARIO="centos7"
+    - CD="playbooks/replicaset" SCENARIO="default"
     - CD="playbooks/replicaset" SCENARIO="debian"
-    - CD="playbooks/sharded_cluster" SCENARIO="centos7"
+    - CD="playbooks/sharded_cluster" SCENARIO="default"
     - CD="playbooks/sharded_cluster" SCENARIO="debian"
 before_install:
   - python --version
