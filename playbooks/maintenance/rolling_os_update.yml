@@ -30,11 +30,6 @@
         login_user: "{{ admin_user }}"
         login_password: "{{ admin_user_password }}"
 
-    - name: Stop mongod service
-      service:
-        name: "{{ mongod_service }}"
-        state: "stopped"
-
     - name: Patch OS
       yum:
         name: "*"
