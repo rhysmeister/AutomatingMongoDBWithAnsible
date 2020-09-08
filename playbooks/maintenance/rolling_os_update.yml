@@ -4,13 +4,11 @@
   become: yes
   serial: 1
   vars_files:
+    - ../vars/main.yml
     - ../replicaset/vault.yml
   vars:
     required_packages:
       - "yum-plugin-versionlock"
-    mongod_service: "mongod"
-    reboot_timeout: 3600
-    mongod_port: 27017
 
   tasks:
 
@@ -25,39 +23,25 @@
         creates: /root/mongo_version_lock.success
       when: ansible_os_family == "RedHat"
 
-    - name: Stepdown host if it's a PRIMARY
-      community.mongodb.mongodb_stepdown:
-        login_user: "{{ admin_user }}"
-        login_password: "{{ admin_user_password }}"
+    - import_tasks: ../shared_tasks/get_primary.yml
 
-    - name: Patch OS
-      yum:
-        name: "*"
-        state: "latest"
-        exclude: "mongodb-org*"
-      when: ansible_os_family == "RedHat"
-      register: patch
+    - name: Patch SECONARY MongoDB hosts first
+      block:
+        - import_tasks: ../shared_tasks/patch_os.yml
+      when: inventory_hostname_short != primary
 
-    - name: Reboot node
-      reboot:
-        reboot_timeout: "{{ reboot_timeout }}"
-      when: patch.msg != "Nothing to do"
+- hosts: all
+  gather_facts: yes
+  become: yes
+  vars_files:
+    - ../vars/main.yml
+    - ../replicaset/vault.yml
 
-    - name: Start mongod service
-      service:
-        name: "{{ mongod_service }}"
-        state: "started"
+  tasks:
 
-    - name: Wait for mongod service to become active
-      wait_for:
-        port: "{{ mongod_port }}"
-        delay: 10
-      when: patch.msg != "Nothing to do"
+    - import_tasks: ../shared_tasks/get_primary.yml
 
-    - name: Ensure replicaset converges before continuing
-      community.mongodb.mongodb_status:
-        login_user: "{{ admin_user }}"
-        login_password: "{{ admin_user_password }}"
-        replica_set: rs0
-        poll: 99
-        interval: 10
+    - name: Patch PRIMARY MongoDB Host
+      block:
+        - import_tasks: ../shared_tasks/patch_os.yml
+      when: inventory_hostname_short == primary

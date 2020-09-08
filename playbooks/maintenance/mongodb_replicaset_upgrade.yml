@@ -4,13 +4,11 @@
   become: yes
   serial: 1
   vars_files:
+    - ../vars/main.yml
     - ../replicaset/vault.yml
   vars:
     required_packages:
       - "yum-plugin-versionlock"
-    mongod_service: "mongod"
-    reboot_timeout: 3600
-    mongod_port: 27017
     current_mongodb_version: "4.2"
     target_mongodb_version: "4.4"
 

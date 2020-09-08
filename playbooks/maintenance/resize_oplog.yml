@@ -1,0 +1,53 @@
+---
+- hosts: all
+  gather_facts: yes
+  become: yes
+  serial: yes
+  vars_files:
+    - ../vars/main.yml
+    - ../replicaset/vault.yml
+
+  tasks:
+
+    - import_tasks: ../shared_tasks/compact_role.yml
+      when: compact_role
+
+    - import_tasks: ../shared_tasks/get_primary.yml
+
+    - name: Resize oplog for SECONDARY members first
+      block:
+        - name: Resize oplog to {{ resize_mb }} MB
+          community.mongodb.mongodb_oplog:
+            login_user: "{{ admin_user }}"
+            login_password: "{{ admin_user_password }}"
+            oplog_size_mb:  "{{ resize_mb }}"
+            compact: true
+      when: inventory_hostname_short != primary
+
+- hosts: all
+  gather_facts: yes
+  become: yes
+  vars_files:
+    - ../vars/main.yml
+    - ../replicaset/vault.yml
+
+  tasks:
+
+    - import_tasks: ../shared_tasks/get_primary.yml
+
+    - name: Resize for PRIMARY
+      block:
+
+        - name: Stepdown PRIMARY
+          community.mongodb.mongodb_stepdown:
+            login_user: "{{ admin_user }}"
+            login_password: "{{ admin_user_password }}"
+
+        - name: Run module again to compact oplog
+          community.mongodb.mongodb_oplog:
+            login_user: "{{ admin_user }}"
+            login_password: "{{ admin_user_password }}"
+            oplog_size_mb:  "{{ resize_mb }}"
+            compact: true
+
+      when: inventory_hostname_short == primary

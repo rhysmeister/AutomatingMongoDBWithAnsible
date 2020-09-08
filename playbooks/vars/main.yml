@@ -1,0 +1,7 @@
+---
+  mongod_port: 27017
+  resize_mb: 2048
+  compact_role: True
+  rs: rs0
+  mongod_service: "mongod"
+  reboot_timeout: 3600
