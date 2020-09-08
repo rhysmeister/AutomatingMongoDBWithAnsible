@@ -16,88 +16,52 @@
   # https://docs.mongodb.com/manual/release-notes/4.4-upgrade-replica-set/
   tasks:
 
-    - name: Ensure required packages are installed
-      yum:
-        name: yum-plugin-versionlock
+    - import_tasks: ../shared_tasks/get_primary.yml
 
-    - name: Remove the old mongodb repository
-      file:
-        path: "/etc/yum.repos.d/mongodb-{{ current_mongodb_version }}.repo"
-        state: absent
+    - name: Patch SECONDARY MongoDB hosts first
+      block:
+        - import_tasks: ../shared_tasks/upgrade_mongod.yml
 
-    - name: Ensure the target mongodb repository exists
-      copy:
-        dest: "/etc/yum.repos.d/mongodb-{{ target_mongodb_version }}.repo"
-        content: |
-          [mongodb-{{ target_mongodb_version }}]
-          baseurl = https://repo.mongodb.org/yum/redhat/$releasever/mongodb-org/{{ target_mongodb_version }}/x86_64/
-          gpgcheck = 1
-          gpgkey = https://www.mongodb.org/static/pgp/server-{{ target_mongodb_version }}.asc
-          name = Official MongoDB {{ target_mongodb_version }} yum repo
-        owner: root
-        group: root
-        mode: 0644
-      register: new_mongo
+        - name: Ensure that current replicaset state is good
+          community.mongodb.mongodb_status:
+            login_user: "{{ admin_user }}"
+            login_password: "{{ admin_user_password }}"
+            poll: 3
+            interval: 10
+      when: inventory_hostname_short != primary
 
-    - name: yum-clean-metadata
-      command: yum clean metadata
-      args:
-        warn: no
-      when: new_mongo.changed
+- hosts: all
+  gather_facts: yes
+  become: yes
+  vars_files:
+    - ../vars/main.yml
+    - ../replicaset/vault.yml
+  vars:
+    required_packages:
+      - "yum-plugin-versionlock"
+    current_mongodb_version: "4.2"
+    target_mongodb_version: "4.4"
 
-    - name: Ensure mongodb-org* packages are version unlocked
-      shell: yum versionlock delete mongodb-org*
+  tasks:
 
-    - name: Remove version lock confirmation file
-      file:
-        path: /root/mongo_version_lock.success
-        state: absent
+    - import_tasks: ../shared_tasks/get_primary.yml
 
-    - name: Ensure that current replicaset state is good
-      community.mongodb.mongodb_status:
-        login_user: "{{ admin_user }}"
-        login_password: "{{ admin_user_password }}"
-        poll: 3
-        interval: 10
+    - name: Upgrade PRIMARY MongoDB Host
+      block:
+        - name: Stepdown if primary
+          community.mongodb.mongodb_stepdown:
+            login_user: "{{ admin_user }}"
+            login_password: "{{ admin_user_password }}"
 
-    - name: Stepdown if primary
-      community.mongodb.mongodb_stepdown:
-        login_user: "{{ admin_user }}"
-        login_password: "{{ admin_user_password }}"
+        - import_tasks: ../shared_tasks/upgrade_mongod.yml
 
-    - name: Shutdown the mongod process cleanly
-      community.mongodb.mongodb_shutdown:
-        login_user: "{{ admin_user }}"
-        login_password: "{{ admin_user_password }}"
-
-    - name: Upgrade mongodb packages
-      yum:
-        name: mongodb*
-        state: latest
-
-    - name: Reboot the node
-      reboot:
-        reboot_timeout: 3600
-
-    - name: Wait for mongodb to become active
-      wait_for:
-        port: "{{ mongod_port }}"
-        delay: 10
-
-    - name: Check the version of mongod
-      shell: mongod --version | head -n 1
-      register: mongod
-
-    - name: Validate the running version of mongod
-      assert:
-        that: "'{{ target_mongodb_version }}' in mongod.stdout"
-
-    - name: Validate the replicaset state again
-      community.mongodb.mongodb_status:
-        login_user: "{{ admin_user }}"
-        login_password: "{{ admin_user_password }}"
-        poll: 3
-        interval: 10
+        - name: Validate the replicaset state again
+          community.mongodb.mongodb_status:
+            login_user: "{{ admin_user }}"
+            login_password: "{{ admin_user_password }}"
+            poll: 3
+            interval: 10
+      when: inventory_hostname_short == primary
 
     - name: Ensure mongodb-org* packages are version locked again
       shell: yum versionlock mongodb-org* && touch /root/mongo_version_lock.success
