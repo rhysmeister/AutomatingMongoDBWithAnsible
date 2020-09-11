@@ -16,3 +16,15 @@ ansible-playbook -i ../replicaset/.vagrant/provisioners/ansible/inventory/vagran
 ```bash
 ansible-playbook -i ../replicaset/.vagrant/provisioners/ansible/inventory/vagrant_ansible_inventory --ask-vault-pass --become resize_oplog.yml
 ```
+
+# Run the resync playbook against a single replicaset member
+
+```bash
+ansible-playbook -l mongodb2 -i ../replicaset/.vagrant/provisioners/ansible/inventory/vagrant_ansible_inventory --ask-vault-pass --become resync_member.yml
+```
+
+# Run the resync from tar playbook against a single replicaset member
+
+```bash
+ansible-playbook -l mongodb2 -i ../replicaset/.vagrant/provisioners/ansible/inventory/vagrant_ansible_inventory --ask-vault-pass --become resync_member_from_tar.yml
+```

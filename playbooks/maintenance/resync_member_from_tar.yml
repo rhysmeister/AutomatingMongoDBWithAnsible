@@ -1,0 +1,77 @@
+---
+- hosts: all
+  gather_facts: yes
+  become: yes
+  serial: 1
+  vars_files:
+    - ../vars/main.yml
+    - ../replicaset/vault.yml
+  vars:
+    tar_file: "./mongod.tar.gz"
+    sync_timeout: 900
+# TODO NOT YET WORKING
+  tasks:
+
+    - name: End play if mongodb_members > 1
+      meta: end_play
+      when: ansible_play_hosts | length > 1
+
+    - name: Ensure mongod_data_dir variable is correct
+      lineinfile:
+        path: /etc/mongod.conf
+        regexp: ".*{{ mongod_data_dir }}.*"
+        state: present
+      check_mode: yes
+      register: data_dir_valid
+      failed_when: data_dir_valid.changed
+
+    - name: Shutdown mongod
+      community.mongodb.mongodb_shutdown:
+        login_user: "{{ admin_user }}"
+        login_password: "{{ admin_user_password }}"
+
+    - name: Archive data dir
+      archive:
+        path: "{{ mongod_data_dir }}"
+        dest: /var/lib/mongod_backup.tar.gz
+
+    - name: Remove the existing data
+      shell: "rm -rf {{ mongod_data_dir }}"
+
+    - name: Unarchive mongod backup
+      unarchive:
+        src: "{{ tar_file }}"
+        dest: "{{ mongod_data_dir.split('/')[0:-1] | join('/') }}"
+        owner: mongod
+        group: mongod
+
+    - name: Restore secontext
+      shell: restorecon -R -v /var/lib/mongo
+
+    - name: Start the mongod process
+      service:
+        name: "{{ mongod_service }}"
+        state: started
+
+    - name: Wait for initial sync done log msg
+      wait_for:
+        path: "/var/log/mongodb/mongod.log"
+        search_regex: "initial sync done"
+
+    - name: Wait for mongod to become responsive
+      wait_for:
+        port: "{{ mongod_port }}"
+        delay: 10
+        timeout: 900
+
+    - name: Delete the backup file
+      file:
+        path: "{{ mongod_data_dir }} | dirname }}/{{ tar_file | basename }}"
+        state: absent
+
+    - name: Validate replicaset state
+      community.mongodb.mongodb_status:
+        login_user: "{{ admin_user }}"
+        login_password: "{{ admin_user_password }}"
+        poll: 3
+        interval: 10
