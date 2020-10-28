@@ -11,7 +11,7 @@ env:
     - CD="playbooks/sharded_cluster" SCENARIO="default"
     - CD="playbooks/sharded_cluster" SCENARIO="debian"
 before_install:
-  - sudo add-apt-repository universe
+  - sudo add-apt-repository universe multiverse
   - python --version
   - pip install --upgrade pip
   - export pyv=$(python -c 'from platform import python_version; print(python_version()[:3])')
