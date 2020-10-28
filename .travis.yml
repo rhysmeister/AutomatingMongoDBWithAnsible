@@ -24,8 +24,9 @@ before_install:
   - pytest --version
 script:
   - cd "$CD"
+  - ./travis_run.sh
   #- export ANSIBLE_STRATEGY=mitogen_linear
   #- export ANSIBLE_STRATEGY_PLUGINS=${VIRTUAL_ENV}/lib/python${TRAVIS_PYTHON_VERSION}/site-packages/ansible_mitogen/plugins/strategy
-  - travis_wait 50 molecule test --scenario-name "$SCENARIO"
+  #- travis_wait 50 molecule test --scenario-name "$SCENARIO"
 after_success:
   - codecov
