@@ -11,6 +11,7 @@ env:
     - CD="playbooks/sharded_cluster" SCENARIO="default"
     - CD="playbooks/sharded_cluster" SCENARIO="debian"
 before_install:
+  - add-apt-repository universe
   - python --version
   - pip install --upgrade pip
   - export pyv=$(python -c 'from platform import python_version; print(python_version()[:3])')
