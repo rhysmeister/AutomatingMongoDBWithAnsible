@@ -2,7 +2,7 @@
 # Author: Rhys Campbell                                    #
 # Created: 2020.10.28                                      #
 # Description: Run either via molecule or run the playbook #
-# aginst the localhost.                                    #
+# against the localhost.                                   #
 ############################################################
 
 #!/bin/bash
@@ -17,5 +17,5 @@ case "$CD" in
         --inventory 127.0.0.1, \
         --limit 127.0.0.1 mongodb.yml -i ansible_hosts ;;
   "playbooks/replicaset" | "playbooks/sharded_cluster")
-      travis_wait 50 molecule test --scenario-name "$SCENARIO" ;;
+      travis-wait-improved --timeout 50m molecule test --scenario-name "$SCENARIO" ;;
 esac
