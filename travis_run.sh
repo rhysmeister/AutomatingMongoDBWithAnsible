@@ -7,6 +7,8 @@
 
 #!/bin/bash
 
+export ANSIBLE_VAULT_PASSWORD_FILE="/home/travis/build/rhysmeister/AutomatingMongoDBWithAnsible/.vault_pass.txt"
+
 set -u;
 set -e;
 
