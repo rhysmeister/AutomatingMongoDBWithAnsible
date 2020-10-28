@@ -11,11 +11,11 @@ set -u;
 set -e;
 
 case "$CD" in
-  "playbooks/standlone")
+  "playbooks/standalone")
       ansible-playbook \
         --connection=local \
         --inventory 127.0.0.1, \
         --limit 127.0.0.1 mongodb.yml -i ansible_hosts ;;
-  "plabooks/replicaset" | "playooks/sharded_cluster")
+  "playbooks/replicaset" | "playbooks/sharded_cluster")
       travis_wait 50 molecule test --scenario-name "$SCENARIO" ;;
 esac
