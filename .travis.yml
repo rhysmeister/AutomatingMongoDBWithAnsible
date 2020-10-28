@@ -26,6 +26,7 @@ before_install:
   - pytest --version
 script:
   - cd "$CD"
+  - "export ANSIBLE_VAULT_PASSWORD_FILE=./../../vault_pass.txt"
   - ./../../travis_run.sh
   #- export ANSIBLE_STRATEGY=mitogen_linear
   #- export ANSIBLE_STRATEGY_PLUGINS=${VIRTUAL_ENV}/lib/python${TRAVIS_PYTHON_VERSION}/site-packages/ansible_mitogen/plugins/strategy
