@@ -7,7 +7,7 @@ jobs:
     runs-on: ubuntu-latest
     defaults:
       run:
-        working-directory: playbooks/standalone
+        working-directory: AutomatingMongoDBWithAnsible/playbooks/standalone
     strategy:
       matrix:
         python_version:
@@ -26,7 +26,7 @@ jobs:
           python-version: ${{ matrix.python_version }}
 
       - name: Run CI_Setup.sh script
-        run: ../../.github/bahs/CI_Setup.sh
+        run: pwd && ../../.github/bash/CI_Setup.sh
 
       - name: Run stanadalonbe playbook
         run: |
