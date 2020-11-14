@@ -7,7 +7,7 @@ jobs:
     runs-on: ubuntu-latest
     defaults:
       run:
-        working-directory: AutomatingMongoDBWithAnsible/playbooks/standalone
+        working-directory: AutomatingMongoDBWithAnsible
     strategy:
       matrix:
         python_version:
@@ -26,7 +26,7 @@ jobs:
           python-version: ${{ matrix.python_version }}
 
       - name: Run CI_Setup.sh script
-        run: pwd && ../../.github/bash/CI_Setup.sh
+        run: ../../.github/bash/CI_Setup.sh
 
       - name: Run stanadalonbe playbook
         run: |
@@ -35,6 +35,7 @@ jobs:
                 --connection=local \
                 --inventory 127.0.0.1, \
                 --limit 127.0.0.1 mongodb.yml -i ansible_hosts
+        working-directory: AutomatingMongoDBWithAnsible/playbooks/standalone
 
   replicaset:
     runs-on: ubuntu-latest
