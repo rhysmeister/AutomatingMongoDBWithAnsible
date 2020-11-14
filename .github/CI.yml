@@ -1,0 +1,87 @@
+name: CI
+on:
+  - pull_request
+
+jobs:
+  standalone:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: playbooks/standalone
+    strategy:
+      matrix:
+        python_version:
+          - "3.6"
+          - "3.7"
+          - "3.8"
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v2
+        with:
+          path: AutomatingMongoDBWithAnsible
+
+      - name: Set up Python ${{ matrix.python_version }}
+        uses: actions/setup-python@v1
+        with:
+          python-version: ${{ matrix.python_version }}
+
+      - name: Run CI_Setup.sh script
+        run: ../../.github/CI_Setup.sh
+
+      - name: Run stanadalonbe playbook
+        run: |
+          ansible-playbook \
+                --become \
+                --connection=local \
+                --inventory 127.0.0.1, \
+                --limit 127.0.0.1 mongodb.yml -i ansible_hosts
+
+  replicaset:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: playbooks/replicaset
+    strategy:
+      matrix:
+        python_version:
+          - "3.6"
+          - "3.7"
+          - "3.8"
+        molecule_scenario:
+          - "default"
+          - "debian"
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v2
+        with:
+          path: AutomatingMongoDBWithAnsible
+
+      - name: Set up Python ${{ matrix.python_version }}
+        uses: actions/setup-python@v1
+        with:
+          python-version: ${{ matrix.python_version }}
+
+  sharded_cluster:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: playbooks/sharded_cluster
+    strategy:
+      matrix:
+        python_version:
+          - "3.6"
+          - "3.7"
+          - "3.8"
+        molecule_scenario:
+          - "default"
+          - "debian"
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v2
+        with:
+          path: AutomatingMongoDBWithAnsible
+
+      - name: Set up Python ${{ matrix.python_version }}
+        uses: actions/setup-python@v1
+        with:
+          python-version: ${{ matrix.python_version }}
