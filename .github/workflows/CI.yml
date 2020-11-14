@@ -26,7 +26,7 @@ jobs:
           python-version: ${{ matrix.python_version }}
 
       - name: Run CI_Setup.sh script
-        run: ../../.github/bash/CI_Setup.sh
+        run: .github/bash/CI_Setup.sh
 
       - name: Run stanadalonbe playbook
         run: |
