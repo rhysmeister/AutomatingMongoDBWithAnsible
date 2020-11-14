@@ -28,7 +28,7 @@ jobs:
       - name: Run CI_Setup.sh script
         run: .github/bash/CI_Setup.sh
 
-      - name: Run stanadalonbe playbook
+      - name: Run stanadalone playbook
         run: |
           ansible-playbook \
                 --become \
@@ -36,6 +36,8 @@ jobs:
                 --inventory 127.0.0.1, \
                 --limit 127.0.0.1 mongodb.yml -i ansible_hosts
         working-directory: AutomatingMongoDBWithAnsible/playbooks/standalone
+        env:
+          ANSIBLE_VAULT_PASSWORD_FILE: "../../.vault_pass.txt"
 
   replicaset:
     runs-on: ubuntu-latest
