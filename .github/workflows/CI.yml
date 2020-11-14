@@ -43,7 +43,7 @@ jobs:
     runs-on: ubuntu-latest
     defaults:
       run:
-        working-directory: playbooks/replicaset
+        working-directory: AutomatingMongoDBWithAnsible
     strategy:
       matrix:
         python_version:
@@ -63,12 +63,19 @@ jobs:
         uses: actions/setup-python@v1
         with:
           python-version: ${{ matrix.python_version }}
+
+      - name: Run CI_Setup.sh script
+        run: .github/bash/CI_Setup.sh
+
+      - name: Run molecule test for scenario ${{ matrix.molecule_scenario }}
+        run: molecule test --scenario-name "$SCENARIO"
+        working-directory: AutomatingMongoDBWithAnsible/playbooks/replicaset
 
   sharded_cluster:
     runs-on: ubuntu-latest
     defaults:
       run:
-        working-directory: playbooks/sharded_cluster
+        working-directory: AutomatingMongoDBWithAnsible
     strategy:
       matrix:
         python_version:
@@ -88,3 +95,10 @@ jobs:
         uses: actions/setup-python@v1
         with:
           python-version: ${{ matrix.python_version }}
+
+      - name: Run CI_Setup.sh script
+        run: .github/bash/CI_Setup.sh
+
+      - name: Run molecule test for scenario ${{ matrix.molecule_scenario }}
+        run: molecule test --scenario-name ${{ matrix.molecule_scenario }}
+        working-directory: AutomatingMongoDBWithAnsible/playbooks/sharded_cluster
