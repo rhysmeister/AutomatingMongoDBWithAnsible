@@ -49,6 +49,7 @@ provisioner:
       vault_password_file: "${MOLECULE_SCENARIO_DIRECTORY}/.vault_pass.txt"
   env:
     ANSIBLE_PYTHON_INTERPRETER: "/usr/libexec/platform-python"
+    MOLECULE_OVERRIDE: 1  # Need to rename this
 verifier:
   name: testinfra
   lint:
