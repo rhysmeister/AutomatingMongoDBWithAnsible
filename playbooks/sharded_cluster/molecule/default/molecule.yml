@@ -132,6 +132,7 @@ provisioner:
       ssh_args: -o ControlMaster=auto -o ControlPersist=60s
   env:
     ANSIBLE_PYTHON_INTERPRETER: "/usr/libexec/platform-python"
+    X_GITHUB_OVERRIDE: 1
 verifier:
   name: testinfra
   lint:
