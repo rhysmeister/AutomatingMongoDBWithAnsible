@@ -1,9 +1,5 @@
 # AutomatingMongoDBWithAnsible
 Playbooks for the Automating MongoDB book.
 
-# Travis CI Status
-[![Build Status](https://travis-ci.com/rhysmeister/AutomatingMongoDBWithAnsible.svg?branch=master)](https://travis-ci.com/rhysmeister/AutomatingMongoDBWithAnsible)
-
-
-.
-.
+# CI Status
+![CI](https://github.com/rhysmeister/AutomatingMongoDBWithAnsible/workflows/CI/badge.svg)
