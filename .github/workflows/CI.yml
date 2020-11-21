@@ -1,6 +1,8 @@
 name: CI
 on:
-  - pull_request
+  pull_request:
+  schedule:
+    - "0 3 * * *"
 
 jobs:
   standalone:
