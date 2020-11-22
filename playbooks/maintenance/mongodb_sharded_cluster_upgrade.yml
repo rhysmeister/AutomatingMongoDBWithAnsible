@@ -99,7 +99,6 @@
       args:
         creates: /root/mongo_version_lock.success
 
----
 - hosts: rs0
   gather_facts: yes
   become: yes
@@ -176,7 +175,6 @@
       args:
         creates: /root/mongo_version_lock.success
 
----
 - hosts: rs0
   gather_facts: yes
   become: yes
@@ -253,7 +251,6 @@
       args:
         creates: /root/mongo_version_lock.success
 
----
 - hosts: mongos
   gather_facts: yes
   become: yes
@@ -277,7 +274,6 @@
       args:
         creates: /root/mongo_version_lock.success
 
----
 - hosts: mongos
   vars_files:
     - ../vars/main.yml
