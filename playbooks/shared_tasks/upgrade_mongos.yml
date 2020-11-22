@@ -40,14 +40,14 @@
     path: /root/mongo_version_lock.success
     state: absent
 
-- name: Shutdown the mongod process cleanly
-  community.mongodb.mongodb_shutdown:
-    login_user: "{{ admin_user }}"
-    login_password: "{{ admin_user_password }}"
+- name: Shutdown the mongos process
+  service:
+    name: mongos
+    state: stopped
 
-- name: Upgrade mongod package
+- name: Upgrade mongos package
   yum:
-    name: mongodb*mongod*
+    name: mongodb*mongos*
     state: latest
 
 - name: Reboot the node
@@ -63,15 +63,15 @@
 
 - name: Wait for mongodb to become active
   wait_for:
-    port: "{{ mongod_port }}"
+    port: "{{ mongos_port }}"
     delay: 10
 
 - name: Check the version of mongod
-  shell: mongod --version | head -n 1
-  register: mongod
+  shell: mongos --version | head -n 1
+  register: mongos
   when: target_mongodb_version is defined
 
-- name: Validate the running version of mongod
+- name: Validate the running version of mongos
   assert:
-    that: "'{{ target_mongodb_version }}' in mongod.stdout"
+    that: "'{{ target_mongodb_version }}' in mongos.stdout"
   when: target_mongodb_version is defined

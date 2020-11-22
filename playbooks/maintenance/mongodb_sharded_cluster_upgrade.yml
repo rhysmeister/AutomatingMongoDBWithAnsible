@@ -1,0 +1,293 @@
+---
+- hosts: mongos
+  gather_facts: yes
+  become: yes
+  serial: 1
+  vars_files:
+    - ../vars/main.yml
+    - ../replicaset/vault.yml
+  vars:
+    required_packages:
+      - "yum-plugin-versionlock"
+    current_mongodb_version: "4.2"
+    target_mongodb_version: "4.4"
+
+  # Process is based on the following offical documentation...
+  # https://docs.mongodb.com/manual/release-notes/4.2-upgrade-sharded-cluster/
+  tasks:
+
+    - name: Disable the Balancer
+      community.mongodb.mongodb_balancer:
+        state: stopped
+        login_user: "{{ admin_user }}"
+        login_password: "{{ admin_user_password }}"
+        login_port: "{{ mongos_port }}"
+      when: inventory_hostname_short == "mongos1"
+
+    - name:  Get the primary in the config server replicaset
+      block:
+        - name: Ensure replicaset is stable before beginning
+          community.mongodb.mongodb_status:
+            login_user: "{{ admin_user }}"
+            login_password: "{{ admin_user_password }}"
+            login_port: 27019
+            poll: 3
+            interval: 10
+          register: rs
+
+        - name: Lookup PRIMARY replicaset member
+          set_fact:
+            primary: "{{ item.key.split('.')[0] }}"
+          loop: "{{ lookup('dict', rs.replicaset) }}"
+          when: "'PRIMARY' in item.value"
+      when: inventory_hostname_short == "mongos1"
+
+    - name: Patch SECONDARY config servers first
+      block:
+        - name: Set mongod_port to 27019
+          set_fact:
+            mongod_port: 27019
+
+        - import_tasks: ../shared_tasks/upgrade_mongod.yml
+
+        - name: Ensure that current replicaset state is good
+          community.mongodb.mongodb_status:
+            login_user: "{{ admin_user }}"
+            login_password: "{{ admin_user_password }}"
+            login_port: "{{ mongod_port }}"
+            poll: 3
+            interval: 10
+      when: inventory_hostname_short != primary
+
+- hosts: mongos
+  gather_facts: yes
+  become: yes
+  vars_files:
+    - ../vars/main.yml
+    - ../replicaset/vault.yml
+  vars:
+    required_packages:
+      - "yum-plugin-versionlock"
+    current_mongodb_version: "4.2"
+    target_mongodb_version: "4.4"
+
+  tasks:
+
+    - import_tasks: ../shared_tasks/get_primary.yml
+
+    - name: Upgrade PRIMARY Config Server
+      block:
+        - name: Stepdown if primary
+          community.mongodb.mongodb_stepdown:
+            login_user: "{{ admin_user }}"
+            login_password: "{{ admin_user_password }}"
+            login_port: "{{ mongod_port }}"
+
+        - import_tasks: ../shared_tasks/upgrade_mongod.yml
+
+        - name: Validate the replicaset state again
+          community.mongodb.mongodb_status:
+            login_user: "{{ admin_user }}"
+            login_password: "{{ admin_user_password }}"
+            login_port: "{{ mongod_port }}"
+            poll: 3
+            interval: 10
+      when: inventory_hostname_short == primary
+
+    - name: Ensure mongodb-org* packages are version locked again
+      shell: yum versionlock mongodb-org* && touch /root/mongo_version_lock.success
+      args:
+        creates: /root/mongo_version_lock.success
+
+---
+- hosts: rs0
+  gather_facts: yes
+  become: yes
+  serial: 1
+  vars_files:
+    - ../vars/main.yml
+    - ../replicaset/vault.yml
+  vars:
+    required_packages:
+      - "yum-plugin-versionlock"
+    current_mongodb_version: "4.2"
+    target_mongodb_version: "4.4"
+    mongod_port: 27018
+    rs: "rs0"
+
+  # Process is based on the following offical documentation...
+  # https://docs.mongodb.com/manual/release-notes/4.2-upgrade-sharded-cluster/
+  tasks:
+
+    - import_tasks: ../shared_tasks/get_primary.yml
+
+    - name: Patch SECONDARY MongoDB hosts first for r0
+      block:
+        - import_tasks: ../shared_tasks/upgrade_mongod.yml
+
+        - name: Ensure that current replicaset state is good
+          community.mongodb.mongodb_status:
+            login_user: "{{ admin_user }}"
+            login_password: "{{ admin_user_password }}"
+            login_port: "{{ mongod_port }}"
+            poll: 3
+            interval: 10
+      when: inventory_hostname_short != primary
+
+- hosts: rs0
+  gather_facts: yes
+  become: yes
+  vars_files:
+    - ../vars/main.yml
+    - ../replicaset/vault.yml
+  vars:
+    required_packages:
+      - "yum-plugin-versionlock"
+    current_mongodb_version: "4.2"
+    target_mongodb_version: "4.4"
+    mongod_port: 27018
+    rs: "rs0"
+
+  tasks:
+
+    - import_tasks: ../shared_tasks/get_primary.yml
+
+    - name: Upgrade PRIMARY MongoDB Host for rs0
+      block:
+        - name: Stepdown if primary
+          community.mongodb.mongodb_stepdown:
+            login_user: "{{ admin_user }}"
+            login_password: "{{ admin_user_password }}"
+            login_port: "{{ mongod_port }}"
+
+        - import_tasks: ../shared_tasks/upgrade_mongod.yml
+
+        - name: Validate the replicaset state again
+          community.mongodb.mongodb_status:
+            login_user: "{{ admin_user }}"
+            login_password: "{{ admin_user_password }}"
+            login_port: "{{ mongod_port }}"
+            poll: 3
+            interval: 10
+      when: inventory_hostname_short == primary
+
+    - name: Ensure mongodb-org* packages are version locked again
+      shell: yum versionlock mongodb-org* && touch /root/mongo_version_lock.success
+      args:
+        creates: /root/mongo_version_lock.success
+
+---
+- hosts: rs0
+  gather_facts: yes
+  become: yes
+  serial: 1
+  vars_files:
+    - ../vars/main.yml
+    - ../replicaset/vault.yml
+  vars:
+    required_packages:
+      - "yum-plugin-versionlock"
+    current_mongodb_version: "4.2"
+    target_mongodb_version: "4.4"
+    mongod_port: 27018
+    rs: "rs0"
+
+  # Process is based on the following offical documentation...
+  # https://docs.mongodb.com/manual/release-notes/4.2-upgrade-sharded-cluster/
+  tasks:
+
+    - import_tasks: ../shared_tasks/get_primary.yml
+
+    - name: Patch SECONDARY MongoDB hosts first for r1
+      block:
+        - import_tasks: ../shared_tasks/upgrade_mongod.yml
+
+        - name: Ensure that current replicaset state is good
+          community.mongodb.mongodb_status:
+            login_user: "{{ admin_user }}"
+            login_password: "{{ admin_user_password }}"
+            login_port: "{{ mongod_port }}"
+            poll: 3
+            interval: 10
+      when: inventory_hostname_short != primary
+
+- hosts: rs1
+  gather_facts: yes
+  become: yes
+  vars_files:
+    - ../vars/main.yml
+    - ../replicaset/vault.yml
+  vars:
+    required_packages:
+      - "yum-plugin-versionlock"
+    current_mongodb_version: "4.2"
+    target_mongodb_version: "4.4"
+    mongod_port: 27018
+    rs: "rs1"
+
+  tasks:
+
+    - import_tasks: ../shared_tasks/get_primary.yml
+
+    - name: Upgrade PRIMARY MongoDB Host for rs1
+      block:
+        - name: Stepdown if primary
+          community.mongodb.mongodb_stepdown:
+            login_user: "{{ admin_user }}"
+            login_password: "{{ admin_user_password }}"
+            login_port: "{{ mongod_port }}"
+
+        - import_tasks: ../shared_tasks/upgrade_mongod.yml
+
+        - name: Validate the replicaset state again
+          community.mongodb.mongodb_status:
+            login_user: "{{ admin_user }}"
+            login_password: "{{ admin_user_password }}"
+            login_port: "{{ mongod_port }}"
+            poll: 3
+            interval: 10
+      when: inventory_hostname_short == primary
+
+    - name: Ensure mongodb-org* packages are version locked again
+      shell: yum versionlock mongodb-org* && touch /root/mongo_version_lock.success
+      args:
+        creates: /root/mongo_version_lock.success
+
+---
+- hosts: mongos
+  gather_facts: yes
+  become: yes
+  serial: 1
+  vars_files:
+    - ../vars/main.yml
+    - ../replicaset/vault.yml
+  vars:
+    required_packages:
+      - "yum-plugin-versionlock"
+    current_mongodb_version: "4.2"
+    target_mongodb_version: "4.4"
+
+  # Process is based on the following offical documentation...
+  # https://docs.mongodb.com/manual/release-notes/4.2-upgrade-sharded-cluster/
+  tasks:
+    - import_tasks: ../shared_tasks/upgrade_mongos.yml
+
+    - name: Ensure mongodb-org* packages are version locked again
+      shell: yum versionlock mongodb-org* && touch /root/mongo_version_lock.success
+      args:
+        creates: /root/mongo_version_lock.success
+
+---
+- hosts: mongos
+  vars_files:
+    - ../vars/main.yml
+
+  tasks:
+
+    - name: Disable the Balancer
+      community.mongodb.mongodb_balancer:
+        state: stopped
+        login_user: "{{ admin_user }}"
+        login_password: "{{ admin_user_password }}"
+        login_port: "{{ mongos_port }}"
+      when: inventory_hostname_short == "mongos1"

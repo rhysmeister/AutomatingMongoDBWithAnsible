@@ -6,3 +6,4 @@
   mongod_service: "mongod"
   reboot_timeout: 3600
   mongod_data_dir: "/var/lib/mongo"
+  mongos_port: 27017
