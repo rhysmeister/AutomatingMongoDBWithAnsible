@@ -30,7 +30,7 @@ jobs:
       - name: Run CI_Setup.sh script
         run: .github/bash/CI_Setup.sh
 
-      - name: Run stanadalone playbook
+      - name: Run standalone playbook
         run: |
           ansible-playbook \
                 --become \
