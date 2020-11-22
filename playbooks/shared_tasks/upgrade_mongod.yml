@@ -53,6 +53,13 @@
 - name: Reboot the node
   reboot:
     reboot_timeout: 3600
+  tags:
+    - reboot
+
+- name: RedHat 8 in docker fix
+  import_tasks: redhat8_docker_fix.yml
+  tags:
+    - never
 
 - name: Wait for mongodb to become active
   wait_for:

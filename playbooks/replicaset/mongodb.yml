@@ -53,7 +53,7 @@
     - debug:
         var: rs
 
-    - name: Lookup PRIMARY resplicaset member
+    - name: Lookup PRIMARY replicaset member
       set_fact:
         primary: "{{ item.key.split('.')[0] }}"
       loop: "{{ lookup('dict', rs.replicaset) }}"

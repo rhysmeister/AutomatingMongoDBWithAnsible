@@ -104,3 +104,48 @@ jobs:
       - name: Run molecule test for scenario ${{ matrix.molecule_scenario }}
         run: molecule test --scenario-name ${{ matrix.molecule_scenario }}
         working-directory: AutomatingMongoDBWithAnsible/playbooks/sharded_cluster
+
+  upgrade_replicaset:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: AutomatingMongoDBWithAnsible
+    strategy:
+      matrix:
+        python_version:
+          - "3.6"
+          - "3.7"
+          - "3.8"
+        molecule_scenario:
+          - "default"
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v2
+        with:
+          path: AutomatingMongoDBWithAnsible
+
+      - name: Set up Python ${{ matrix.python_version }}
+        uses: actions/setup-python@v1
+        with:
+          python-version: ${{ matrix.python_version }}
+
+      - name: Run CI_Setup.sh script
+        run: .github/bash/CI_Setup.sh
+
+      - name: Run molecule converge for scenario ${{ matrix.molecule_scenario }}
+        run: molecule converge --scenario-name ${{ matrix.molecule_scenario }}
+        working-directory: AutomatingMongoDBWithAnsible/playbooks/sharded_cluster
+
+      - name: Get container names for the inventory file
+        run: docker ps | awk '{print $NF}' | grep mongo > mongo_inventory.inv
+        working-directory: AutomatingMongoDBWithAnsible/playbooks/maintenance
+
+      - name: Install sudo in docker
+        run: ansible all -i mongo_inventory.inv -c docker -m raw -a "yum install sudo -y"
+        working-directory: AutomatingMongoDBWithAnsible/playbooks/maintenance
+
+      - name: Run upgrade playbook
+        run: ansible-playbook -i mongo_inventory.inv -c docker --skip-tags reboot --tags all,never  mongodb_replicaset_upgrade.yml
+        working-directory: AutomatingMongoDBWithAnsible/playbooks/maintenance
+        env:
+          ANSIBLE_VAULT_PASSWORD_FILE: "../../.vault_pass.txt"
