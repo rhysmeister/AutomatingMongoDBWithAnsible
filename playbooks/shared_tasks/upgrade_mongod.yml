@@ -47,7 +47,7 @@
 
 - name: Upgrade mongod package
   yum:
-    name: mongodb*mongod*
+    name: mongodb-org-server
     state: latest
 
 - name: Reboot the node
