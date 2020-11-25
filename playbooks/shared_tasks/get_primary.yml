@@ -3,6 +3,7 @@
   community.mongodb.mongodb_status:
     login_user: "{{ admin_user }}"
     login_password: "{{ admin_user_password }}"
+    login_port: "{{ mongod_port }}"
     poll: 3
     interval: 10
   register: rs

@@ -24,25 +24,22 @@
         login_port: "{{ mongos_port }}"
       when: inventory_hostname_short == "mongos1"
 
-    - name:  Get the primary in the config server replicaset
-      block:
-        - name: Ensure replicaset is stable before beginning
-          community.mongodb.mongodb_status:
-            login_user: "{{ admin_user }}"
-            login_password: "{{ admin_user_password }}"
-            login_port: 27019
-            poll: 3
-            interval: 10
-          register: rs
+    - name: Ensure replicaset is stable before beginning
+      community.mongodb.mongodb_status:
+        login_user: "{{ admin_user }}"
+        login_password: "{{ admin_user_password }}"
+        login_port: 27019
+        poll: 3
+        interval: 10
+      register: rs
 
-        - name: Lookup PRIMARY replicaset member
-          set_fact:
-            primary: "{{ item.key.split('.')[0] }}"
-          loop: "{{ lookup('dict', rs.replicaset) }}"
-          when: "'PRIMARY' in item.value"
-      when: inventory_hostname_short == "mongos1"
+    - name: Lookup PRIMARY replicaset member
+      set_fact:
+        primary: "{{ item.key.split('.')[0] }}"
+      loop: "{{ lookup('dict', rs.replicaset) }}"
+      when: "'PRIMARY' in item.value"
 
-    - name: Patch SECONDARY config servers first
+    - name: Upgrade SECONDARY config servers first
       block:
         - name: Set mongod_port to 27019
           set_fact:
@@ -77,7 +74,7 @@
 
     - name: Upgrade PRIMARY Config Server
       block:
-        - name: Stepdown if primary
+        - name: Stepdown primary
           community.mongodb.mongodb_stepdown:
             login_user: "{{ admin_user }}"
             login_password: "{{ admin_user_password }}"
@@ -120,7 +117,7 @@
 
     - import_tasks: ../shared_tasks/get_primary.yml
 
-    - name: Patch SECONDARY MongoDB hosts first for r0
+    - name: Upgrade SECONDARY MongoDB hosts first for r0
       block:
         - import_tasks: ../shared_tasks/upgrade_mongod.yml
 

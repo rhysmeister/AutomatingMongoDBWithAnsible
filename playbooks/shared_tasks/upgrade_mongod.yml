@@ -44,15 +44,18 @@
   community.mongodb.mongodb_shutdown:
     login_user: "{{ admin_user }}"
     login_password: "{{ admin_user_password }}"
+    login_port: "{{ mongod_port }}"
 
 - name: Upgrade mongod package
   yum:
     name: mongodb-org-server
     state: latest
+  register: mongod_upgraded
 
 - name: Reboot the node
   reboot:
     reboot_timeout: 3600
+  when: mongod_upgraded.changed
   tags:
     - reboot
 

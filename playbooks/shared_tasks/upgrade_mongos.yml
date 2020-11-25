@@ -49,10 +49,12 @@
   yum:
     name: mongodb-org-mongos
     state: latest
+  register: mongos_upgraded
 
 - name: Reboot the node
   reboot:
     reboot_timeout: 3600
+  when: mongos_upgraded.changed
   tags:
     - reboot
 
