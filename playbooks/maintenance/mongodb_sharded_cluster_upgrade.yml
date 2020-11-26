@@ -108,12 +108,15 @@
       - "yum-plugin-versionlock"
     current_mongodb_version: "4.2"
     target_mongodb_version: "4.4"
-    mongod_port: 27018
     rs: "rs0"
 
   # Process is based on the following offical documentation...
   # https://docs.mongodb.com/manual/release-notes/4.2-upgrade-sharded-cluster/
   tasks:
+
+    - name: Set port for mongod shard servers
+      set_fact:
+        mongod_port: 27018
 
     - import_tasks: ../shared_tasks/get_primary.yml
 
@@ -141,10 +144,13 @@
       - "yum-plugin-versionlock"
     current_mongodb_version: "4.2"
     target_mongodb_version: "4.4"
-    mongod_port: 27018
     rs: "rs0"
 
   tasks:
+
+    - name: Set port for mongod shard servers
+      set_fact:
+        mongod_port: 27018
 
     - import_tasks: ../shared_tasks/get_primary.yml
 
@@ -184,12 +190,15 @@
       - "yum-plugin-versionlock"
     current_mongodb_version: "4.2"
     target_mongodb_version: "4.4"
-    mongod_port: 27018
     rs: "rs0"
 
   # Process is based on the following offical documentation...
   # https://docs.mongodb.com/manual/release-notes/4.2-upgrade-sharded-cluster/
   tasks:
+
+    - name: Set port for mongod shard servers
+      set_fact:
+        mongod_port: 27018
 
     - import_tasks: ../shared_tasks/get_primary.yml
 
@@ -217,10 +226,13 @@
       - "yum-plugin-versionlock"
     current_mongodb_version: "4.2"
     target_mongodb_version: "4.4"
-    mongod_port: 27018
     rs: "rs1"
 
   tasks:
+
+    - name: Set port for mongod shard servers
+      set_fact:
+        mongod_port: 27018
 
     - import_tasks: ../shared_tasks/get_primary.yml
 
@@ -277,9 +289,9 @@
 
   tasks:
 
-    - name: Disable the Balancer
+    - name: Enable the Balancer
       community.mongodb.mongodb_balancer:
-        state: stopped
+        state: enabled
         login_user: "{{ admin_user }}"
         login_password: "{{ admin_user_password }}"
         login_port: "{{ mongos_port }}"

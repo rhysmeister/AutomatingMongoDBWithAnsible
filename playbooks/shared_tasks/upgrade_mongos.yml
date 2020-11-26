@@ -63,7 +63,13 @@
   tags:
     - never
 
-- name: Wait for mongodb to become active
+- name: Ensure mongos service starts
+  service:
+    name: mongos
+    state: started
+    enabled: yes
+
+- name: Wait for mongos to become active
   wait_for:
     port: "{{ mongos_port }}"
     delay: 10
