@@ -1,5 +1,6 @@
 ---
-- hosts: mongos
+- name: Upgrade SECONDARY mongod config servers
+  hosts: mongos
   gather_facts: yes
   become: yes
   serial: 1
@@ -56,7 +57,8 @@
             interval: 10
       when: inventory_hostname_short != primary
 
-- hosts: mongos
+- name: Upgrade PRIMARY mongod config server
+  hosts: mongos
   gather_facts: yes
   become: yes
   vars_files:
@@ -70,10 +72,15 @@
 
   tasks:
 
+    - name: Set mongod_port to 27019
+      set_fact:
+        mongod_port: 27019
+
     - import_tasks: ../shared_tasks/get_primary.yml
 
     - name: Upgrade PRIMARY Config Server
       block:
+
         - name: Stepdown primary
           community.mongodb.mongodb_stepdown:
             login_user: "{{ admin_user }}"
@@ -89,14 +96,15 @@
             login_port: "{{ mongod_port }}"
             poll: 3
             interval: 10
+
+        - name: Ensure mongodb-org* packages are version locked again
+          shell: yum versionlock mongodb-org* && touch /root/mongo_version_lock.success
+          args:
+            creates: /root/mongo_version_lock.success
       when: inventory_hostname_short == primary
 
-    - name: Ensure mongodb-org* packages are version locked again
-      shell: yum versionlock mongodb-org* && touch /root/mongo_version_lock.success
-      args:
-        creates: /root/mongo_version_lock.success
-
-- hosts: rs0
+- name: Upgrade SECONDARY mongod servers for rs0
+  hosts: rs0
   gather_facts: yes
   become: yes
   serial: 1
@@ -131,9 +139,16 @@
             login_port: "{{ mongod_port }}"
             poll: 3
             interval: 10
+
+        - name: Ensure mongodb-org* packages are version locked again
+          shell: yum versionlock mongodb-org* && touch /root/mongo_version_lock.success
+          args:
+            creates: /root/mongo_version_lock.success
+
       when: inventory_hostname_short != primary
 
-- hosts: rs0
+- name: Upgrade PRIMARY mongod server for rs0
+  hosts: rs0
   gather_facts: yes
   become: yes
   vars_files:
@@ -171,14 +186,15 @@
             login_port: "{{ mongod_port }}"
             poll: 3
             interval: 10
+
+        - name: Ensure mongodb-org* packages are version locked again
+          shell: yum versionlock mongodb-org* && touch /root/mongo_version_lock.success
+          args:
+            creates: /root/mongo_version_lock.success
       when: inventory_hostname_short == primary
 
-    - name: Ensure mongodb-org* packages are version locked again
-      shell: yum versionlock mongodb-org* && touch /root/mongo_version_lock.success
-      args:
-        creates: /root/mongo_version_lock.success
-
-- hosts: rs0
+- name: Upgrade SECONDARY mongod servers for rs1
+  hosts: rs1
   gather_facts: yes
   become: yes
   serial: 1
@@ -190,7 +206,7 @@
       - "yum-plugin-versionlock"
     current_mongodb_version: "4.2"
     target_mongodb_version: "4.4"
-    rs: "rs0"
+    rs: "rs1"
 
   # Process is based on the following offical documentation...
   # https://docs.mongodb.com/manual/release-notes/4.2-upgrade-sharded-cluster/
@@ -213,9 +229,15 @@
             login_port: "{{ mongod_port }}"
             poll: 3
             interval: 10
+
+        - name: Ensure mongodb-org* packages are version locked again
+          shell: yum versionlock mongodb-org* && touch /root/mongo_version_lock.success
+          args:
+            creates: /root/mongo_version_lock.success
       when: inventory_hostname_short != primary
 
-- hosts: rs1
+- name: Upgrade PRIMARY mongod server for rs1
+  hosts: rs1
   gather_facts: yes
   become: yes
   vars_files:
@@ -253,14 +275,15 @@
             login_port: "{{ mongod_port }}"
             poll: 3
             interval: 10
+
+        - name: Ensure mongodb-org* packages are version locked again
+          shell: yum versionlock mongodb-org* && touch /root/mongo_version_lock.success
+          args:
+            creates: /root/mongo_version_lock.success
       when: inventory_hostname_short == primary
 
-    - name: Ensure mongodb-org* packages are version locked again
-      shell: yum versionlock mongodb-org* && touch /root/mongo_version_lock.success
-      args:
-        creates: /root/mongo_version_lock.success
-
-- hosts: mongos
+- name: Upgrade the mongos instances
+  hosts: mongos
   gather_facts: yes
   become: yes
   serial: 1
@@ -283,7 +306,8 @@
       args:
         creates: /root/mongo_version_lock.success
 
-- hosts: mongos
+- name: Enable the Balancer
+  hosts: mongos
   vars_files:
     - ../vars/main.yml
 
