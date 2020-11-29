@@ -183,7 +183,7 @@ jobs:
         working-directory: AutomatingMongoDBWithAnsible/playbooks/sharded_cluster
 
       - name: Write inventory file for cluster
-        uses: DamianReeves/write-file-action
+        uses: DamianReeves/write-file-action@v1
         with:
           path: AutomatingMongoDBWithAnsible/playbooks/maintenance/mongo_inventory.inv
           contents: |
