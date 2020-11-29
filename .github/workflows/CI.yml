@@ -163,7 +163,6 @@ jobs:
           - "3.8"
         molecule_scenario:
           - "default"
-          - "debian"
     steps:
       - name: Check out code
         uses: actions/checkout@v2
@@ -179,7 +178,7 @@ jobs:
         run: .github/bash/CI_Setup.sh
 
       - name: Run molecule test for scenario ${{ matrix.molecule_scenario }}
-        run: molecule test --scenario-name ${{ matrix.molecule_scenario }}
+        run: molecule converge --scenario-name ${{ matrix.molecule_scenario }}
         working-directory: AutomatingMongoDBWithAnsible/playbooks/sharded_cluster
 
       - name: Write inventory file for cluster
