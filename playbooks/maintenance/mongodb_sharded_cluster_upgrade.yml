@@ -1,4 +1,20 @@
 ---
+- name: Disable the Balancer
+  hosts: mongos
+  vars_files:
+    - ../vars/main.yml
+    - ../replicaset/vault.yml
+
+  tasks:
+
+    - name: Enable the Balancer
+      community.mongodb.mongodb_balancer:
+        state: stopped
+        login_user: "{{ admin_user }}"
+        login_password: "{{ admin_user_password }}"
+        login_port: "{{ mongos_port }}"
+      run_once: yes
+
 - name: Upgrade SECONDARY mongod config servers
   hosts: mongos
   gather_facts: yes
@@ -16,14 +32,6 @@
   # Process is based on the following offical documentation...
   # https://docs.mongodb.com/manual/release-notes/4.2-upgrade-sharded-cluster/
   tasks:
-
-    - name: Disable the Balancer
-      community.mongodb.mongodb_balancer:
-        state: stopped
-        login_user: "{{ admin_user }}"
-        login_password: "{{ admin_user_password }}"
-        login_port: "{{ mongos_port }}"
-      run_once: yes
 
     - name: Ensure replicaset is stable before beginning
       community.mongodb.mongodb_status:
@@ -96,11 +104,6 @@
             login_port: "{{ mongod_port }}"
             poll: 3
             interval: 10
-
-        - name: Ensure mongodb-org* packages are version locked again
-          shell: yum versionlock mongodb-org* && touch /root/mongo_version_lock.success
-          args:
-            creates: /root/mongo_version_lock.success
       when: inventory_hostname_short == primary
 
 - name: Upgrade SECONDARY mongod servers for rs0
@@ -139,12 +142,6 @@
             login_port: "{{ mongod_port }}"
             poll: 3
             interval: 10
-
-        - name: Ensure mongodb-org* packages are version locked again
-          shell: yum versionlock mongodb-org* && touch /root/mongo_version_lock.success
-          args:
-            creates: /root/mongo_version_lock.success
-
       when: inventory_hostname_short != primary
 
 - name: Upgrade PRIMARY mongod server for rs0
@@ -186,11 +183,6 @@
             login_port: "{{ mongod_port }}"
             poll: 3
             interval: 10
-
-        - name: Ensure mongodb-org* packages are version locked again
-          shell: yum versionlock mongodb-org* && touch /root/mongo_version_lock.success
-          args:
-            creates: /root/mongo_version_lock.success
       when: inventory_hostname_short == primary
 
 - name: Upgrade SECONDARY mongod servers for rs1
@@ -229,11 +221,6 @@
             login_port: "{{ mongod_port }}"
             poll: 3
             interval: 10
-
-        - name: Ensure mongodb-org* packages are version locked again
-          shell: yum versionlock mongodb-org* && touch /root/mongo_version_lock.success
-          args:
-            creates: /root/mongo_version_lock.success
       when: inventory_hostname_short != primary
 
 - name: Upgrade PRIMARY mongod server for rs1
@@ -275,11 +262,6 @@
             login_port: "{{ mongod_port }}"
             poll: 3
             interval: 10
-
-        - name: Ensure mongodb-org* packages are version locked again
-          shell: yum versionlock mongodb-org* && touch /root/mongo_version_lock.success
-          args:
-            creates: /root/mongo_version_lock.success
       when: inventory_hostname_short == primary
 
 - name: Upgrade the mongos instances
@@ -299,12 +281,8 @@
   # Process is based on the following offical documentation...
   # https://docs.mongodb.com/manual/release-notes/4.2-upgrade-sharded-cluster/
   tasks:
-    - import_tasks: ../shared_tasks/upgrade_mongos.yml
 
-    - name: Ensure mongodb-org* packages are version locked again
-      shell: yum versionlock mongodb-org* && touch /root/mongo_version_lock.success
-      args:
-        creates: /root/mongo_version_lock.success
+    - import_tasks: ../shared_tasks/upgrade_mongos.yml
 
 - name: Enable the Balancer
   hosts: mongos

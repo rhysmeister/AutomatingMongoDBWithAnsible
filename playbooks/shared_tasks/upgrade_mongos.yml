@@ -91,3 +91,8 @@
   assert:
     that: "'{{ target_mongodb_version }}' in mongos.stdout"
   when: target_mongodb_version is defined
+
+- name: Ensure mongodb-org* packages are version locked again
+  shell: yum versionlock mongodb-org* && touch /root/mongo_version_lock.success
+  args:
+    creates: /root/mongo_version_lock.success
