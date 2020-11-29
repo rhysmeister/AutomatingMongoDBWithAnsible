@@ -183,10 +183,8 @@ jobs:
         working-directory: AutomatingMongoDBWithAnsible/playbooks/sharded_cluster
 
       - name: Write inventory file for cluster
-        uses: DamianReeves/write-file-action@v1
-        with:
-          path: AutomatingMongoDBWithAnsible/playbooks/maintenance/mongo_inventory.inv
-          contents: |
+        run: |
+          cat << EOF > mongo_inventory.inv
             [mongodb]
             mongodb1
             mongodb2
@@ -209,7 +207,8 @@ jobs:
             mongos1
             mongos2
             mongos3
-          write-mode: overwrite
+          EOF
+        working-directory: AutomatingMongoDBWithAnsible/playbooks/maintenance
 
       - name: Install sudo in docker
         run: ansible all -i mongo_inventory.inv -c docker -m raw -a "yum install sudo -y"
