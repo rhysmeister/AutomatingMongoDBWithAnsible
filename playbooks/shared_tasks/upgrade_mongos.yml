@@ -63,6 +63,14 @@
   tags:
     - never
 
+- name: Selinux fix for
+  shell: |
+    grep denied /var/log/audit/audit.log | grep mongo | audit2allow -M mongos_fix && \
+      semodule -i mongos_fix.pp && \
+      touch mongos_fix.success
+  args:
+    creates:  mongos_fix.success
+
 - name: Ensure mongos service starts
   service:
     name: mongos
