@@ -73,5 +73,15 @@ openssl_keyfile_content: |
 ```
 vagrant ssh-config > .vagrant/ssh-config
 export ANSIBLE_INVENTORY=.vagrant/provisioners/ansible/inventory/vagrant_ansible_inventory;
-py.test --ssh-config=.vagrant/ssh-config tests_mongodbreplicaset.py
+py.test --ssh-config=.vagrant/ssh-config tests_mongodb_sharded_cluster.py
+```
+
+# Run TestInfra tests requiring auth
+
+Some tests have authentication details hard-coded. >ou can skip these if required.
+
+
+```
+export PYTESTSKIP=TRUE;
+py.test --ssh-config=.vagrant/ssh-config tests_mongodb_sharded_cluster.py;
 ```
