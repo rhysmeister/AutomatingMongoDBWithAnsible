@@ -53,10 +53,26 @@ def test_mongodb_mongos(host):
         print("Tests passed for {0}".format(hostname))
 
 
-@pytest.mark.skipif(os.environ.get( 'PYTESTSKIP', '' ) == 'TRUE', reason="PYTESTSKIP environment variable is TRUE")
+@pytest.mark.skipif(os.environ.get('MONGO_USER', '') == '', reason="MONGO_USER environment variable is not set")
 def test_mongodb_mongos_auth(host):
-        hostname = host.check_output('hostname -s')
-        if hostname in ['mongos1', 'mongos2', 'mongos3']:
-            cmd = host.run("mongo admin -u admin -p secret --port 27017 --eval 'db.runCommand({ listShards: 1 })'")
-            assert "rs0/mongodb1.local:27018,mongodb2.local:27018,mongodb3.local:27018" in cmd.stdout
-            assert "rs1/mongodb4.local:27018,mongodb5.local:27018,mongodb6.local:27018" in cmd.stdout
+    MONGO_USER = os.environ.get('MONGO_USER')
+    MONGO_PWD = os.environ.get('MONGO_PWD')
+    hostname = host.check_output('hostname -s')
+    if hostname in ['mongos1', 'mongos2', 'mongos3']:
+        cmd = host.run("mongo admin -u {0} -p '{1}' --port 27017 --eval 'db.runCommand({{ listShards: 1 }})'".format(MONGO_USER, MONGO_PWD))
+        assert 'rs0/mongodb1.local:27018,mongodb2.local:27018,mongodb3.local:27018' in cmd.stdout
+        assert 'rs1/mongodb4.local:27018,mongodb5.local:27018,mongodb6.local:27018' in cmd.stdout
+
+
+@pytest.mark.skipif(os.environ.get('MONGO_VERSION', '') == '', reason="MONGO_VERSION environment variable is not set")
+def test_mongodb_version(host):
+    MONGO_VERSION = os.environ.get('MONGO_VERSION')
+    hostname = host.check_output('hostname -s')
+    if hostname.startswith("mongodb"):
+        cmd = host.run("mongod --version")
+        assert MONGO_VERSION in cmd.stdout
+    elif hostname.startswith("mongos"):
+        cmd = host.run("mongod --version")
+        assert MONGO_VERSION in cmd.stdout
+        cmd = host.run("mongos --version")
+        assert MONGO_VERSION in cmd.stdout

@@ -78,10 +78,11 @@ py.test --ssh-config=.vagrant/ssh-config tests_mongodb_sharded_cluster.py
 
 # Run TestInfra tests requiring auth
 
-Some tests have authentication details hard-coded. >ou can skip these if required.
+Some tests require the password for the root MongoDB user these can be set as follows. If the MONGO_USER variable is unset, or an empty string, the relevant tests will be skipped.
 
 
 ```
-export PYTESTSKIP=TRUE;
+export MONGO_USER=XXXXXXX;
+export MONGO_PWD=XXXXXXX;
 py.test --ssh-config=.vagrant/ssh-config tests_mongodb_sharded_cluster.py;
 ```
