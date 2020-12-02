@@ -8,3 +8,4 @@ python-vagrant==0.5.15
 # sh 1.13.1 causes molecule yamllint to fail.
 sh<1.13
 # mitogen==0.2.9
+pytest-ansible

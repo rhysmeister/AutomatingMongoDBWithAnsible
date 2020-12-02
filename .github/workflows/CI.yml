@@ -189,27 +189,27 @@ jobs:
         run: |
           cat << EOF > mongo_inventory.inv
             [mongodb]
-            mongodb1
-            mongodb2
-            mongodb3
-            mongodb4
-            mongodb5
-            mongodb6
+            mongodb1  ansible_connection=docker
+            mongodb2  ansible_connection=docker
+            mongodb3  ansible_connection=docker
+            mongodb4  ansible_connection=docker
+            mongodb5  ansible_connection=docker
+            mongodb6  ansible_connection=docker
 
             [rs0]
-            mongodb1
-            mongodb2
-            mongodb3
+            mongodb1  ansible_connection=docker
+            mongodb2  ansible_connection=docker
+            mongodb3  ansible_connection=docker
 
             [rs1]
-            mongodb4
-            mongodb5
-            mongodb6
+            mongodb4  ansible_connection=docker
+            mongodb5  ansible_connection=docker
+            mongodb6  ansible_connection=docker
 
             [mongos]
-            mongos1
-            mongos2
-            mongos3
+            mongos1  ansible_connection=docker
+            mongos2  ansible_connection=docker
+            mongos3  ansible_connection=docker
           EOF
         working-directory: AutomatingMongoDBWithAnsible/playbooks/maintenance
 
@@ -218,10 +218,18 @@ jobs:
         working-directory: AutomatingMongoDBWithAnsible/playbooks/maintenance
 
       - name: Run upgrade playbook
-        run: ansible-playbook -i mongo_inventory.inv -c docker --skip-tags reboot --tags all,never  mongodb_sharded_cluster_upgrade.yml
+        run: ansible-playbook -i mongo_inventory.inv --skip-tags reboot --tags all,never  mongodb_sharded_cluster_upgrade.yml
         working-directory: AutomatingMongoDBWithAnsible/playbooks/maintenance
         env:
           ANSIBLE_VAULT_PASSWORD_FILE: "../../.vault_pass.txt"
+
+      - name: Run unit tests
+        run: pytest --inventory mongo_inventory.inv tests_mongodb_sharded_cluster.py
+        working-directory: AutomatingMongoDBWithAnsible/playbooks/sharded_cluster
+        env:
+          MONGO_USER: "admin"
+          MONGO_PWD: "secret"
+          MONGO_VERSION: "4.4.2"
 
       - name: Clean up molecule env for scenario ${{ matrix.molecule_scenario }}
         run: molecule destroy --scenario-name ${{ matrix.molecule_scenario }}
