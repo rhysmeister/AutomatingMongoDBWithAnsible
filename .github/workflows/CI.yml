@@ -189,27 +189,27 @@ jobs:
         run: |
           cat << EOF > mongo_inventory.inv
             [mongodb]
-            mongodb1  ansible_connection=docker
-            mongodb2  ansible_connection=docker
-            mongodb3  ansible_connection=docker
-            mongodb4  ansible_connection=docker
-            mongodb5  ansible_connection=docker
-            mongodb6  ansible_connection=docker
+            mongodb1
+            mongodb2
+            mongodb3
+            mongodb4
+            mongodb5
+            mongodb6
 
             [rs0]
-            mongodb1  ansible_connection=docker
-            mongodb2  ansible_connection=docker
-            mongodb3  ansible_connection=docker
+            mongodb1
+            mongodb2
+            mongodb3
 
             [rs1]
-            mongodb4  ansible_connection=docker
-            mongodb5  ansible_connection=docker
-            mongodb6  ansible_connection=docker
+            mongodb4
+            mongodb5
+            mongodb6
 
             [mongos]
-            mongos1  ansible_connection=docker
-            mongos2  ansible_connection=docker
-            mongos3  ansible_connection=docker
+            mongos1
+            mongos2
+            mongos3
           EOF
         working-directory: AutomatingMongoDBWithAnsible/playbooks/maintenance
 
@@ -224,7 +224,7 @@ jobs:
           ANSIBLE_VAULT_PASSWORD_FILE: "../../.vault_pass.txt"
 
       - name: Run unit tests
-        run: pytest --inventory mongo_inventory.inv tests_mongodb_sharded_cluster.py
+        run: pytest --connection docker --ansible-inventory mongo_inventory.inv tests_mongodb_sharded_cluster.py
         working-directory: AutomatingMongoDBWithAnsible/playbooks/sharded_cluster
         env:
           MONGO_USER: "admin"
