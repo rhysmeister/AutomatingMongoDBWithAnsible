@@ -40,7 +40,7 @@ jobs:
           ANSIBLE_VAULT_PASSWORD_FILE: "../../.vault_pass.txt"
 
       - name: Run unit tests
-        run: pytest --connection local tests_mongodb_sharded_cluster.py
+        run: pytest --connection local tests_mongodbstandalone.py
         working-directory: AutomatingMongoDBWithAnsible/playbooks/standalone
         env:
           MONGO_USER: "admin"
