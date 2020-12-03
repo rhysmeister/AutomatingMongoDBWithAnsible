@@ -87,7 +87,7 @@ jobs:
         working-directory: AutomatingMongoDBWithAnsible/playbooks/replicaset
 
       - name: Install sudo in docker
-        run: ansible all -i mongo_inventory.inv -c docker -m raw -a "yum install sudo -y"
+        run: ansible all -i mongo_inventory.inv -c docker -m shell -a "yum install sudo -y || apt install sudo -y"
         working-directory: AutomatingMongoDBWithAnsible/playbooks/replicaset
 
       - name: Run unit tests
@@ -160,7 +160,7 @@ jobs:
         working-directory: AutomatingMongoDBWithAnsible/playbooks/sharded_cluster
 
       - name: Install sudo in docker
-        run: ansible all -i mongo_inventory.inv -c docker -m raw -a "yum install sudo -y"
+        run: ansible all -i mongo_inventory.inv -c docker -m shell -a "yum install sudo -y || apt install sudo -y"
         working-directory: AutomatingMongoDBWithAnsible/playbooks/sharded_cluster
 
       - name: Run unit tests
