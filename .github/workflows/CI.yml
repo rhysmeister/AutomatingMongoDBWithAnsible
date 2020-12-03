@@ -39,6 +39,10 @@ jobs:
         env:
           ANSIBLE_VAULT_PASSWORD_FILE: "../../.vault_pass.txt"
 
+      - name: Generate an inventory
+        run: echo localhost > mongo_inventory.inv
+        working-directory: AutomatingMongoDBWithAnsible/playbooks/standalone
+
       - name: Run unit tests
         run: pytest --connection local tests_mongodbstandalone.py
         working-directory: AutomatingMongoDBWithAnsible/playbooks/standalone
@@ -46,6 +50,7 @@ jobs:
           MONGO_USER: "admin"
           MONGO_PWD: "secret"
           MONGO_VERSION: "4.2"
+          ANSIBLE_INVENTORY: "mongo_inventory.inv"
 
   replicaset:
     runs-on: ubuntu-latest
