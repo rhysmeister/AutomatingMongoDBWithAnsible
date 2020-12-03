@@ -25,6 +25,16 @@ def test_mongodb_replicaset(host):
     assert "mongodb3.local:27017" in cmd.stdout
 
 
+@pytest.mark.skipif(os.environ.get('MONGO_VERSION', '') == '', reason="MONGO_VERSION environment variable is not set")
+def test_mongodb_version(host):
+    MONGO_VERSION = os.environ.get('MONGO_VERSION')
+    hostname = host.check_output('hostname -s')
+    if hostname.startswith("mongodb"):
+        cmd = host.run("mongod --version")
+        assert MONGO_VERSION in cmd.stdout
+
+
+@pytest.mark.skipif(os.environ.get('MONGO_REBOOT_TEST', '') != 'TRUE', reason="MONGO_VERSION environment variable is not set")
 def test_mongodb_reboot(host):
     '''
     Reboot the host and check the mongod service comes back up

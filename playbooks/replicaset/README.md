@@ -76,6 +76,22 @@ export ANSIBLE_INVENTORY=.vagrant/provisioners/ansible/inventory/vagrant_ansible
 py.test --ssh-config=.vagrant/ssh-config tests_mongodbreplicaset.py
 ```
 
+# Run TestInfra tests with reboot test
+
+The reboot test must be specifically invoked. This test only really makes sense in the Vagrant/VB env.
+
+```
+export MONGO_REBOOT_TEST=TRUE;
+py.test --ssh-config=.vagrant/ssh-config tests_mongodb_sharded_cluster.py;
+```
+
+# Run TestInfra tests with MongoDB version validation
+
+```
+export MONGO_VERSION="4.4.2";
+py.test --ssh-config=.vagrant/ssh-config tests_mongodb_sharded_cluster.py;
+```
+
 # Playbook commands
 
 ```

@@ -76,3 +76,35 @@ def test_mongodb_version(host):
         assert MONGO_VERSION in cmd.stdout
         cmd = host.run("mongos --version")
         assert MONGO_VERSION in cmd.stdout
+
+
+@pytest.mark.skipif(os.environ.get('MONGO_REBOOT_TEST', '') != 'TRUE', reason="MONGO_VERSION environment variable is not set")
+def test_mongodb_reboot(host):
+    '''
+    Reboot the host and check the mongod service comes back up
+    '''
+    #rebooted = host.ansible("reboot", "msg='Reboot initiated from Testinfra.'", become=True, become_user="root")
+    #assert rebooted["rebooted"]
+    # This version works
+    #host.ansible("command", "reboot", check=False, become=True)
+    hostname = host.check_output('hostname -s')
+    host.run("sudo reboot")
+    time.sleep(60)
+
+    if hostname.startwith("mongodb"):
+        service = host.service("mongod")
+        assert service.is_running
+        assert service.is_enabled
+        socket = host.socket("tcp://0.0.0.0:27018")
+        assert socket.is_listening
+    elif hostname.startwith("mongos"):
+        service = host.service("mongod") # config server
+        assert service.is_running
+        assert service.is_enabled
+        socket = host.socket("tcp://0.0.0.0:27019")
+        assert socket.is_listening
+        service = host.service("mongos") # mongos server
+        assert service.is_running
+        assert service.is_enabled
+        socket = host.socket("tcp://0.0.0.0:27017")
+        assert socket.is_listening

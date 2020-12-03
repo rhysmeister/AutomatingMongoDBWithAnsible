@@ -86,3 +86,12 @@ export MONGO_USER=XXXXXXX;
 export MONGO_PWD=XXXXXXX;
 py.test --ssh-config=.vagrant/ssh-config tests_mongodb_sharded_cluster.py;
 ```
+
+# Run TestInfra tests with reboot test
+
+The reboot test must be specifically invoked. This test only really makes sense in the Vagrant/VB env.
+
+```
+export MONGO_REBOOT_TEST=TRUE;
+py.test --ssh-config=.vagrant/ssh-config tests_mongodb_sharded_cluster.py;
+```

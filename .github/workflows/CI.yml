@@ -150,6 +150,13 @@ jobs:
         env:
           ANSIBLE_VAULT_PASSWORD_FILE: "../../.vault_pass.txt"
 
+      - name: Run unit tests
+        run: pytest --connection docker tests_mongodb_sharded_cluster.py
+        working-directory: AutomatingMongoDBWithAnsible/playbooks/replicaset
+        env:
+          MONGO_VERSION: "4.4.2"
+          ANSIBLE_INVENTORY: "../maintenance/mongo_inventory.inv"
+
       - name: Clean up molecule env for scenario ${{ matrix.molecule_scenario }}
         run: molecule destroy --scenario-name ${{ matrix.molecule_scenario }}
         working-directory: AutomatingMongoDBWithAnsible/playbooks/replicaset
