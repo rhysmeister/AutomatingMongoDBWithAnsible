@@ -169,7 +169,7 @@ jobs:
         env:
           MONGO_USER: "admin"
           MONGO_PWD: "secret"
-          MONGO_VERSION: "4.4.2"
+          MONGO_VERSION: "4.2"
           ANSIBLE_INVENTORY: "mongo_inventory.inv"
 
       - name: Clean up molecule env for scenario ${{ matrix.molecule_scenario }}
