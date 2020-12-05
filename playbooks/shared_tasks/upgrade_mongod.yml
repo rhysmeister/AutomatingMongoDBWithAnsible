@@ -46,16 +46,30 @@
     login_password: "{{ admin_user_password }}"
     login_port: "{{ mongod_port }}"
 
+- name: Downgrade the mongod package
+  yum:
+    name: "mongodb-org-server-{{ specific_package_version | default(target_mongodb_version) }}*"
+    state: present
+    update_cache: yes
+    allow_downgrade: yes
+  when:
+    - mongodb_downgrade is defined
+    - mongodb_downgrade == True
+  register: mongod_downgraded
+
 - name: Upgrade mongod package
   yum:
-    name: mongodb-org-server
+    name: "mongodb-org-server-{{ specific_package_version | default(target_mongodb_version) }}*"
     state: latest
+  when:
+    - mongodb_downgrade is not defined or mongodb_downgrade == False
   register: mongod_upgraded
 
 - name: Reboot the node
   reboot:
     reboot_timeout: 3600
-  when: mongod_upgraded.changed
+  when:
+    - (mongod_upgraded is defined and mongod_upgraded.changed) or (mongod_downgraded is defined and mongod_downgraded.changed)
   tags:
     - reboot
 
@@ -82,7 +96,7 @@
 
 - name: Validate the running version of mongod
   assert:
-    that: "'{{ target_mongodb_version }}' in mongod.stdout"
+    that: "'db version v{{ target_mongodb_version }}' in mongod.stdout"
   when: target_mongodb_version is defined
 
 - name: Ensure mongodb-org* packages are version locked again

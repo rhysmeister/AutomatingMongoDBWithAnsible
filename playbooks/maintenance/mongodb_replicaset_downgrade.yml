@@ -1,0 +1,81 @@
+---
+- name: Downgrade the SECONDARY members
+  hosts: all
+  gather_facts: yes
+  become: yes
+  serial: 1
+  vars_files:
+    - ../vars/main.yml
+    - ../replicaset/vault.yml
+  vars:
+    required_packages:
+      - "yum-plugin-versionlock"
+    current_mongodb_version: "4.4"
+    target_mongodb_version: "4.2"
+
+  # Process is based on the following offical documentation...
+  # https://docs.mongodb.com/manual/release-notes/4.4-downgrade-sharded-cluster/
+  # Always take a backup before running this playbook and ensure you've read the documentation
+  # regarding incompatible configuration settings that may caue problems during a downgrade.
+  tasks:
+
+    - import_tasks: ../shared_tasks/get_primary.yml
+
+    - name: Downgrade SECONDARY MongoDB hosts first
+      block:
+        - name: Remove the mongod package
+          set_fact:
+            mongodb_downgrade: true
+
+        - import_tasks: ../shared_tasks/upgrade_mongod.yml
+
+        - name: Ensure that current replicaset state is good
+          community.mongodb.mongodb_status:
+            login_user: "{{ admin_user }}"
+            login_password: "{{ admin_user_password }}"
+            poll: 3
+            interval: 10
+      when: inventory_hostname_short != primary
+
+- name: Downgrade the PRIMARY
+  hosts: all
+  gather_facts: yes
+  become: yes
+  vars_files:
+    - ../vars/main.yml
+    - ../replicaset/vault.yml
+  vars:
+    required_packages:
+      - "yum-plugin-versionlock"
+    current_mongodb_version: "4.4"
+    target_mongodb_version: "4.2"
+
+  tasks:
+
+    - import_tasks: ../shared_tasks/get_primary.yml
+
+    - name: Upgrade PRIMARY MongoDB member
+      block:
+        - name: Stepdown if primary
+          community.mongodb.mongodb_stepdown:
+            login_user: "{{ admin_user }}"
+            login_password: "{{ admin_user_password }}"
+
+        - name: Remove the mongod package
+          set_fact:
+            mongodb_downgrade: true
+
+        - import_tasks: ../shared_tasks/upgrade_mongod.yml
+
+        - name: Validate the replicaset state again
+          community.mongodb.mongodb_status:
+            login_user: "{{ admin_user }}"
+            login_password: "{{ admin_user_password }}"
+            poll: 3
+            interval: 10
+      when: inventory_hostname_short == primary
+
+    - name: Ensure mongodb-org* packages are version locked again
+      shell: yum versionlock mongodb-org* && touch /root/mongo_version_lock.success
+      args:
+        creates: /root/mongo_version_lock.success
