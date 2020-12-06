@@ -45,16 +45,30 @@
     name: mongos
     state: stopped
 
+- name: Downgrade the mongod package
+  yum:
+    name: "mongodb-org-mongos-{{ specific_package_version | default(target_mongodb_version) }}*"
+    state: present
+    update_cache: yes
+    allow_downgrade: yes
+  when:
+    - mongodb_downgrade is defined
+    - mongodb_downgrade == True
+  register: mongos_downgraded
+
 - name: Upgrade mongos package
   yum:
-    name: mongodb-org-mongos
+    name: "mongodb-org-mongos-{{ specific_package_version | default(target_mongodb_version) }}*"
     state: latest
+  when:
+    - mongodb_downgrade is not defined or mongodb_downgrade == False
   register: mongos_upgraded
 
 - name: Reboot the node
   reboot:
     reboot_timeout: 3600
-  when: mongos_upgraded.changed
+  when:
+    - (mongos_upgraded is defined and mongos_upgraded.changed) or (mongos_downgraded is defined and mongos_downgraded.changed)
   tags:
     - reboot
 
@@ -63,7 +77,7 @@
   tags:
     - never
 
-- name: Selinux fix for
+- name: Selinux fix
   shell: |
     if test -f /var/log/audit/audit.log; then
       grep denied /var/log/audit/audit.log | grep mongo | audit2allow -M mongos_fix && \

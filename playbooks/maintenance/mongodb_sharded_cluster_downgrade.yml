@@ -7,6 +7,8 @@
 
   tasks:
 
+  # Process is based on the following offical documentation...
+  # https://docs.mongodb.com/manual/release-notes/4.2-downgrade-sharded-cluster/
     - name: Disable the Balancer
       community.mongodb.mongodb_balancer:
         state: stopped
@@ -15,7 +17,7 @@
         login_port: "{{ mongos_port }}"
       run_once: yes
 
-- name: Upgrade SECONDARY mongod config servers
+- name: Downgrade the mongos instances
   hosts: mongos
   gather_facts: yes
   become: yes
@@ -27,7 +29,208 @@
     required_packages:
       - "yum-plugin-versionlock"
     current_mongodb_version: "4.2"
-    target_mongodb_version: "4.4"
+    target_mongodb_version: "4.0"
+
+  tasks:
+
+    - name: Downgrade the mongos package
+      set_fact:
+        mongodb_downgrade: true
+
+    - import_tasks: ../shared_tasks/upgrade_mongos.yml
+
+- name: Downgrade SECONDARY mongod servers for rs0
+  hosts: rs0
+  gather_facts: yes
+  become: yes
+  serial: 1
+  vars_files:
+    - ../vars/main.yml
+    - ../replicaset/vault.yml
+  vars:
+    required_packages:
+      - "yum-plugin-versionlock"
+    current_mongodb_version: "4.2"
+    target_mongodb_version: "4.0"
+    rs: "rs0"
+
+
+  # Process is based on the following offical documentation...
+  # https://docs.mongodb.com/manual/release-notes/4.4-downgrade-sharded-cluster/
+  # Always take a backup before running this playbook and ensure you've read the documentation
+  # regarding incompatible configuration settings that may caue problems during a downgrade.
+  tasks:
+
+    - name: Set port for mongod shard servers
+      set_fact:
+        mongod_port: 27018
+
+    - import_tasks: ../shared_tasks/get_primary.yml
+
+    - name: Downgrade SECONDARY MongoDB hosts first
+      block:
+        - name: Downgrade the mongod package
+          set_fact:
+            mongodb_downgrade: true
+
+        - import_tasks: ../shared_tasks/upgrade_mongod.yml
+
+        - name: Ensure that current replicaset state is good
+          community.mongodb.mongodb_status:
+            login_user: "{{ admin_user }}"
+            login_password: "{{ admin_user_password }}"
+            login_port: "{{ mongod_port }}"
+            poll: 3
+            interval: 10
+      when: inventory_hostname_short != primary
+
+- name: Downgrade PRIMARY mongod servers for rs0
+  hosts: rs0
+  gather_facts: yes
+  become: yes
+  vars_files:
+    - ../vars/main.yml
+    - ../replicaset/vault.yml
+  vars:
+    required_packages:
+      - "yum-plugin-versionlock"
+    current_mongodb_version: "4.2"
+    target_mongodb_version: "4.0"
+    rs: "rs0"
+
+  tasks:
+
+    - name: Set port for mongod shard servers
+      set_fact:
+        mongod_port: 27018
+
+    - import_tasks: ../shared_tasks/get_primary.yml
+
+    - name: Upgrade PRIMARY MongoDB member
+      block:
+        - name: Stepdown if primary
+          community.mongodb.mongodb_stepdown:
+            login_user: "{{ admin_user }}"
+            login_password: "{{ admin_user_password }}"
+            login_port: "{{ mongod_port }}"
+
+        - name: Downgrade the mongod package
+          set_fact:
+            mongodb_downgrade: true
+
+        - import_tasks: ../shared_tasks/upgrade_mongod.yml
+
+        - name: Validate the replicaset state again
+          community.mongodb.mongodb_status:
+            login_user: "{{ admin_user }}"
+            login_password: "{{ admin_user_password }}"
+            login_port: "{{ mongod_port }}"
+            poll: 3
+            interval: 10
+      when: inventory_hostname_short == primary
+
+- name: Downgrade SECONDARY mongod servers for rs1
+  hosts: rs1
+  gather_facts: yes
+  become: yes
+  serial: 1
+  vars_files:
+    - ../vars/main.yml
+    - ../replicaset/vault.yml
+  vars:
+    required_packages:
+      - "yum-plugin-versionlock"
+    current_mongodb_version: "4.2"
+    target_mongodb_version: "4.0"
+    rs: "rs1"
+
+  # Process is based on the following offical documentation...
+  # https://docs.mongodb.com/manual/release-notes/4.4-downgrade-sharded-cluster/
+  # Always take a backup before running this playbook and ensure you've read the documentation
+  # regarding incompatible configuration settings that may caue problems during a downgrade.
+  tasks:
+
+    - name: Set port for mongod shard servers
+      set_fact:
+        mongod_port: 27018
+
+    - import_tasks: ../shared_tasks/get_primary.yml
+
+    - name: Downgrade SECONDARY MongoDB hosts first
+      block:
+        - name: Downgrade the mongod package
+          set_fact:
+            mongodb_downgrade: true
+
+        - import_tasks: ../shared_tasks/upgrade_mongod.yml
+
+        - name: Ensure that current replicaset state is good
+          community.mongodb.mongodb_status:
+            login_user: "{{ admin_user }}"
+            login_password: "{{ admin_user_password }}"
+            login_port: "{{ mongod_port }}"
+            poll: 3
+            interval: 10
+      when: inventory_hostname_short != primary
+
+- name: Downgrade PRIMARY mongod servers for rs1
+  hosts: rs1
+  gather_facts: yes
+  become: yes
+  vars_files:
+    - ../vars/main.yml
+    - ../replicaset/vault.yml
+  vars:
+    required_packages:
+      - "yum-plugin-versionlock"
+    current_mongodb_version: "4.2"
+    target_mongodb_version: "4.0"
+    rs: "rs1"
+
+  tasks:
+
+    - name: Set port for mongod shard servers
+      set_fact:
+        mongod_port: 27018
+
+    - import_tasks: ../shared_tasks/get_primary.yml
+
+    - name: Upgrade PRIMARY MongoDB member
+      block:
+        - name: Stepdown if primary
+          community.mongodb.mongodb_stepdown:
+            login_user: "{{ admin_user }}"
+            login_password: "{{ admin_user_password }}"
+            login_port: "{{ mongod_port }}"
+
+        - name: Downgrade the mongod package
+          set_fact:
+            mongodb_downgrade: true
+
+        - import_tasks: ../shared_tasks/upgrade_mongod.yml
+
+        - name: Validate the replicaset state again
+          community.mongodb.mongodb_status:
+            login_user: "{{ admin_user }}"
+            login_password: "{{ admin_user_password }}"
+            login_port: "{{ mongod_port }}"
+            poll: 3
+            interval: 10
+      when: inventory_hostname_short == primary
+
+- name: Downgrade the SECONDARY mongod config servers
+  hosts: mongos
+  gather_facts: yes
+  become: yes
+  serial: 1
+  vars_files:
+    - ../vars/main.yml
+    - ../replicaset/vault.yml
+  vars:
+    required_packages:
+      - "yum-plugin-versionlock"
+    current_mongodb_version: "4.2"
+    target_mongodb_version: "4.0"
 
   # Process is based on the following offical documentation...
   # https://docs.mongodb.com/manual/release-notes/4.2-upgrade-sharded-cluster/
@@ -54,6 +257,10 @@
           set_fact:
             mongod_port: 27019
 
+        - name: Downgrade the mongod package
+          set_fact:
+            mongodb_downgrade: true
+
         - import_tasks: ../shared_tasks/upgrade_mongod.yml
 
         - name: Ensure that current replicaset state is good
@@ -65,7 +272,7 @@
             interval: 10
       when: inventory_hostname_short != primary
 
-- name: Upgrade PRIMARY mongod config server
+- name: Downgrade the PRIMARY mongod config server
   hosts: mongos
   gather_facts: yes
   become: yes
@@ -76,13 +283,17 @@
     required_packages:
       - "yum-plugin-versionlock"
     current_mongodb_version: "4.2"
-    target_mongodb_version: "4.4"
+    target_mongodb_version: "4.0"
 
   tasks:
 
     - name: Set mongod_port to 27019
       set_fact:
         mongod_port: 27019
+
+    - name: Downgrade the mongod package
+      set_fact:
+        mongodb_downgrade: true
 
     - import_tasks: ../shared_tasks/get_primary.yml
 
@@ -106,184 +317,6 @@
             interval: 10
       when: inventory_hostname_short == primary
 
-- name: Upgrade SECONDARY mongod servers for rs0
-  hosts: rs0
-  gather_facts: yes
-  become: yes
-  serial: 1
-  vars_files:
-    - ../vars/main.yml
-    - ../replicaset/vault.yml
-  vars:
-    required_packages:
-      - "yum-plugin-versionlock"
-    current_mongodb_version: "4.2"
-    target_mongodb_version: "4.4"
-    rs: "rs0"
-
-  # Process is based on the following offical documentation...
-  # https://docs.mongodb.com/manual/release-notes/4.2-upgrade-sharded-cluster/
-  tasks:
-
-    - name: Set port for mongod shard servers
-      set_fact:
-        mongod_port: 27018
-
-    - import_tasks: ../shared_tasks/get_primary.yml
-
-    - name: Upgrade SECONDARY MongoDB hosts first for r0
-      block:
-        - import_tasks: ../shared_tasks/upgrade_mongod.yml
-
-        - name: Ensure that current replicaset state is good
-          community.mongodb.mongodb_status:
-            login_user: "{{ admin_user }}"
-            login_password: "{{ admin_user_password }}"
-            login_port: "{{ mongod_port }}"
-            poll: 3
-            interval: 10
-      when: inventory_hostname_short != primary
-
-- name: Upgrade PRIMARY mongod server for rs0
-  hosts: rs0
-  gather_facts: yes
-  become: yes
-  vars_files:
-    - ../vars/main.yml
-    - ../replicaset/vault.yml
-  vars:
-    required_packages:
-      - "yum-plugin-versionlock"
-    current_mongodb_version: "4.2"
-    target_mongodb_version: "4.4"
-    rs: "rs0"
-
-  tasks:
-
-    - name: Set port for mongod shard servers
-      set_fact:
-        mongod_port: 27018
-
-    - import_tasks: ../shared_tasks/get_primary.yml
-
-    - name: Upgrade PRIMARY MongoDB Host for rs0
-      block:
-        - name: Stepdown if primary
-          community.mongodb.mongodb_stepdown:
-            login_user: "{{ admin_user }}"
-            login_password: "{{ admin_user_password }}"
-            login_port: "{{ mongod_port }}"
-
-        - import_tasks: ../shared_tasks/upgrade_mongod.yml
-
-        - name: Validate the replicaset state again
-          community.mongodb.mongodb_status:
-            login_user: "{{ admin_user }}"
-            login_password: "{{ admin_user_password }}"
-            login_port: "{{ mongod_port }}"
-            poll: 3
-            interval: 10
-      when: inventory_hostname_short == primary
-
-- name: Upgrade SECONDARY mongod servers for rs1
-  hosts: rs1
-  gather_facts: yes
-  become: yes
-  serial: 1
-  vars_files:
-    - ../vars/main.yml
-    - ../replicaset/vault.yml
-  vars:
-    required_packages:
-      - "yum-plugin-versionlock"
-    current_mongodb_version: "4.2"
-    target_mongodb_version: "4.4"
-    rs: "rs1"
-
-  # Process is based on the following offical documentation...
-  # https://docs.mongodb.com/manual/release-notes/4.2-upgrade-sharded-cluster/
-  tasks:
-
-    - name: Set port for mongod shard servers
-      set_fact:
-        mongod_port: 27018
-
-    - import_tasks: ../shared_tasks/get_primary.yml
-
-    - name: Patch SECONDARY MongoDB hosts first for r1
-      block:
-        - import_tasks: ../shared_tasks/upgrade_mongod.yml
-
-        - name: Ensure that current replicaset state is good
-          community.mongodb.mongodb_status:
-            login_user: "{{ admin_user }}"
-            login_password: "{{ admin_user_password }}"
-            login_port: "{{ mongod_port }}"
-            poll: 3
-            interval: 10
-      when: inventory_hostname_short != primary
-
-- name: Upgrade PRIMARY mongod server for rs1
-  hosts: rs1
-  gather_facts: yes
-  become: yes
-  vars_files:
-    - ../vars/main.yml
-    - ../replicaset/vault.yml
-  vars:
-    required_packages:
-      - "yum-plugin-versionlock"
-    current_mongodb_version: "4.2"
-    target_mongodb_version: "4.4"
-    rs: "rs1"
-
-  tasks:
-
-    - name: Set port for mongod shard servers
-      set_fact:
-        mongod_port: 27018
-
-    - import_tasks: ../shared_tasks/get_primary.yml
-
-    - name: Upgrade PRIMARY MongoDB Host for rs1
-      block:
-        - name: Stepdown if primary
-          community.mongodb.mongodb_stepdown:
-            login_user: "{{ admin_user }}"
-            login_password: "{{ admin_user_password }}"
-            login_port: "{{ mongod_port }}"
-
-        - import_tasks: ../shared_tasks/upgrade_mongod.yml
-
-        - name: Validate the replicaset state again
-          community.mongodb.mongodb_status:
-            login_user: "{{ admin_user }}"
-            login_password: "{{ admin_user_password }}"
-            login_port: "{{ mongod_port }}"
-            poll: 3
-            interval: 10
-      when: inventory_hostname_short == primary
-
-- name: Upgrade the mongos instances
-  hosts: mongos
-  gather_facts: yes
-  become: yes
-  serial: 1
-  vars_files:
-    - ../vars/main.yml
-    - ../replicaset/vault.yml
-  vars:
-    required_packages:
-      - "yum-plugin-versionlock"
-    current_mongodb_version: "4.2"
-    target_mongodb_version: "4.4"
-
-  # Process is based on the following offical documentation...
-  # https://docs.mongodb.com/manual/release-notes/4.2-upgrade-sharded-cluster/
-  tasks:
-
-    - import_tasks: ../shared_tasks/upgrade_mongos.yml
-
 - name: Enable the Balancer
   hosts: mongos
   vars_files:
@@ -295,6 +328,7 @@
     - name: Enable the Balancer
       community.mongodb.mongodb_balancer:
         state: started
+        autosplit: yes
         login_user: "{{ admin_user }}"
         login_password: "{{ admin_user_password }}"
         login_port: "{{ mongos_port }}"
