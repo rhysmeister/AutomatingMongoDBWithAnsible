@@ -1,6 +1,7 @@
 ---
-- name: Disable the Balancer
+- name: Prep the MongoDB Cluster for downgrade
   hosts: mongos
+  any_errors_fatal: true
   vars_files:
     - ../vars/main.yml
     - ../replicaset/vault.yml
@@ -15,6 +16,39 @@
         login_user: "{{ admin_user }}"
         login_password: "{{ admin_user_password }}"
         login_port: "{{ mongos_port }}"
+      run_once: yes
+
+    - name: Set featureCompatibilityVersion to 4.0
+      community.mongodb.mongodb_shell:
+        login_user: "{{ admin_user }}"
+        login_password: "{{ admin_user_password }}"
+        login_port: "{{ mongos_port }}"
+        eval: "db.adminCommand({setFeatureCompatibilityVersion: '4.0'})"
+      run_once: yes
+
+    - name: Drop the user_1_db_1 on the system.users collection
+      community.mongodb.mongodb_index:
+        login_user: "{{ admin_user }}"
+        login_password: "{{ admin_user_password }}"
+        login_host: "{{ item.host }}"
+        login_port: "{{ item.port }}"
+        replica_set: "{{ item.rs }}"
+        indexes:
+          - database: "admin"
+            collection: "system.users"
+            options:
+              name: "user_1_db_1"
+            state: "absent"
+      with_items:
+        - host: "mongos1.local"
+          port: "{{ mongos_port }}"
+          rs: ""
+        - host: "mongodb1.local"
+          port: "27018"
+          rs: "rs0"
+        - host: "mongodb4.local"
+          port: "27018"
+          rs: "rs1"
       run_once: yes
 
 - name: Downgrade the mongos instances
@@ -217,6 +251,68 @@
             poll: 3
             interval: 10
       when: inventory_hostname_short == primary
+
+- name: Prep the MongoDB Config server for downgrade
+  hosts: mongos
+  gather_facts: yes
+  become: yes
+  serial: 1
+  vars_files:
+    - ../vars/main.yml
+    - ../replicaset/vault.yml
+  vars:
+    required_packages:
+      - "yum-plugin-versionlock"
+    current_mongodb_version: "4.2"
+    target_mongodb_version: "4.0"
+
+  tasks:
+
+        - name: Ensure the admin user has the correct configdb perms
+          import_tasks: ../shared_tasks/configdb_role.yml
+
+        - name: Drop indexes on the various collections for the dg
+          community.mongodb.mongodb_index:
+            login_user: "{{ admin_user }}"
+            login_password: "{{ admin_user_password }}"
+            login_port: 27019
+            replica_set: "cfg"
+            indexes:
+              - database: "{{ item.db }}"
+                collection: "{{ item.collection }}"
+                options:
+                  name: "{{ item.index }}"
+                state: "absent"
+          with_items:
+            - db: "config"
+              collection: "chunks"
+              index: "ns_1_min_1"
+            - db: "config"
+              collection: "chunks"
+              index: "ns_1_shard_1_min_1"
+            - db: "config"
+              collection: "chunks"
+              index: "ns_1_lastmod_1"
+            - db: "config"
+              collection: "migrations"
+              index: "ns_1_min_1"
+            - db: "config"
+              collection: "shards"
+              index: "host_1"
+            - db: "config"
+              collection: "tags"
+              index: "ns_1_min_1"
+            - db: "config"
+              collection: "tags"
+              index: "ns_1_tag_1"
+            - db: "config"
+              collection: "tags"
+              index: "ns_1_min_1"
+          run_once: yes
+
+        - name: Short pause to allow secondaries to catch up
+          pause:
+            seconds: 5
 
 - name: Downgrade the SECONDARY mongod config servers
   hosts: mongos

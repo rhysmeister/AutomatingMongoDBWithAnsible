@@ -1,0 +1,38 @@
+---
+- name: Create custom role file for index permissions
+  copy:
+    content: |
+      db.getSiblingDB("admin").createRole({
+      role: "configIndexRole",
+      privileges: [
+         {
+           resource: { db: "config", collection: "" },
+           actions: [ "find", "dropIndex", "createIndex", "listIndexes" ]
+         }
+      ],
+      roles: [  ]
+      });
+    dest: configdb_role.js
+  when: ansible_hostname == "mongos1"
+
+- name: Run configdb role file via the cmd line
+  shell: mongo admin --host cfg/localhost:27019 --username {{ admin_user }} --password {{ admin_user_password }} configdb_role.js && touch configdb_role.success
+  args:
+    creates: configdb_role.success
+  when: ansible_hostname == "mongos1"
+
+- name: Create the file to assign the role
+  copy:
+    content: |
+            db.getSiblingDB("admin").grantRolesToUser( "{{ admin_user }}",
+              [ { role: "configIndexRole", db: "admin" } ],
+              {  w: "majority", wtimeout: 4000 }
+            );
+    dest: configdb_admin.js
+  when: ansible_hostname == "mongos1"
+
+- name: Run configdb_admin.js file via the cmd line
+  shell: mongo admin --host cfg/localhost:27019 --username {{ admin_user }} --password {{ admin_user_password }} configdb_admin.js && touch configdb_admin.success
+  args:
+    creates: configdb_admin.success
+  when: ansible_hostname == "mongos1"
