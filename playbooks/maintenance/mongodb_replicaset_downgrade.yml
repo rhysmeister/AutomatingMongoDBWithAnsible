@@ -10,8 +10,8 @@
   vars:
     required_packages:
       - "yum-plugin-versionlock"
-    current_mongodb_version: "4.4"
-    target_mongodb_version: "4.2"
+    current_mongodb_version: "4.2"
+    target_mongodb_version: "4.0"
 
   # Process is based on the following offical documentation...
   # https://docs.mongodb.com/manual/release-notes/4.4-downgrade-sharded-cluster/
@@ -47,8 +47,8 @@
   vars:
     required_packages:
       - "yum-plugin-versionlock"
-    current_mongodb_version: "4.4"
-    target_mongodb_version: "4.2"
+    current_mongodb_version: "4.2"
+    target_mongodb_version: "4.0"
 
   tasks:
 
