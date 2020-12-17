@@ -425,7 +425,7 @@ jobs:
         run: ansible all -i mongo_inventory.inv -c docker -m raw -a "yum install sudo -y"
         working-directory: AutomatingMongoDBWithAnsible/playbooks/maintenance
 
-      - name: Run upgrade playbook
+      - name: Run downgrade playbook
         run: ansible-playbook -i mongo_inventory.inv -c docker --skip-tags reboot --tags all,never --extra-vars="current_mongodb_version=4.2 target_mongodb_version=4.0"  mongodb_sharded_cluster_downgrade.yml
         working-directory: AutomatingMongoDBWithAnsible/playbooks/maintenance
         env:
