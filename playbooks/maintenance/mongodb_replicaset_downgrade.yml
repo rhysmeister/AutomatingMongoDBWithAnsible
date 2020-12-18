@@ -1,4 +1,34 @@
 ---
+- name: Prepare the cluster for downgrade
+  hosts: all
+  become: yes
+  serial: 1
+  vars_files:
+    - ../vars/main.yml
+    - ../replicaset/vault.yml
+
+  tasks:
+
+    - name: Drop the user_1_db_1 on the system.users collection
+      community.mongodb.mongodb_index:
+        login_user: "{{ admin_user }}"
+        login_password: "{{ admin_user_password }}"
+        replica_set: "rs0"
+        indexes:
+          - database: "admin"
+            collection: "system.users"
+            options:
+              name: "user_1_db_1"
+            state: "absent"
+      run_once: yes
+
+    - name: Set featureCompatibilityVersion to 4.0
+      community.mongodb.mongodb_shell:
+        login_user: "{{ admin_user }}"
+        login_password: "{{ admin_user_password }}"
+        eval: "db.adminCommand({setFeatureCompatibilityVersion: '4.0'})"
+      run_once: yes
+
 - name: Downgrade the SECONDARY members
   hosts: all
   gather_facts: yes
