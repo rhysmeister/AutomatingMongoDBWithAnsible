@@ -16,6 +16,7 @@
        }
       );
     dest: mongodb_role.js
+  run_once: yes
 
 - name: Run role file via the cmd line
   shell: mongo admin --host {{ rs }}/localhost:{{ mongod_port }} --username {{ admin_user }} --password {{ admin_user_password }} mongodb_role.js && touch compact_role.success
@@ -23,19 +24,18 @@
     creates: compact_role.success
   run_once: yes
 
-- name: Add compactLocal role to user
-  community.mongodb.mongodb_user:
-    login_host: localhost
-    login_port: "{{ mongod_port }}"
-    login_user: "{{ admin_user }}"
-    login_password: "{{ admin_user_password }}"
-    database: admin
-    replica_set: "{{ rs }}"
-    name: "{{ admin_user }}"
-    password: "{{ admin_user_password }}"
-    roles:
-      - root
-      - compactLocal
-    state: present
-    update_password: on_create
+- name: Create the file to assign the role
+  copy:
+    content: |
+            db.getSiblingDB("admin").grantRolesToUser( "{{ admin_user }}",
+              [ { role: "compactLocal", db: "admin" } ],
+              {  w: "majority", wtimeout: 4000 }
+            );
+    dest: compact_admin.js
+  run_once: yes
+
+- name: Run compact_admin.js file via the cmd line
+  shell: mongo admin --host cfg/localhost:27019 --username {{ admin_user }} --password {{ admin_user_password }} compact_admin.js && touch compact_admin.success
+  args:
+    creates: compact_admin.success
   run_once: yes
