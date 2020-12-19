@@ -35,7 +35,7 @@
   run_once: yes
 
 - name: Run compact_admin.js file via the cmd line
-  shell: mongo admin --host cfg/localhost:27019 --username {{ admin_user }} --password {{ admin_user_password }} compact_admin.js && touch compact_admin.success
+  shell: mongo admin --host {{ rs }}/localhost:{{ mongod_port }} --username {{ admin_user }} --password {{ admin_user_password }} compact_admin.js && touch compact_admin.success
   args:
     creates: compact_admin.success
   run_once: yes
