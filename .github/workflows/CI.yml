@@ -481,7 +481,7 @@ jobs:
         run: ansible all -i mongo_inventory.inv -c docker -m raw -a "yum install sudo -y"
         working-directory: AutomatingMongoDBWithAnsible/playbooks/maintenance
 
-      - name: Run downgrade playbook
+      - name: Run oplog resize playbook
         run: ansible-playbook -i mongo_inventory.inv -c docker resize_oplog.yml
         working-directory: AutomatingMongoDBWithAnsible/playbooks/maintenance
         env:
@@ -491,7 +491,7 @@ jobs:
         run: pytest --connection docker tests_mongodbreplicaset.py
         working-directory: AutomatingMongoDBWithAnsible/playbooks/replicaset
         env:
-          MONGO_VERSION: "4.0"
+          MONGO_VERSION: "4.2"
           ANSIBLE_INVENTORY: "../maintenance/mongo_inventory.inv"
 
       - name: Clean up molecule env for scenario ${{ matrix.molecule_scenario }}
