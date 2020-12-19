@@ -10,6 +10,8 @@
   reboot:
     reboot_timeout: "{{ reboot_timeout }}"
   when: patch.msg != "Nothing to do"
+  tags:
+    - reboot
 
 - name: Start mongod service
   service:
