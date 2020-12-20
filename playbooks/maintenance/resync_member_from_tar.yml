@@ -7,9 +7,9 @@
     - ../vars/main.yml
     - ../replicaset/vault.yml
   vars:
-    tar_file: "./mongod.tar.gz"
+    tar_file: "./mongo.tar.gz"
     sync_timeout: 900
-# TODO NOT YET WORKING
+
   tasks:
 
     - name: End play if mongodb_members > 1
@@ -29,6 +29,7 @@
       community.mongodb.mongodb_shutdown:
         login_user: "{{ admin_user }}"
         login_password: "{{ admin_user_password }}"
+        login_port: "{{ mongod_port }}"
 
     - name: Archive data dir
       archive:
@@ -38,10 +39,17 @@
     - name: Remove the existing data
       shell: "rm -rf {{ mongod_data_dir }}"
 
+    - name: Recreate the datadir
+      file:
+        path: "{{ mongod_data_dir }}"
+        state: directory
+        owner: mongod
+        group: mongod
+
     - name: Unarchive mongod backup
       unarchive:
         src: "{{ tar_file }}"
-        dest: "{{ mongod_data_dir.split('/')[0:-1] | join('/') }}"
+        dest: "{{ mongod_data_dir }}"
         owner: mongod
         group: mongod
 
@@ -73,5 +81,6 @@
       community.mongodb.mongodb_status:
         login_user: "{{ admin_user }}"
         login_password: "{{ admin_user_password }}"
+        login_port: "{{ mongod_port }}"
         poll: 3
         interval: 10
