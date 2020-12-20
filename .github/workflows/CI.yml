@@ -645,9 +645,9 @@ jobs:
 
       - name: Create a tar backup of the mongodb data dir
         run: |
-          docker exec -ti mongodb2 systemctl stop mongod
-          docker exec -ti mongodb2 tar czf mongo.tar.gz /var/lib/mongo
-          docker exec -ti mongodb2 systemctl start mongod
+          docker exec mongodb2 systemctl stop mongod
+          docker exec mongodb2 tar czf mongo.tar.gz /var/lib/mongo
+          docker exec mongodb2 systemctl start mongod
           docker cp mongodb2:mongo.tar.gz .
         working-directory: AutomatingMongoDBWithAnsible/playbooks/maintenance
 
