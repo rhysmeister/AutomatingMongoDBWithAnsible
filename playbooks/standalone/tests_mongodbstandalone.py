@@ -25,8 +25,8 @@ def test_mongodb_port(host):
 
 def test_debug(host):
     with host.sudo():
-        host.check_output("netstat -tulpen")
-
+        output = host.check_output("netstat -tulpen")
+        print(output.stdout)
 
 @pytest.mark.skipif(os.environ.get('MONGO_REBOOT_TEST', '') != 'TRUE', reason="MONGO_VERSION environment variable is not set")
 def test_mongodb_reboot(host):
