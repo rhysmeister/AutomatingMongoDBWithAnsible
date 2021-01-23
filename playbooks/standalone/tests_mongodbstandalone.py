@@ -22,11 +22,7 @@ def test_mongodb_service(host):
 def test_mongodb_port(host):
     socket = host.socket("tcp://0.0.0.0:27017")
     assert socket.is_listening
-
-def test_debug(host):
-    with host.sudo():
-        output = host.check_output("netstat -tulpen")
-        print(output)
+    
 
 @pytest.mark.skipif(os.environ.get('MONGO_REBOOT_TEST', '') != 'TRUE', reason="MONGO_VERSION environment variable is not set")
 def test_mongodb_reboot(host):
