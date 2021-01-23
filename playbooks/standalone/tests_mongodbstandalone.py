@@ -13,7 +13,7 @@ def test_mongodb_config(host):
     assert file.exists
 
 
-def test_monbgodb_service(host):
+def test_mongodb_service(host):
     service = host.service("mongod")
     assert service.is_running
     assert service.is_enabled
@@ -26,7 +26,7 @@ def test_mongodb_port(host):
 def test_debug(host):
     with host.sudo():
         output = host.check_output("netstat -tulpen")
-        print(output.stdout)
+        print(output)
 
 @pytest.mark.skipif(os.environ.get('MONGO_REBOOT_TEST', '') != 'TRUE', reason="MONGO_VERSION environment variable is not set")
 def test_mongodb_reboot(host):
