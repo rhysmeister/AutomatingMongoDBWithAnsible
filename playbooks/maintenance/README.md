@@ -45,6 +45,12 @@ vagrant plugin install vagrant-scp
 vagrant scp mongodb2:/home/vagrant/mongo.tar.gz .
 ```
 
+# Downgrade a sharded cluster to a specific package version
+
+```bash
+ansible-playbook -i .vagrant/provisioners/ansible/inventory/vagrant_ansible_inventory --skip-tags reboot --tags all,never --extra-vars="current_mongodb_version=4.0 target_mongodb_version=4.0 specific_package_version=4.0.21"  ../maintenance/mongodb_sharded_cluster_downgrade.yml --ask-vault-pass
+```
+
 # Notes
 
 ```bash

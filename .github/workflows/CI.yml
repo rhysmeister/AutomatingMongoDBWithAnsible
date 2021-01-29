@@ -6,7 +6,7 @@ on:
 
 jobs:
   standalone:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-20.04
     defaults:
       run:
         working-directory: AutomatingMongoDBWithAnsible
@@ -53,7 +53,7 @@ jobs:
           ANSIBLE_INVENTORY: "mongo_inventory.inv"
 
   replicaset:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-20.04
     defaults:
       run:
         working-directory: AutomatingMongoDBWithAnsible
@@ -102,7 +102,7 @@ jobs:
         working-directory: AutomatingMongoDBWithAnsible/playbooks/replicaset
 
   sharded_cluster:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-20.04
     defaults:
       run:
         working-directory: AutomatingMongoDBWithAnsible
@@ -177,7 +177,7 @@ jobs:
         working-directory: AutomatingMongoDBWithAnsible/playbooks/sharded_cluster
 
   upgrade_replicaset:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-20.04
     defaults:
       run:
         working-directory: AutomatingMongoDBWithAnsible
@@ -231,7 +231,7 @@ jobs:
         working-directory: AutomatingMongoDBWithAnsible/playbooks/replicaset
 
   upgrade_sharded_cluster:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-20.04
     defaults:
       run:
         working-directory: AutomatingMongoDBWithAnsible
@@ -311,7 +311,7 @@ jobs:
         working-directory: AutomatingMongoDBWithAnsible/playbooks/sharded_cluster
 
   downgrade_replicaset:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-20.04
     defaults:
       run:
         working-directory: AutomatingMongoDBWithAnsible
@@ -365,7 +365,7 @@ jobs:
         working-directory: AutomatingMongoDBWithAnsible/playbooks/replicaset
 
   downgrade_sharded_cluster:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-20.04
     defaults:
       run:
         working-directory: AutomatingMongoDBWithAnsible
@@ -445,7 +445,7 @@ jobs:
         working-directory: AutomatingMongoDBWithAnsible/playbooks/sharded_cluster
 
   resize_oplog:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-20.04
     defaults:
       run:
         working-directory: AutomatingMongoDBWithAnsible
@@ -499,7 +499,7 @@ jobs:
         working-directory: AutomatingMongoDBWithAnsible/playbooks/replicaset
 
   resync_member:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-20.04
     defaults:
       run:
         working-directory: AutomatingMongoDBWithAnsible
@@ -553,7 +553,7 @@ jobs:
         working-directory: AutomatingMongoDBWithAnsible/playbooks/replicaset
 
   patch_os:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-20.04
     defaults:
       run:
         working-directory: AutomatingMongoDBWithAnsible
@@ -607,7 +607,7 @@ jobs:
         working-directory: AutomatingMongoDBWithAnsible/playbooks/replicaset
 
   resync_member_from_tar:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-20.04
     defaults:
       run:
         working-directory: AutomatingMongoDBWithAnsible
