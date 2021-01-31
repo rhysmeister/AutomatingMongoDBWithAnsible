@@ -30,7 +30,7 @@ jobs:
         with:
           timeout_minutes: 3
           max_attempts: 3
-          command: .github/bash/CI_Setup.sh
+          command: AutomatingMongoDBWithAnsible/.github/bash/CI_Setup.sh
 
       - name: Run standalone playbook
         run: |
@@ -84,7 +84,7 @@ jobs:
         with:
           timeout_minutes: 3
           max_attempts: 3
-          command: .github/bash/CI_Setup.sh
+          command: AutomatingMongoDBWithAnsible/.github/bash/CI_Setup.sh
 
       - name: Run molecule test for scenario ${{ matrix.molecule_scenario }}
         run: molecule converge --scenario-name ${{ matrix.molecule_scenario }}
@@ -137,7 +137,7 @@ jobs:
         with:
           timeout_minutes: 3
           max_attempts: 3
-          command: .github/bash/CI_Setup.sh
+          command: AutomatingMongoDBWithAnsible/.github/bash/CI_Setup.sh
 
       - name: Run molecule converge for scenario ${{ matrix.molecule_scenario }}
         run: molecule converge --scenario-name ${{ matrix.molecule_scenario }}
@@ -215,7 +215,7 @@ jobs:
         with:
           timeout_minutes: 3
           max_attempts: 3
-          command: .github/bash/CI_Setup.sh
+          command: AutomatingMongoDBWithAnsible/.github/bash/CI_Setup.sh
 
       - name: Run molecule converge for scenario ${{ matrix.molecule_scenario }}
         run: molecule converge --scenario-name ${{ matrix.molecule_scenario }}
@@ -273,7 +273,7 @@ jobs:
         with:
           timeout_minutes: 3
           max_attempts: 3
-          command: .github/bash/CI_Setup.sh
+          command: AutomatingMongoDBWithAnsible/.github/bash/CI_Setup.sh
 
       - name: Run molecule converge for scenario ${{ matrix.molecule_scenario }}
         run: molecule converge --scenario-name ${{ matrix.molecule_scenario }}
@@ -357,7 +357,7 @@ jobs:
         with:
           timeout_minutes: 3
           max_attempts: 3
-          command: .github/bash/CI_Setup.sh
+          command: AutomatingMongoDBWithAnsible/.github/bash/CI_Setup.sh
 
       - name: Run molecule converge for scenario ${{ matrix.molecule_scenario }}
         run: molecule converge --scenario-name ${{ matrix.molecule_scenario }}
@@ -415,7 +415,7 @@ jobs:
         with:
           timeout_minutes: 3
           max_attempts: 3
-          command: .github/bash/CI_Setup.sh
+          command: AutomatingMongoDBWithAnsible/.github/bash/CI_Setup.sh
 
       - name: Run molecule converge for scenario ${{ matrix.molecule_scenario }}
         run: molecule converge --scenario-name ${{ matrix.molecule_scenario }}
@@ -499,7 +499,7 @@ jobs:
         with:
           timeout_minutes: 3
           max_attempts: 3
-          command: .github/bash/CI_Setup.sh
+          command: AutomatingMongoDBWithAnsible/.github/bash/CI_Setup.sh
 
       - name: Run molecule converge for scenario ${{ matrix.molecule_scenario }}
         run: molecule converge --scenario-name ${{ matrix.molecule_scenario }}
@@ -557,7 +557,7 @@ jobs:
         with:
           timeout_minutes: 3
           max_attempts: 3
-          command: .github/bash/CI_Setup.sh
+          command: AutomatingMongoDBWithAnsible/.github/bash/CI_Setup.sh
 
       - name: Run molecule converge for scenario ${{ matrix.molecule_scenario }}
         run: molecule converge --scenario-name ${{ matrix.molecule_scenario }}
@@ -615,7 +615,7 @@ jobs:
         with:
           timeout_minutes: 3
           max_attempts: 3
-          command: .github/bash/CI_Setup.sh
+          command: AutomatingMongoDBWithAnsible/.github/bash/CI_Setup.sh
 
       - name: Run molecule converge for scenario ${{ matrix.molecule_scenario }}
         run: molecule converge --scenario-name ${{ matrix.molecule_scenario }}
@@ -673,7 +673,7 @@ jobs:
         with:
           timeout_minutes: 3
           max_attempts: 3
-          command: .github/bash/CI_Setup.sh
+          command: AutomatingMongoDBWithAnsible/.github/bash/CI_Setup.sh
 
       - name: Run molecule converge for scenario ${{ matrix.molecule_scenario }}
         run: molecule converge --scenario-name ${{ matrix.molecule_scenario }}
