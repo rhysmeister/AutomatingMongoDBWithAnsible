@@ -26,7 +26,11 @@ jobs:
           python-version: ${{ matrix.python_version }}
 
       - name: Run CI_Setup.sh script
-        run: .github/bash/CI_Setup.sh
+        uses: nick-invision/retry@v2
+        with:
+          timeout_minutes: 3
+          max_attempts: 3
+          command: .github/bash/CI_Setup.sh
 
       - name: Run standalone playbook
         run: |
@@ -76,7 +80,11 @@ jobs:
           python-version: ${{ matrix.python_version }}
 
       - name: Run CI_Setup.sh script
-        run: .github/bash/CI_Setup.sh
+        uses: nick-invision/retry@v2
+        with:
+          timeout_minutes: 3
+          max_attempts: 3
+          command: .github/bash/CI_Setup.sh
 
       - name: Run molecule test for scenario ${{ matrix.molecule_scenario }}
         run: molecule converge --scenario-name ${{ matrix.molecule_scenario }}
@@ -125,7 +133,11 @@ jobs:
           python-version: ${{ matrix.python_version }}
 
       - name: Run CI_Setup.sh script
-        run: .github/bash/CI_Setup.sh
+        uses: nick-invision/retry@v2
+        with:
+          timeout_minutes: 3
+          max_attempts: 3
+          command: .github/bash/CI_Setup.sh
 
       - name: Run molecule converge for scenario ${{ matrix.molecule_scenario }}
         run: molecule converge --scenario-name ${{ matrix.molecule_scenario }}
@@ -199,7 +211,11 @@ jobs:
           python-version: ${{ matrix.python_version }}
 
       - name: Run CI_Setup.sh script
-        run: .github/bash/CI_Setup.sh
+        uses: nick-invision/retry@v2
+        with:
+          timeout_minutes: 3
+          max_attempts: 3
+          command: .github/bash/CI_Setup.sh
 
       - name: Run molecule converge for scenario ${{ matrix.molecule_scenario }}
         run: molecule converge --scenario-name ${{ matrix.molecule_scenario }}
@@ -253,7 +269,11 @@ jobs:
           python-version: ${{ matrix.python_version }}
 
       - name: Run CI_Setup.sh script
-        run: .github/bash/CI_Setup.sh
+        uses: nick-invision/retry@v2
+        with:
+          timeout_minutes: 3
+          max_attempts: 3
+          command: .github/bash/CI_Setup.sh
 
       - name: Run molecule converge for scenario ${{ matrix.molecule_scenario }}
         run: molecule converge --scenario-name ${{ matrix.molecule_scenario }}
@@ -333,7 +353,11 @@ jobs:
           python-version: ${{ matrix.python_version }}
 
       - name: Run CI_Setup.sh script
-        run: .github/bash/CI_Setup.sh
+        uses: nick-invision/retry@v2
+        with:
+          timeout_minutes: 3
+          max_attempts: 3
+          command: .github/bash/CI_Setup.sh
 
       - name: Run molecule converge for scenario ${{ matrix.molecule_scenario }}
         run: molecule converge --scenario-name ${{ matrix.molecule_scenario }}
@@ -387,7 +411,11 @@ jobs:
           python-version: ${{ matrix.python_version }}
 
       - name: Run CI_Setup.sh script
-        run: .github/bash/CI_Setup.sh
+        uses: nick-invision/retry@v2
+        with:
+          timeout_minutes: 3
+          max_attempts: 3
+          command: .github/bash/CI_Setup.sh
 
       - name: Run molecule converge for scenario ${{ matrix.molecule_scenario }}
         run: molecule converge --scenario-name ${{ matrix.molecule_scenario }}
@@ -467,7 +495,11 @@ jobs:
           python-version: ${{ matrix.python_version }}
 
       - name: Run CI_Setup.sh script
-        run: .github/bash/CI_Setup.sh
+        uses: nick-invision/retry@v2
+        with:
+          timeout_minutes: 3
+          max_attempts: 3
+          command: .github/bash/CI_Setup.sh
 
       - name: Run molecule converge for scenario ${{ matrix.molecule_scenario }}
         run: molecule converge --scenario-name ${{ matrix.molecule_scenario }}
@@ -521,7 +553,11 @@ jobs:
           python-version: ${{ matrix.python_version }}
 
       - name: Run CI_Setup.sh script
-        run: .github/bash/CI_Setup.sh
+        uses: nick-invision/retry@v2
+        with:
+          timeout_minutes: 3
+          max_attempts: 3
+          command: .github/bash/CI_Setup.sh
 
       - name: Run molecule converge for scenario ${{ matrix.molecule_scenario }}
         run: molecule converge --scenario-name ${{ matrix.molecule_scenario }}
@@ -575,7 +611,11 @@ jobs:
           python-version: ${{ matrix.python_version }}
 
       - name: Run CI_Setup.sh script
-        run: .github/bash/CI_Setup.sh
+        uses: nick-invision/retry@v2
+        with:
+          timeout_minutes: 3
+          max_attempts: 3
+          command: .github/bash/CI_Setup.sh
 
       - name: Run molecule converge for scenario ${{ matrix.molecule_scenario }}
         run: molecule converge --scenario-name ${{ matrix.molecule_scenario }}
@@ -629,7 +669,11 @@ jobs:
           python-version: ${{ matrix.python_version }}
 
       - name: Run CI_Setup.sh script
-        run: .github/bash/CI_Setup.sh
+        uses: nick-invision/retry@v2
+        with:
+          timeout_minutes: 3
+          max_attempts: 3
+          command: .github/bash/CI_Setup.sh
 
       - name: Run molecule converge for scenario ${{ matrix.molecule_scenario }}
         run: molecule converge --scenario-name ${{ matrix.molecule_scenario }}
