@@ -13,14 +13,6 @@
     seconds: 5
   when: repl.changed
 
-- name: Ensure replicaset has reached a converged state
-  community.mongodb.mongodb_status:
-    replica_set: "{{ repl_set_name }}"
-    login_port: "{{ mongod_port }}"
-    poll: 5
-    interval: 10
-  when: repl.changed == True
-
 - name: Has MongoDB Admin User been created already?
   stat:
     path: /root/mongodb_admin.success
@@ -35,6 +27,16 @@
     roles:
       - "root"
   when: mongodb_admin.stat.exists == False
+
+- name: Ensure replicaset has reached a converged state
+  community.mongodb.mongodb_status:
+    login_user: "{{ admin_user }}"
+    login_password: "{{ admin_user_password }}"
+    replica_set: "{{ repl_set_name }}"
+    login_port: "{{ mongod_port }}"
+    poll: 5
+    interval: 10
+  when: repl.changed == True
 
 - shell: "mongo admin --port {{ mongod_port }} --username {{ admin_user }} --password {{ admin_user_password }} --eval 'db.runCommand({listDatabases: 1})' && touch /root/mongodb_admin.success"
   args:
