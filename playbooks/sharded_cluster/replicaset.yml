@@ -26,13 +26,11 @@
     interval: 10
   when: repl.changed == True
 
-
 - name: Add MongoDB Admin User using localhost exception
   community.mongodb.mongodb_user:
     name: "{{ admin_user }}"
     password: "{{ admin_user_password }}"
     login_port: "{{ mongod_port }}"
-    replica_set: "{{ repl_set_name }}"
     database: admin
     roles:
       - "root"
