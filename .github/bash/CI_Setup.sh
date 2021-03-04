@@ -1,6 +1,6 @@
 #!/bin/bash
 set -e;
-set -u;
+
 sudo apt-get update;
 python --version;
 pip install --upgrade pip;
