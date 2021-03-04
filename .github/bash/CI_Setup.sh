@@ -1,6 +1,7 @@
 #!/bin/bash
 set -e;
 set -u;
+set -x;
 
 sudo apt-get update;
 python --version;
