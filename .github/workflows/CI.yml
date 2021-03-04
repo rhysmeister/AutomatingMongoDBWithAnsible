@@ -14,9 +14,9 @@ jobs:
       matrix:
         python_version:
           - "3.6"
-        latest:
-          - true
-          - null
+        collection:
+          - "latest"
+          - "requirements.yml"
     steps:
       - name: Check out code
         uses: actions/checkout@v2
@@ -35,7 +35,7 @@ jobs:
           max_attempts: 3
           command: cd AutomatingMongoDBWithAnsible && .github/bash/CI_Setup.sh
         env:
-          LATEST: "{{ matrix.latest }}"
+          COLLECTION: "{{ matrix.collection }}"
 
       - name: Run standalone playbook
         run: |
