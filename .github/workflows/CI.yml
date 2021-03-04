@@ -14,6 +14,7 @@ jobs:
       matrix:
         python_version:
           - "3.6"
+          - "3.9"
         collection:
           - "latest"
           - "requirements.yml"
