@@ -71,6 +71,7 @@ jobs:
       matrix:
         python_version:
           - "3.6"
+          - "3.9"
         molecule_scenario:
           - "default"
           - "debian"
@@ -129,6 +130,7 @@ jobs:
       matrix:
         python_version:
           - "3.6"
+          - "3.9"
         molecule_scenario:
           - "default"
           - "debian"
@@ -213,6 +215,7 @@ jobs:
       matrix:
         python_version:
           - "3.6"
+          - "3.9"
         molecule_scenario:
           - "default"
         collection:
@@ -276,6 +279,7 @@ jobs:
       matrix:
         python_version:
           - "3.6"
+          - "3.9"
         molecule_scenario:
           - "default"
         collection:
@@ -365,6 +369,7 @@ jobs:
       matrix:
         python_version:
           - "3.6"
+          - "3.9"
         molecule_scenario:
           - "default"
         collection:
@@ -428,6 +433,7 @@ jobs:
       matrix:
         python_version:
           - "3.6"
+          - "3.9"
         molecule_scenario:
           - "default"
         collection:
@@ -517,6 +523,7 @@ jobs:
       matrix:
         python_version:
           - "3.6"
+          - "3.9"
         molecule_scenario:
           - "default"
         collection:
@@ -580,6 +587,7 @@ jobs:
       matrix:
         python_version:
           - "3.6"
+          - "3.9"
         molecule_scenario:
           - "default"
         collection:
@@ -643,6 +651,7 @@ jobs:
       matrix:
         python_version:
           - "3.6"
+          - "3.9"
         molecule_scenario:
           - "default"
         collection:
@@ -706,6 +715,7 @@ jobs:
       matrix:
         python_version:
           - "3.6"
+          - "3.9"
         molecule_scenario:
           - "default"
         collection:
