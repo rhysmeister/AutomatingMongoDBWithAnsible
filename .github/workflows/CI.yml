@@ -14,6 +14,10 @@ jobs:
       matrix:
         python_version:
           - "3.6"
+          - "3.9"
+        collection:
+          - "latest"
+          - "requirements.yml"
     steps:
       - name: Check out code
         uses: actions/checkout@v2
@@ -31,6 +35,8 @@ jobs:
           timeout_minutes: 3
           max_attempts: 3
           command: cd AutomatingMongoDBWithAnsible && .github/bash/CI_Setup.sh
+        env:
+          COLLECTION: ${{ matrix.collection }}
 
       - name: Run standalone playbook
         run: |
@@ -65,9 +71,13 @@ jobs:
       matrix:
         python_version:
           - "3.6"
+          - "3.9"
         molecule_scenario:
           - "default"
           - "debian"
+        collection:
+          - "latest"
+          - "requirements.yml"
     steps:
       - name: Check out code
         uses: actions/checkout@v2
@@ -85,6 +95,8 @@ jobs:
           timeout_minutes: 3
           max_attempts: 3
           command: cd AutomatingMongoDBWithAnsible && .github/bash/CI_Setup.sh
+        env:
+          COLLECTION: ${{ matrix.collection }}
 
       - name: Run molecule test for scenario ${{ matrix.molecule_scenario }}
         run: molecule converge --scenario-name ${{ matrix.molecule_scenario }}
@@ -118,9 +130,13 @@ jobs:
       matrix:
         python_version:
           - "3.6"
+          - "3.9"
         molecule_scenario:
           - "default"
           - "debian"
+        collection:
+          - "latest"
+          - "requirements.yml"
     steps:
       - name: Check out code
         uses: actions/checkout@v2
@@ -138,6 +154,8 @@ jobs:
           timeout_minutes: 3
           max_attempts: 3
           command: cd AutomatingMongoDBWithAnsible && .github/bash/CI_Setup.sh
+        env:
+          COLLECTION: ${{ matrix.collection }}
 
       - name: Run molecule converge for scenario ${{ matrix.molecule_scenario }}
         run: molecule converge --scenario-name ${{ matrix.molecule_scenario }}
@@ -197,8 +215,12 @@ jobs:
       matrix:
         python_version:
           - "3.6"
+          - "3.9"
         molecule_scenario:
           - "default"
+        collection:
+          - "latest"
+          - "requirements.yml"
     steps:
       - name: Check out code
         uses: actions/checkout@v2
@@ -216,6 +238,8 @@ jobs:
           timeout_minutes: 3
           max_attempts: 3
           command: cd AutomatingMongoDBWithAnsible && .github/bash/CI_Setup.sh
+        env:
+          COLLECTION: ${{ matrix.collection }}
 
       - name: Run molecule converge for scenario ${{ matrix.molecule_scenario }}
         run: molecule converge --scenario-name ${{ matrix.molecule_scenario }}
@@ -255,8 +279,12 @@ jobs:
       matrix:
         python_version:
           - "3.6"
+          - "3.9"
         molecule_scenario:
           - "default"
+        collection:
+          - "latest"
+          - "requirements.yml"
     steps:
       - name: Check out code
         uses: actions/checkout@v2
@@ -274,6 +302,8 @@ jobs:
           timeout_minutes: 3
           max_attempts: 3
           command: cd AutomatingMongoDBWithAnsible && .github/bash/CI_Setup.sh
+        env:
+          COLLECTION: ${{ matrix.collection }}
 
       - name: Run molecule converge for scenario ${{ matrix.molecule_scenario }}
         run: molecule converge --scenario-name ${{ matrix.molecule_scenario }}
@@ -339,8 +369,12 @@ jobs:
       matrix:
         python_version:
           - "3.6"
+          - "3.9"
         molecule_scenario:
           - "default"
+        collection:
+          - "latest"
+          - "requirements.yml"
     steps:
       - name: Check out code
         uses: actions/checkout@v2
@@ -358,6 +392,8 @@ jobs:
           timeout_minutes: 3
           max_attempts: 3
           command: cd AutomatingMongoDBWithAnsible && .github/bash/CI_Setup.sh
+        env:
+          COLLECTION: ${{ matrix.collection }}
 
       - name: Run molecule converge for scenario ${{ matrix.molecule_scenario }}
         run: molecule converge --scenario-name ${{ matrix.molecule_scenario }}
@@ -397,8 +433,12 @@ jobs:
       matrix:
         python_version:
           - "3.6"
+          - "3.9"
         molecule_scenario:
           - "default"
+        collection:
+          - "latest"
+          - "requirements.yml"
     steps:
       - name: Check out code
         uses: actions/checkout@v2
@@ -416,6 +456,8 @@ jobs:
           timeout_minutes: 3
           max_attempts: 3
           command: cd AutomatingMongoDBWithAnsible && .github/bash/CI_Setup.sh
+        env:
+          COLLECTION: ${{ matrix.collection }}
 
       - name: Run molecule converge for scenario ${{ matrix.molecule_scenario }}
         run: molecule converge --scenario-name ${{ matrix.molecule_scenario }}
@@ -481,8 +523,12 @@ jobs:
       matrix:
         python_version:
           - "3.6"
+          - "3.9"
         molecule_scenario:
           - "default"
+        collection:
+          - "latest"
+          - "requirements.yml"
     steps:
       - name: Check out code
         uses: actions/checkout@v2
@@ -500,6 +546,8 @@ jobs:
           timeout_minutes: 3
           max_attempts: 3
           command: cd AutomatingMongoDBWithAnsible && .github/bash/CI_Setup.sh
+        env:
+          COLLECTION: ${{ matrix.collection }}
 
       - name: Run molecule converge for scenario ${{ matrix.molecule_scenario }}
         run: molecule converge --scenario-name ${{ matrix.molecule_scenario }}
@@ -539,8 +587,12 @@ jobs:
       matrix:
         python_version:
           - "3.6"
+          - "3.9"
         molecule_scenario:
           - "default"
+        collection:
+          - "latest"
+          - "requirements.yml"
     steps:
       - name: Check out code
         uses: actions/checkout@v2
@@ -558,6 +610,8 @@ jobs:
           timeout_minutes: 3
           max_attempts: 3
           command: cd AutomatingMongoDBWithAnsible && .github/bash/CI_Setup.sh
+        env:
+          COLLECTION: ${{ matrix.collection }}
 
       - name: Run molecule converge for scenario ${{ matrix.molecule_scenario }}
         run: molecule converge --scenario-name ${{ matrix.molecule_scenario }}
@@ -597,8 +651,12 @@ jobs:
       matrix:
         python_version:
           - "3.6"
+          - "3.9"
         molecule_scenario:
           - "default"
+        collection:
+          - "latest"
+          - "requirements.yml"
     steps:
       - name: Check out code
         uses: actions/checkout@v2
@@ -616,6 +674,8 @@ jobs:
           timeout_minutes: 3
           max_attempts: 3
           command: cd AutomatingMongoDBWithAnsible && .github/bash/CI_Setup.sh
+        env:
+          COLLECTION: ${{ matrix.collection }}
 
       - name: Run molecule converge for scenario ${{ matrix.molecule_scenario }}
         run: molecule converge --scenario-name ${{ matrix.molecule_scenario }}
@@ -655,8 +715,12 @@ jobs:
       matrix:
         python_version:
           - "3.6"
+          - "3.9"
         molecule_scenario:
           - "default"
+        collection:
+          - "latest"
+          - "requirements.yml"
     steps:
       - name: Check out code
         uses: actions/checkout@v2
@@ -674,6 +738,8 @@ jobs:
           timeout_minutes: 3
           max_attempts: 3
           command: cd AutomatingMongoDBWithAnsible && .github/bash/CI_Setup.sh
+        env:
+          COLLECTION: ${{ matrix.collection }}
 
       - name: Run molecule converge for scenario ${{ matrix.molecule_scenario }}
         run: molecule converge --scenario-name ${{ matrix.molecule_scenario }}
