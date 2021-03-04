@@ -35,7 +35,7 @@ jobs:
           max_attempts: 3
           command: cd AutomatingMongoDBWithAnsible && .github/bash/CI_Setup.sh
         env:
-          COLLECTION: "{{ matrix.collection }}"
+          COLLECTION: ${{ matrix.collection }}
 
       - name: Run standalone playbook
         run: |
