@@ -13,6 +13,7 @@ jobs:
     strategy:
       matrix:
         python_version:
+          - "2.7"
           - "3.6"
           - "3.9"
         collection:
@@ -70,6 +71,7 @@ jobs:
     strategy:
       matrix:
         python_version:
+                    - "2.7"
           - "3.6"
           - "3.9"
         molecule_scenario:
@@ -129,6 +131,7 @@ jobs:
     strategy:
       matrix:
         python_version:
+                    - "2.7"
           - "3.6"
           - "3.9"
         molecule_scenario:
@@ -214,6 +217,7 @@ jobs:
     strategy:
       matrix:
         python_version:
+          - "2.7"
           - "3.6"
           - "3.9"
         molecule_scenario:
@@ -278,6 +282,7 @@ jobs:
     strategy:
       matrix:
         python_version:
+          - "2.7"
           - "3.6"
           - "3.9"
         molecule_scenario:
@@ -368,6 +373,7 @@ jobs:
     strategy:
       matrix:
         python_version:
+          - "2.7"
           - "3.6"
           - "3.9"
         molecule_scenario:
@@ -432,6 +438,7 @@ jobs:
     strategy:
       matrix:
         python_version:
+          - "2.7"
           - "3.6"
           - "3.9"
         molecule_scenario:
@@ -522,6 +529,7 @@ jobs:
     strategy:
       matrix:
         python_version:
+          - "2.7"
           - "3.6"
           - "3.9"
         molecule_scenario:
@@ -586,6 +594,7 @@ jobs:
     strategy:
       matrix:
         python_version:
+          - "2.7"
           - "3.6"
           - "3.9"
         molecule_scenario:
@@ -650,6 +659,7 @@ jobs:
     strategy:
       matrix:
         python_version:
+          - "2.7"
           - "3.6"
           - "3.9"
         molecule_scenario:
@@ -714,6 +724,7 @@ jobs:
     strategy:
       matrix:
         python_version:
+          - "2.7"
           - "3.6"
           - "3.9"
         molecule_scenario:
