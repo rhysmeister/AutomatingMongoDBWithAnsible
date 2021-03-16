@@ -38,7 +38,7 @@
 
     - name: Wait for rs config to settle
       pause:
-        seconds: 5
+        seconds: 10
       when: create_rs.changed
 
     - name: Wait for replicaset to converge
