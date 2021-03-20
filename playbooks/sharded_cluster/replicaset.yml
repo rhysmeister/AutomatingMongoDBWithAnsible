@@ -10,7 +10,7 @@
 
 - name: Wait for rs config to settle
   pause:
-    seconds: 10
+    seconds: 30
   when: repl.changed
 
 - name: Has MongoDB Admin User been created already?
