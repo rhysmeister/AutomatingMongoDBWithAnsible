@@ -38,14 +38,14 @@
 
     - name: Wait for rs config to settle
       pause:
-        seconds: 30
+        seconds: 5
       when: create_rs.changed
 
     - name: Wait for replicaset to converge
       community.mongodb.mongodb_status:
         replica_set: rs0
-        poll: 20
-        interval: 3
+        poll: 10
+        interval: 10
       register: rs
 
     - debug:
