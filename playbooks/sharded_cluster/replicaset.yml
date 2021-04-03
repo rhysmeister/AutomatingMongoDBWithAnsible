@@ -10,7 +10,7 @@
 
 - name: Wait for rs config to settle
   pause:
-    seconds: 30
+    seconds: 5
   when: repl.changed
 
 - name: Has MongoDB Admin User been created already?
@@ -22,7 +22,7 @@
   community.mongodb.mongodb_status:
     replica_set: "{{ repl_set_name }}"
     login_port: "{{ mongod_port }}"
-    poll: 5
+    poll: 10
     interval: 10
   when: repl.changed == True
 
