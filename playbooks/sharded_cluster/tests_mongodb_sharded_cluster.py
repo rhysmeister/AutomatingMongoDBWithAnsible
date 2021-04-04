@@ -83,10 +83,6 @@ def test_mongodb_reboot(host):
     '''
     Reboot the host and check the mongod service comes back up
     '''
-    #rebooted = host.ansible("reboot", "msg='Reboot initiated from Testinfra.'", become=True, become_user="root")
-    #assert rebooted["rebooted"]
-    # This version works
-    #host.ansible("command", "reboot", check=False, become=True)
     hostname = host.check_output('hostname -s')
     host.run("sudo reboot")
     time.sleep(60)
