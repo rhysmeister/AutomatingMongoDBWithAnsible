@@ -87,13 +87,13 @@ def test_mongodb_reboot(host):
     host.run("sudo reboot")
     time.sleep(60)
 
-    if hostname.startwith("mongodb"):
+    if hostname.startswith("mongodb"):
         service = host.service("mongod")
         assert service.is_running
         assert service.is_enabled
         socket = host.socket("tcp://0.0.0.0:27018")
         assert socket.is_listening
-    elif hostname.startwith("mongos"):
+    elif hostname.startswith("mongos"):
         service = host.service("mongod") # config server
         assert service.is_running
         assert service.is_enabled

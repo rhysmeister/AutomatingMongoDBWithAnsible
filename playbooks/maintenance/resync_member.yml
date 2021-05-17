@@ -51,7 +51,7 @@
       wait_for:
         port: "{{ mongod_port }}"
         delay: 10
-        timeout: 900
+        timeout: "{{ sync_timeout }}"
 
     - name: Validate replicaset state
       community.mongodb.mongodb_status:

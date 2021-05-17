@@ -1,0 +1,419 @@
+Attaching to docker_mongodb3_1, docker_mongodb1_1, docker_mongodb2_1
+[32mmongodb3_1  |[0m about to fork child process, waiting until server is ready for connections.
+[32mmongodb3_1  |[0m forked process: 27
+[32mmongodb3_1  |[0m 2020-10-01T17:13:20.563+0000 I  CONTROL  [main] ***** SERVER RESTARTED *****
+[32mmongodb3_1  |[0m 2020-10-01T17:13:20.567+0000 I  CONTROL  [main] Automatically disabling TLS 1.0, to force-enable TLS 1.0 specify --sslDisabledProtocols 'none'
+[32mmongodb3_1  |[0m 2020-10-01T17:13:20.571+0000 W  ASIO     [main] No TransportLayer configured during NetworkInterface startup
+[32mmongodb3_1  |[0m 2020-10-01T17:13:20.572+0000 I  CONTROL  [initandlisten] MongoDB starting : pid=27 port=27017 dbpath=/data/db 64-bit host=cd9237dc47a8
+[32mmongodb3_1  |[0m 2020-10-01T17:13:20.572+0000 I  CONTROL  [initandlisten] db version v4.2.8
+[32mmongodb3_1  |[0m 2020-10-01T17:13:20.573+0000 I  CONTROL  [initandlisten] git version: 43d25964249164d76d5e04dd6cf38f6111e21f5f
+[32mmongodb3_1  |[0m 2020-10-01T17:13:20.573+0000 I  CONTROL  [initandlisten] OpenSSL version: OpenSSL 1.1.1  11 Sep 2018
+[32mmongodb3_1  |[0m 2020-10-01T17:13:20.573+0000 I  CONTROL  [initandlisten] allocator: tcmalloc
+[32mmongodb3_1  |[0m 2020-10-01T17:13:20.574+0000 I  CONTROL  [initandlisten] modules: none
+[32mmongodb3_1  |[0m 2020-10-01T17:13:20.574+0000 I  CONTROL  [initandlisten] build environment:
+[32mmongodb3_1  |[0m 2020-10-01T17:13:20.575+0000 I  CONTROL  [initandlisten]     distmod: ubuntu1804
+[32mmongodb3_1  |[0m 2020-10-01T17:13:20.575+0000 I  CONTROL  [initandlisten]     distarch: x86_64
+[32mmongodb3_1  |[0m 2020-10-01T17:13:20.575+0000 I  CONTROL  [initandlisten]     target_arch: x86_64
+[32mmongodb3_1  |[0m 2020-10-01T17:13:20.581+0000 I  CONTROL  [initandlisten] options: { net: { bindIp: "127.0.0.1", port: 27017, tls: { mode: "disabled" } }, processManagement: { fork: true, pidFilePath: "/tmp/docker-entrypoint-temp-mongod.pid" }, systemLog: { destination: "file", logAppend: true, path: "/proc/1/fd/1" } }
+[32mmongodb3_1  |[0m 2020-10-01T17:13:20.589+0000 I  STORAGE  [initandlisten] 
+[32mmongodb3_1  |[0m 2020-10-01T17:13:20.589+0000 I  STORAGE  [initandlisten] ** WARNING: Using the XFS filesystem is strongly recommended with the WiredTiger storage engine
+[32mmongodb3_1  |[0m 2020-10-01T17:13:20.589+0000 I  STORAGE  [initandlisten] **          See http://dochub.mongodb.org/core/prodnotes-filesystem
+[32mmongodb3_1  |[0m 2020-10-01T17:13:20.593+0000 I  STORAGE  [initandlisten] wiredtiger_open config: create,cache_size=483M,cache_overflow=(file_max=0M),session_max=33000,eviction=(threads_min=4,threads_max=4),config_base=false,statistics=(fast),log=(enabled=true,archive=true,path=journal,compressor=snappy),file_manager=(close_idle_time=100000,close_scan_interval=10,close_handle_minimum=250),statistics_log=(wait=0),verbose=[recovery_progress,checkpoint_progress],
+[36mmongodb1_1  |[0m about to fork child process, waiting until server is ready for connections.
+[36mmongodb1_1  |[0m forked process: 27
+[36mmongodb1_1  |[0m 2020-10-01T17:13:20.608+0000 I  CONTROL  [main] ***** SERVER RESTARTED *****
+[36mmongodb1_1  |[0m 2020-10-01T17:13:20.609+0000 I  CONTROL  [main] Automatically disabling TLS 1.0, to force-enable TLS 1.0 specify --sslDisabledProtocols 'none'
+[36mmongodb1_1  |[0m 2020-10-01T17:13:20.616+0000 W  ASIO     [main] No TransportLayer configured during NetworkInterface startup
+[36mmongodb1_1  |[0m 2020-10-01T17:13:20.617+0000 I  CONTROL  [initandlisten] MongoDB starting : pid=27 port=27017 dbpath=/data/db 64-bit host=7490bbfb2421
+[36mmongodb1_1  |[0m 2020-10-01T17:13:20.617+0000 I  CONTROL  [initandlisten] db version v4.2.8
+[36mmongodb1_1  |[0m 2020-10-01T17:13:20.618+0000 I  CONTROL  [initandlisten] git version: 43d25964249164d76d5e04dd6cf38f6111e21f5f
+[36mmongodb1_1  |[0m 2020-10-01T17:13:20.618+0000 I  CONTROL  [initandlisten] OpenSSL version: OpenSSL 1.1.1  11 Sep 2018
+[36mmongodb1_1  |[0m 2020-10-01T17:13:20.619+0000 I  CONTROL  [initandlisten] allocator: tcmalloc
+[36mmongodb1_1  |[0m 2020-10-01T17:13:20.619+0000 I  CONTROL  [initandlisten] modules: none
+[36mmongodb1_1  |[0m 2020-10-01T17:13:20.619+0000 I  CONTROL  [initandlisten] build environment:
+[36mmongodb1_1  |[0m 2020-10-01T17:13:20.619+0000 I  CONTROL  [initandlisten]     distmod: ubuntu1804
+[36mmongodb1_1  |[0m 2020-10-01T17:13:20.620+0000 I  CONTROL  [initandlisten]     distarch: x86_64
+[36mmongodb1_1  |[0m 2020-10-01T17:13:20.620+0000 I  CONTROL  [initandlisten]     target_arch: x86_64
+[36mmongodb1_1  |[0m 2020-10-01T17:13:20.620+0000 I  CONTROL  [initandlisten] options: { net: { bindIp: "127.0.0.1", port: 27017, tls: { mode: "disabled" } }, processManagement: { fork: true, pidFilePath: "/tmp/docker-entrypoint-temp-mongod.pid" }, systemLog: { destination: "file", logAppend: true, path: "/proc/1/fd/1" } }
+[36mmongodb1_1  |[0m 2020-10-01T17:13:20.621+0000 I  STORAGE  [initandlisten] 
+[36mmongodb1_1  |[0m 2020-10-01T17:13:20.622+0000 I  STORAGE  [initandlisten] ** WARNING: Using the XFS filesystem is strongly recommended with the WiredTiger storage engine
+[36mmongodb1_1  |[0m 2020-10-01T17:13:20.622+0000 I  STORAGE  [initandlisten] **          See http://dochub.mongodb.org/core/prodnotes-filesystem
+[36mmongodb1_1  |[0m 2020-10-01T17:13:20.622+0000 I  STORAGE  [initandlisten] wiredtiger_open config: create,cache_size=483M,cache_overflow=(file_max=0M),session_max=33000,eviction=(threads_min=4,threads_max=4),config_base=false,statistics=(fast),log=(enabled=true,archive=true,path=journal,compressor=snappy),file_manager=(close_idle_time=100000,close_scan_interval=10,close_handle_minimum=250),statistics_log=(wait=0),verbose=[recovery_progress,checkpoint_progress],
+[33mmongodb2_1  |[0m about to fork child process, waiting until server is ready for connections.
+[33mmongodb2_1  |[0m forked process: 27
+[33mmongodb2_1  |[0m 2020-10-01T17:13:20.644+0000 I  CONTROL  [main] ***** SERVER RESTARTED *****
+[33mmongodb2_1  |[0m 2020-10-01T17:13:20.649+0000 I  CONTROL  [main] Automatically disabling TLS 1.0, to force-enable TLS 1.0 specify --sslDisabledProtocols 'none'
+[33mmongodb2_1  |[0m 2020-10-01T17:13:20.659+0000 W  ASIO     [main] No TransportLayer configured during NetworkInterface startup
+[33mmongodb2_1  |[0m 2020-10-01T17:13:20.664+0000 I  CONTROL  [initandlisten] MongoDB starting : pid=27 port=27017 dbpath=/data/db 64-bit host=c044d50d8be1
+[33mmongodb2_1  |[0m 2020-10-01T17:13:20.664+0000 I  CONTROL  [initandlisten] db version v4.2.8
+[33mmongodb2_1  |[0m 2020-10-01T17:13:20.664+0000 I  CONTROL  [initandlisten] git version: 43d25964249164d76d5e04dd6cf38f6111e21f5f
+[33mmongodb2_1  |[0m 2020-10-01T17:13:20.665+0000 I  CONTROL  [initandlisten] OpenSSL version: OpenSSL 1.1.1  11 Sep 2018
+[33mmongodb2_1  |[0m 2020-10-01T17:13:20.665+0000 I  CONTROL  [initandlisten] allocator: tcmalloc
+[33mmongodb2_1  |[0m 2020-10-01T17:13:20.665+0000 I  CONTROL  [initandlisten] modules: none
+[33mmongodb2_1  |[0m 2020-10-01T17:13:20.665+0000 I  CONTROL  [initandlisten] build environment:
+[33mmongodb2_1  |[0m 2020-10-01T17:13:20.666+0000 I  CONTROL  [initandlisten]     distmod: ubuntu1804
+[33mmongodb2_1  |[0m 2020-10-01T17:13:20.666+0000 I  CONTROL  [initandlisten]     distarch: x86_64
+[33mmongodb2_1  |[0m 2020-10-01T17:13:20.668+0000 I  CONTROL  [initandlisten]     target_arch: x86_64
+[33mmongodb2_1  |[0m 2020-10-01T17:13:20.668+0000 I  CONTROL  [initandlisten] options: { net: { bindIp: "127.0.0.1", port: 27017, tls: { mode: "disabled" } }, processManagement: { fork: true, pidFilePath: "/tmp/docker-entrypoint-temp-mongod.pid" }, systemLog: { destination: "file", logAppend: true, path: "/proc/1/fd/1" } }
+[33mmongodb2_1  |[0m 2020-10-01T17:13:20.669+0000 I  STORAGE  [initandlisten] 
+[33mmongodb2_1  |[0m 2020-10-01T17:13:20.669+0000 I  STORAGE  [initandlisten] ** WARNING: Using the XFS filesystem is strongly recommended with the WiredTiger storage engine
+[33mmongodb2_1  |[0m 2020-10-01T17:13:20.669+0000 I  STORAGE  [initandlisten] **          See http://dochub.mongodb.org/core/prodnotes-filesystem
+[33mmongodb2_1  |[0m 2020-10-01T17:13:20.670+0000 I  STORAGE  [initandlisten] wiredtiger_open config: create,cache_size=483M,cache_overflow=(file_max=0M),session_max=33000,eviction=(threads_min=4,threads_max=4),config_base=false,statistics=(fast),log=(enabled=true,archive=true,path=journal,compressor=snappy),file_manager=(close_idle_time=100000,close_scan_interval=10,close_handle_minimum=250),statistics_log=(wait=0),verbose=[recovery_progress,checkpoint_progress],
+[36mmongodb1_1  |[0m 2020-10-01T17:13:21.345+0000 I  STORAGE  [initandlisten] WiredTiger message [1601572401:345075][27:0x7ff70047eb00], txn-recover: Set global recovery timestamp: (0, 0)
+[36mmongodb1_1  |[0m 2020-10-01T17:13:21.372+0000 I  RECOVERY [initandlisten] WiredTiger recoveryTimestamp. Ts: Timestamp(0, 0)
+[36mmongodb1_1  |[0m 2020-10-01T17:13:21.451+0000 I  STORAGE  [initandlisten] Timestamp monitor starting
+[36mmongodb1_1  |[0m 2020-10-01T17:13:21.464+0000 I  CONTROL  [initandlisten] 
+[36mmongodb1_1  |[0m 2020-10-01T17:13:21.464+0000 I  CONTROL  [initandlisten] ** WARNING: Access control is not enabled for the database.
+[36mmongodb1_1  |[0m 2020-10-01T17:13:21.464+0000 I  CONTROL  [initandlisten] **          Read and write access to data and configuration is unrestricted.
+[36mmongodb1_1  |[0m 2020-10-01T17:13:21.466+0000 I  CONTROL  [initandlisten] 
+[36mmongodb1_1  |[0m 2020-10-01T17:13:21.476+0000 I  STORAGE  [initandlisten] createCollection: admin.system.version with provided UUID: 7b2ecc63-dc36-42af-be34-e6f3fe982a44 and options: { uuid: UUID("7b2ecc63-dc36-42af-be34-e6f3fe982a44") }
+[36mmongodb1_1  |[0m 2020-10-01T17:13:21.512+0000 I  INDEX    [initandlisten] index build: done building index _id_ on ns admin.system.version
+[36mmongodb1_1  |[0m 2020-10-01T17:13:21.513+0000 I  SHARDING [initandlisten] Marking collection admin.system.version as collection version: <unsharded>
+[36mmongodb1_1  |[0m 2020-10-01T17:13:21.513+0000 I  COMMAND  [initandlisten] setting featureCompatibilityVersion to 4.2
+[36mmongodb1_1  |[0m 2020-10-01T17:13:21.514+0000 I  SHARDING [initandlisten] Marking collection local.system.replset as collection version: <unsharded>
+[36mmongodb1_1  |[0m 2020-10-01T17:13:21.515+0000 I  STORAGE  [initandlisten] Flow Control is enabled on this deployment.
+[36mmongodb1_1  |[0m 2020-10-01T17:13:21.516+0000 I  SHARDING [initandlisten] Marking collection admin.system.roles as collection version: <unsharded>
+[36mmongodb1_1  |[0m 2020-10-01T17:13:21.517+0000 I  STORAGE  [initandlisten] createCollection: local.startup_log with generated UUID: 44ea9d1c-ea12-4ef4-8e7a-9472cc277096 and options: { capped: true, size: 10485760 }
+[33mmongodb2_1  |[0m 2020-10-01T17:13:21.531+0000 I  STORAGE  [initandlisten] WiredTiger message [1601572401:531381][27:0x7fd15b45fb00], txn-recover: Set global recovery timestamp: (0, 0)
+[36mmongodb1_1  |[0m 2020-10-01T17:13:21.535+0000 I  INDEX    [initandlisten] index build: done building index _id_ on ns local.startup_log
+[36mmongodb1_1  |[0m 2020-10-01T17:13:21.539+0000 I  SHARDING [initandlisten] Marking collection local.startup_log as collection version: <unsharded>
+[33mmongodb2_1  |[0m 2020-10-01T17:13:21.545+0000 I  RECOVERY [initandlisten] WiredTiger recoveryTimestamp. Ts: Timestamp(0, 0)
+[36mmongodb1_1  |[0m 2020-10-01T17:13:21.546+0000 I  FTDC     [initandlisten] Initializing full-time diagnostic data capture with directory '/data/db/diagnostic.data'
+[36mmongodb1_1  |[0m 2020-10-01T17:13:21.552+0000 I  SHARDING [LogicalSessionCacheRefresh] Marking collection config.system.sessions as collection version: <unsharded>
+[36mmongodb1_1  |[0m 2020-10-01T17:13:21.554+0000 I  STORAGE  [LogicalSessionCacheRefresh] createCollection: config.system.sessions with provided UUID: 532662be-ee5e-4028-9836-24a3f5892b50 and options: { uuid: UUID("532662be-ee5e-4028-9836-24a3f5892b50") }
+[36mmongodb1_1  |[0m 2020-10-01T17:13:21.558+0000 I  NETWORK  [listener] Listening on /tmp/mongodb-27017.sock
+[36mmongodb1_1  |[0m 2020-10-01T17:13:21.560+0000 I  NETWORK  [listener] Listening on 127.0.0.1
+[36mmongodb1_1  |[0m 2020-10-01T17:13:21.560+0000 I  NETWORK  [listener] waiting for connections on port 27017
+[36mmongodb1_1  |[0m child process started successfully, parent exiting
+[33mmongodb2_1  |[0m 2020-10-01T17:13:21.576+0000 I  STORAGE  [initandlisten] Timestamp monitor starting
+[33mmongodb2_1  |[0m 2020-10-01T17:13:21.582+0000 I  CONTROL  [initandlisten] 
+[33mmongodb2_1  |[0m 2020-10-01T17:13:21.582+0000 I  CONTROL  [initandlisten] ** WARNING: Access control is not enabled for the database.
+[33mmongodb2_1  |[0m 2020-10-01T17:13:21.582+0000 I  CONTROL  [initandlisten] **          Read and write access to data and configuration is unrestricted.
+[33mmongodb2_1  |[0m 2020-10-01T17:13:21.583+0000 I  CONTROL  [initandlisten] 
+[33mmongodb2_1  |[0m 2020-10-01T17:13:21.587+0000 I  STORAGE  [initandlisten] createCollection: admin.system.version with provided UUID: 7f69ba11-4e84-4f8d-bc5b-687ad50aab62 and options: { uuid: UUID("7f69ba11-4e84-4f8d-bc5b-687ad50aab62") }
+[33mmongodb2_1  |[0m 2020-10-01T17:13:21.607+0000 I  INDEX    [initandlisten] index build: done building index _id_ on ns admin.system.version
+[33mmongodb2_1  |[0m 2020-10-01T17:13:21.611+0000 I  SHARDING [initandlisten] Marking collection admin.system.version as collection version: <unsharded>
+[36mmongodb1_1  |[0m 2020-10-01T17:13:21.612+0000 I  INDEX    [LogicalSessionCacheRefresh] index build: done building index _id_ on ns config.system.sessions
+[33mmongodb2_1  |[0m 2020-10-01T17:13:21.612+0000 I  COMMAND  [initandlisten] setting featureCompatibilityVersion to 4.2
+[33mmongodb2_1  |[0m 2020-10-01T17:13:21.617+0000 I  SHARDING [initandlisten] Marking collection local.system.replset as collection version: <unsharded>
+[33mmongodb2_1  |[0m 2020-10-01T17:13:21.617+0000 I  STORAGE  [initandlisten] Flow Control is enabled on this deployment.
+[33mmongodb2_1  |[0m 2020-10-01T17:13:21.618+0000 I  SHARDING [initandlisten] Marking collection admin.system.roles as collection version: <unsharded>
+[33mmongodb2_1  |[0m 2020-10-01T17:13:21.625+0000 I  STORAGE  [initandlisten] createCollection: local.startup_log with generated UUID: 11b8a434-092b-49b0-aa8a-e84483533c78 and options: { capped: true, size: 10485760 }
+[33mmongodb2_1  |[0m 2020-10-01T17:13:21.640+0000 I  INDEX    [initandlisten] index build: done building index _id_ on ns local.startup_log
+[33mmongodb2_1  |[0m 2020-10-01T17:13:21.640+0000 I  SHARDING [initandlisten] Marking collection local.startup_log as collection version: <unsharded>
+[33mmongodb2_1  |[0m 2020-10-01T17:13:21.642+0000 I  FTDC     [initandlisten] Initializing full-time diagnostic data capture with directory '/data/db/diagnostic.data'
+[36mmongodb1_1  |[0m 2020-10-01T17:13:21.650+0000 I  INDEX    [LogicalSessionCacheRefresh] index build: starting on config.system.sessions properties: { v: 2, key: { lastUse: 1 }, name: "lsidTTLIndex", ns: "config.system.sessions", expireAfterSeconds: 1800 } using method: Hybrid
+[36mmongodb1_1  |[0m 2020-10-01T17:13:21.650+0000 I  INDEX    [LogicalSessionCacheRefresh] build may temporarily use up to 200 megabytes of RAM
+[33mmongodb2_1  |[0m 2020-10-01T17:13:21.652+0000 I  SHARDING [LogicalSessionCacheReap] Marking collection config.system.sessions as collection version: <unsharded>
+[33mmongodb2_1  |[0m 2020-10-01T17:13:21.652+0000 I  CONTROL  [LogicalSessionCacheReap] Sessions collection is not set up; waiting until next sessions reap interval: config.system.sessions does not exist
+[33mmongodb2_1  |[0m 2020-10-01T17:13:21.653+0000 I  NETWORK  [listener] Listening on /tmp/mongodb-27017.sock
+[33mmongodb2_1  |[0m 2020-10-01T17:13:21.653+0000 I  NETWORK  [listener] Listening on 127.0.0.1
+[33mmongodb2_1  |[0m 2020-10-01T17:13:21.653+0000 I  NETWORK  [listener] waiting for connections on port 27017
+[36mmongodb1_1  |[0m 2020-10-01T17:13:21.656+0000 I  INDEX    [LogicalSessionCacheRefresh] index build: collection scan done. scanned 0 total records in 0 seconds
+[36mmongodb1_1  |[0m 2020-10-01T17:13:21.658+0000 I  INDEX    [LogicalSessionCacheRefresh] index build: inserted 0 keys from external sorter into index in 0 seconds
+[36mmongodb1_1  |[0m 2020-10-01T17:13:21.663+0000 I  INDEX    [LogicalSessionCacheRefresh] index build: done building index lsidTTLIndex on ns config.system.sessions
+[33mmongodb2_1  |[0m child process started successfully, parent exiting
+[36mmongodb1_1  |[0m 2020-10-01T17:13:21.672+0000 I  COMMAND  [LogicalSessionCacheRefresh] command config.system.sessions command: createIndexes { createIndexes: "system.sessions", indexes: [ { key: { lastUse: 1 }, name: "lsidTTLIndex", expireAfterSeconds: 1800 } ], $db: "config" } numYields:0 reslen:114 locks:{ ParallelBatchWriterMode: { acquireCount: { r: 2 } }, ReplicationStateTransition: { acquireCount: { w: 3 } }, Global: { acquireCount: { r: 1, w: 2 } }, Database: { acquireCount: { r: 1, w: 2, W: 1 } }, Collection: { acquireCount: { r: 4, w: 1, R: 1, W: 2 } }, Mutex: { acquireCount: { r: 3 } } } flowControl:{ acquireCount: 1, timeAcquiringMicros: 33 } storage:{} protocol:op_msg 117ms
+[36mmongodb1_1  |[0m 2020-10-01T17:13:21.674+0000 I  COMMAND  [LogicalSessionCacheReap] command config.system.sessions command: listIndexes { listIndexes: "system.sessions", cursor: {}, $db: "config" } numYields:0 reslen:307 locks:{ ReplicationStateTransition: { acquireCount: { w: 1 } }, Global: { acquireCount: { r: 1 } }, Database: { acquireCount: { r: 1 }, acquireWaitCount: { r: 1 }, timeAcquiringMicros: { r: 113937 } }, Collection: { acquireCount: { r: 1 } }, Mutex: { acquireCount: { r: 1 } } } storage:{} protocol:op_msg 114ms
+[36mmongodb1_1  |[0m 2020-10-01T17:13:21.675+0000 I  SHARDING [LogicalSessionCacheReap] Marking collection config.transactions as collection version: <unsharded>
+[32mmongodb3_1  |[0m 2020-10-01T17:13:21.677+0000 I  STORAGE  [initandlisten] WiredTiger message [1601572401:677152][27:0x7f5606a30b00], txn-recover: Set global recovery timestamp: (0, 0)
+[33mmongodb2_1  |[0m 2020-10-01T17:13:21.674+0000 I  STORAGE  [LogicalSessionCacheRefresh] createCollection: config.system.sessions with provided UUID: b9ae4edb-7fc7-4f6e-a08f-f9ed6bd6053c and options: { uuid: UUID("b9ae4edb-7fc7-4f6e-a08f-f9ed6bd6053c") }
+[32mmongodb3_1  |[0m 2020-10-01T17:13:21.695+0000 I  RECOVERY [initandlisten] WiredTiger recoveryTimestamp. Ts: Timestamp(0, 0)
+[32mmongodb3_1  |[0m 2020-10-01T17:13:21.711+0000 I  STORAGE  [initandlisten] Timestamp monitor starting
+[32mmongodb3_1  |[0m 2020-10-01T17:13:21.717+0000 I  CONTROL  [initandlisten] 
+[32mmongodb3_1  |[0m 2020-10-01T17:13:21.718+0000 I  CONTROL  [initandlisten] ** WARNING: Access control is not enabled for the database.
+[32mmongodb3_1  |[0m 2020-10-01T17:13:21.718+0000 I  CONTROL  [initandlisten] **          Read and write access to data and configuration is unrestricted.
+[32mmongodb3_1  |[0m 2020-10-01T17:13:21.718+0000 I  CONTROL  [initandlisten] 
+[32mmongodb3_1  |[0m 2020-10-01T17:13:21.720+0000 I  STORAGE  [initandlisten] createCollection: admin.system.version with provided UUID: 53b60d97-8df4-4073-aea7-d0552588a44d and options: { uuid: UUID("53b60d97-8df4-4073-aea7-d0552588a44d") }
+[33mmongodb2_1  |[0m 2020-10-01T17:13:21.727+0000 I  INDEX    [LogicalSessionCacheRefresh] index build: done building index _id_ on ns config.system.sessions
+[32mmongodb3_1  |[0m 2020-10-01T17:13:21.740+0000 I  INDEX    [initandlisten] index build: done building index _id_ on ns admin.system.version
+[32mmongodb3_1  |[0m 2020-10-01T17:13:21.742+0000 I  SHARDING [initandlisten] Marking collection admin.system.version as collection version: <unsharded>
+[32mmongodb3_1  |[0m 2020-10-01T17:13:21.742+0000 I  COMMAND  [initandlisten] setting featureCompatibilityVersion to 4.2
+[32mmongodb3_1  |[0m 2020-10-01T17:13:21.742+0000 I  SHARDING [initandlisten] Marking collection local.system.replset as collection version: <unsharded>
+[32mmongodb3_1  |[0m 2020-10-01T17:13:21.743+0000 I  STORAGE  [initandlisten] Flow Control is enabled on this deployment.
+[32mmongodb3_1  |[0m 2020-10-01T17:13:21.746+0000 I  SHARDING [initandlisten] Marking collection admin.system.roles as collection version: <unsharded>
+[32mmongodb3_1  |[0m 2020-10-01T17:13:21.747+0000 I  STORAGE  [initandlisten] createCollection: local.startup_log with generated UUID: a365d016-728d-4c73-b3ef-4697da364838 and options: { capped: true, size: 10485760 }
+[36mmongodb1_1  |[0m 2020-10-01T17:13:21.751+0000 I  NETWORK  [listener] connection accepted from 127.0.0.1:47914 #1 (1 connection now open)
+[36mmongodb1_1  |[0m 2020-10-01T17:13:21.753+0000 I  NETWORK  [conn1] received client metadata from 127.0.0.1:47914 conn1: { application: { name: "MongoDB Shell" }, driver: { name: "MongoDB Internal Client", version: "4.2.8" }, os: { type: "Linux", name: "Ubuntu", architecture: "x86_64", version: "18.04" } }
+[33mmongodb2_1  |[0m 2020-10-01T17:13:21.757+0000 I  INDEX    [LogicalSessionCacheRefresh] index build: starting on config.system.sessions properties: { v: 2, key: { lastUse: 1 }, name: "lsidTTLIndex", ns: "config.system.sessions", expireAfterSeconds: 1800 } using method: Hybrid
+[33mmongodb2_1  |[0m 2020-10-01T17:13:21.758+0000 I  INDEX    [LogicalSessionCacheRefresh] build may temporarily use up to 200 megabytes of RAM
+[33mmongodb2_1  |[0m 2020-10-01T17:13:21.759+0000 I  INDEX    [LogicalSessionCacheRefresh] index build: collection scan done. scanned 0 total records in 0 seconds
+[33mmongodb2_1  |[0m 2020-10-01T17:13:21.760+0000 I  INDEX    [LogicalSessionCacheRefresh] index build: inserted 0 keys from external sorter into index in 0 seconds
+[33mmongodb2_1  |[0m 2020-10-01T17:13:21.764+0000 I  INDEX    [LogicalSessionCacheRefresh] index build: done building index lsidTTLIndex on ns config.system.sessions
+[32mmongodb3_1  |[0m 2020-10-01T17:13:21.769+0000 I  INDEX    [initandlisten] index build: done building index _id_ on ns local.startup_log
+[32mmongodb3_1  |[0m 2020-10-01T17:13:21.769+0000 I  SHARDING [initandlisten] Marking collection local.startup_log as collection version: <unsharded>
+[32mmongodb3_1  |[0m 2020-10-01T17:13:21.771+0000 I  FTDC     [initandlisten] Initializing full-time diagnostic data capture with directory '/data/db/diagnostic.data'
+[32mmongodb3_1  |[0m 2020-10-01T17:13:21.776+0000 I  SHARDING [LogicalSessionCacheRefresh] Marking collection config.system.sessions as collection version: <unsharded>
+[32mmongodb3_1  |[0m 2020-10-01T17:13:21.778+0000 I  STORAGE  [LogicalSessionCacheRefresh] createCollection: config.system.sessions with provided UUID: 24c44224-2a5e-47be-82be-2560156075fc and options: { uuid: UUID("24c44224-2a5e-47be-82be-2560156075fc") }
+[32mmongodb3_1  |[0m 2020-10-01T17:13:21.781+0000 I  NETWORK  [listener] Listening on /tmp/mongodb-27017.sock
+[33mmongodb2_1  |[0m 2020-10-01T17:13:21.783+0000 I  COMMAND  [LogicalSessionCacheRefresh] command config.system.sessions command: createIndexes { createIndexes: "system.sessions", indexes: [ { key: { lastUse: 1 }, name: "lsidTTLIndex", expireAfterSeconds: 1800 } ], $db: "config" } numYields:0 reslen:114 locks:{ ParallelBatchWriterMode: { acquireCount: { r: 2 } }, ReplicationStateTransition: { acquireCount: { w: 3 } }, Global: { acquireCount: { r: 1, w: 2 } }, Database: { acquireCount: { r: 1, w: 2, W: 1 } }, Collection: { acquireCount: { r: 4, w: 1, R: 1, W: 2 } }, Mutex: { acquireCount: { r: 3 } } } flowControl:{ acquireCount: 1, timeAcquiringMicros: 24 } storage:{} protocol:op_msg 108ms
+[32mmongodb3_1  |[0m 2020-10-01T17:13:21.784+0000 I  NETWORK  [listener] Listening on 127.0.0.1
+[32mmongodb3_1  |[0m 2020-10-01T17:13:21.785+0000 I  NETWORK  [listener] waiting for connections on port 27017
+[32mmongodb3_1  |[0m child process started successfully, parent exiting
+[36mmongodb1_1  |[0m 2020-10-01T17:13:21.790+0000 I  NETWORK  [conn1] end connection 127.0.0.1:47914 (0 connections now open)
+[32mmongodb3_1  |[0m 2020-10-01T17:13:21.795+0000 I  INDEX    [LogicalSessionCacheRefresh] index build: done building index _id_ on ns config.system.sessions
+[32mmongodb3_1  |[0m 2020-10-01T17:13:21.810+0000 I  INDEX    [LogicalSessionCacheRefresh] index build: starting on config.system.sessions properties: { v: 2, key: { lastUse: 1 }, name: "lsidTTLIndex", ns: "config.system.sessions", expireAfterSeconds: 1800 } using method: Hybrid
+[32mmongodb3_1  |[0m 2020-10-01T17:13:21.811+0000 I  INDEX    [LogicalSessionCacheRefresh] build may temporarily use up to 200 megabytes of RAM
+[32mmongodb3_1  |[0m 2020-10-01T17:13:21.812+0000 I  INDEX    [LogicalSessionCacheRefresh] index build: collection scan done. scanned 0 total records in 0 seconds
+[32mmongodb3_1  |[0m 2020-10-01T17:13:21.813+0000 I  INDEX    [LogicalSessionCacheRefresh] index build: inserted 0 keys from external sorter into index in 0 seconds
+[32mmongodb3_1  |[0m 2020-10-01T17:13:21.814+0000 I  INDEX    [LogicalSessionCacheRefresh] index build: done building index lsidTTLIndex on ns config.system.sessions
+[32mmongodb3_1  |[0m 2020-10-01T17:13:21.817+0000 I  SHARDING [LogicalSessionCacheReap] Marking collection config.transactions as collection version: <unsharded>
+[33mmongodb2_1  |[0m 2020-10-01T17:13:21.857+0000 I  NETWORK  [listener] connection accepted from 127.0.0.1:47916 #1 (1 connection now open)
+[33mmongodb2_1  |[0m 2020-10-01T17:13:21.858+0000 I  NETWORK  [conn1] received client metadata from 127.0.0.1:47916 conn1: { application: { name: "MongoDB Shell" }, driver: { name: "MongoDB Internal Client", version: "4.2.8" }, os: { type: "Linux", name: "Ubuntu", architecture: "x86_64", version: "18.04" } }
+[33mmongodb2_1  |[0m 2020-10-01T17:13:21.873+0000 I  NETWORK  [conn1] end connection 127.0.0.1:47916 (0 connections now open)
+[36mmongodb1_1  |[0m 2020-10-01T17:13:21.908+0000 I  NETWORK  [listener] connection accepted from 127.0.0.1:47918 #2 (1 connection now open)
+[36mmongodb1_1  |[0m 2020-10-01T17:13:21.909+0000 I  NETWORK  [conn2] received client metadata from 127.0.0.1:47918 conn2: { application: { name: "MongoDB Shell" }, driver: { name: "MongoDB Internal Client", version: "4.2.8" }, os: { type: "Linux", name: "Ubuntu", architecture: "x86_64", version: "18.04" } }
+[32mmongodb3_1  |[0m 2020-10-01T17:13:21.944+0000 I  NETWORK  [listener] connection accepted from 127.0.0.1:47920 #1 (1 connection now open)
+[32mmongodb3_1  |[0m 2020-10-01T17:13:21.945+0000 I  NETWORK  [conn1] received client metadata from 127.0.0.1:47920 conn1: { application: { name: "MongoDB Shell" }, driver: { name: "MongoDB Internal Client", version: "4.2.8" }, os: { type: "Linux", name: "Ubuntu", architecture: "x86_64", version: "18.04" } }
+[32mmongodb3_1  |[0m 2020-10-01T17:13:21.962+0000 I  NETWORK  [conn1] end connection 127.0.0.1:47920 (0 connections now open)
+[36mmongodb1_1  |[0m 2020-10-01T17:13:21.967+0000 I  SHARDING [conn2] Marking collection admin.system.users as collection version: <unsharded>
+[36mmongodb1_1  |[0m 2020-10-01T17:13:21.967+0000 I  STORAGE  [conn2] createCollection: admin.system.users with generated UUID: d7673904-3d39-4dbe-830e-bd22b8329f80 and options: {}
+[36mmongodb1_1  |[0m 2020-10-01T17:13:21.984+0000 I  INDEX    [conn2] index build: done building index _id_ on ns admin.system.users
+[36mmongodb1_1  |[0m 2020-10-01T17:13:21.992+0000 I  INDEX    [conn2] index build: done building index user_1_db_1 on ns admin.system.users
+[36mmongodb1_1  |[0m Successfully added user: {
+[36mmongodb1_1  |[0m 	"user" : "admin",
+[36mmongodb1_1  |[0m 	"roles" : [
+[36mmongodb1_1  |[0m 		{
+[36mmongodb1_1  |[0m 			"role" : "root",
+[36mmongodb1_1  |[0m 			"db" : "admin"
+[36mmongodb1_1  |[0m 		}
+[36mmongodb1_1  |[0m 	]
+[36mmongodb1_1  |[0m }
+[36mmongodb1_1  |[0m 2020-10-01T17:13:21.995+0000 E  -        [main] Error saving history file: FileOpenFailed: Unable to open() file /home/mongodb/.dbshell: No such file or directory
+[32mmongodb3_1  |[0m 2020-10-01T17:13:22.000+0000 I  SHARDING [ftdc] Marking collection local.oplog.rs as collection version: <unsharded>
+[36mmongodb1_1  |[0m 2020-10-01T17:13:22.005+0000 I  SHARDING [ftdc] Marking collection local.oplog.rs as collection version: <unsharded>
+[33mmongodb2_1  |[0m 2020-10-01T17:13:22.008+0000 I  SHARDING [ftdc] Marking collection local.oplog.rs as collection version: <unsharded>
+[36mmongodb1_1  |[0m 2020-10-01T17:13:22.018+0000 I  NETWORK  [conn2] end connection 127.0.0.1:47918 (0 connections now open)
+[36mmongodb1_1  |[0m 
+[33mmongodb2_1  |[0m 2020-10-01T17:13:22.024+0000 I  NETWORK  [listener] connection accepted from 127.0.0.1:47922 #2 (1 connection now open)
+[33mmongodb2_1  |[0m 2020-10-01T17:13:22.026+0000 I  NETWORK  [conn2] received client metadata from 127.0.0.1:47922 conn2: { application: { name: "MongoDB Shell" }, driver: { name: "MongoDB Internal Client", version: "4.2.8" }, os: { type: "Linux", name: "Ubuntu", architecture: "x86_64", version: "18.04" } }
+[36mmongodb1_1  |[0m /usr/local/bin/docker-entrypoint.sh: running /docker-entrypoint-initdb.d/1-init-replicaset.js
+[32mmongodb3_1  |[0m 2020-10-01T17:13:22.082+0000 I  NETWORK  [listener] connection accepted from 127.0.0.1:47924 #2 (1 connection now open)
+[32mmongodb3_1  |[0m 2020-10-01T17:13:22.085+0000 I  NETWORK  [conn2] received client metadata from 127.0.0.1:47924 conn2: { application: { name: "MongoDB Shell" }, driver: { name: "MongoDB Internal Client", version: "4.2.8" }, os: { type: "Linux", name: "Ubuntu", architecture: "x86_64", version: "18.04" } }
+[33mmongodb2_1  |[0m 2020-10-01T17:13:22.095+0000 I  SHARDING [conn2] Marking collection admin.system.users as collection version: <unsharded>
+[33mmongodb2_1  |[0m 2020-10-01T17:13:22.095+0000 I  STORAGE  [conn2] createCollection: admin.system.users with generated UUID: 54af4249-3620-4825-afe4-e26b026556b7 and options: {}
+[33mmongodb2_1  |[0m 2020-10-01T17:13:22.106+0000 I  INDEX    [conn2] index build: done building index _id_ on ns admin.system.users
+[33mmongodb2_1  |[0m 2020-10-01T17:13:22.117+0000 I  INDEX    [conn2] index build: done building index user_1_db_1 on ns admin.system.users
+[33mmongodb2_1  |[0m Successfully added user: {
+[33mmongodb2_1  |[0m 	"user" : "admin",
+[33mmongodb2_1  |[0m 	"roles" : [
+[33mmongodb2_1  |[0m 		{
+[33mmongodb2_1  |[0m 			"role" : "root",
+[33mmongodb2_1  |[0m 			"db" : "admin"
+[33mmongodb2_1  |[0m 		}
+[33mmongodb2_1  |[0m 	]
+[33mmongodb2_1  |[0m }
+[33mmongodb2_1  |[0m 2020-10-01T17:13:22.120+0000 E  -        [main] Error saving history file: FileOpenFailed: Unable to open() file /home/mongodb/.dbshell: No such file or directory
+[33mmongodb2_1  |[0m 2020-10-01T17:13:22.125+0000 I  NETWORK  [conn2] end connection 127.0.0.1:47922 (0 connections now open)
+[33mmongodb2_1  |[0m 
+[33mmongodb2_1  |[0m /usr/local/bin/docker-entrypoint.sh: ignoring /docker-entrypoint-initdb.d/*
+[33mmongodb2_1  |[0m 
+[36mmongodb1_1  |[0m 2020-10-01T17:13:22.150+0000 I  NETWORK  [listener] connection accepted from 127.0.0.1:47926 #3 (1 connection now open)
+[36mmongodb1_1  |[0m 2020-10-01T17:13:22.151+0000 I  NETWORK  [conn3] received client metadata from 127.0.0.1:47926 conn3: { application: { name: "MongoDB Shell" }, driver: { name: "MongoDB Internal Client", version: "4.2.8" }, os: { type: "Linux", name: "Ubuntu", architecture: "x86_64", version: "18.04" } }
+[33mmongodb2_1  |[0m 2020-10-01T17:13:22.165+0000 I  CONTROL  [main] ***** SERVER RESTARTED *****
+[36mmongodb1_1  |[0m State is not yet PRIMARY. Waiting...
+[33mmongodb2_1  |[0m 2020-10-01T17:13:22.169+0000 I  CONTROL  [main] Automatically disabling TLS 1.0, to force-enable TLS 1.0 specify --sslDisabledProtocols 'none'
+[33mmongodb2_1  |[0m 2020-10-01T17:13:22.175+0000 W  ASIO     [main] No TransportLayer configured during NetworkInterface startup
+[33mmongodb2_1  |[0m killing process with pid: 27
+[33mmongodb2_1  |[0m 2020-10-01T17:13:22.177+0000 I  CONTROL  [signalProcessingThread] got signal 15 (Terminated), will terminate after current cmd ends
+[33mmongodb2_1  |[0m 2020-10-01T17:13:22.182+0000 I  NETWORK  [signalProcessingThread] shutdown: going to close listening sockets...
+[33mmongodb2_1  |[0m 2020-10-01T17:13:22.184+0000 I  NETWORK  [listener] removing socket file: /tmp/mongodb-27017.sock
+[33mmongodb2_1  |[0m 2020-10-01T17:13:22.185+0000 I  -        [signalProcessingThread] Stopping further Flow Control ticket acquisitions.
+[33mmongodb2_1  |[0m 2020-10-01T17:13:22.186+0000 I  CONTROL  [signalProcessingThread] Shutting down free monitoring
+[33mmongodb2_1  |[0m 2020-10-01T17:13:22.187+0000 I  FTDC     [signalProcessingThread] Shutting down full-time diagnostic data capture
+[33mmongodb2_1  |[0m 2020-10-01T17:13:22.190+0000 I  STORAGE  [signalProcessingThread] Deregistering all the collections
+[33mmongodb2_1  |[0m 2020-10-01T17:13:22.190+0000 I  STORAGE  [signalProcessingThread] Timestamp monitor shutting down
+[33mmongodb2_1  |[0m 2020-10-01T17:13:22.191+0000 I  STORAGE  [signalProcessingThread] WiredTigerKVEngine shutting down
+[33mmongodb2_1  |[0m 2020-10-01T17:13:22.193+0000 I  STORAGE  [signalProcessingThread] Shutting down session sweeper thread
+[33mmongodb2_1  |[0m 2020-10-01T17:13:22.193+0000 I  STORAGE  [signalProcessingThread] Finished shutting down session sweeper thread
+[33mmongodb2_1  |[0m 2020-10-01T17:13:22.194+0000 I  STORAGE  [signalProcessingThread] Shutting down journal flusher thread
+[32mmongodb3_1  |[0m 2020-10-01T17:13:22.205+0000 I  SHARDING [conn2] Marking collection admin.system.users as collection version: <unsharded>
+[32mmongodb3_1  |[0m 2020-10-01T17:13:22.205+0000 I  STORAGE  [conn2] createCollection: admin.system.users with generated UUID: 5f3f6934-24b0-4bc9-8e78-93e2725fbc3f and options: {}
+[32mmongodb3_1  |[0m 2020-10-01T17:13:22.217+0000 I  INDEX    [conn2] index build: done building index _id_ on ns admin.system.users
+[32mmongodb3_1  |[0m 2020-10-01T17:13:22.224+0000 I  INDEX    [conn2] index build: done building index user_1_db_1 on ns admin.system.users
+[32mmongodb3_1  |[0m 2020-10-01T17:13:22.225+0000 I  COMMAND  [conn2] command admin.system.version appName: "MongoDB Shell" command: createUser { createUser: "admin", pwd: "xxx", roles: [ { role: "root", db: "admin" } ], digestPassword: true, writeConcern: { w: "majority", wtimeout: 600000.0 }, lsid: { id: UUID("6eef0253-d0ab-435a-bdcc-ce27ffba1a4f") }, $db: "admin" } numYields:0 reslen:38 locks:{ ParallelBatchWriterMode: { acquireCount: { r: 4 } }, ReplicationStateTransition: { acquireCount: { w: 5 } }, Global: { acquireCount: { r: 1, w: 4 } }, Database: { acquireCount: { r: 1, W: 4 } }, Collection: { acquireCount: { r: 3, w: 3, W: 1 } }, Mutex: { acquireCount: { r: 8 } } } flowControl:{ acquireCount: 4, timeAcquiringMicros: 82 } storage:{} protocol:op_msg 116ms
+[32mmongodb3_1  |[0m Successfully added user: {
+[32mmongodb3_1  |[0m 	"user" : "admin",
+[32mmongodb3_1  |[0m 	"roles" : [
+[32mmongodb3_1  |[0m 		{
+[32mmongodb3_1  |[0m 			"role" : "root",
+[32mmongodb3_1  |[0m 			"db" : "admin"
+[32mmongodb3_1  |[0m 		}
+[32mmongodb3_1  |[0m 	]
+[32mmongodb3_1  |[0m }
+[32mmongodb3_1  |[0m 2020-10-01T17:13:22.229+0000 E  -        [main] Error saving history file: FileOpenFailed: Unable to open() file /home/mongodb/.dbshell: No such file or directory
+[32mmongodb3_1  |[0m 2020-10-01T17:13:22.234+0000 I  NETWORK  [conn2] end connection 127.0.0.1:47924 (0 connections now open)
+[32mmongodb3_1  |[0m 
+[32mmongodb3_1  |[0m /usr/local/bin/docker-entrypoint.sh: ignoring /docker-entrypoint-initdb.d/*
+[32mmongodb3_1  |[0m 
+[33mmongodb2_1  |[0m 2020-10-01T17:13:22.259+0000 I  STORAGE  [signalProcessingThread] Finished shutting down journal flusher thread
+[33mmongodb2_1  |[0m 2020-10-01T17:13:22.259+0000 I  STORAGE  [signalProcessingThread] Shutting down checkpoint thread
+[33mmongodb2_1  |[0m 2020-10-01T17:13:22.259+0000 I  STORAGE  [signalProcessingThread] Finished shutting down checkpoint thread
+[32mmongodb3_1  |[0m 2020-10-01T17:13:22.265+0000 I  CONTROL  [main] ***** SERVER RESTARTED *****
+[32mmongodb3_1  |[0m 2020-10-01T17:13:22.270+0000 I  CONTROL  [main] Automatically disabling TLS 1.0, to force-enable TLS 1.0 specify --sslDisabledProtocols 'none'
+[32mmongodb3_1  |[0m 2020-10-01T17:13:22.274+0000 W  ASIO     [main] No TransportLayer configured during NetworkInterface startup
+[32mmongodb3_1  |[0m killing process with pid: 27
+[32mmongodb3_1  |[0m 2020-10-01T17:13:22.275+0000 I  CONTROL  [signalProcessingThread] got signal 15 (Terminated), will terminate after current cmd ends
+[32mmongodb3_1  |[0m 2020-10-01T17:13:22.278+0000 I  NETWORK  [signalProcessingThread] shutdown: going to close listening sockets...
+[32mmongodb3_1  |[0m 2020-10-01T17:13:22.279+0000 I  NETWORK  [listener] removing socket file: /tmp/mongodb-27017.sock
+[32mmongodb3_1  |[0m 2020-10-01T17:13:22.280+0000 I  -        [signalProcessingThread] Stopping further Flow Control ticket acquisitions.
+[32mmongodb3_1  |[0m 2020-10-01T17:13:22.282+0000 I  CONTROL  [signalProcessingThread] Shutting down free monitoring
+[32mmongodb3_1  |[0m 2020-10-01T17:13:22.284+0000 I  FTDC     [signalProcessingThread] Shutting down full-time diagnostic data capture
+[32mmongodb3_1  |[0m 2020-10-01T17:13:22.292+0000 I  STORAGE  [signalProcessingThread] Deregistering all the collections
+[32mmongodb3_1  |[0m 2020-10-01T17:13:22.292+0000 I  STORAGE  [signalProcessingThread] Timestamp monitor shutting down
+[32mmongodb3_1  |[0m 2020-10-01T17:13:22.293+0000 I  STORAGE  [signalProcessingThread] WiredTigerKVEngine shutting down
+[32mmongodb3_1  |[0m 2020-10-01T17:13:22.295+0000 I  STORAGE  [signalProcessingThread] Shutting down session sweeper thread
+[32mmongodb3_1  |[0m 2020-10-01T17:13:22.296+0000 I  STORAGE  [signalProcessingThread] Finished shutting down session sweeper thread
+[32mmongodb3_1  |[0m 2020-10-01T17:13:22.296+0000 I  STORAGE  [signalProcessingThread] Shutting down journal flusher thread
+[32mmongodb3_1  |[0m 2020-10-01T17:13:22.304+0000 I  STORAGE  [signalProcessingThread] Finished shutting down journal flusher thread
+[32mmongodb3_1  |[0m 2020-10-01T17:13:22.304+0000 I  STORAGE  [signalProcessingThread] Shutting down checkpoint thread
+[32mmongodb3_1  |[0m 2020-10-01T17:13:22.304+0000 I  STORAGE  [signalProcessingThread] Finished shutting down checkpoint thread
+[33mmongodb2_1  |[0m 2020-10-01T17:13:22.325+0000 I  STORAGE  [signalProcessingThread] shutdown: removing fs lock...
+[33mmongodb2_1  |[0m 2020-10-01T17:13:22.326+0000 I  CONTROL  [signalProcessingThread] now exiting
+[33mmongodb2_1  |[0m 2020-10-01T17:13:22.327+0000 I  CONTROL  [signalProcessingThread] shutting down with code:0
+[32mmongodb3_1  |[0m 2020-10-01T17:13:22.355+0000 I  STORAGE  [signalProcessingThread] shutdown: removing fs lock...
+[32mmongodb3_1  |[0m 2020-10-01T17:13:22.355+0000 I  CONTROL  [signalProcessingThread] now exiting
+[32mmongodb3_1  |[0m 2020-10-01T17:13:22.356+0000 I  CONTROL  [signalProcessingThread] shutting down with code:0
+[33mmongodb2_1  |[0m 
+[33mmongodb2_1  |[0m MongoDB init process complete; ready for start up.
+[33mmongodb2_1  |[0m 
+[33mmongodb2_1  |[0m 2020-10-01T17:13:23.209+0000 I  CONTROL  [main] Automatically disabling TLS 1.0, to force-enable TLS 1.0 specify --sslDisabledProtocols 'none'
+[33mmongodb2_1  |[0m 2020-10-01T17:13:23.211+0000 W  ASIO     [main] No TransportLayer configured during NetworkInterface startup
+[33mmongodb2_1  |[0m 2020-10-01T17:13:23.212+0000 I  CONTROL  [initandlisten] MongoDB starting : pid=1 port=27017 dbpath=/data/db 64-bit host=c044d50d8be1
+[33mmongodb2_1  |[0m 2020-10-01T17:13:23.213+0000 I  CONTROL  [initandlisten] db version v4.2.8
+[33mmongodb2_1  |[0m 2020-10-01T17:13:23.213+0000 I  CONTROL  [initandlisten] git version: 43d25964249164d76d5e04dd6cf38f6111e21f5f
+[33mmongodb2_1  |[0m 2020-10-01T17:13:23.213+0000 I  CONTROL  [initandlisten] OpenSSL version: OpenSSL 1.1.1  11 Sep 2018
+[33mmongodb2_1  |[0m 2020-10-01T17:13:23.213+0000 I  CONTROL  [initandlisten] allocator: tcmalloc
+[33mmongodb2_1  |[0m 2020-10-01T17:13:23.213+0000 I  CONTROL  [initandlisten] modules: none
+[33mmongodb2_1  |[0m 2020-10-01T17:13:23.213+0000 I  CONTROL  [initandlisten] build environment:
+[33mmongodb2_1  |[0m 2020-10-01T17:13:23.213+0000 I  CONTROL  [initandlisten]     distmod: ubuntu1804
+[33mmongodb2_1  |[0m 2020-10-01T17:13:23.213+0000 I  CONTROL  [initandlisten]     distarch: x86_64
+[33mmongodb2_1  |[0m 2020-10-01T17:13:23.213+0000 I  CONTROL  [initandlisten]     target_arch: x86_64
+[33mmongodb2_1  |[0m 2020-10-01T17:13:23.213+0000 I  CONTROL  [initandlisten] options: { net: { bindIp: "*" }, replication: { replSet: "rs0" }, security: { authorization: "enabled" } }
+[33mmongodb2_1  |[0m 2020-10-01T17:13:23.214+0000 I  STORAGE  [initandlisten] Detected data files in /data/db created by the 'wiredTiger' storage engine, so setting the active storage engine to 'wiredTiger'.
+[33mmongodb2_1  |[0m 2020-10-01T17:13:23.214+0000 I  STORAGE  [initandlisten] 
+[33mmongodb2_1  |[0m 2020-10-01T17:13:23.214+0000 I  STORAGE  [initandlisten] ** WARNING: Using the XFS filesystem is strongly recommended with the WiredTiger storage engine
+[33mmongodb2_1  |[0m 2020-10-01T17:13:23.214+0000 I  STORAGE  [initandlisten] **          See http://dochub.mongodb.org/core/prodnotes-filesystem
+[33mmongodb2_1  |[0m 2020-10-01T17:13:23.215+0000 I  STORAGE  [initandlisten] wiredtiger_open config: create,cache_size=483M,cache_overflow=(file_max=0M),session_max=33000,eviction=(threads_min=4,threads_max=4),config_base=false,statistics=(fast),log=(enabled=true,archive=true,path=journal,compressor=snappy),file_manager=(close_idle_time=100000,close_scan_interval=10,close_handle_minimum=250),statistics_log=(wait=0),verbose=[recovery_progress,checkpoint_progress],
+[32mmongodb3_1  |[0m 
+[32mmongodb3_1  |[0m MongoDB init process complete; ready for start up.
+[32mmongodb3_1  |[0m 
+[32mmongodb3_1  |[0m 2020-10-01T17:13:23.300+0000 I  CONTROL  [main] Automatically disabling TLS 1.0, to force-enable TLS 1.0 specify --sslDisabledProtocols 'none'
+[32mmongodb3_1  |[0m 2020-10-01T17:13:23.305+0000 W  ASIO     [main] No TransportLayer configured during NetworkInterface startup
+[32mmongodb3_1  |[0m 2020-10-01T17:13:23.305+0000 I  CONTROL  [initandlisten] MongoDB starting : pid=1 port=27017 dbpath=/data/db 64-bit host=cd9237dc47a8
+[32mmongodb3_1  |[0m 2020-10-01T17:13:23.306+0000 I  CONTROL  [initandlisten] db version v4.2.8
+[32mmongodb3_1  |[0m 2020-10-01T17:13:23.306+0000 I  CONTROL  [initandlisten] git version: 43d25964249164d76d5e04dd6cf38f6111e21f5f
+[32mmongodb3_1  |[0m 2020-10-01T17:13:23.306+0000 I  CONTROL  [initandlisten] OpenSSL version: OpenSSL 1.1.1  11 Sep 2018
+[32mmongodb3_1  |[0m 2020-10-01T17:13:23.306+0000 I  CONTROL  [initandlisten] allocator: tcmalloc
+[32mmongodb3_1  |[0m 2020-10-01T17:13:23.306+0000 I  CONTROL  [initandlisten] modules: none
+[32mmongodb3_1  |[0m 2020-10-01T17:13:23.306+0000 I  CONTROL  [initandlisten] build environment:
+[32mmongodb3_1  |[0m 2020-10-01T17:13:23.306+0000 I  CONTROL  [initandlisten]     distmod: ubuntu1804
+[32mmongodb3_1  |[0m 2020-10-01T17:13:23.306+0000 I  CONTROL  [initandlisten]     distarch: x86_64
+[32mmongodb3_1  |[0m 2020-10-01T17:13:23.307+0000 I  CONTROL  [initandlisten]     target_arch: x86_64
+[32mmongodb3_1  |[0m 2020-10-01T17:13:23.307+0000 I  CONTROL  [initandlisten] options: { net: { bindIp: "*" }, replication: { replSet: "rs0" }, security: { authorization: "enabled" } }
+[32mmongodb3_1  |[0m 2020-10-01T17:13:23.308+0000 I  STORAGE  [initandlisten] Detected data files in /data/db created by the 'wiredTiger' storage engine, so setting the active storage engine to 'wiredTiger'.
+[32mmongodb3_1  |[0m 2020-10-01T17:13:23.308+0000 I  STORAGE  [initandlisten] 
+[32mmongodb3_1  |[0m 2020-10-01T17:13:23.308+0000 I  STORAGE  [initandlisten] ** WARNING: Using the XFS filesystem is strongly recommended with the WiredTiger storage engine
+[32mmongodb3_1  |[0m 2020-10-01T17:13:23.308+0000 I  STORAGE  [initandlisten] **          See http://dochub.mongodb.org/core/prodnotes-filesystem
+[32mmongodb3_1  |[0m 2020-10-01T17:13:23.308+0000 I  STORAGE  [initandlisten] wiredtiger_open config: create,cache_size=483M,cache_overflow=(file_max=0M),session_max=33000,eviction=(threads_min=4,threads_max=4),config_base=false,statistics=(fast),log=(enabled=true,archive=true,path=journal,compressor=snappy),file_manager=(close_idle_time=100000,close_scan_interval=10,close_handle_minimum=250),statistics_log=(wait=0),verbose=[recovery_progress,checkpoint_progress],
+[33mmongodb2_1  |[0m 2020-10-01T17:13:23.747+0000 I  STORAGE  [initandlisten] WiredTiger message [1601572403:747923][1:0x7fbc11d60b00], txn-recover: Recovering log 1 through 2
+[33mmongodb2_1  |[0m 2020-10-01T17:13:23.812+0000 I  STORAGE  [initandlisten] WiredTiger message [1601572403:812685][1:0x7fbc11d60b00], txn-recover: Recovering log 2 through 2
+[32mmongodb3_1  |[0m 2020-10-01T17:13:23.855+0000 I  STORAGE  [initandlisten] WiredTiger message [1601572403:855361][1:0x7f15a4e6ab00], txn-recover: Recovering log 1 through 2
+[33mmongodb2_1  |[0m 2020-10-01T17:13:23.886+0000 I  STORAGE  [initandlisten] WiredTiger message [1601572403:886367][1:0x7fbc11d60b00], txn-recover: Main recovery loop: starting at 1/29184 to 2/256
+[32mmongodb3_1  |[0m 2020-10-01T17:13:23.923+0000 I  STORAGE  [initandlisten] WiredTiger message [1601572403:923435][1:0x7f15a4e6ab00], txn-recover: Recovering log 2 through 2
+[33mmongodb2_1  |[0m 2020-10-01T17:13:23.972+0000 I  STORAGE  [initandlisten] WiredTiger message [1601572403:972804][1:0x7fbc11d60b00], txn-recover: Recovering log 1 through 2
+[32mmongodb3_1  |[0m 2020-10-01T17:13:23.992+0000 I  STORAGE  [initandlisten] WiredTiger message [1601572403:992950][1:0x7f15a4e6ab00], txn-recover: Main recovery loop: starting at 1/29184 to 2/256
+[33mmongodb2_1  |[0m 2020-10-01T17:13:24.039+0000 I  STORAGE  [initandlisten] WiredTiger message [1601572404:39451][1:0x7fbc11d60b00], txn-recover: Recovering log 2 through 2
+[32mmongodb3_1  |[0m 2020-10-01T17:13:24.081+0000 I  STORAGE  [initandlisten] WiredTiger message [1601572404:81207][1:0x7f15a4e6ab00], txn-recover: Recovering log 1 through 2
+[33mmongodb2_1  |[0m 2020-10-01T17:13:24.083+0000 I  STORAGE  [initandlisten] WiredTiger message [1601572404:83499][1:0x7fbc11d60b00], txn-recover: Set global recovery timestamp: (0, 0)
+[32mmongodb3_1  |[0m 2020-10-01T17:13:24.140+0000 I  STORAGE  [initandlisten] WiredTiger message [1601572404:140931][1:0x7f15a4e6ab00], txn-recover: Recovering log 2 through 2
+[33mmongodb2_1  |[0m 2020-10-01T17:13:24.153+0000 I  RECOVERY [initandlisten] WiredTiger recoveryTimestamp. Ts: Timestamp(0, 0)
+[33mmongodb2_1  |[0m 2020-10-01T17:13:24.165+0000 I  STORAGE  [initandlisten] Timestamp monitor starting
+[33mmongodb2_1  |[0m 2020-10-01T17:13:24.178+0000 I  SHARDING [initandlisten] Marking collection local.system.replset as collection version: <unsharded>
+[33mmongodb2_1  |[0m 2020-10-01T17:13:24.181+0000 I  STORAGE  [initandlisten] Flow Control is enabled on this deployment.
+[33mmongodb2_1  |[0m 2020-10-01T17:13:24.181+0000 I  SHARDING [initandlisten] Marking collection admin.system.roles as collection version: <unsharded>
+[33mmongodb2_1  |[0m 2020-10-01T17:13:24.181+0000 I  SHARDING [initandlisten] Marking collection admin.system.version as collection version: <unsharded>
+[33mmongodb2_1  |[0m 2020-10-01T17:13:24.185+0000 I  SHARDING [initandlisten] Marking collection local.startup_log as collection version: <unsharded>
+[33mmongodb2_1  |[0m 2020-10-01T17:13:24.186+0000 I  FTDC     [initandlisten] Initializing full-time diagnostic data capture with directory '/data/db/diagnostic.data'
+[33mmongodb2_1  |[0m 2020-10-01T17:13:24.188+0000 I  STORAGE  [initandlisten] createCollection: local.replset.oplogTruncateAfterPoint with generated UUID: 3eae8711-f771-484e-ab32-dcb90f51172b and options: {}
+[32mmongodb3_1  |[0m 2020-10-01T17:13:24.191+0000 I  STORAGE  [initandlisten] WiredTiger message [1601572404:191407][1:0x7f15a4e6ab00], txn-recover: Set global recovery timestamp: (0, 0)
+[33mmongodb2_1  |[0m 2020-10-01T17:13:24.206+0000 I  INDEX    [initandlisten] index build: done building index _id_ on ns local.replset.oplogTruncateAfterPoint
+[33mmongodb2_1  |[0m 2020-10-01T17:13:24.207+0000 I  STORAGE  [initandlisten] createCollection: local.replset.minvalid with generated UUID: fd50bd2a-0651-4cf9-9d38-b28d215abc40 and options: {}
+[32mmongodb3_1  |[0m 2020-10-01T17:13:24.209+0000 I  RECOVERY [initandlisten] WiredTiger recoveryTimestamp. Ts: Timestamp(0, 0)
+[33mmongodb2_1  |[0m 2020-10-01T17:13:24.219+0000 I  INDEX    [initandlisten] index build: done building index _id_ on ns local.replset.minvalid
+[33mmongodb2_1  |[0m 2020-10-01T17:13:24.220+0000 I  SHARDING [initandlisten] Marking collection local.replset.minvalid as collection version: <unsharded>
+[33mmongodb2_1  |[0m 2020-10-01T17:13:24.220+0000 I  STORAGE  [initandlisten] createCollection: local.replset.election with generated UUID: 12a73fd6-de1d-4062-a4a8-6f437b22a7fb and options: {}
+[32mmongodb3_1  |[0m 2020-10-01T17:13:24.223+0000 I  STORAGE  [initandlisten] Timestamp monitor starting
+[33mmongodb2_1  |[0m 2020-10-01T17:13:24.234+0000 I  INDEX    [initandlisten] index build: done building index _id_ on ns local.replset.election
+[33mmongodb2_1  |[0m 2020-10-01T17:13:24.235+0000 I  SHARDING [initandlisten] Marking collection local.replset.election as collection version: <unsharded>
+[33mmongodb2_1  |[0m 2020-10-01T17:13:24.236+0000 I  REPL     [initandlisten] Did not find local initialized voted for document at startup.
+[33mmongodb2_1  |[0m 2020-10-01T17:13:24.236+0000 I  REPL     [initandlisten] Did not find local Rollback ID document at startup. Creating one.
+[33mmongodb2_1  |[0m 2020-10-01T17:13:24.236+0000 I  STORAGE  [initandlisten] createCollection: local.system.rollback.id with generated UUID: 83d8b2c2-4037-4acb-b9be-b68d096f724b and options: {}
+[32mmongodb3_1  |[0m 2020-10-01T17:13:24.241+0000 I  SHARDING [initandlisten] Marking collection local.system.replset as collection version: <unsharded>
+[32mmongodb3_1  |[0m 2020-10-01T17:13:24.245+0000 I  STORAGE  [initandlisten] Flow Control is enabled on this deployment.
+[32mmongodb3_1  |[0m 2020-10-01T17:13:24.245+0000 I  SHARDING [initandlisten] Marking collection admin.system.roles as collection version: <unsharded>
+[32mmongodb3_1  |[0m 2020-10-01T17:13:24.246+0000 I  SHARDING [initandlisten] Marking collection admin.system.version as collection version: <unsharded>
+[33mmongodb2_1  |[0m 2020-10-01T17:13:24.249+0000 I  INDEX    [initandlisten] index build: done building index _id_ on ns local.system.rollback.id
+[33mmongodb2_1  |[0m 2020-10-01T17:13:24.250+0000 I  SHARDING [initandlisten] Marking collection local.system.rollback.id as collection version: <unsharded>
+[33mmongodb2_1  |[0m 2020-10-01T17:13:24.250+0000 I  REPL     [initandlisten] Initialized the rollback ID to 1
+[33mmongodb2_1  |[0m 2020-10-01T17:13:24.250+0000 I  REPL     [initandlisten] Did not find local replica set configuration document at startup;  NoMatchingDocument: Did not find replica set configuration document in local.system.replset
+[32mmongodb3_1  |[0m 2020-10-01T17:13:24.251+0000 I  SHARDING [initandlisten] Marking collection local.startup_log as collection version: <unsharded>
+[33mmongodb2_1  |[0m 2020-10-01T17:13:24.253+0000 I  CONTROL  [LogicalSessionCacheRefresh] Sessions collection is not set up; waiting until next sessions refresh interval: Replication has not yet been configured
+[33mmongodb2_1  |[0m 2020-10-01T17:13:24.254+0000 I  SHARDING [LogicalSessionCacheReap] Marking collection config.system.sessions as collection version: <unsharded>
+[32mmongodb3_1  |[0m 2020-10-01T17:13:24.255+0000 I  FTDC     [initandlisten] Initializing full-time diagnostic data capture with directory '/data/db/diagnostic.data'
+[33mmongodb2_1  |[0m 2020-10-01T17:13:24.255+0000 I  CONTROL  [LogicalSessionCacheReap] Failed to reap transaction table: NotYetInitialized: Replication has not yet been configured
+[33mmongodb2_1  |[0m 2020-10-01T17:13:24.256+0000 I  NETWORK  [listener] Listening on /tmp/mongodb-27017.sock
+[33mmongodb2_1  |[0m 2020-10-01T17:13:24.256+0000 I  NETWORK  [listener] Listening on 0.0.0.0
+[33mmongodb2_1  |[0m 2020-10-01T17:13:24.258+0000 I  NETWORK  [listener] waiting for connections on port 27017
+[32mmongodb3_1  |[0m 2020-10-01T17:13:24.259+0000 I  STORAGE  [initandlisten] createCollection: local.replset.oplogTruncateAfterPoint with generated UUID: 82a24350-97cc-4c8f-8e4a-fdaed688ce0e and options: {}
+[32mmongodb3_1  |[0m 2020-10-01T17:13:24.270+0000 I  INDEX    [initandlisten] index build: done building index _id_ on ns local.replset.oplogTruncateAfterPoint
+[32mmongodb3_1  |[0m 2020-10-01T17:13:24.271+0000 I  STORAGE  [initandlisten] createCollection: local.replset.minvalid with generated UUID: 288d55f7-4fa3-4c89-a3ab-8cf2069c5847 and options: {}
+[32mmongodb3_1  |[0m 2020-10-01T17:13:24.284+0000 I  INDEX    [initandlisten] index build: done building index _id_ on ns local.replset.minvalid
+[32mmongodb3_1  |[0m 2020-10-01T17:13:24.285+0000 I  SHARDING [initandlisten] Marking collection local.replset.minvalid as collection version: <unsharded>
+[32mmongodb3_1  |[0m 2020-10-01T17:13:24.286+0000 I  STORAGE  [initandlisten] createCollection: local.replset.election with generated UUID: d486ea4d-e130-492f-b106-549f85a9f82e and options: {}
+[32mmongodb3_1  |[0m 2020-10-01T17:13:24.298+0000 I  INDEX    [initandlisten] index build: done building index _id_ on ns local.replset.election
+[32mmongodb3_1  |[0m 2020-10-01T17:13:24.298+0000 I  SHARDING [initandlisten] Marking collection local.replset.election as collection version: <unsharded>
+[32mmongodb3_1  |[0m 2020-10-01T17:13:24.299+0000 I  REPL     [initandlisten] Did not find local initialized voted for document at startup.
+[32mmongodb3_1  |[0m 2020-10-01T17:13:24.300+0000 I  REPL     [initandlisten] Did not find local Rollback ID document at startup. Creating one.
+[32mmongodb3_1  |[0m 2020-10-01T17:13:24.300+0000 I  STORAGE  [initandlisten] createCollection: local.system.rollback.id with generated UUID: ff93ef41-0661-4287-9f9a-523bb51f4247 and options: {}
+[32mmongodb3_1  |[0m 2020-10-01T17:13:24.311+0000 I  INDEX    [initandlisten] index build: done building index _id_ on ns local.system.rollback.id
+[32mmongodb3_1  |[0m 2020-10-01T17:13:24.312+0000 I  SHARDING [initandlisten] Marking collection local.system.rollback.id as collection version: <unsharded>
+[32mmongodb3_1  |[0m 2020-10-01T17:13:24.312+0000 I  REPL     [initandlisten] Initialized the rollback ID to 1
+[32mmongodb3_1  |[0m 2020-10-01T17:13:24.312+0000 I  REPL     [initandlisten] Did not find local replica set configuration document at startup;  NoMatchingDocument: Did not find replica set configuration document in local.system.replset
+[32mmongodb3_1  |[0m 2020-10-01T17:13:24.315+0000 I  CONTROL  [LogicalSessionCacheRefresh] Sessions collection is not set up; waiting until next sessions refresh interval: Replication has not yet been configured
+[32mmongodb3_1  |[0m 2020-10-01T17:13:24.316+0000 I  SHARDING [LogicalSessionCacheReap] Marking collection config.system.sessions as collection version: <unsharded>
+[32mmongodb3_1  |[0m 2020-10-01T17:13:24.317+0000 I  CONTROL  [LogicalSessionCacheReap] Failed to reap transaction table: NotYetInitialized: Replication has not yet been configured
+[32mmongodb3_1  |[0m 2020-10-01T17:13:24.317+0000 I  NETWORK  [listener] Listening on /tmp/mongodb-27017.sock
+[32mmongodb3_1  |[0m 2020-10-01T17:13:24.317+0000 I  NETWORK  [listener] Listening on 0.0.0.0
+[32mmongodb3_1  |[0m 2020-10-01T17:13:24.317+0000 I  NETWORK  [listener] waiting for connections on port 27017
+[32mmongodb3_1  |[0m 2020-10-01T17:13:25.003+0000 I  SHARDING [ftdc] Marking collection local.oplog.rs as collection version: <unsharded>
+[33mmongodb2_1  |[0m 2020-10-01T17:13:25.006+0000 I  SHARDING [ftdc] Marking collection local.oplog.rs as collection version: <unsharded>
+[33mmongodb2_1  |[0m 2020-10-01T17:18:24.253+0000 I  CONTROL  [LogicalSessionCacheRefresh] Sessions collection is not set up; waiting until next sessions refresh interval: Replication has not yet been configured
+[33mmongodb2_1  |[0m 2020-10-01T17:18:24.255+0000 I  CONTROL  [LogicalSessionCacheReap] Failed to reap transaction table: NotYetInitialized: Replication has not yet been configured
+[32mmongodb3_1  |[0m 2020-10-01T17:18:24.316+0000 I  CONTROL  [LogicalSessionCacheRefresh] Sessions collection is not set up; waiting until next sessions refresh interval: Replication has not yet been configured
+[32mmongodb3_1  |[0m 2020-10-01T17:18:24.317+0000 I  CONTROL  [LogicalSessionCacheReap] Failed to reap transaction table: NotYetInitialized: Replication has not yet been configured
+[33mmongodb2_1  |[0m 2020-10-01T17:23:24.255+0000 I  CONTROL  [LogicalSessionCacheRefresh] Sessions collection is not set up; waiting until next sessions refresh interval: Replication has not yet been configured
+[33mmongodb2_1  |[0m 2020-10-01T17:23:24.256+0000 I  CONTROL  [LogicalSessionCacheReap] Failed to reap transaction table: NotYetInitialized: Replication has not yet been configured
+[32mmongodb3_1  |[0m 2020-10-01T17:23:24.320+0000 I  CONTROL  [LogicalSessionCacheRefresh] Sessions collection is not set up; waiting until next sessions refresh interval: Replication has not yet been configured
+[32mmongodb3_1  |[0m 2020-10-01T17:23:24.322+0000 I  CONTROL  [LogicalSessionCacheReap] Failed to reap transaction table: NotYetInitialized: Replication has not yet been configured
+[33mmongodb2_1  |[0m 2020-10-01T17:28:24.256+0000 I  CONTROL  [LogicalSessionCacheRefresh] Sessions collection is not set up; waiting until next sessions refresh interval: Replication has not yet been configured
+[33mmongodb2_1  |[0m 2020-10-01T17:28:24.256+0000 I  CONTROL  [LogicalSessionCacheReap] Failed to reap transaction table: NotYetInitialized: Replication has not yet been configured
+[32mmongodb3_1  |[0m 2020-10-01T17:28:24.321+0000 I  CONTROL  [LogicalSessionCacheRefresh] Sessions collection is not set up; waiting until next sessions refresh interval: Replication has not yet been configured
+[32mmongodb3_1  |[0m 2020-10-01T17:28:24.324+0000 I  CONTROL  [LogicalSessionCacheReap] Failed to reap transaction table: NotYetInitialized: Replication has not yet been configured
+[33mmongodb2_1  |[0m 2020-10-01T17:33:24.255+0000 I  CONTROL  [LogicalSessionCacheRefresh] Sessions collection is not set up; waiting until next sessions refresh interval: Replication has not yet been configured
+[33mmongodb2_1  |[0m 2020-10-01T17:33:24.258+0000 I  CONTROL  [LogicalSessionCacheReap] Failed to reap transaction table: NotYetInitialized: Replication has not yet been configured
+[32mmongodb3_1  |[0m 2020-10-01T17:33:24.321+0000 I  CONTROL  [LogicalSessionCacheReap] Failed to reap transaction table: NotYetInitialized: Replication has not yet been configured
+[32mmongodb3_1  |[0m 2020-10-01T17:33:24.321+0000 I  CONTROL  [LogicalSessionCacheRefresh] Sessions collection is not set up; waiting until next sessions refresh interval: Replication has not yet been configured
+[33mmongodb2_1  |[0m 2020-10-01T17:38:24.258+0000 I  CONTROL  [LogicalSessionCacheRefresh] Sessions collection is not set up; waiting until next sessions refresh interval: Replication has not yet been configured
+[33mmongodb2_1  |[0m 2020-10-01T17:38:24.260+0000 I  CONTROL  [LogicalSessionCacheReap] Failed to reap transaction table: NotYetInitialized: Replication has not yet been configured
+[32mmongodb3_1  |[0m 2020-10-01T17:38:24.323+0000 I  CONTROL  [LogicalSessionCacheRefresh] Sessions collection is not set up; waiting until next sessions refresh interval: Replication has not yet been configured
+[32mmongodb3_1  |[0m 2020-10-01T17:38:24.324+0000 I  CONTROL  [LogicalSessionCacheReap] Failed to reap transaction table: NotYetInitialized: Replication has not yet been configured
+[33mmongodb2_1  |[0m 2020-10-01T17:43:24.257+0000 I  CONTROL  [LogicalSessionCacheRefresh] Sessions collection is not set up; waiting until next sessions refresh interval: Replication has not yet been configured
+[33mmongodb2_1  |[0m 2020-10-01T17:43:24.259+0000 I  CONTROL  [LogicalSessionCacheReap] Failed to reap transaction table: NotYetInitialized: Replication has not yet been configured
+[32mmongodb3_1  |[0m 2020-10-01T17:43:24.324+0000 I  CONTROL  [LogicalSessionCacheRefresh] Sessions collection is not set up; waiting until next sessions refresh interval: Replication has not yet been configured
+[32mmongodb3_1  |[0m 2020-10-01T17:43:24.325+0000 I  CONTROL  [LogicalSessionCacheReap] Failed to reap transaction table: NotYetInitialized: Replication has not yet been configured
+[33mmongodb2_1  |[0m 2020-10-01T17:48:24.260+0000 I  CONTROL  [LogicalSessionCacheRefresh] Sessions collection is not set up; waiting until next sessions refresh interval: Replication has not yet been configured
+[33mmongodb2_1  |[0m 2020-10-01T17:48:24.262+0000 I  CONTROL  [LogicalSessionCacheReap] Failed to reap transaction table: NotYetInitialized: Replication has not yet been configured
+[32mmongodb3_1  |[0m 2020-10-01T17:48:24.324+0000 I  CONTROL  [LogicalSessionCacheRefresh] Sessions collection is not set up; waiting until next sessions refresh interval: Replication has not yet been configured
+[32mmongodb3_1  |[0m 2020-10-01T17:48:24.325+0000 I  CONTROL  [LogicalSessionCacheReap] Failed to reap transaction table: NotYetInitialized: Replication has not yet been configured
+Gracefully stopping... (press Ctrl+C again to force)
