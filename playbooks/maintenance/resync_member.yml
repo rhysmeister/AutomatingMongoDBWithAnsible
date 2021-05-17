@@ -46,12 +46,12 @@
       wait_for:
         path: "/var/log/mongodb/mongod.log"
         search_regex: "initial sync done"
+        timeout: "{{ sync_timeout }}"
 
     - name: Wait for mongod to become responsive
       wait_for:
         port: "{{ mongod_port }}"
         delay: 10
-        timeout: "{{ sync_timeout }}"
 
     - name: Validate replicaset state
       community.mongodb.mongodb_status:
