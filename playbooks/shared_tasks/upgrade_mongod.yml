@@ -67,7 +67,7 @@
 
 - name: Reboot the node
   reboot:
-    reboot_timeout: 3600
+    reboot_timeout: "{{ reboot_timeout }}"
   when:
     - (mongod_upgraded is defined and mongod_upgraded.changed) or (mongod_downgraded is defined and mongod_downgraded.changed)
   tags:
@@ -80,7 +80,7 @@
 
 - name: Ensure mongod service starts
   service:
-    name: mongod
+    name: "{{ mongod_service }}"
     state: started
     enabled: yes
 
