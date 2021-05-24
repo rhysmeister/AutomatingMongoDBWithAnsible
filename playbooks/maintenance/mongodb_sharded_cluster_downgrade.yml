@@ -4,7 +4,7 @@
   any_errors_fatal: true
   vars_files:
     - ../vars/main.yml
-    - ../replicaset/vault.yml
+    - ../sharded_cluster/vault.yml
 
   tasks:
 
@@ -58,7 +58,7 @@
   serial: 1
   vars_files:
     - ../vars/main.yml
-    - ../replicaset/vault.yml
+    - ../sharded_cluster/vault.yml
   vars:
     required_packages:
       - "yum-plugin-versionlock"
@@ -80,7 +80,7 @@
   serial: 1
   vars_files:
     - ../vars/main.yml
-    - ../replicaset/vault.yml
+    - ../sharded_cluster/vault.yml
   vars:
     required_packages:
       - "yum-plugin-versionlock"
@@ -124,7 +124,7 @@
   become: yes
   vars_files:
     - ../vars/main.yml
-    - ../replicaset/vault.yml
+    - ../sharded_cluster/vault.yml
   vars:
     required_packages:
       - "yum-plugin-versionlock"
@@ -170,7 +170,7 @@
   serial: 1
   vars_files:
     - ../vars/main.yml
-    - ../replicaset/vault.yml
+    - ../sharded_cluster/vault.yml
   vars:
     required_packages:
       - "yum-plugin-versionlock"
@@ -213,7 +213,7 @@
   become: yes
   vars_files:
     - ../vars/main.yml
-    - ../replicaset/vault.yml
+    - ../sharded_cluster/vault.yml
   vars:
     required_packages:
       - "yum-plugin-versionlock"
@@ -259,7 +259,7 @@
   serial: 1
   vars_files:
     - ../vars/main.yml
-    - ../replicaset/vault.yml
+    - ../sharded_cluster/vault.yml
   vars:
     required_packages:
       - "yum-plugin-versionlock"
@@ -321,7 +321,7 @@
   serial: 1
   vars_files:
     - ../vars/main.yml
-    - ../replicaset/vault.yml
+    - ../sharded_cluster/vault.yml
   vars:
     required_packages:
       - "yum-plugin-versionlock"
@@ -374,7 +374,7 @@
   become: yes
   vars_files:
     - ../vars/main.yml
-    - ../replicaset/vault.yml
+    - ../sharded_cluster/vault.yml
   vars:
     required_packages:
       - "yum-plugin-versionlock"
@@ -417,7 +417,7 @@
   hosts: mongos
   vars_files:
     - ../vars/main.yml
-    - ../replicaset/vault.yml
+    - ../sharded_cluster/vault.yml
 
   tasks:
 
