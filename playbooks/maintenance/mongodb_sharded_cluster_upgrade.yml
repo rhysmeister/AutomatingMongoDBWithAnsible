@@ -33,13 +33,14 @@
   # https://docs.mongodb.com/manual/release-notes/4.2-upgrade-sharded-cluster/
   tasks:
 
+    - name: Set mongod_port to 27019
+      set_fact:
+        mongod_port: 27019
+
     - import_tasks: ../shared_tasks/get_primary.yml
 
     - name: Upgrade SECONDARY config servers first
       block:
-        - name: Set mongod_port to 27019
-          set_fact:
-            mongod_port: 27019
 
         - import_tasks: ../shared_tasks/upgrade_mongod.yml
 
