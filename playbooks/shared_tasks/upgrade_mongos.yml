@@ -1,7 +1,7 @@
 ---
 - name: Ensure required packages are installed
   yum:
-    name: yum-plugin-versionlock
+    name: "{{ required_packages }}"
 
 - name: Remove the old mongodb repository
   file:
@@ -66,7 +66,7 @@
 
 - name: Reboot the node
   reboot:
-    reboot_timeout: 3600
+    reboot_timeout: "{{ reboot_timeout }}"
   when:
     - (mongos_upgraded is defined and mongos_upgraded.changed) or (mongos_downgraded is defined and mongos_downgraded.changed)
   tags:
