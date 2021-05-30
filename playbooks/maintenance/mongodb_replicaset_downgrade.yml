@@ -84,7 +84,7 @@
 
     - import_tasks: ../shared_tasks/get_primary.yml
 
-    - name: Upgrade PRIMARY MongoDB member
+    - name: Downgrade PRIMARY MongoDB member
       block:
         - name: Stepdown if primary
           community.mongodb.mongodb_stepdown:
