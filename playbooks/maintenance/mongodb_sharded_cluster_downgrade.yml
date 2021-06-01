@@ -118,7 +118,7 @@
             interval: 10
       when: inventory_hostname_short != primary
 
-- name: Downgrade PRIMARY mongod servers for rs0
+- name: Downgrade PRIMARY mongod server for rs0
   hosts: rs0
   gather_facts: yes
   become: yes
@@ -207,7 +207,7 @@
             interval: 10
       when: inventory_hostname_short != primary
 
-- name: Downgrade PRIMARY mongod servers for rs1
+- name: Downgrade PRIMARY mongod server for rs1
   hosts: rs1
   gather_facts: yes
   become: yes
