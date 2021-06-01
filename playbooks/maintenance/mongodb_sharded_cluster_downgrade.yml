@@ -252,7 +252,7 @@
             interval: 10
       when: inventory_hostname_short == primary
 
-- name: Prep the MongoDB Config server for downgrade
+- name: Prep the MongoDB Config servers for downgrade
   hosts: mongos
   gather_facts: yes
   become: yes
