@@ -45,7 +45,7 @@
     name: mongos
     state: stopped
 
-- name: Downgrade the mongod package
+- name: Downgrade the mongos package
   yum:
     name: "mongodb-org-mongos-{{ specific_package_version | default(target_mongodb_version) }}*"
     state: present
