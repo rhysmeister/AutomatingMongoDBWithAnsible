@@ -336,13 +336,14 @@
       set_fact:
         mongod_port: 27019
 
+    - name: Downgrade the mongod package
+      set_fact:
+        mongodb_downgrade: true
+
     - import_tasks: ../shared_tasks/get_primary.yml
 
     - name: Upgrade SECONDARY config servers first
       block:
-        - name: Downgrade the mongod package
-          set_fact:
-            mongodb_downgrade: true
 
         - import_tasks: ../shared_tasks/upgrade_mongod.yml
 
