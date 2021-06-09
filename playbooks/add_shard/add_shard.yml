@@ -1,0 +1,17 @@
+---
+- hosts: all
+  gather_facts: yes
+  vars:
+    shard: "rs2"
+  vars_files:
+    - ../replicaset/vault.yml
+
+  tasks:
+
+    - name: Add new shard
+      community.mongodb.mongodb_shard:
+        login_user: "{{ admin_user }}"
+        login_password: "{{ admin_user_password }}"
+        shard: "{{ shard }}"
+        state: present
+      when: ansible_hostname == "mongos1"
