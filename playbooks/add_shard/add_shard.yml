@@ -2,7 +2,7 @@
 - hosts: all
   gather_facts: yes
   vars:
-    shard: "rs2"
+    shard: "rs2/mongodb7.local:27018"
   vars_files:
     - ../replicaset/vault.yml
 

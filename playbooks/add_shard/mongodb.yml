@@ -7,7 +7,7 @@
     - role: "community.mongodb.mongodb_linux"
     - role: "community.mongodb.mongodb_selinux"
     - role: "community.mongodb.mongodb_repository"
-    - { role: "community.mongodb.mongodb_mongod", mongod_port: 27018, sharding:" true }
+    - { role: "community.mongodb.mongodb_mongod", mongod_port: 27018, sharding: true, repl_set_name: "rs2" }
 
   tasks:
 
@@ -29,7 +29,8 @@
       community.mongodb.mongodb_replicaset:
         login_database: "admin"
         login_host: localhost
-        login_port: 27018   
+        login_port: 27018  
+        replica_set: rs2 
         members:
           - mongodb7.local:27018
           - mongodb8.local:27018
@@ -45,6 +46,8 @@
     - name: Wait for replicaset to converge
       community.mongodb.mongodb_status:
         login_port: 27018
+        login_user: "{{ admin_user }}"
+        login_password: "{{ admin_user_password }}"
         replica_set: rs2
         poll: 10
         interval: 10 
@@ -79,7 +82,7 @@
         - inventory_hostname == primary
         - mongodb_admin.stat.exists == False
 
-    - shell: "mongo admin --username {{ admin_user }} --password {{ admin_user_password }} --eval 'db.runCommand({listDatabases: 1})' && touch /root/mongodb_admin.success"
+    - shell: "mongo admin --username {{ admin_user }} --password {{ admin_user_password }} --port 27018 --eval 'db.runCommand({listDatabases: 1})' && touch /root/mongodb_admin.success"
       args:
         creates: /root/mongodb_admin.success
       when:
@@ -102,7 +105,7 @@
         password: "{{ item.password }}"
         database: "{{ item.database }}"
         roles: "{{ item.roles }}"
-        replica_set: rs0
+        replica_set: rs2
       with_items:
         - "{{ app_users }}"
       when:
@@ -111,8 +114,7 @@
       no_log: yes
 
 
-    - shell: "mongo 
-xxx
+    - shell: "mongo {{ item.database }} --username {{ item.username }} --password {{ item.password }}  --port 27018 --eval 'db.runCommand({listCollections: 1})' && touch /root/mongodb_users.success"
       args:
         creates: /root/mongodb_users.success
       when:
