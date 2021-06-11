@@ -7,7 +7,7 @@
     - role: "community.mongodb.mongodb_linux"
     - role: "community.mongodb.mongodb_selinux"
     - role: "community.mongodb.mongodb_repository"
-    - role: "community.mongodb.mongodb_mongod"
+    - { role: "community.mongodb.mongodb_mongod", mongod_port: 27018, sharding:" true }
 
   tasks:
 
@@ -29,10 +29,11 @@
       community.mongodb.mongodb_replicaset:
         login_database: "admin"
         login_host: localhost
+        login_port: 27018   
         members:
-          - mongodb7.local:27017
-          - mongodb8.local:27017
-          - mongodb9.local:27017
+          - mongodb7.local:27018
+          - mongodb8.local:27018
+          - mongodb9.local:27018
       register: create_rs
       when: inventory_hostname == "mongodb7"
 
@@ -43,9 +44,10 @@
 
     - name: Wait for replicaset to converge
       community.mongodb.mongodb_status:
-        replica_set: rs0
+        login_port: 27018
+        replica_set: rs2
         poll: 10
-        interval: 10
+        interval: 10 
       register: rs
 
     - debug:
@@ -67,6 +69,7 @@
 
     - name: Add MongoDB Admin User using localhost exception
       community.mongodb.mongodb_user:
+        login_port: 27018
         name: "{{ admin_user }}"
         password: "{{ admin_user_password }}"
         database: admin
@@ -91,6 +94,7 @@
 
     - name: Add MongoDB App Users
       community.mongodb.mongodb_user:
+        login_port: 27018
         login_user: "{{ admin_user }}"
         login_password: "{{ admin_user_password }}"
         login_database: admin
@@ -106,7 +110,9 @@
         - mongodb_users.stat.exists == False
       no_log: yes
 
-    - shell: "mongo {{ item.database }} --username {{ item.username }} --password {{ item.password }} --eval 'db.runCommand({listCollections: 1})' && touch /root/mongodb_users.success"
+
+    - shell: "mongo 
+xxx
       args:
         creates: /root/mongodb_users.success
       when:
