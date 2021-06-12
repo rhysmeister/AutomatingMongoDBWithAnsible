@@ -1,0 +1,58 @@
+---
+dependency:
+  name: galaxy
+driver:
+  name: docker
+lint:
+  name: yamllint
+  options:
+    config-data:
+      line-length: disable
+platforms:
+  - name: mongodb7
+    hostname: mongodb7.local
+    image: centos:8
+    command: /sbin/init
+    privileged: True
+    networks:
+      - name: "local"
+    network_mode: "local"
+    groups:
+      - mongodb
+  - name: mongodb8
+    hostname: mongodb8.local
+    image: centos:8
+    command: /sbin/init
+    privileged: True
+    networks:
+      - name: "local"
+    network_mode: "local"
+    groups:
+      - mongodb
+  - name: mongodb9
+    hostname: mongodb9.local
+    image: centos:8
+    command: /sbin/init
+    privileged: True
+    networks:
+      - name: "local"
+    network_mode: "local"
+    groups:
+      - mongodb
+provisioner:
+  name: ansible
+  lint:
+    name: ansible-lint
+    enabled: false
+  config_options:
+    defaults:
+      vault_password_file: "${MOLECULE_SCENARIO_DIRECTORY}/.vault_pass.txt"
+  env:
+    ANSIBLE_PYTHON_INTERPRETER: "/usr/libexec/platform-python"
+    X_GITHUB_OVERRIDE: 1
+verifier:
+  name: testinfra
+  lint:
+    name: flake8
+    options:
+      ignore: 'E501'
