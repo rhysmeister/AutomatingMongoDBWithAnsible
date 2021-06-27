@@ -1,8 +1,8 @@
 ---
 - hosts: all
   gather_facts: yes
-  vars_files:
-    - ./vault.yml
+  vars_files: ['../vars/main.yml', './vault.yml']
+
   roles:
     - role: "community.mongodb.mongodb_linux"
     - role: "community.mongodb.mongodb_selinux"
@@ -29,16 +29,16 @@
       community.mongodb.mongodb_replicaset:
         login_database: "admin"
         login_host: localhost
-        members:
-          - mongodb1.local:27017
-          - mongodb2.local:27017
-          - mongodb3.local:27017
+        members: "{{ replicaset_members | product(['.local:27017']) | map('join') | list  }}"
+          #- mongodb1.local:27017
+          #- mongodb2.local:27017
+          #- mongodb3.local:27017
       register: create_rs
-      when: inventory_hostname == "mongodb1"
+      when: inventory_hostname == "mongodb-1"
 
     - name: Wait for rs config to settle
       pause:
-        seconds: 5
+        seconds: 10
       when: create_rs.changed
 
     - name: Wait for replicaset to converge
