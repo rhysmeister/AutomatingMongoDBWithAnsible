@@ -9,8 +9,8 @@ lint:
     config-data:
       line-length: disable
 platforms:
-  - name: mongodb1
-    hostname: mongodb1.local
+  - name: mongodb-1
+    hostname: mongodb-1.local
     image: centos:8
     command: /sbin/init
     privileged: True
@@ -19,8 +19,8 @@ platforms:
     network_mode: "local"
     groups:
       - mongodb
-  - name: mongodb2
-    hostname: mongodb2.local
+  - name: mongodb-2
+    hostname: mongodb-2.local
     image: centos:8
     command: /sbin/init
     privileged: True
@@ -29,8 +29,8 @@ platforms:
     network_mode: "local"
     groups:
       - mongodb
-  - name: mongodb3
-    hostname: mongodb3.local
+  - name: mongodb-3
+    hostname: mongodb-3.local
     image: centos:8
     command: /sbin/init
     privileged: True

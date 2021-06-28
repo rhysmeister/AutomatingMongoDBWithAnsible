@@ -7,3 +7,7 @@
   reboot_timeout: 3600
   mongod_data_dir: "/var/lib/mongo"
   mongos_port: 27017
+  replicaset_members:
+    - "mongodb-1"
+    - "mongodb-2"
+    - "mongodb-3"

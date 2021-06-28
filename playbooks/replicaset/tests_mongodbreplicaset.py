@@ -21,9 +21,9 @@ def test_monbgodb_service(host):
 
 def test_mongodb_replicaset(host):
     cmd = host.run("mongo --eval 'db.runCommand({ isMaster: 1 })'")
-    assert "mongodb1.local:27017" in cmd.stdout
-    assert "mongodb2.local:27017" in cmd.stdout
-    assert "mongodb3.local:27017" in cmd.stdout
+    assert "mongodb-1.local:27017" in cmd.stdout
+    assert "mongodb-2.local:27017" in cmd.stdout
+    assert "mongodb-3.local:27017" in cmd.stdout
 
 
 @pytest.mark.skipif(os.environ.get('MONGO_VERSION', '') == '', reason="MONGO_VERSION environment variable is not set")
