@@ -13,6 +13,8 @@ platforms:
     hostname: mongodb1.local
     image: centos:8
     command: /sbin/init
+    volumes:
+      - /sys/fs/cgroup:/sys/fs/cgroup:ro
     privileged: True
     networks:
       - name: "local"
@@ -24,6 +26,8 @@ platforms:
     hostname: mongodb2.local
     image: centos:8
     command: /sbin/init
+    volumes:
+      - /sys/fs/cgroup:/sys/fs/cgroup:ro
     privileged: True
     networks:
       - name: "local"
@@ -35,6 +39,8 @@ platforms:
     hostname: mongodb3.local
     image: centos:8
     command: /sbin/init
+    volumes:
+      - /sys/fs/cgroup:/sys/fs/cgroup:ro
     privileged: True
     networks:
       - name: "local"
@@ -46,6 +52,8 @@ platforms:
     hostname: mongodb4.local
     image: centos:8
     command: /sbin/init
+    volumes:
+      - /sys/fs/cgroup:/sys/fs/cgroup:ro
     privileged: True
     networks:
       - name: "local"
@@ -57,6 +65,8 @@ platforms:
     hostname: mongodb5.local
     image: centos:8
     command: /sbin/init
+    volumes:
+      - /sys/fs/cgroup:/sys/fs/cgroup:ro
     privileged: True
     networks:
       - name: "local"
@@ -68,6 +78,8 @@ platforms:
     hostname: mongodb6.local
     image: centos:8
     command: /sbin/init
+    volumes:
+      - /sys/fs/cgroup:/sys/fs/cgroup:ro
     privileged: True
     networks:
       - name: "local"
@@ -79,6 +91,8 @@ platforms:
     hostname: mongos1.local
     image: centos:8
     command: /sbin/init
+    volumes:
+      - /sys/fs/cgroup:/sys/fs/cgroup:ro
     privileged: True
     networks:
       - name: "local"
@@ -89,6 +103,8 @@ platforms:
     hostname: mongos2.local
     image: centos:8
     command: /sbin/init
+    volumes:
+      - /sys/fs/cgroup:/sys/fs/cgroup:ro
     privileged: True
     networks:
       - name: "local"
@@ -99,6 +115,8 @@ platforms:
     hostname: mongos3.local
     image: centos:8
     command: /sbin/init
+    volumes:
+      - /sys/fs/cgroup:/sys/fs/cgroup:ro
     privileged: True
     networks:
       - name: "local"

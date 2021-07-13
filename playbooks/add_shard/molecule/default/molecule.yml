@@ -14,6 +14,8 @@ platforms:
     image: centos:8
     command: /sbin/init
     privileged: True
+    volumes:
+      - /sys/fs/cgroup:/sys/fs/cgroup:ro
     networks:
       - name: "local"
     network_mode: "local"
@@ -23,6 +25,8 @@ platforms:
     hostname: mongodb8.local
     image: centos:8
     command: /sbin/init
+    volumes:
+      - /sys/fs/cgroup:/sys/fs/cgroup:ro
     privileged: True
     networks:
       - name: "local"
@@ -33,6 +37,8 @@ platforms:
     hostname: mongodb9.local
     image: centos:8
     command: /sbin/init
+    volumes:
+      - /sys/fs/cgroup:/sys/fs/cgroup:ro
     privileged: True
     networks:
       - name: "local"
