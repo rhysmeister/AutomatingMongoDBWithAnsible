@@ -16,6 +16,11 @@
       meta: end_play
       when: ansible_play_hosts | length > 1
 
+    - name: RedHat 8 in docker fix
+      import_tasks: ../shared_tasks/redhat8_docker_fix.yml
+      tags:
+        - never
+
     - name: Ensure mongod_data_dir variable is correct
       lineinfile:
         path: /etc/mongod.conf

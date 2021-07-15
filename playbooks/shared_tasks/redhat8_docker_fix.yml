@@ -7,6 +7,8 @@
     firstmatch: yes
     insertafter: '^  fork: true'
     state: present
+  register: _mongo_conf_task
+  diff: yes
 
 - name: Add PIDFile in systemd file (missing for collection <= v1.2.1)
   lineinfile:
@@ -16,14 +18,19 @@
     firstmatch: yes
     insertbefore: '^Type='
     state: present
-  register: systemd
+  register: _systemd_task
+  diff: yes
 
 - name: Reload systemd
   systemd:
     daemon_reload: yes
-  when: systemd is changed
+  when: _systemd_task is changed
+
+- name: Force stop mongo (forking w/o pidfile means systemd cannot restart mongod safely)
+  shell: pkill -e mongod
+  when: _mongo_conf_task is changed or _systemd_task is changed
 
 - name: Restart mongod in docker
   service:
-    name: mongod
-    state: started
+    name: "{{ mongod_service }}"
+    state: "started"
