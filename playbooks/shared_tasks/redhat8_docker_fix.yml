@@ -1,9 +1,21 @@
 ---
-- name: Comment out PIDFile in systemd file
+- name: Add pidFilePath in mongod.conf file (missing for collection <= v1.2.1)
+  lineinfile:
+    path: /etc/mongod.conf
+    line: '  pidFilePath: /var/run/mongodb/mongod.pid'
+    regexp: '^  pidFilePath:.*'
+    firstmatch: yes
+    insertafter: '^  fork: true'
+    state: present
+
+- name: Add PIDFile in systemd file (missing for collection <= v1.2.1)
   lineinfile:
     path: /etc/systemd/system/multi-user.target.wants/mongod.service
+    line: 'PIDFile=/var/run/mongodb/mongod.pid'
     regexp: '^PIDFile.*'
-    state: absent
+    firstmatch: yes
+    insertbefore: '^Type='
+    state: present
   register: systemd
 
 - name: Reload systemd
