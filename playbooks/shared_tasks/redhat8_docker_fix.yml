@@ -61,3 +61,8 @@
       register: _status_task
     - debug:
         var: _status_task
+
+- name: Wait for mongod to become active
+  wait_for:
+    port: "{{ mongod_port }}"
+    delay: 10
