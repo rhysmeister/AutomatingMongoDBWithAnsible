@@ -12,13 +12,13 @@ jobs:
         working-directory: AutomatingMongoDBWithAnsible
     strategy:
       matrix:
+        collection:
+          - "dev"
+          - "stable"
         python_version:
           - "2.7"
           - "3.6"
           - "3.9"
-        collection:
-          - "latest"
-          - "requirements.yml"
     steps:
       - name: Check out code
         uses: actions/checkout@v2
@@ -70,6 +70,9 @@ jobs:
         working-directory: AutomatingMongoDBWithAnsible
     strategy:
       matrix:
+        collection:
+          - "dev"
+          - "stable"
         python_version:
           - "2.7"
           - "3.6"
@@ -77,9 +80,6 @@ jobs:
         molecule_scenario:
           - "default"
           - "debian"
-        collection:
-          - "latest"
-          - "requirements.yml"
     steps:
       - name: Check out code
         uses: actions/checkout@v2
@@ -130,6 +130,9 @@ jobs:
         working-directory: AutomatingMongoDBWithAnsible
     strategy:
       matrix:
+        collection:
+          - "dev"
+          - "stable"
         python_version:
           - "2.7"
           - "3.6"
@@ -137,9 +140,6 @@ jobs:
         molecule_scenario:
           - "default"
           - "debian"
-        collection:
-          - "latest"
-          - "requirements.yml"
     steps:
       - name: Check out code
         uses: actions/checkout@v2
@@ -216,15 +216,15 @@ jobs:
         working-directory: AutomatingMongoDBWithAnsible
     strategy:
       matrix:
+        collection:
+          - "dev"
+          - "stable"
         python_version:
           - "2.7"
           - "3.6"
           - "3.9"
         molecule_scenario:
           - "default"
-        collection:
-          - "latest"
-          - "requirements.yml"
     steps:
       - name: Check out code
         uses: actions/checkout@v2
@@ -281,15 +281,15 @@ jobs:
         working-directory: AutomatingMongoDBWithAnsible
     strategy:
       matrix:
+        collection:
+          - "dev"
+          - "stable"
         python_version:
           - "2.7"
           - "3.6"
           - "3.9"
         molecule_scenario:
           - "default"
-        collection:
-          - "latest"
-          - "requirements.yml"
     steps:
       - name: Check out code
         uses: actions/checkout@v2
@@ -372,15 +372,15 @@ jobs:
         working-directory: AutomatingMongoDBWithAnsible
     strategy:
       matrix:
+        collection:
+          - "dev"
+          - "stable"
         python_version:
           - "2.7"
           - "3.6"
           - "3.9"
         molecule_scenario:
           - "default"
-        collection:
-          - "latest"
-          - "requirements.yml"
     steps:
       - name: Check out code
         uses: actions/checkout@v2
@@ -437,15 +437,15 @@ jobs:
         working-directory: AutomatingMongoDBWithAnsible
     strategy:
       matrix:
+        collection:
+          - "dev"
+          - "stable"
         python_version:
           - "2.7"
           - "3.6"
           - "3.9"
         molecule_scenario:
           - "default"
-        collection:
-          - "latest"
-          - "requirements.yml"
     steps:
       - name: Check out code
         uses: actions/checkout@v2
@@ -528,15 +528,15 @@ jobs:
         working-directory: AutomatingMongoDBWithAnsible
     strategy:
       matrix:
+        collection:
+          - "dev"
+          - "stable"
         python_version:
           - "2.7"
           - "3.6"
           - "3.9"
         molecule_scenario:
           - "default"
-        collection:
-          - "latest"
-          - "requirements.yml"
     steps:
       - name: Check out code
         uses: actions/checkout@v2
@@ -593,15 +593,15 @@ jobs:
         working-directory: AutomatingMongoDBWithAnsible
     strategy:
       matrix:
+        collection:
+          - "dev"
+          - "stable"
         python_version:
           - "2.7"
           - "3.6"
           - "3.9"
         molecule_scenario:
           - "default"
-        collection:
-          - "latest"
-          - "requirements.yml"
     steps:
       - name: Check out code
         uses: actions/checkout@v2
@@ -658,15 +658,15 @@ jobs:
         working-directory: AutomatingMongoDBWithAnsible
     strategy:
       matrix:
+        collection:
+          - "dev"
+          - "stable"
         python_version:
           - "2.7"
           - "3.6"
           - "3.9"
         molecule_scenario:
           - "default"
-        collection:
-          - "latest"
-          - "requirements.yml"
     steps:
       - name: Check out code
         uses: actions/checkout@v2
@@ -723,15 +723,15 @@ jobs:
         working-directory: AutomatingMongoDBWithAnsible
     strategy:
       matrix:
+        collection:
+          - "dev"
+          - "stable"
         python_version:
           - "2.7"
           - "3.6"
           - "3.9"
         molecule_scenario:
           - "default"
-        collection:
-          - "latest"
-          - "requirements.yml"
     steps:
       - name: Check out code
         uses: actions/checkout@v2
@@ -796,6 +796,9 @@ jobs:
         working-directory: AutomatingMongoDBWithAnsible
     strategy:
       matrix:
+        collection:
+          - "dev"
+          - "stable"
         python_version:
           - "2.7"
           - "3.6"
@@ -803,9 +806,6 @@ jobs:
         molecule_scenario:
           - "default"
           - "debian"
-        collection:
-          - "latest"
-          - "requirements.yml"
     steps:
       - name: Check out code
         uses: actions/checkout@v2

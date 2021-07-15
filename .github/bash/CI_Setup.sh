@@ -11,10 +11,10 @@ if [ "$pyv" == "2.7" ]; then
 else
   pip install --requirement requirements.txt;
 fi;
-if [ "$COLLECTION" == "latest" ]; then
+if [ "$COLLECTION" == "dev" ]; then
   wget https://github.com/ansible-collections/community.mongodb/releases/download/latest/community-mongodb-latest.tar.gz;
   ansible-galaxy collection install community-mongodb-latest.tar.gz;
-elif [ "$COLLECTION" == "requirements.yml" ]; then
+elif [ "$COLLECTION" == "stable" ]; then
   ansible-galaxy collection install -r requirements.yml;
 else
   echo "Invalid value for COLLECTION given";
