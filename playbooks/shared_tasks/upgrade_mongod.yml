@@ -4,36 +4,22 @@
     name: "{{ required_packages }}"
 
 - name: Remove the old mongodb repository
-  file:
-    path: "/etc/yum.repos.d/mongodb-{{ current_mongodb_version }}.repo"
+  yum_repository:
+    name: "mongodb-{{ current_mongodb_version }}"
     state: absent
   when: current_mongodb_version is defined
 
 - name: Ensure the target mongodb repository exists
-  copy:
-    dest: "/etc/yum.repos.d/mongodb-{{ target_mongodb_version }}.repo"
-    content: |
-      [mongodb-{{ target_mongodb_version }}]
-      baseurl = https://repo.mongodb.org/yum/redhat/$releasever/mongodb-org/{{ target_mongodb_version }}/x86_64/
-      gpgcheck = 1
-      gpgkey = https://www.mongodb.org/static/pgp/server-{{ target_mongodb_version }}.asc
-      name = Official MongoDB {{ target_mongodb_version }} yum repo
-    owner: root
-    group: root
-    mode: 0644
-  register: new_mongo
+  include_role:
+    name: community.mongodb.mongodb_repository
+  vars:
+    mongodb_version: "{{ target_mongodb_version }}"
   when: target_mongodb_version is defined
-
-- name: yum-clean-metadata
-  command: yum clean metadata
-  args:
-    warn: no
-  when:
-    - target_mongodb_version is defined
-    - new_mongo.changed
 
 - name: Ensure mongodb-org* packages are version unlocked
   shell: yum versionlock delete mongodb-org*
+  args:
+    warn: no
 
 - name: Remove version lock confirmation file
   file:
