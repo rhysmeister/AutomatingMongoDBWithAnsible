@@ -30,11 +30,6 @@
     daemon_reload: yes
   when: _systemd_task is changed
 
-- name: Restart mongod in docker
-  service:
-    name: mongod
-    state: started
-
 #- name: Force stop mongo (forking w/o pidfile means systemd cannot restart mongod safely)
 #  block:
 #    - name: Force stop mongod
