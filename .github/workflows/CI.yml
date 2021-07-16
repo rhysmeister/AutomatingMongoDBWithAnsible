@@ -769,7 +769,7 @@ jobs:
           ansible-playbook -i mongo_inventory.inv -c docker --tags all,never redhat8_docker_fix.yml
           echo Stopping mongod...
           docker exec mongodb-2 systemctl stop mongod
-          docker exec mongodb-2 pkill mongod || echo $?
+          docker exec mongodb-2 pkill -e mongod || echo $?
           docker exec mongodb-2 ps -ef | grep mongo || echo $?
           echo Stopped. Creating backup tar.gz...
           docker exec mongodb-2 tar czf mongo.tar.gz /var/lib/mongo
