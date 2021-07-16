@@ -11,7 +11,10 @@
   diff: yes
 
 - name: populate PID file to tell systemd how to kill mongod
-  shell: pgrep mongod > /var/run/mongodb/mongod.pid
+  shell: pgrep -a mongod && pgrep mongod > /var/run/mongodb/mongod.pid
+  register: _populate_pid_task
+  failed_when: _populate_pid_task.rc > 1
+  changed_when: _populate_pid_task.rc == 0
   when: _mongo_conf_task is changed
 
 - name: Add PIDFile in systemd file (missing for collection <= v1.2.1)
