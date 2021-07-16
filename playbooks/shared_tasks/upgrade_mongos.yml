@@ -72,11 +72,6 @@
   tags:
     - reboot
 
-- name: RedHat 8 in docker fix
-  import_tasks: redhat8_docker_fix.yml
-  tags:
-    - never
-
 - name: Selinux fix
   shell: |
     if test -f /var/log/audit/audit.log; then

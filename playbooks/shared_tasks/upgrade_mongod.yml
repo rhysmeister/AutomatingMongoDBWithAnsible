@@ -46,6 +46,11 @@
     login_password: "{{ admin_user_password }}"
     login_port: "{{ mongod_port }}"
 
+- name: RedHat 8 in docker force stop (pidfile missing)
+  import_tasks: redhat8_docker_force_stop.yml
+  tags:
+    - never
+
 - name: Downgrade the mongod package
   yum:
     name: "mongodb-org-server-{{ specific_package_version | default(target_mongodb_version) }}*"
