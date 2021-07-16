@@ -5,6 +5,7 @@
       shell: pkill -e mongod
       # 0 = one or more process matched
       # 1 = no processes matched (nothing to kill)
+      changed_when: _pkill_task.rc == 0
       failed_when: _pkill_task.rc > 1
       register: _pkill_task
     - debug:
