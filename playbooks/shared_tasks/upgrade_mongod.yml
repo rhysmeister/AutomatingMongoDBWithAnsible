@@ -84,10 +84,30 @@
     - never
 
 - name: Ensure mongod service starts
-  service:
-    name: "{{ mongod_service }}"
-    state: started
-    enabled: yes
+  block:
+    - name: Inspect mongod service before service start
+      shell: "ps aux | grep mongo; systemctl status {{ mongod_service }}"
+      failed_when: no
+      changed_when: no
+      register: _status_task
+    - debug:
+        var: _status_task
+    - name: Ensure mongod service starts
+      service:
+        name: "{{ mongod_service }}"
+        state: started
+        enabled: yes
+      register: _service_start_task
+  always:
+    - debug:
+        msg: "{{ _service_start_task | default('NA') }}"
+    - name: Inspect mongod service after service start
+      shell: "ps aux | grep mongo; systemctl status {{ mongod_service }}"
+      failed_when: no
+      changed_when: no
+      register: _status_task
+    - debug:
+        var: _status_task
 
 - name: Wait for mongod to become active
   wait_for:
