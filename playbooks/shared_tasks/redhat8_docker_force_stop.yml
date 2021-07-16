@@ -7,7 +7,7 @@
       changed_when: no
       register: _status_task
     - debug:
-        var: _status_task
+        msg: "{{ _status_task.stdout_lines }}"
 
     - name: Force stop mongod
       shell: pkill -e mongod
@@ -27,43 +27,11 @@
 
   always:
     - debug:
-        msg: "{{ _service_stop_task | default('NA') }}"
+        msg: "systemd says {{ mongod_service }} is {{ (_service_stop_task | default({})).state | default('NA') }}"
     - name: Inspect mongod process after force stop
       shell: "ps aux | grep mongo; systemctl status {{ mongod_service }}"
       failed_when: no
       changed_when: no
       register: _status_task
     - debug:
-        var: _status_task
-
-#- name: Restart mongod in docker
-#  block:
-#    - name: Restart mongod in docker
-#      service:
-#        name: mongod
-#        state: started
-#      register: _service_task
-#  recover:
-#    - name: Force stop mongod (try again)
-#      shell: pkill -e mongod
-#      register: _pkill_task
-#    - debug:
-#        var: _pkill_task
-#    - name: Restart mongod in docker (try again)
-#      service:
-#        name: mongod
-#        state: started
-#      until: _service_task is succeeded
-#      retries: 3
-#      delay: 5
-#  always:
-#    - name: Inspect mongod service
-#      command: systemctl status mongod
-#      register: _status_task
-#    - debug:
-#        var: _status_task
-
-#- name: Wait for mongod to become active
-#  wait_for:
-#    port: "{{ mongod_port }}"
-#    delay: 10
+        msg: "{{ _status_task.stdout_lines }}"

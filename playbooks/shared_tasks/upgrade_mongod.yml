@@ -84,7 +84,7 @@
       changed_when: no
       register: _status_task
     - debug:
-        var: _status_task
+        msg: "{{ _status_task.stdout_lines }}"
 
 - name: Reboot the node
   reboot:
@@ -107,7 +107,7 @@
       changed_when: no
       register: _status_task
     - debug:
-        var: _status_task
+        msg: "{{ _status_task.stdout_lines }}"
     - name: Ensure mongod service starts
       service:
         name: "{{ mongod_service }}"
@@ -116,14 +116,14 @@
       register: _service_start_task
   always:
     - debug:
-        msg: "{{ _service_start_task | default('NA') }}"
+        msg: "systemd says {{ mongod_service }} is {{ (_service_stop_task | default({})).state | default('NA') }}"
     - name: Inspect mongod service after service start
       shell: "ps aux | grep mongo; systemctl status {{ mongod_service }}"
       failed_when: no
       changed_when: no
       register: _status_task
     - debug:
-        var: _status_task
+        msg: "{{ _status_task.stdout_lines }}"
 
 - name: Wait for mongod to become active
   wait_for:
