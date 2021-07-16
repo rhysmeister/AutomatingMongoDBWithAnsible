@@ -80,7 +80,6 @@
     - debug:
         var: _status_task
 
-#- name: Restart mongod in docker
 - name: Reboot the node
   reboot:
     reboot_timeout: "{{ reboot_timeout }}"
