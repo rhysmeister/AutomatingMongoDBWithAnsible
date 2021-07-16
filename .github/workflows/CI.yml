@@ -774,7 +774,7 @@ jobs:
           docker exec mongodb-2 systemctl status mongod || echo $?
           docker exec mongodb-2 tar czf mongo.tar.gz /var/lib/mongo
           echo Starting mongod...
-          docker exec mongodb-2 systemctl start mongod
+          docker exec mongodb-2 systemctl start mongod || echo $?
           echo Started mongod
           docker exec mongodb-2 systemctl status mongod || echo $?
           docker cp mongodb-2:mongo.tar.gz .
