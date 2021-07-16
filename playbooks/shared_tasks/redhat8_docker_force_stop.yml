@@ -3,6 +3,9 @@
   block:
     - name: Force stop mongod
       shell: pkill -e mongod
+      # 0 = one or more process matched
+      # 1 = no processes matched (nothing to kill)
+      failed_when: _pkill_task.rc > 1
       register: _pkill_task
     - debug:
         var: _pkill_task
