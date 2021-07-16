@@ -781,6 +781,8 @@ jobs:
           docker exec mongodb-2 systemctl status mongod || echo $?
           docker cp mongodb-2:mongo.tar.gz .
         working-directory: AutomatingMongoDBWithAnsible/playbooks/maintenance
+        env:
+          ANSIBLE_VAULT_PASSWORD_FILE: "../../.vault_pass.txt"
 
       - name: Run resync member from tar playbook
         run: ansible-playbook -i mongo_inventory.inv --limit mongodb-2 -c docker --tags all,never resync_member_from_tar.yml
