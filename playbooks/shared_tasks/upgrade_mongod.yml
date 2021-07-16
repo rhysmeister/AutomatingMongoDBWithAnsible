@@ -70,6 +70,17 @@
     - mongodb_downgrade is not defined or mongodb_downgrade == False
   register: mongod_upgraded
 
+- name: Look for mongod after upgrade/downgrade to see if auto started
+  block:
+    - name: Inspect mongod process after upgrade/downgrade
+      shell: "ps aux | grep mongo; systemctl status {{ mongod_service }}"
+      failed_when: no
+      changed_when: no
+      register: _status_task
+    - debug:
+        var: _status_task
+
+#- name: Restart mongod in docker
 - name: Reboot the node
   reboot:
     reboot_timeout: "{{ reboot_timeout }}"
