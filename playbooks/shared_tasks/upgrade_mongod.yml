@@ -51,6 +51,12 @@
   tags:
     - never
 
+# Upgrade/Downgrade will start the service, so we need to make config adjustments first.
+- name: RedHat 8 in docker fix before upgrade/downgrade
+  import_tasks: redhat8_docker_fix.yml
+  tags:
+    - never
+
 - name: Downgrade the mongod package
   yum:
     name: "mongodb-org-server-{{ specific_package_version | default(target_mongodb_version) }}*"
@@ -88,7 +94,7 @@
   tags:
     - reboot
 
-- name: RedHat 8 in docker fix
+- name: RedHat 8 in docker fix after upgrade/downgrade
   import_tasks: redhat8_docker_fix.yml
   tags:
     - never
