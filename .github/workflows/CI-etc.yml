@@ -1,0 +1,242 @@
+name: CI-etc
+on:
+  pull_request:
+  schedule:
+    - cron: "0 3 * * *"
+
+jobs:
+  resize_oplog:
+    runs-on: ubuntu-20.04
+    defaults:
+      run:
+        working-directory: AutomatingMongoDBWithAnsible
+    strategy:
+      matrix:
+        collection:
+          - "dev"
+          - "stable"
+        python_version:
+          - "2.7"
+          - "3.6"
+          - "3.9"
+        molecule_scenario:
+          - "default"
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v2
+        with:
+          path: AutomatingMongoDBWithAnsible
+
+      - name: Set up Python ${{ matrix.python_version }}
+        uses: actions/setup-python@v1
+        with:
+          python-version: ${{ matrix.python_version }}
+
+      - name: Run CI_Setup.sh script
+        uses: nick-invision/retry@v2
+        with:
+          timeout_minutes: 3
+          max_attempts: 3
+          command: cd AutomatingMongoDBWithAnsible && .github/bash/CI_Setup.sh
+        env:
+          COLLECTION: ${{ matrix.collection }}
+
+      - name: Run molecule converge for scenario ${{ matrix.molecule_scenario }}
+        run: molecule converge --scenario-name ${{ matrix.molecule_scenario }}
+        working-directory: AutomatingMongoDBWithAnsible/playbooks/replicaset
+
+      - name: Get container names for the inventory file
+        run: docker ps | awk '{print $NF}' | grep mongo > mongo_inventory.inv
+        working-directory: AutomatingMongoDBWithAnsible/playbooks/maintenance
+
+      - name: Install sudo in docker
+        run: ansible all -i mongo_inventory.inv -c docker -m raw -a "yum install sudo -y"
+        working-directory: AutomatingMongoDBWithAnsible/playbooks/maintenance
+
+      - name: Run oplog resize playbook
+        run: ansible-playbook -i mongo_inventory.inv -c docker resize_oplog.yml
+        working-directory: AutomatingMongoDBWithAnsible/playbooks/maintenance
+        env:
+          ANSIBLE_VAULT_PASSWORD_FILE: "../../.vault_pass.txt"
+
+      - name: Run unit tests
+        run: pytest --connection docker tests_mongodbreplicaset.py
+        working-directory: AutomatingMongoDBWithAnsible/playbooks/replicaset
+        env:
+          MONGO_VERSION: "v4.2"
+          ANSIBLE_INVENTORY: "../maintenance/mongo_inventory.inv"
+
+      - name: Clean up molecule env for scenario ${{ matrix.molecule_scenario }}
+        run: molecule destroy --scenario-name ${{ matrix.molecule_scenario }}
+        working-directory: AutomatingMongoDBWithAnsible/playbooks/replicaset
+
+  patch_os:
+    runs-on: ubuntu-20.04
+    defaults:
+      run:
+        working-directory: AutomatingMongoDBWithAnsible
+    strategy:
+      matrix:
+        collection:
+          - "dev"
+          - "stable"
+        python_version:
+          - "2.7"
+          - "3.6"
+          - "3.9"
+        molecule_scenario:
+          - "default"
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v2
+        with:
+          path: AutomatingMongoDBWithAnsible
+
+      - name: Set up Python ${{ matrix.python_version }}
+        uses: actions/setup-python@v1
+        with:
+          python-version: ${{ matrix.python_version }}
+
+      - name: Run CI_Setup.sh script
+        uses: nick-invision/retry@v2
+        with:
+          timeout_minutes: 3
+          max_attempts: 3
+          command: cd AutomatingMongoDBWithAnsible && .github/bash/CI_Setup.sh
+        env:
+          COLLECTION: ${{ matrix.collection }}
+
+      - name: Run molecule converge for scenario ${{ matrix.molecule_scenario }}
+        run: molecule converge --scenario-name ${{ matrix.molecule_scenario }}
+        working-directory: AutomatingMongoDBWithAnsible/playbooks/replicaset
+
+      - name: Get container names for the inventory file
+        run: docker ps | awk '{print $NF}' | grep mongo > mongo_inventory.inv
+        working-directory: AutomatingMongoDBWithAnsible/playbooks/maintenance
+
+      - name: Install sudo in docker
+        run: ansible all -i mongo_inventory.inv -c docker -m raw -a "yum install sudo -y"
+        working-directory: AutomatingMongoDBWithAnsible/playbooks/maintenance
+
+      - name: Run patch os playbook
+        run: ansible-playbook -i mongo_inventory.inv -c docker --skip-tags reboot rolling_os_update.yml
+        working-directory: AutomatingMongoDBWithAnsible/playbooks/maintenance
+        env:
+          ANSIBLE_VAULT_PASSWORD_FILE: "../../.vault_pass.txt"
+
+      - name: Run unit tests
+        run: pytest --connection docker tests_mongodbreplicaset.py
+        working-directory: AutomatingMongoDBWithAnsible/playbooks/replicaset
+        env:
+          MONGO_VERSION: "v4.2"
+          ANSIBLE_INVENTORY: "../maintenance/mongo_inventory.inv"
+
+      - name: Clean up molecule env for scenario ${{ matrix.molecule_scenario }}
+        run: molecule destroy --scenario-name ${{ matrix.molecule_scenario }}
+        working-directory: AutomatingMongoDBWithAnsible/playbooks/replicaset
+
+  add_shard:
+    runs-on: ubuntu-20.04
+    defaults:
+      run:
+        working-directory: AutomatingMongoDBWithAnsible
+    strategy:
+      matrix:
+        collection:
+          - "dev"
+          - "stable"
+        python_version:
+          - "2.7"
+          - "3.6"
+          - "3.9"
+        molecule_scenario:
+          - "default"
+          - "debian"
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v2
+        with:
+          path: AutomatingMongoDBWithAnsible
+
+      - name: Set up Python ${{ matrix.python_version }}
+        uses: actions/setup-python@v1
+        with:
+          python-version: ${{ matrix.python_version }}
+
+      - name: Run CI_Setup.sh script
+        uses: nick-invision/retry@v2
+        with:
+          timeout_minutes: 3
+          max_attempts: 3
+          command: cd AutomatingMongoDBWithAnsible && .github/bash/CI_Setup.sh
+        env:
+          COLLECTION: ${{ matrix.collection }}
+
+      - name: Run molecule converge for scenario ${{ matrix.molecule_scenario }} - shards rs0 & rs1
+        run: molecule converge --scenario-name ${{ matrix.molecule_scenario }}
+        working-directory: AutomatingMongoDBWithAnsible/playbooks/sharded_cluster
+
+      - name: Run molecule converge for scenario ${{ matrix.molecule_scenario }} - shard rs2
+        run: molecule converge --scenario-name ${{ matrix.molecule_scenario }}
+        working-directory: AutomatingMongoDBWithAnsible/playbooks/add_shard
+
+      - name: Write inventory file for cluster
+        run: |
+          cat << EOF > mongo_inventory.inv
+            [mongodb]
+            mongodb1
+            mongodb2
+            mongodb3
+            mongodb4
+            mongodb5
+            mongodb6
+            mongodb7
+            mongodb8
+            mongodb9
+
+            [rs0]
+            mongodb1
+            mongodb2
+            mongodb3
+
+            [rs1]
+            mongodb4
+            mongodb5
+            mongodb6
+
+            [rs1]
+            mongodb7
+            mongodb8
+            mongodb9
+
+            [mongos]
+            mongos1
+            mongos2
+            mongos3
+          EOF
+        working-directory: AutomatingMongoDBWithAnsible/playbooks/add_shard
+
+      - name: Install sudo in docker
+        run: ansible all -i mongo_inventory.inv -c docker -m raw -a "yum install sudo -y || apt install sudo -y"
+        working-directory: AutomatingMongoDBWithAnsible/playbooks/add_shard
+
+      - name: Run upgrade playbook
+        run: ansible-playbook -i mongo_inventory.inv -c docker add_shard.yml
+        working-directory: AutomatingMongoDBWithAnsible/playbooks/add_shard
+        env:
+          ANSIBLE_VAULT_PASSWORD_FILE: "../../.vault_pass.txt"
+
+      - name: Run unit tests
+        run: pytest --connection docker tests_mongodb_sharded_cluster.py
+        working-directory: AutomatingMongoDBWithAnsible/playbooks/add_shard
+        env:
+          MONGO_VERSION: "v4.2"
+          ANSIBLE_INVENTORY: "mongo_inventory.inv"
+
+      - name: Clean up molecule env for scenario ${{ matrix.molecule_scenario }} - shards rs0 & rs1
+        run: molecule destroy --scenario-name ${{ matrix.molecule_scenario }}
+        working-directory: AutomatingMongoDBWithAnsible/playbooks/sharded_cluster
+
+      - name: Clean up molecule env for scenario ${{ matrix.molecule_scenario }} - rs2
+        run: molecule destroy --scenario-name ${{ matrix.molecule_scenario }}
+        working-directory: AutomatingMongoDBWithAnsible/playbooks/add_shard

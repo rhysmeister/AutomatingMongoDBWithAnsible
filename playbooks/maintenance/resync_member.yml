@@ -15,6 +15,11 @@
       meta: end_play
       when: ansible_play_hosts | length > 1
 
+    - name: RedHat 8 in docker fix
+      import_tasks: ../shared_tasks/redhat8_docker_fix.yml
+      tags:
+        - never
+
     - name: Ensure mongod_data_dir variable is correct
       lineinfile:
         path: /etc/mongod.conf
@@ -28,6 +33,11 @@
       community.mongodb.mongodb_shutdown:
         login_user: "{{ admin_user }}"
         login_password: "{{ admin_user_password }}"
+
+    - name: RedHat 8 in docker force stop (pidfile missing)
+      import_tasks: ../shared_tasks/redhat8_docker_force_stop.yml
+      tags:
+        - never
 
     - name: Archive data dir
       archive:

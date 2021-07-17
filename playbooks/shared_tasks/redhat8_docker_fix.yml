@@ -1,17 +1,34 @@
 ---
-- name: Comment out PIDFile in systemd file
+- name: Add pidFilePath in mongod.conf file (missing for collection <= v1.2.1)
+  lineinfile:
+    path: /etc/mongod.conf
+    line: '  pidFilePath: /var/run/mongodb/mongod.pid'
+    regexp: '^  pidFilePath:.*'
+    firstmatch: yes
+    insertafter: '^  fork: true'
+    state: present
+  register: _mongo_conf_task
+  diff: yes
+
+- name: populate PID file to tell systemd how to kill mongod
+  shell: pgrep -a mongod && pgrep mongod > /var/run/mongodb/mongod.pid
+  register: _populate_pid_task
+  failed_when: _populate_pid_task.rc > 1
+  changed_when: _populate_pid_task.rc == 0
+  when: _mongo_conf_task is changed
+
+- name: Add PIDFile in systemd file (missing for collection <= v1.2.1)
   lineinfile:
     path: /etc/systemd/system/multi-user.target.wants/mongod.service
+    line: 'PIDFile=/var/run/mongodb/mongod.pid'
     regexp: '^PIDFile.*'
-    state: absent
-  register: systemd
+    firstmatch: yes
+    insertbefore: '^Type='
+    state: present
+  register: _systemd_task
+  diff: yes
 
 - name: Reload systemd
   systemd:
     daemon_reload: yes
-  when: systemd is changed
-
-- name: Restart mongod in docker
-  service:
-    name: mongod
-    state: started
+  when: _systemd_task is changed

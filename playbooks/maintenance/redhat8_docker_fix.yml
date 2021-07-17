@@ -1,0 +1,14 @@
+---
+- hosts: all
+  gather_facts: yes
+  become: yes
+  vars_files:
+    - ../vars/main.yml
+    - ../replicaset/vault.yml
+
+  tasks:
+
+    - name: RedHat 8 in docker fix
+      import_tasks: ../shared_tasks/redhat8_docker_fix.yml
+      tags:
+        - never

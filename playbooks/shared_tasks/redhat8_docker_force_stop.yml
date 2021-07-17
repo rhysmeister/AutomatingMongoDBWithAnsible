@@ -1,0 +1,37 @@
+---
+- name: Force stop mongo (forking w/o pidfile means systemd cannot restart mongod safely)
+  block:
+    - name: Inspect mongod process before force stop
+      shell: "ps aux | grep mongo; systemctl status {{ mongod_service }}"
+      failed_when: no
+      changed_when: no
+      register: _status_task
+    - debug:
+        msg: "{{ _status_task.stdout_lines }}"
+
+    - name: Force stop mongod
+      shell: pkill -e mongod
+      # 0 = one or more process matched
+      # 1 = no processes matched (nothing to kill)
+      changed_when: _pkill_task.rc == 0
+      failed_when: _pkill_task.rc > 1
+      register: _pkill_task
+    - debug:
+        var: _pkill_task
+
+    - name: Make sure systemd knows that mongod is stopped
+      service:
+        name: "{{ mongod_service }}"
+        state: stopped
+      register: _service_stop_task
+
+  always:
+    - debug:
+        msg: "systemd says {{ mongod_service }} is {{ (_service_stop_task | default({})).state | default('NA') }}"
+    - name: Inspect mongod process after force stop
+      shell: "ps aux | grep mongo; systemctl status {{ mongod_service }}"
+      failed_when: no
+      changed_when: no
+      register: _status_task
+    - debug:
+        msg: "{{ _status_task.stdout_lines }}"

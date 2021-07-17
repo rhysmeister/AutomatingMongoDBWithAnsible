@@ -4,36 +4,22 @@
     name: "{{ required_packages }}"
 
 - name: Remove the old mongodb repository
-  file:
-    path: "/etc/yum.repos.d/mongodb-{{ current_mongodb_version }}.repo"
+  yum_repository:
+    name: "mongodb-{{ current_mongodb_version }}"
     state: absent
   when: current_mongodb_version is defined
 
 - name: Ensure the target mongodb repository exists
-  copy:
-    dest: "/etc/yum.repos.d/mongodb-{{ target_mongodb_version }}.repo"
-    content: |
-      [mongodb-{{ target_mongodb_version }}]
-      baseurl = https://repo.mongodb.org/yum/redhat/$releasever/mongodb-org/{{ target_mongodb_version }}/x86_64/
-      gpgcheck = 1
-      gpgkey = https://www.mongodb.org/static/pgp/server-{{ target_mongodb_version }}.asc
-      name = Official MongoDB {{ target_mongodb_version }} yum repo
-    owner: root
-    group: root
-    mode: 0644
-  register: new_mongo
+  include_role:
+    name: community.mongodb.mongodb_repository
+  vars:
+    mongodb_version: "{{ target_mongodb_version }}"
   when: target_mongodb_version is defined
-
-- name: yum-clean-metadata
-  command: yum clean metadata
-  args:
-    warn: no
-  when:
-    - target_mongodb_version is defined
-    - new_mongo.changed
 
 - name: Ensure mongodb-org* packages are version unlocked
   shell: yum versionlock delete mongodb-org*
+  args:
+    warn: no
 
 - name: Remove version lock confirmation file
   file:
@@ -45,6 +31,17 @@
     login_user: "{{ admin_user }}"
     login_password: "{{ admin_user_password }}"
     login_port: "{{ mongod_port }}"
+
+- name: RedHat 8 in docker force stop (pidfile missing)
+  import_tasks: redhat8_docker_force_stop.yml
+  tags:
+    - never
+
+# Upgrade/Downgrade will start the service, so we need to make config adjustments first.
+- name: RedHat 8 in docker fix before upgrade/downgrade
+  import_tasks: redhat8_docker_fix.yml
+  tags:
+    - never
 
 - name: Downgrade the mongod package
   yum:
@@ -65,6 +62,16 @@
     - mongodb_downgrade is not defined or mongodb_downgrade == False
   register: mongod_upgraded
 
+- name: Look for mongod after upgrade/downgrade to see if auto started
+  block:
+    - name: Inspect mongod process after upgrade/downgrade
+      shell: "ps aux | grep mongo; systemctl status {{ mongod_service }}"
+      failed_when: no
+      changed_when: no
+      register: _status_task
+    - debug:
+        msg: "{{ _status_task.stdout_lines }}"
+
 - name: Reboot the node
   reboot:
     reboot_timeout: "{{ reboot_timeout }}"
@@ -73,16 +80,36 @@
   tags:
     - reboot
 
-- name: RedHat 8 in docker fix
+- name: RedHat 8 in docker fix after upgrade/downgrade
   import_tasks: redhat8_docker_fix.yml
   tags:
     - never
 
 - name: Ensure mongod service starts
-  service:
-    name: "{{ mongod_service }}"
-    state: started
-    enabled: yes
+  block:
+    - name: Inspect mongod service before service start
+      shell: "ps aux | grep mongo; systemctl status {{ mongod_service }}"
+      failed_when: no
+      changed_when: no
+      register: _status_task
+    - debug:
+        msg: "{{ _status_task.stdout_lines }}"
+    - name: Ensure mongod service starts
+      service:
+        name: "{{ mongod_service }}"
+        state: started
+        enabled: yes
+      register: _service_start_task
+  always:
+    - debug:
+        msg: "systemd says {{ mongod_service }} is {{ (_service_stop_task | default({})).state | default('NA') }}"
+    - name: Inspect mongod service after service start
+      shell: "ps aux | grep mongo; systemctl status {{ mongod_service }}"
+      failed_when: no
+      changed_when: no
+      register: _status_task
+    - debug:
+        msg: "{{ _status_task.stdout_lines }}"
 
 - name: Wait for mongod to become active
   wait_for:
