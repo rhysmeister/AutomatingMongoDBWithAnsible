@@ -7,6 +7,7 @@
     - role: "community.mongodb.mongodb_linux"
     - role: "community.mongodb.mongodb_selinux"
     - role: "community.mongodb.mongodb_repository"
+      mongodb_version: "4.2"
     - { role: "community.mongodb.mongodb_mongod", mongod_port: 27018, sharding: true, repl_set_name: "rs2" }
 
   tasks:
@@ -29,8 +30,8 @@
       community.mongodb.mongodb_replicaset:
         login_database: "admin"
         login_host: localhost
-        login_port: 27018  
-        replica_set: rs2 
+        login_port: 27018
+        replica_set: rs2
         members:
           - mongodb7.local:27018
           - mongodb8.local:27018
@@ -50,7 +51,7 @@
         login_password: "{{ admin_user_password }}"
         replica_set: rs2
         poll: 10
-        interval: 10 
+        interval: 10
       register: rs
 
     - debug:
