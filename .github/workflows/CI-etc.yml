@@ -204,7 +204,7 @@ jobs:
             mongodb5
             mongodb6
 
-            [rs1]
+            [rs2]
             mongodb7
             mongodb8
             mongodb9
@@ -220,7 +220,7 @@ jobs:
         run: ansible all -i mongo_inventory.inv -c docker -m raw -a "yum install sudo -y || apt install sudo -y"
         working-directory: AutomatingMongoDBWithAnsible/playbooks/add_shard
 
-      - name: Run upgrade playbook
+      - name: Run add shard playbook
         run: ansible-playbook -i mongo_inventory.inv -c docker add_shard.yml
         working-directory: AutomatingMongoDBWithAnsible/playbooks/add_shard
         env:

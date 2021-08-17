@@ -7,10 +7,11 @@
     - role: "community.mongodb.mongodb_linux"
     - role: "community.mongodb.mongodb_selinux"
     - role: "community.mongodb.mongodb_repository"
+      mongodb_version: "4.2"
     - { role: "community.mongodb.mongodb_mongod", sharding: true, mongod_port: 27018 }
 
   tasks:
-    
+
     - name: Ensure python3 is available
       package:
         name: python3
