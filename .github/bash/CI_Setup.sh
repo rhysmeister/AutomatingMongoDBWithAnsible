@@ -11,16 +11,35 @@ if [ "$pyv" == "2.7" ]; then
 else
   pip install --requirement requirements.txt;
 fi;
-if [ "$COLLECTION" == "dev" ]; then
-  wget https://github.com/ansible-collections/community.mongodb/releases/download/latest/community-mongodb-latest.tar.gz;
-  ansible-galaxy collection install community-mongodb-latest.tar.gz;
-elif [ "$COLLECTION" == "stable" ]; then
-  ansible-galaxy collection install -r requirements.yml;
+
+export ANSIBLE_VERSION=$(ansible --version | head -n 1);
+
+if [ "$ANSIBLE_VERSION" == ansible 2.* ]; then
+  if [ "$COLLECTION" == "dev" ]; then
+    wget https://github.com/ansible-collections/community.mongodb/releases/download/latest/community-mongodb-latest.tar.gz;
+    ansible-galaxy collection install community-mongodb-latest.tar.gz;
+  elif [ "$COLLECTION" == "stable" ]; then
+    ansible-galaxy collection install -r requirements.yml;
+  else
+    echo "Invalid value for COLLECTION given";
+    exit 1;
+  fi;
+elif [ "$ANSIBLE_VERSION" == ansible 4.* ]; then
+  if [ "$COLLECTION" == "dev" ]; then
+    wget https://github.com/ansible-collections/community.mongodb/releases/download/latest/community-mongodb-latest.tar.gz;
+    ansible-galaxy collection install community-mongodb-latest.tar.gz;
+    ansible-galaxy collection install community.docker;
+  elif [ "$COLLECTION" == "stable" ]; then
+    ansible-galaxy collection install -r requirements-4.2+.yml;
+  else
+    echo "Invalid value for COLLECTION given";
+    exit 1;
+  fi;
 else
-  echo "Invalid value for COLLECTION given";
+  echo "Unepxected ansible version!";
   exit 1;
 fi;
-pip --version;
+pip --version
 ansible --version;
 molecule --version;
 pytest --version;
