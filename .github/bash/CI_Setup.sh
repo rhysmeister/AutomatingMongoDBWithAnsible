@@ -14,7 +14,7 @@ fi;
 
 export ANSIBLE_VERSION=$(ansible --version | head -n 1);
 
-if [ "$ANSIBLE_VERSION" == ansible 2.* ]; then
+if [ "$ANSIBLE_VERSION" =~ '^ansible 2.*' ]; then
   if [ "$COLLECTION" == "dev" ]; then
     wget https://github.com/ansible-collections/community.mongodb/releases/download/latest/community-mongodb-latest.tar.gz;
     ansible-galaxy collection install community-mongodb-latest.tar.gz;
@@ -24,7 +24,7 @@ if [ "$ANSIBLE_VERSION" == ansible 2.* ]; then
     echo "Invalid value for COLLECTION given";
     exit 1;
   fi;
-elif [ "$ANSIBLE_VERSION" == ansible 4.* ]; then
+elif [ "$ANSIBLE_VERSION" == '^ansible 4.*' ]; then
   if [ "$COLLECTION" == "dev" ]; then
     wget https://github.com/ansible-collections/community.mongodb/releases/download/latest/community-mongodb-latest.tar.gz;
     ansible-galaxy collection install community-mongodb-latest.tar.gz;
