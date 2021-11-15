@@ -35,6 +35,10 @@ variable "mongodb_instance_count" {
   default = 5
 }
 
+variable "jumphost_instance_count" {
+  default = 1
+}
+
 output "public-dns" {
-  value = aws_instance.jumphost.public_dns
+  value = aws_instance.jumphost[*].public_dns
 }

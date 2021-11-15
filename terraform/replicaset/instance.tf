@@ -14,6 +14,7 @@ resource "aws_instance" "mongodb" {
 resource "aws_instance" "jumphost" {
   ami                         = var.ami
   instance_type               = var.instance_type
+  count                       = var.jumphost_instance_count
   subnet_id                   = aws_subnet.jumphost_subnet.id
   vpc_security_group_ids      = [aws_security_group.jumphost.id]
   key_name                    = var.key_name
