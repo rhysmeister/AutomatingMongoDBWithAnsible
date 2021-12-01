@@ -8,3 +8,4 @@ python-vagrant==0.5.15
 ruamel.yaml.clib==0.2.2
 ruamel.yaml==0.16.13
 sh<1.13
+pymongo==3.12.2
