@@ -40,7 +40,7 @@ variable "jumphost_instance_count" {
 }
 
 variable "mongodb_data_volume" {
-  type = map
+  type    = map
   default = {
     size = 20
     type = "gp2"
