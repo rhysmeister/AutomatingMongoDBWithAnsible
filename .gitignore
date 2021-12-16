@@ -5,6 +5,7 @@
 **/.DS_Store
 
 **/.terraform/*
+**/.terraform*
 *.tfstate
 *.tfstate.*
 *.plan

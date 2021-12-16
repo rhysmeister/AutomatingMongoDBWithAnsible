@@ -39,6 +39,14 @@ variable "jumphost_instance_count" {
   default = 1
 }
 
+variable "mongodb_data_volume" {
+  type = map
+  default = {
+    size = 20
+    type = "gp2"
+  }
+}
+
 output "public-dns" {
   value = aws_instance.jumphost[*].public_dns
 }
