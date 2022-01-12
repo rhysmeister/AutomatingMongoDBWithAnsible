@@ -2,7 +2,7 @@ resource "aws_instance" "mongodb" {
     ami                    = var.ami
     instance_type          = var.instance_type
     count                  = var.mongodb_instance_count
-    availability_zone      = var.av_zones[(count.index) % length(var.av_zones)]
+    #availability_zone      = var.av_zones[(count.index) % length(var.av_zones)] Probably don't need this because the subnet is in an AZ
     subnet_id              = (count.index) % length(var.av_zones) == 0 ? aws_subnet.mongodb1_subnet.id : (count.index) % length(var.av_zones) == 1 ? aws_subnet.mongodb2_subnet.id : aws_subnet.mongodb3_subnet.id
     vpc_security_group_ids = [aws_security_group.mongodb.id]
     key_name               = var.key_name
