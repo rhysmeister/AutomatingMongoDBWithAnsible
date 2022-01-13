@@ -28,8 +28,6 @@
 
     - name: Initialise MongoDB Replicaset
       community.mongodb.mongodb_replicaset:
-        login_user: "{{ admin_user }}"
-        login_password: "{{ admin_user_password }}"
         login_database: "admin"
         login_host: localhost
         members: "{{ replicaset_members | product(['.local:27017']) | map('join') | list  }}"
