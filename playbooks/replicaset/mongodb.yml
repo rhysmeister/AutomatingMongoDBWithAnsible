@@ -4,11 +4,11 @@
   vars_files: ['../vars/main.yml', './vault.yml']
 
   roles:
-    - role: "community.mongodb.mongodb_linux"
-    - role: "community.mongodb.mongodb_selinux"
-    - role: "community.mongodb.mongodb_repository"
-      mongodb_version: "4.2"
-    - role: "community.mongodb.mongodb_mongod"
+    #- role: "community.mongodb.mongodb_linux"
+    #- role: "community.mongodb.mongodb_selinux"
+    #- role: "community.mongodb.mongodb_repository"
+    #  mongodb_version: "4.2"
+    #- role: "community.mongodb.mongodb_mongod"
 
   tasks:
 
@@ -18,8 +18,8 @@
 
     - name: Ensure pymongo is installed
       pip:
-        name: pymongo==3.12.2
-        state: present
+        name: pymongo
+        state: latest
 
     - name: Ensure mongo shell is installed
       package:
@@ -28,6 +28,8 @@
 
     - name: Initialise MongoDB Replicaset
       community.mongodb.mongodb_replicaset:
+        login_user: "{{ admin_user }}"
+        login_password: "{{ admin_user_password }}"
         login_database: "admin"
         login_host: localhost
         members: "{{ replicaset_members | product(['.local:27017']) | map('join') | list  }}"
