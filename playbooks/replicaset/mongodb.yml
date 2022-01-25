@@ -4,11 +4,11 @@
   vars_files: ['../vars/main.yml', './vault.yml']
 
   roles:
-    #- role: "community.mongodb.mongodb_linux"
-    #- role: "community.mongodb.mongodb_selinux"
-    #- role: "community.mongodb.mongodb_repository"
-    #  mongodb_version: "4.2"
-    #- role: "community.mongodb.mongodb_mongod"
+    - role: "community.mongodb.mongodb_linux"
+    - role: "community.mongodb.mongodb_selinux"
+    - role: "community.mongodb.mongodb_repository"
+      mongodb_version: "4.2"
+    - role: "community.mongodb.mongodb_mongod"
 
   tasks:
 
