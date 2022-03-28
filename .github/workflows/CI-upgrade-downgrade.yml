@@ -81,7 +81,7 @@ jobs:
           - "dev"
           - "stable"
         python_version:
-          - "2.7"
+          #- "2.7"
           - "3.6"
           - "3.9"
         molecule_scenario:
@@ -172,7 +172,7 @@ jobs:
           - "dev"
           - "stable"
         python_version:
-          - "2.7"
+          #- "2.7"
           - "3.6"
           - "3.9"
         molecule_scenario:
@@ -237,7 +237,7 @@ jobs:
           - "dev"
           - "stable"
         python_version:
-          - "2.7"
+          #- "2.7"
           - "3.6"
           - "3.9"
         molecule_scenario:
