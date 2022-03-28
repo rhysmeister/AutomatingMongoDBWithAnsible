@@ -8,3 +8,4 @@ python-vagrant==0.5.15
 sh==1.13.1
 # mitogen==0.2.9
 pymongo
+Jinja2<3.1
