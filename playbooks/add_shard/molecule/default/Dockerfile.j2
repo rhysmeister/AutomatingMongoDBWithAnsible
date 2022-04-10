@@ -24,7 +24,8 @@ RUN if [ $(command -v apt-get) ]; then apt-get update && apt-get install -y pyth
 # Get systemd dworking for rockylinux
 RUN (cd /lib/systemd/system/sysinit.target.wants/; for i in ; do [ $i == systemd-tmpfiles-setup.service ] || rm -f $i; done);
 
-RUN rm -rf /lib/systemd/system/multi-user.target.wants/ \
+RUN yum install -y procps-n \ 
+&& rm -rf /lib/systemd/system/multi-user.target.wants/ \
 && rm -rf /etc/systemd/system/.wants/ \
 && rm -rf /lib/systemd/system/local-fs.target.wants/ \
 && rm -f /lib/systemd/system/sockets.target.wants/udev \
