@@ -18,8 +18,8 @@
 
     - name: Ensure pymongo is installed
       pip:
-        name: pymongo
-        state: latest
+        name: pymongo==3.12.3
+        #state: latest
 
     - name: Ensure mongo shell is installed
       package:
