@@ -11,7 +11,7 @@ lint:
 platforms:
   - name: mongodb7
     hostname: mongodb7.local
-    image: rockylinux:8
+    image: almalinux:8
     command: /sbin/init
     privileged: True
     volumes:

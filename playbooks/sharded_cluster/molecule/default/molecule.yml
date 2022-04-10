@@ -11,7 +11,7 @@ lint:
 platforms:
   - name: mongodb1
     hostname: mongodb1.local
-    image: rockylinux:8
+    image: almalinux:8
     command: /sbin/init
     volumes:
       - /sys/fs/cgroup:/sys/fs/cgroup:ro
@@ -24,7 +24,7 @@ platforms:
       - rs0
   - name: mongodb2
     hostname: mongodb2.local
-    image: rockylinux:8
+    image: almalinux:8
     command: /sbin/init
     volumes:
       - /sys/fs/cgroup:/sys/fs/cgroup:ro
@@ -37,7 +37,7 @@ platforms:
       - rs0
   - name: mongodb3
     hostname: mongodb3.local
-    image: rockylinux:8
+    image: almalinux:8
     command: /sbin/init
     volumes:
       - /sys/fs/cgroup:/sys/fs/cgroup:ro
@@ -50,7 +50,7 @@ platforms:
       - rs0
   - name: mongodb4
     hostname: mongodb4.local
-    image: rockylinux:8
+    image: almalinux:8
     command: /sbin/init
     volumes:
       - /sys/fs/cgroup:/sys/fs/cgroup:ro
@@ -63,7 +63,7 @@ platforms:
       - rs1
   - name: mongodb5
     hostname: mongodb5.local
-    image: rockylinux:8
+    image: almalinux:8
     command: /sbin/init
     volumes:
       - /sys/fs/cgroup:/sys/fs/cgroup:ro
@@ -76,7 +76,7 @@ platforms:
       - rs1
   - name: mongodb6
     hostname: mongodb6.local
-    image: rockylinux:8
+    image: almalinux:8
     command: /sbin/init
     volumes:
       - /sys/fs/cgroup:/sys/fs/cgroup:ro
@@ -89,7 +89,7 @@ platforms:
       - rs1
   - name: mongos1
     hostname: mongos1.local
-    image: rockylinux:8
+    image: almalinux:8
     command: /sbin/init
     volumes:
       - /sys/fs/cgroup:/sys/fs/cgroup:ro
@@ -101,7 +101,7 @@ platforms:
       - mongos
   - name: mongos2
     hostname: mongos2.local
-    image: rockylinux:8
+    image: almalinux:8
     command: /sbin/init
     volumes:
       - /sys/fs/cgroup:/sys/fs/cgroup:ro
@@ -113,7 +113,7 @@ platforms:
       - mongos
   - name: mongos3
     hostname: mongos3.local
-    image: rockylinux:8
+    image: almalinux:8
     command: /sbin/init
     volumes:
       - /sys/fs/cgroup:/sys/fs/cgroup:ro

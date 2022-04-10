@@ -21,7 +21,7 @@ RUN if [ $(command -v apt-get) ]; then apt-get update && apt-get install -y pyth
     elif [ $(command -v apk) ]; then apk update && apk add --no-cache python sudo bash ca-certificates; \
     elif [ $(command -v xbps-install) ]; then xbps-install -Syu && xbps-install -y python sudo bash ca-certificates && xbps-remove -O; fi
 
-# Get systemd dworking for rockylinux
+# Get systemd dworking for almalinux
 RUN (cd /lib/systemd/system/sysinit.target.wants/; for i in ; do [ $i == systemd-tmpfiles-setup.service ] || rm -f $i; done);
 
 RUN yum install -y procps-ng \ 
