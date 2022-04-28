@@ -12,14 +12,26 @@
 
   tasks:
 
-    - name: Ensure python3 is available
-      package:
-        name: python3
+    - name: Ensure Python3 is available
+      yum:
+        name: 
+          - python3 
+          - python3-setuptools
+        state: latest  
+
+    - name: Ensure setuptools is installed
+      pip:
+        name: setuptools
+        state: latest
+      vars:
+        ansible_python_interpreter: /usr/bin/python3
 
     - name: Ensure pymongo is installed
       pip:
-        name: pymongo==3.12.3
-        #state: latest
+        name: pymongo
+        state: latest
+      vars:
+        ansible_python_interpreter: /usr/bin/python3
 
     - name: Ensure mongo shell is installed
       package:
@@ -35,6 +47,8 @@
         members: "{{ replicaset_members | product(['.local:27017']) | map('join') | list  }}"
       register: create_rs
       when: inventory_hostname == "mongodb-1"
+      vars:
+        ansible_python_interpreter: /usr/bin/python3
 
     - name: Wait for rs config to settle
       pause:
@@ -49,7 +63,9 @@
         poll: 10
         interval: 10
       register: rs
-
+      vars:
+        ansible_python_interpreter: /usr/bin/python3
+  
     - debug:
         var: rs
 
@@ -73,10 +89,13 @@
         password: "{{ admin_user_password }}"
         database: admin
         roles:
+          - "userAdmin"
           - "root"
       when:
         - inventory_hostname == primary
         - mongodb_admin.stat.exists == False
+      vars:
+        ansible_python_interpreter: /usr/bin/python3
 
     - shell: "mongo admin --username {{ admin_user }} --password {{ admin_user_password }} --eval 'db.runCommand({listDatabases: 1})' && touch /root/mongodb_admin.success"
       args:
@@ -106,7 +125,9 @@
       when:
         - inventory_hostname == primary
         - mongodb_users.stat.exists == False
-      no_log: yes
+      no_log: no
+      vars:
+        ansible_python_interpreter: /usr/bin/python3
 
     - shell: "mongo {{ item.database }} --username {{ item.username }} --password {{ item.password }} --eval 'db.runCommand({listCollections: 1})' && touch /root/mongodb_users.success"
       args:

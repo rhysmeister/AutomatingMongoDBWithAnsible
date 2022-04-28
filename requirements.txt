@@ -6,5 +6,5 @@ flake8==3.7.9
 pytest==5.3.4
 python-vagrant==0.5.15
 sh==1.13.1
-pymongo==3.12.3
+pymongo
 Jinja2<3.1

@@ -3,9 +3,8 @@ Vagrant.configure("2") do |config|
   (1..MONGOD_HOSTS).each do |mongod|
     node_name = "mongodb-#{mongod}"
     config.vm.synced_folder ".", "/vagrant", disabled: true
-    config.vbguest.installer_options = { allow_kernel_upgrade: true }
     config.vm.define node_name do |mongod_node|
-      mongod_node.vm.box = "centos/8"
+      mongod_node.vm.box = "centos/7"
       mongod_node.vm.network "private_network", ip: "192.168.56.#{200 + mongod}"
       mongod_node.vm.hostname = node_name
       mongod_node.vm.provider :virtualbox do |vbox|
@@ -15,8 +14,7 @@ Vagrant.configure("2") do |config|
 
       config.vm.provision "allow_guest_host_resolution",
           type: "shell",
-          inline: 'yum install -y epel-release; yum install -y avahi nss-mdns systemd; systemctl restart avahi-daemon'
-
+          inline: 'yum install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm; yum install -y avahi nss-mdns systemd; systemctl restart avahi-daemon'
       if mongod == MONGOD_HOSTS
         mongod_node.vm.provision :ansible do |ansible|
           ansible.groups = {
