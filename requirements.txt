@@ -7,4 +7,5 @@ pytest==5.3.4
 python-vagrant==0.5.15
 sh==1.13.1
 pymongo
-Jinja2==2.11.*
+Jinja2<3.1
+markupsafe==2.0.1
