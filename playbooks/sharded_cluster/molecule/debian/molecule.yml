@@ -124,6 +124,12 @@ provisioner:
           - "mongodb4.local:27018"
           - "mongodb5.local:27018"
           - "mongodb6.local:27018"
+      mongos:
+        repl_set_name: "cfg"
+        members:
+          - "mongos1.local:27019"
+          - "mongos2.local:27019"
+          - "mongos3.local:27019"  
   config_options:
     defaults:
       vault_password_file: "${MOLECULE_SCENARIO_DIRECTORY}/.vault_pass.txt"
