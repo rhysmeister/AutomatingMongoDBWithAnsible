@@ -37,6 +37,10 @@
       set_fact:
         mongod_port: 27019
 
+    - name: Set cfg repl set
+      set_fact:
+        repl_set_name: cfg
+
     - import_tasks: ../shared_tasks/get_primary.yml
 
     - name: Upgrade SECONDARY config servers first
@@ -71,6 +75,10 @@
     - name: Set mongod_port to 27019
       set_fact:
         mongod_port: 27019
+
+    - name: Set cfg repl set
+      set_fact:
+        repl_set_name: cfg
 
     - import_tasks: ../shared_tasks/get_primary.yml
 

@@ -336,6 +336,10 @@
       set_fact:
         mongod_port: 27019
 
+    - name: Set cfg repl set
+      set_fact:
+        repl_set_name: cfg
+
     - name: Downgrade the mongod package
       set_fact:
         mongodb_downgrade: true
@@ -374,6 +378,10 @@
     - name: Set mongod_port to 27019
       set_fact:
         mongod_port: 27019
+
+    - name: Set cfg repl set
+      set_fact:
+        repl_set_name: cfg
 
     - name: Downgrade the mongod package
       set_fact:
