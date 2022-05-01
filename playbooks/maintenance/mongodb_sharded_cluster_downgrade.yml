@@ -42,13 +42,13 @@
       with_items:
         - host: "mongos1.local"
           port: "{{ mongos_port }}"
-          rs: ""
+          rs: "{{ repl_set_name }}"
         - host: "mongodb1.local"
           port: "27018"
-          rs: "rs0"
+          rs: "{{ repl_set_name }}"
         - host: "mongodb4.local"
           port: "27018"
-          rs: "rs1"
+          rs: "{{ repl_set_name }}"
       run_once: yes
 
 - name: Downgrade the mongos instances
