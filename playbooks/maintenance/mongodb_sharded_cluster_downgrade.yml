@@ -42,7 +42,7 @@
       with_items:
         - host: "mongos1.local"
           port: "{{ mongos_port }}"
-          rs: "cfg"
+          rs: ""
         - host: "mongodb1.local"
           port: "27018"
           rs: "rs0"
