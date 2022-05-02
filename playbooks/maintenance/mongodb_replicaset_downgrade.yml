@@ -13,7 +13,7 @@
       community.mongodb.mongodb_index:
         login_user: "{{ admin_user }}"
         login_password: "{{ admin_user_password }}"
-        replica_set: "rs0"
+        replica_set: "{{ repl_set_name }}"
         indexes:
           - database: "admin"
             collection: "system.users"

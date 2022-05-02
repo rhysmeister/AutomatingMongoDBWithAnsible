@@ -13,10 +13,10 @@ jobs:
     strategy:
       matrix:
         collection:
-          - "dev"
-          #- "stable"
+          #- "dev"
+          - "stable"
         python_version:
-          - "2.7"
+          #- "2.7"
           - "3.6"
           - "3.9"
         molecule_scenario:
@@ -45,8 +45,26 @@ jobs:
         run: molecule converge --scenario-name ${{ matrix.molecule_scenario }}
         working-directory: AutomatingMongoDBWithAnsible/playbooks/replicaset
 
-      - name: Get container names for the inventory file
-        run: docker ps | awk '{print $NF}' | grep mongo > mongo_inventory.inv
+      #- name: Get container names for the inventory file
+      #  run: docker ps | awk '{print $NF}' | grep mongo > mongo_inventory.inv
+      #  working-directory: AutomatingMongoDBWithAnsible/playbooks/maintenance
+
+      - name: Write inventory file for replicaset
+        run: |
+          cat << EOF > mongo_inventory.inv
+            [mongodb]
+            mongodb-1
+            mongodb-2
+            mongodb-3
+            
+            [rs0]
+            mongodb-1
+            mongodb-2
+            mongodb-3
+            
+            [rs0:vars]
+            repl_set_name=rs0
+          EOF
         working-directory: AutomatingMongoDBWithAnsible/playbooks/maintenance
 
       - name: Install sudo in docker
@@ -81,8 +99,8 @@ jobs:
           - "dev"
           - "stable"
         python_version:
-          - "2.7"
-          - "3.6"
+          #- "2.7"
+          - "3.8"
           - "3.9"
         molecule_scenario:
           - "default"
@@ -135,6 +153,15 @@ jobs:
             mongos1
             mongos2
             mongos3
+
+            [rs0:vars]
+            repl_set_name=rs0
+
+            [rs1:vars]
+            repl_set_name=rs1
+
+            [mongos:vars]
+            repl_set_name=cfg
           EOF
         working-directory: AutomatingMongoDBWithAnsible/playbooks/maintenance
 
@@ -172,7 +199,7 @@ jobs:
           - "dev"
           - "stable"
         python_version:
-          - "2.7"
+          #- "2.7"
           - "3.6"
           - "3.9"
         molecule_scenario:
@@ -201,8 +228,26 @@ jobs:
         run: molecule converge --scenario-name ${{ matrix.molecule_scenario }}
         working-directory: AutomatingMongoDBWithAnsible/playbooks/replicaset
 
-      - name: Get container names for the inventory file
-        run: docker ps | awk '{print $NF}' | grep mongo > mongo_inventory.inv
+      #- name: Get container names for the inventory file
+      #  run: docker ps | awk '{print $NF}' | grep mongo > mongo_inventory.inv
+      #  working-directory: AutomatingMongoDBWithAnsible/playbooks/maintenance
+
+      - name: Write inventory file for replicaset
+        run: |
+          cat << EOF > mongo_inventory.inv
+            [mongodb]
+            mongodb-1
+            mongodb-2
+            mongodb-3
+            
+            [rs0]
+            mongodb-1
+            mongodb-2
+            mongodb-3
+            
+            [rs0:vars]
+            repl_set_name=rs0
+          EOF
         working-directory: AutomatingMongoDBWithAnsible/playbooks/maintenance
 
       - name: Install sudo in docker
@@ -237,7 +282,7 @@ jobs:
           - "dev"
           - "stable"
         python_version:
-          - "2.7"
+          #- "2.7"
           - "3.6"
           - "3.9"
         molecule_scenario:
@@ -291,6 +336,15 @@ jobs:
             mongos1
             mongos2
             mongos3
+
+            [rs0:vars]
+            repl_set_name=rs0
+
+            [rs1:vars]
+            repl_set_name=rs1
+
+            [mongos:vars]
+            repl_set_name=cfg
           EOF
         working-directory: AutomatingMongoDBWithAnsible/playbooks/maintenance
 

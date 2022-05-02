@@ -49,6 +49,7 @@
             login_user: "{{ admin_user }}"
             login_password: "{{ admin_user_password }}"
             login_port: "{{ mongod_port }}"
+            replica_set: "{{ repl_set_name }}"
             poll: 3
             interval: 10
       when: inventory_hostname_short != primary
@@ -90,6 +91,7 @@
             login_user: "{{ admin_user }}"
             login_password: "{{ admin_user_password }}"
             login_port: "{{ mongod_port }}"
+            replica_set: "{{ repl_set_name }}"
             poll: 3
             interval: 10
       when: inventory_hostname_short == primary
@@ -128,6 +130,7 @@
             login_user: "{{ admin_user }}"
             login_password: "{{ admin_user_password }}"
             login_port: "{{ mongod_port }}"
+            replica_set: "{{ repl_set_name }}"
             poll: 3
             interval: 10
       when: inventory_hostname_short != primary
@@ -169,6 +172,7 @@
             login_user: "{{ admin_user }}"
             login_password: "{{ admin_user_password }}"
             login_port: "{{ mongod_port }}"
+            replica_set: "{{ repl_set_name }}"
             poll: 3
             interval: 10
       when: inventory_hostname_short == primary
@@ -207,6 +211,7 @@
             login_user: "{{ admin_user }}"
             login_password: "{{ admin_user_password }}"
             login_port: "{{ mongod_port }}"
+            replica_set: "{{ repl_set_name }}"
             poll: 3
             interval: 10
       when: inventory_hostname_short != primary
@@ -248,6 +253,7 @@
             login_user: "{{ admin_user }}"
             login_password: "{{ admin_user_password }}"
             login_port: "{{ mongod_port }}"
+            replica_set: "{{ repl_set_name }}"
             poll: 3
             interval: 10
       when: inventory_hostname_short == primary

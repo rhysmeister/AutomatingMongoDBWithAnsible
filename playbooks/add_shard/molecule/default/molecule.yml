@@ -11,7 +11,7 @@ lint:
 platforms:
   - name: mongodb7
     hostname: mongodb7.local
-    image: centos:8
+    image: almalinux:8
     command: /sbin/init
     privileged: True
     volumes:
@@ -23,7 +23,7 @@ platforms:
       - mongodb
   - name: mongodb8
     hostname: mongodb8.local
-    image: centos:8
+    image: almalinux:8
     command: /sbin/init
     volumes:
       - /sys/fs/cgroup:/sys/fs/cgroup:ro
@@ -35,7 +35,7 @@ platforms:
       - mongodb
   - name: mongodb9
     hostname: mongodb9.local
-    image: centos:8
+    image: almalinux:8
     command: /sbin/init
     volumes:
       - /sys/fs/cgroup:/sys/fs/cgroup:ro

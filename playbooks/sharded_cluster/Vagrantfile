@@ -29,6 +29,7 @@ Vagrant.configure("2") do |config|
           "mongos" => ["mongos1","mongos2","mongos3"],
           "rs0:vars" => {"repl_set_name" => "rs0", "members" => ["mongodb1.local:27018", "mongodb2.local:27018", "mongodb3.local:27018"]},
           "rs1:vars" => {"repl_set_name" => "rs1", "members" => ["mongodb4.local:27018", "mongodb5.local:27018", "mongodb6.local:27018"]},
+          "mongos:vars" => {"repl_set_name" => "cfg", "members" => ["mongos1.local:27019", "mongos2.local:27019", "mongos3.local:27019"]},
         }
         ansible.raw_arguments = "--ask-vault-pass"
         ansible.become = true
