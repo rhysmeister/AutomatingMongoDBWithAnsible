@@ -114,27 +114,27 @@ jobs:
         run: |
           cat << EOF > mongo_inventory.inv
             [mongodb]
-            mongodb1
-            mongodb2
-            mongodb3
-            mongodb4
-            mongodb5
-            mongodb6
+            mongodb-1
+            mongodb-2
+            mongodb-3
+            mongodb-4
+            mongodb-5
+            mongodb-6
 
             [rs0]
-            mongodb1
-            mongodb2
-            mongodb3
+            mongodb-1
+            mongodb-2
+            mongodb-3
 
             [rs1]
-            mongodb4
-            mongodb5
-            mongodb6
+            mongodb-4
+            mongodb-5
+            mongodb-6
 
             [mongos]
-            mongos1
-            mongos2
-            mongos3
+            mongos-1
+            mongos-2
+            mongos-3
 
             [rs0:vars]
             repl_set_name=rs0
@@ -279,27 +279,27 @@ jobs:
         run: |
           cat << EOF > mongo_inventory.inv
             [mongodb]
-            mongodb1
-            mongodb2
-            mongodb3
-            mongodb4
-            mongodb5
-            mongodb6
+            mongodb-1
+            mongodb-2
+            mongodb-3
+            mongodb-4
+            mongodb-5
+            mongodb-6
 
             [rs0]
-            mongodb1
-            mongodb2
-            mongodb3
+            mongodb-1
+            mongodb-2
+            mongodb-3
 
             [rs1]
-            mongodb4
-            mongodb5
-            mongodb6
+            mongodb-4
+            mongodb-5
+            mongodb-6
 
             [mongos]
-            mongos1
-            mongos2
-            mongos3
+            mongos-1
+            mongos-2
+            mongos-3
 
             [rs0:vars]
             repl_set_name=rs0
