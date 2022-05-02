@@ -189,6 +189,15 @@ jobs:
             mongos1
             mongos2
             mongos3
+
+            [rs0:vars]
+            repl_set_name=rs0
+
+            [rs1:vars]
+            repl_set_name=rs1
+
+            [mongos:vars]
+            repl_set_name=cfg
           EOF
         working-directory: AutomatingMongoDBWithAnsible/playbooks/sharded_cluster
 
