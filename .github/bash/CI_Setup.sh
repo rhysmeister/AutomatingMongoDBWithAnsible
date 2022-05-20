@@ -12,6 +12,7 @@ else
   pip install --requirement requirements.txt;
 fi;
 if [ "$COLLECTION" == "dev" ]; then
+  ansible-galaxy collection install 'community.general:<5.0.0';
   wget https://github.com/ansible-collections/community.mongodb/releases/download/latest/community-mongodb-latest.tar.gz;
   ansible-galaxy collection install community-mongodb-latest.tar.gz;
 elif [ "$COLLECTION" == "stable" ]; then
