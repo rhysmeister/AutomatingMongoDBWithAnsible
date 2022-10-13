@@ -131,7 +131,7 @@ jobs:
     strategy:
       matrix:
         collection:
-          - "dev"
+          #- "dev"
           - "stable"
         python_version:
           #- "2.7"
