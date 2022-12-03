@@ -1,5 +1,5 @@
 # AutomatingMongoDBWithAnsible
-Playbooks for the Automating MongoDB book.
+Playbooks for the Automating MongoDB Project.
 
 # CI Status
 [![CI-basic](https://github.com/rhysmeister/AutomatingMongoDBWithAnsible/actions/workflows/CI-basic.yml/badge.svg)](https://github.com/rhysmeister/AutomatingMongoDBWithAnsible/actions/workflows/CI-basic.yml)
